@@ -1,0 +1,1126 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{placeins}
+\usepackage{graphicx}
+\newtheorem{theorem}{Theorem}
+\newtheorem{exercize}{Exercize}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}
+\newtheorem{prop}{Proposition}
+\makeatletter
+\def\th@plain{%
+	\thm@notefont{}% same as heading font
+	\itshape % body font
+}
+\def\th@definition{%
+	\thm@notefont{}% same as heading font
+	\normalfont % body font
+}
+\makeatother
+\author{Fabio Prestipino}
+\title{Fenomeni termici}
+\begin{document}
+	\maketitle
+\section{Introduzione}
+	Possiamo vedere la Termodinamica come una generalizzazione e reinterpretazione della meccanica classica, con un aggiunta di nuovi concetti. Einstein sostenne che la termodinamica è immortale perché non sostituibile o ampliabile (nel suo ambito di competenza). A Differenza della meccanica classica, la termodinamica permette di studiare qualsiasi sistema fisico. Questa nuova branca della fisica venne sviluppata nella seconda metà del XIX secolo, duecento anni dopo la nascita della scienza moderna, principalmente dalle celeberrime figure di Carnot, Kelvin, Joule, Clausius, Gibbs, Maxwell e Boltzmann (fra molti altri, fra cui alcuni ingegneri). L'approccio, più moderno, risulta differente ed è bene introdurre i termini del problema in una nuova forma.\\
+	\subsection{Lo stato di un sistema fisico}
+		"Conoscere" un sistema fisico vuol dire conoscere il suo \textbf{stato} in un dato istante o intervallo di tempo.
+		Possiamo parlare di \textbf{micro-stato} di un sistema, dato dalla coppia di posizione e quantità di moto di ogni particella che compone il sistema ad un dato istante. 
+		\begin{align*}
+			\text{Micro-stato del sistema } = \{ \vec{x}_i,\ \vec{p}_i\}
+		\end{align*}
+		Esiste inoltre il macro-stato di un sistema, ovvero la coppia di due coordinate specifiche (macroscopiche) del sistema dette \textbf{coordinate termodinamiche}. Un classico esempio è il recipiente cilindrico pieno di gas e messo a pressione da un pistone, questo macro sistema fisico ha come coordinate macroscopiche specifiche pressione e volume dunque il suo stato sarà dato da $\{P,\ V\}$. Fra le coordinate macroscopiche distinguiamo tra \textbf{intensive} ed \textbf{estensive}, le seconde variano con le dimensioni del sistema mentre le seconde no. Esiste una relazione interessante fra questi due tipi di coordinate: ognuna di un tipo ha un suo coniugato (\textbf{variabili coniugate}) nell'altro tipo, ad esempio 
+		\begin{align*}
+			&(V,\ l ,\ S,\ R,\ H)\\
+			&\quad \quad \quad \downarrow\\
+			&(P,\ T,\ \tau,\ \epsilon,\ M)
+		\end{align*}
+		Questa caratteristica risulterà utile in seguito.\\
+		Un insieme di coordinate macroscopiche può essere indipendente o indipendente, nel primo caso le coordinate possono assumere qualsiasi valore indipendentemente dalle altre mentre nel secondo esiste una funzione, che ha come parametri alcune delle coordinate, da cui dipende una delle coordinate restanti (il suo valore non sarà dunque libero). 
+		\begin{definition}[Stato termodinamico]
+			Si dice stato termodinamico (macroscopico) di un sistema i valori che assumono un'insieme di coordinate termodinamiche indipendenti di un sistema in un dato istante. Differisce dallo stato meccanico (microscopico) di un sistema definito dai valori dalle coordinate di posizione e quantità di moto di un sistema in un dato istante. 
+		\end{definition}
+		Risulta chiaro che dovremo usare approcci diversi a seconda se vorremo "conoscere" il sistema (lo stato) dal punto di vista microscopico o macroscopico: vediamoli. 
+	\subsection{Approccio microscopico}	
+		Questo approccio applica semplicemente quanto visto in meccanica classica: dato un sistema formato da N punti, mediante le \textbf{equazioni cardinali} possiamo studiare l'evoluzione nel tempo dello stato del sistema conoscendo lo stato del sistema ad un dato istante, che sarà il nostro $t = 0$. Il micro-stato è formato da due grandezze vettoriali, dunque per ognuna delle particelle avremo $3+3$ equazioni, avendo N particelle, per conoscere lo stato del sistema ad un dato istante necessiteremo di $6N$ equazioni. \\
+		Nel caso semplice di N = 1, campo di forze costanti e moto unidimensionale lo studio dell'evoluzione dello stato si riduce ad risolvere una semplice equazione differenziale
+		\begin{align*}
+			F = m \ddot{x} \Rightarrow 
+			\begin{cases}
+				x(t) = x_0+v_0 t +\frac{1}{2} \frac{F}{m} t^2\\
+				v(t) = v_0 + \frac{F}{m} t
+			\end{cases}
+		\end{align*}
+		Per rappresentare graficamente la legge oraria possiamo elaborare un grafico orario "x su t" mentre per effettuare un plot dello stato del sistema necessiteremo di un grafico "p su x" (dall'uno è sempre possibile ricavare l'altro in modo semplice), ogni punto rappresenta lo stato ad un dato istante. \\
+		Se volessimo generalizzare quanto visto per un sistema di N corpi con un moto in $\Re^3$ ed un campo di forze variabili dovremo risolvere un sistema di N equazioni differenziali 
+		\begin{align*}
+			\begin{cases}
+				m_1 \ddot{\vec{x}}_1 = \vec{F}_1^{(int)}+\sum \vec{F_1}^{(ext)}\\
+				...\\
+				m_N \ddot{\vec{x}}_N = \vec{F}_N^{(int)}+\sum \vec{F_N}^{(ext)}
+			\end{cases}
+		\end{align*}
+		Ad esempio potremmo avere la forza di gravità che agisce come forza esterna su tutto il sistema e le forze elettriche e gravitazionali fra le singole particelle come forze interne. Questo sistema è teoricamente risolvibile (per $N > 2$ si ricorrerà al metodo perturbativo). \\
+		Tuttavia, i sistemi fisici macroscopici sono formati da un numero di particelle nell'ordine del numero di Avogadro ($6.022 \cdot  10^23$ ) dunque non esisterebbe una potenza di calcolo tale da poter studiare un sistema fisico macroscopico con questo approccio. Nasce allora la necessità di uno studio diverso del sistema.
+	\subsection{Approccio macroscopico}
+		Possiamo sacrificare la conoscenza degli stati interni del sistema mediante la risoluzione delle equazioni cardinali sfruttando le proprietà del centro di massa, ma è proprio lo stato interno del sistema che interessa la termodinamica. Nasce allora l'esigenza della nascita della \textbf{termodinamica classica} e di quella \textbf{statistica}. La seconda è basata su una visione statistica della meccanica classica, è legittimata dal fatto che i sistemi termodinamici hanno un numero particelle elevatissimo dunque la statistica si applica alla perfezione (con errori trascurabili), tuttavia proprio perchè si basa sulla meccanica classica non è in grado di trattare i fenomeni fuori dal raggio d'azione di quest'ultima. La termodinamica classica invece si basa sulle coordinate macroscopiche specifiche, già viste. 
+	\subsection{Diversi tipi di sistemi}
+	Possiamo distinguere tre tipi diversi di sistema a seconda degli scambi che questo intrattiene con l'esterno: 
+	\begin{itemize}
+		\item Aperto : scambia con l'ambiente sia materia che energia;
+		\item Chiuso: scambia con l'ambiente solo energia;
+		\item Isolato:  non scambia con l'ambiente;
+	\end{itemize}
+Si noti che in questa sede adottiamo l'assunto della fisica classica per cui materia ed energia sono distinte. A seconda di come si sceglie il sistema, in una stessa situazione potremo avere sistemi di diverso tipo; vediamo un semplice esempio di un caso macroscopico. 
+Una massa scivola su una rampa con superficie scabra, parte con velocità nulla da un'altezza h e si ferma arrivata al suolo. Se consideriamo il sistema della massa allora le forze esterne sono la gravità e l'attrito dinamico mentre quelle interne sono di vario tipo ed agiscono fra le particelle della massa. 
+\begin{align*}
+	&L= L^{(i)} +  L^{(e)} = \Delta k \quad \text{Teorema delle forze vive}\\
+	&mgh - \int_{\Gamma} \mu_D R \hat{u} d\vec{l} - L^{(i)}= 0
+\end{align*}
+Se invece il sistema considerato fosse quello della rampa e della massa allora la forza d'attrito sarebbe da considerare interna. La scelta del sistema, come vediamo, è arbitraria e dipende da ciò che si vuole studiare. 
+\section{Principio zero e temperatura}
+Da ora in poi tratteremo principalmente sistemi macroscopici.\\
+Cominciamo con il definire l'\textbf{equilibrio termodinamico}: due o più sistemi si dicono in equilibrio termodinamico se si verificano le tre seguenti condizioni di quilibrio:
+\begin{itemize}
+	\item Meccanico: nulla si muove ( a livello macroscopico)
+	\item Chimico: la composizione e la concentrazione non cambiano nel tempo (quando le componenti chimiche hanno lo stesso potenziale chimico)
+	\item Termico: i sistemi hanno la stessa temperatura
+\end{itemize}	
+Si noti che la temperatura di cui si parla al terzo punto è per noi ancora una grandezza da definire, sappiamo solo che se due sistemi hanno la proprietà di essere all'equilibrio termico, questa grandezza è la stessa per entrambe i sistemi. La termodinamica che studieremo in questa sede si occupa di sistemi all'equilibrio, la trattazione delle fasi di transizione è ben più complessa.\\
+Definiamo ora il \textbf{contatto adiabatico} e quello \textbf{termico}: siano due sistemi A e B, di coordinate macroscopiche rispettivamente (x, y) ed (x', y'). Questi sono sono detti in contatto adiabatico se separati da una parete adiabatica, tale che le coordinate non cambino nel tempo; in contatto termico se le coordinate cambiano fino a quando non soddisfano una funzione f(x, y, x', y') = 0. Sia C un terzo sistema fisico di coordinate (x'', y''), disponiamo i sistemi A, B e c in modo che C sia in contatto termico con A e con B ma A sia in contatto adiabatico con B. Ci chiediamo se, in una situazione del genere, dopo un adeguato intervallo di tempo, i due sistemi A e B siano in equilibrio termodinamico fra loro. Questo equivale a chiedersi se vale la proprietà transitiva per l'equilibrio termodinamico. Ciò non è verificabile teoricamente mediante formule e perciò costituisce un principio fondamentale della termodinamica: il \textbf{principio zero}. La risposta è affermativa.
+\begin{definition}[Principio zero]
+Se un corpo A è in equilibrio termico con un corpo C e anche un altro corpo B è in equilibrio termico con C, allora A e B sono in equilibrio termico tra loro.
+\end{definition}
+Ne deduciamo che esiste una grandezza che accomuna i sistemi all'equilibrio termico. la temperatura. Scriviamo in formule quanto visto sopra
+\begin{align*}
+&\text{A è all'equilibrio termico con C}\\
+&f_{AC}(x, y, x'', y'') = 0\\
+&\text{B è all'equilibrio termico con C}\\
+&f_{BC}(x', y', x'', y'') = 0
+\end{align*}
+Sappiamo che le variabili indipendenti sono solamente due, possiamo dunque espirimere una variabile in funzione delle altre, isoliamo quindi in entrambe le equazioni y''. 
+\begin{align}\label{eq:temp1}
+&\begin{cases}
+	y'' = g_{AC}(x, y, x'')\\
+	y'' = g_{BC}(x, y, x'')
+\end{cases}\\\nonumber
+&\Rightarrow g_{AC}(x, y, x'')=  g_{BC}(x, y, x'')
+\end{align}
+Esprimiamo ora il prpincipio zero in forma matematica
+\begin{align}\label{eq:temp2}
+&\text{A è all'equilibrio termico con B}\\ \nonumber
+&f(x,y, x', y') = 0
+\end{align}
+Sappiamo che (\ref{eq:temp1}) e (\ref{eq:temp2}) esprimono lo stesso concetto fisico, deve dunque essere possibile eguagliare, per farlo dovremo eliminare il termine in x'' nella (\ref{eq:temp1}) che deve dunque essere fattorizzabile (solo così potremmo eliminarlo e dobbiamo poterlo eliminare).
+\begin{align*}
+	&g_{AC}(x, y, x'')=h_A(x, y) \Psi(x'') \\
+	&g_{BC}(x, y, x'')=h_B(x', y') \Psi(y'')\\
+	&h_A(x, y) \Psi(x'')=h_B(x', y') \Psi(y'')\\
+	&\Rightarrow h_A(x, y) = h_B(x', y')
+\end{align*}
+Quest'ultima equazione deve verificarsi all'equilibrio termico, ciò equivale a dire che devono avere una grandezza comune. La funzione h è chiamata \textbf{isoterma} mentre il valore di h è detto \textbf{temperatura} (che è la grandezza che condividono due sistemi all'equilibrio termico). Possiamo effettuare il plot di tutte le coppie (x, y) che, inserite nell'equazione isoterma $h_A$ risultano nello stesso valore di t, questo sarà il grafico dell'isoterma. l'isoterma del sistema A e del sistema B, se questi sono all'equilibrio termico, saranno dette \textbf{corrispondenti}. 
+\subsection{Termometria}
+Ciò che abbiamo fatto fin'ora, è detto termoscopia, ovvero giudicare se due sistemi hanno la stessa temperatura, senza meglio specificare il valore di quest'ultima. Ora invece introduciamo la termometria, cioè la valutazione del valore della temperatura mediante una \textbf{scala termometrica}. \\
+Lo scopo che ci proponiamo è di trovare un modo per misurare la temperatura. Sappiamo che per diversi valori di t avremo diverse curve isoterme (infinite, una per ogni valore di temperatura, che è un numero reale), vogliamo trovare una funzione che intersechi tutte le isoterme. Esistono infinite funzioni che soddisfano questa condizione, scegliamo quella più semplice, ovvero quella lineare, con un unica variabile x, assumendo che la y rimanga costante e non influisca sulla x.
+\begin{align*}
+	\theta (x) = a x + b \quad \text{Funzione temperatura}
+\end{align*} 
+Per ottenere una scala con la quale misurare la temperatura bisogna determinare i valori dei parametri a e b, essendo due incognite necessiteremo di due sistemi. 
+\begin{align*}
+&\begin{cases}
+	&\theta_1 = a x_1 = a x_1 + b\\
+	&\theta_2 = a x_2 + b  
+\end{cases}\\
+&\Rightarrow a = \frac{\theta_1 - \theta_2}{x_1 - x_2}\ ; \quad b = \frac{\theta_2 x_1 - \theta_1 x_2}{x_1 - x_2 }
+\end{align*}
+Si noti che $\theta_1$ e $\theta_2$ sono valori arbitrari. nella scala celsius o centigrada, molto diffusa anche nel quotidiano, questi valori sono scelti rispettivamente all'ebollizione e al congelamento dell'acqua a pressione ambientale. Per convenzione diciamo che $\theta_1 = 100$ e $\theta_2 = 0$. Per calibrare un termometro reale, ad esempio quello al mercurio, basato sulla coordinata di volume (il mercurio si espande all'aumentare della temperatura), sostituiamo $x_1 \equiv V$. 
+\begin{align*}
+	\theta(V) = \frac{V- V_0}{V_{100}-V_0}
+\end{align*}
+Chiaramente al posto del volume potremmo usare qualsiasi altra variabile a patto che vari al variare della temperatura, il procedimento sarebbe lo stesso. Essendo la funzione lineare, possiamo creare una scala in cui l'intervallo fra una tacca e l'altra rimane sempre uguale.\\
+La scala centigrada è stata sostituita poiché, quando si adotta la funzione lineare ad una variabile si presuppone che la y (pressione) resti costante e non influisca sulle misure, ciò in realtà non è del tutto vero e c'è il rischio che in misure di precisione ciò introduca un errore sistematico. Bisognava allora trovare un fenomeno (da sostituire ad ebollizione e congelamento) che avvenisse ad una pressione ben precisa in modo da eliminare il problema (il punto d'ebollizione varia sensibilmente a seconda della pressione). Il fenomeno scelto è il \textbf{punto triplo dell'acqua}, in cui questa raggiunge contemporaneamente stato solido liquido e gassoso, ciò avviene alla pressione esatta di $610,6165 Pa$. Volgiamo inoltre scegliere una funzione che abbia solamente il termine in a (b = 0), a differenza della scala celsius. Per determinare la a basterà una sola equazione che sarà calcolata al punto triplo dell'acqua, analogamente a prima ci avvaliamo dell'esempio del volume
+\begin{align*}
+	\theta_3 = a V_3 \Rightarrow a = \frac{\theta_3}{V_3} \Rightarrow \theta(V) = \frac{\theta_3}{V_3} V 
+\end{align*}
+$\theta_3$ è stato scelto (in modo arbitrario) a 273,16 gradi della nuova scala Kelvin in modo che il coefficiente angolare della retta dei gradi centigradi e quella dei kelvin sia la stessa, così la conversione fra i due risulta estremamente semplice: basta aggiungere o sottrarre 273,16.\\
+Si presenta infine un problema, al variare del materiale scelto per misurare il volume al variare della temperatura, non è detto che la relazione rimanga lineare (cosa che non succede infatti). Ne segue che la temperatura, che dovrebbe essere una proprietà generale, varia a seconda del materiale con cui è definita: bisogna scegliere un materiale "privilegiato" per definirla ma quale? Quello adottato, e da cui è stato ricavato il valore di 273,16 in realtà è una pura astrazione e non esiste nella realtà, stiamo parlando del \textbf{gas perfetto}, di cui approfondiremo in seguito.
+\section{Breve digressione matematica}
+Vogliamo studiare la variazione di volume generata dalla variazione infinitesima di pressione e temperatura. Sappiamo che il sistema fisico considerato ha tre coordinate di cui due indipendenti, inoltre esiste una funzione del tipo
+\begin{align*}
+	f(p, V, \theta) = 0
+\end{align*}
+Possiamo isolare una delle coordinate, il Volume. Il differenziale del volume è dato dalla somma delle variazioni parziali che ha a causa di una variazione infinitesima di volume e una infinitesima di temperatura. 
+\begin{align*}
+	&V = V(\theta, p)\\
+	&\begin{cases}
+		p\rightarrow p + dp\\
+		\theta \rightarrow \theta + d\theta
+	\end{cases} \Rightarrow V \rightarrow V + dV\\
+	&dV = (\frac{\partial V}{\partial \theta})_p d\theta + (\frac{\partial V}{\partial p})_{\theta} dp
+\end{align*}
+Un differenziale in matematica è una grandezza arbitrariamente piccola, in fisica tuttavia questa astrazione non ha senso soprattutto dal momento che stiamo considerando un sistema macroscopico e quindi dobbiamo scegliere sistemi abbastanza grandi per non risolvere le  strutture atomiche. Per definizione, in quest'ambito, un volume infinitesimo sarà costituito da un micrometro cubo. Con un semplice calcolo, ad esempio, possiamo ricavare che in questo volume son contenute 30 miliardi di particelle d'acqua, questa quantità è sufficiente per dare una descrizione statistica del sistema? visto che si tratta di un esperimento di conteggio l'incertezza statistica è poissoniana, calcoliamola
+\begin{align*}
+	\frac{\sqrt{N}}{N} = \frac{1}{\sqrt{N}} = 6 \cdot 10^{-6}
+\end{align*}
+A partire dall'equazione del differenziale del volume possiamo definire due parametri interessanti: il \textbf{coefficiente di dilatazione volumetrica} e quello di \textbf{comprimibilità isoterma}.
+\begin{align*}
+	&\alpha \equiv \frac{1}{V}( \frac{\partial V}{\partial \theta})_p\\
+	&\beta \equiv \frac{1}{k} \equiv - \frac{1}{V}( \frac{\partial V}{\partial p})_{\theta}
+\end{align*}
+Di seguito sono riportati alcuni esempi di coefficienti per diversi materiali. 
+\begin{align*}
+	\begin{cases}
+		Aria:\ 3.4\cdot10^{-3} K^{-1}\\
+		Ghiaccio:\ 3.4\cdot10^{-3} K^{-1}\\
+		Vetro:\ 3.4\cdot10^{-3} K^{-1}
+	\end{cases} \quad
+	\begin{cases}
+		Acqua:\ 4.54\cdot 10^{-7} Pa^{-1}\\
+		Aria:\ 10^{-5} Pa^{-1}\\
+		Diamante:\ 2.5 \cdot 10^{-9} Pa^{-1}
+	\end{cases}
+\end{align*}
+Si noti che il vetro ha costante negativa perché presenta la particolare caratteristica di contrarsi all'aumentare della temperatura (in seguito vedremo il perchè)
+Se fossimo invece interessati ad una sola dimensione (ad esempio in un filo di rame in cui lunghezza>>raggio) avremo a che fare con dilatazioni lineari
+\begin{align*}
+	f(\tau, L, \theta) = 0 \Rightarrow \alpha_L = \frac{1}{L}(\frac{\partial L}{\partial \theta})_{\tau}
+\end{align*}
+Dimostriamo ora che per piccole variazioni di temperatura $\alpha = \alpha_L$
+\begin{align*}
+	&\alpha \equiv \frac{1}{V} (\frac{\partial V}{\partial \theta})_p \rightarrow V' = V(1 + \alpha \Delta \theta)\\
+	&\alpha_L = \frac{1}{L}(\frac{\partial L}{\partial \theta})_{\tau} \rightarrow L' = L(1 + \alpha_L \Delta \theta)\\
+	&L'^{3} = L^3 (1 + \alpha_L \Delta \theta)^3 \simeq L^3 (1+3\alpha_L \Delta \theta)\\
+	&V' = L'^3 \Rightarrow V' \simeq V (1 + 3 \alpha_L \Delta \theta)\\
+	&\alpha = 3\alpha_L
+\end{align*}
+Visto che l'approssimazione fatta si basa sull'approssimazione al primo termine della serie di Taylor, la sua validità è ristretta a piccole variazioni di temperatura.\\
+\begin{exercize}
+Si consideri un grande recipiente contenente mercurio liquido, un cubo di lato l fatto d'acciaio galleggia e la parte immersa misura d; dopo una variazione di temperatura $\Delta \theta$ entrambi i materiali si dilatano, in modo diverso: il cubo d'acciaio sprofonderà di più (d' > d) ? L'espansione avviene a pressione costante (quella atmosferica) dunque useremo il coefficiente di dilatazione volumetrica ($\alpha_a$ per l'acciaio e $\alpha_m$ per il mercurio). Il problema ci fornisce il coefficiente di dilatazione lineare dell'acciaio ($\alpha_a$) e quello di dilatazione volumetrica del mercurio ($\beta_m$). Indichiamo inoltre le densità con $\rho_a$ e $\rho_m$.
+\begin{align*}
+	&\alpha_a = 1.2 \cdot 10^{-5} °C^{-1}\\
+	&\beta_m = 1.8 \cdot 10^{-1} °C^{-1}\\
+	&\rho_a l^3 = \rho_m l^2 d \Rightarrow d = \frac{\rho_a}{\rho_m} l\\
+	&\rho'_a l^3 = \rho'_m l'^2 d' \Rightarrow d' = \frac{\rho_a'}{\rho_m'} l'\\
+	&\begin{cases}
+		l' = l (1 + \alpha_a \Delta \theta)\\
+		\rho_m' = \frac{m }{V'_m} = \frac{m}{V (1 + \beta_m \Delta \theta)} = \rho_m (1 + \beta_m \Delta \theta)^{-1}\\
+		\rho_a' = \frac{m }{V'_a} = \frac{m}{l^3 (1 + \alpha_a \Delta \theta)^3} = \rho_a (1 + \alpha_a \Delta \theta)^{-1}\\
+	\end{cases}\\
+	\Rightarrow d' &= \frac{\rho_a'}{\rho_m'} l' = \frac{\rho_a (1 + \alpha_a \Delta \theta)^{-1}}{\rho_m (1 + \beta_m \Delta \theta)^{-1}} l (1 + \alpha_a \Delta \theta)\\
+	&d \frac{(1 + \beta_m \Delta \theta)}{(1 + \alpha_a \Delta \theta)^2}\simeq d \frac{(1 + \beta_m  \Delta \theta)}{1+2 \alpha_a \Delta \theta}
+\end{align*} 
+Dove per l'approssimazione ci siamo sempre avvalsi della serie di Taylor. Notiamo che la frazione che moltiplica d è maggiore di uno se sostituiamo le quantità fornite dal problema, ne deduciamo che $d' > d$ e che quindi il cubo d'acciaio sprofonda ulteriormente. 
+\end{exercize} 
+\section{Dilatazione dal punto di vista microscopico}
+Fin ora abbiamo visto, dal punto di vista macroscopico, che se aumentiamo la temperatura i corpi di solito si dilatano ed in qualche caso particolare si contraggono, di ciò facciamo esperienza anche nel quotidiano. Tuttavia, se la temperatura è una grandezza emergente dal microscopico, perché una sua variazione ha effetto sulle dimensioni dei materiali?\\
+Esiste un modello empirico detto di Lennard-Jones che elabora una funzione di potenziale per le forze agenti fra molecole (che dipende dalla distanza a cui si trovano le molecole). 
+\begin{align*}
+	U(r) = \varepsilon[(\frac{r_{min}}{r})^{12}-2(\frac{r_{min}}{r})^6]
+\end{align*}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{Lennard-Jones_model}
+	\caption{Grafico del, potenziale con $\varepsilon =r_min = 1$.}
+	\label{fig:lennard-jonesmodel}
+\end{figure}
+\FloatBarrier
+Nell'interazione fra particelle di un gas entrano in gioco una forza repulsiva molto forte $((\frac{r_{min}}{r})^{12})$, che però si attiva a brevi distanze, dovuta alla repulsione elettrostatica di cariche dello stesso segno, e da una forza attrattiva $(-\frac{r_{min}}{r})^6)$ che prevale per le distanze maggiori e che tende a zero per distanze infinite. La curva di potenziale di Lennard-Jones è asimmetrica in quanto per piccole distanze si verifica un muro di potenziale mentre per lunghe distanze va a zero lentamente. All'aumentare dell'energia interna del sistema (che a livello macroscopico è la temperatura) l'ampiezza delle oscillazioni ($r_min$) intorno al punto medio aumenta.\\
+Ad una temperatura e volume iniziali, un gas avrà un punto medio stabile attorno al quale avvengono le oscillazioni delle particelle e che a livello macroscopico è rispecchiato dalla costanza del volume del gas (ad una stessa pressione e temperatura). Se si aumenta la temperatura, a causa dell'asimmetria della curva, anche il punto medio tende a spostarsi verso destra, ciò si riflette in un aumento di volume. Ora che il concetto di espansione, pressione e temperatura sono più chiari possiamo definire il concetto di trasformazione termodinamica
+\begin{definition}
+	Si dice trasformazione termodinamica un processo che connette stati termodinamici all'equilibrio
+\end{definition}
+\section{Il termometro a gas perfetto}
+In fisica una grandezza deve poter essere misurata in modo univoco e preciso, è dunque necessario creare uno strumento per la misura della temperatura, il termometro, in modo ottimale. Abbiamo già osservato che diversi materiali hanno diverse espansioni a parità di variazione di temperatura, questo costituisce un problema per la misura; vediamo come ovviarlo.\\
+Cominciamo a costruire un termometro che adotti un qualsiasi tipo di gas, ad esempio n moli di $O_2$, e che effettui la misura di temperatura sfruttando la pressione come variabile termometrica.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{termometro-a-gas}
+	\caption{Schematizzazione del termometro a gas}
+	\label{fig:termometro-a-gas}
+\end{figure}
+\FloatBarrier
+Come vediamo in figura, lo strumento è costituito da un bulbo pieno di gas da cui si diparte un tubo pieno di mercurio (gas e mercurio stanno a contatto), abbiamo poi un serbatoio mobile (solamente basso-alto). Sia $p_0$ la pressione atmosferica e $p_3$ quella al punto triplo del gas e $\rho$ la densità del mercurio. La pressione che agisce sul gas (p) è data dalla pressione atmosferica più la pressione della colonna di mercurio (alta h)
+\begin{align*}
+	p = p_0 + \rho g
+\end{align*}
+Quest'ultima è la \textbf{legge di Stevino}, che viene meglio spiegata nella (\ref{eq:stevin}).\\
+Vogliamo ora misurare, ad esempio, la temperatura dell'acqua in ebollizione, volendo adottare la pressione come variabile termometrica bisogna mantenere il volume costante (trasformazione isocora) e misurare la variazione di pressione in ragione della temperatura. Seguiamo i seguenti step:
+\begin{enumerate}
+	\item Taratura: si immerge il termometro in una cella a punto triplo e si misura la pressione $p_3$.
+	\item Successivamente si mette a contatto il termometro col corpo da misurare (in questo caso si immerge il bulbo in acqua bollente), e si misura la nuova pressione p. Attenzione: in questa operazione, il volume del gas deve ovviamente rimanere costante, e a tale scopo agiamo sul manometro indicato in figura: esso sfrutta le proprietà dei vasi comunicanti per far tornare il volume del gas a quello iniziale (a $p_3$).
+	\item Si calcola la temperatura del gas usando la relazione: $\theta = \frac{p}{p_3} \cdot 273.16 K$ (in questo caso 373,15).
+\end{enumerate}
+Possiamo ripetere queste procedure diminuendo progressivamente le moli di gas nel bulbo, per ogni iterazione si registrano i nuovi valori p’, p’3 (che sono una funzione del numero di moli di gas presenti nel bulbo). Ne risulta che i valori di temperatura $\theta$ sono tutti diversi fra loro, e si dispongono su una retta. Se poi ripetiamo la stessa procedura per diversi materiali, otterremo tante rette differenti, come riportato nel seguente grafico
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{temp_e_puntotriplo}
+	\caption{Esempi di rette ($\theta$, $p_3$) per aria, ossigeno, elio e idrogeno}
+	\label{fig:tempepuntotriplo}
+\end{figure}
+\FloatBarrier
+Alcune domande sorgono spontanee: perché diminuendo le moli di gas nel bulbo diminuisce anche la misura di temperatura (che ci aspettiamo essere 100\textdegree C = 373.15 \textdegree K e invece risulta sempre maggiore negli esperimenti)? Perché tutti i gas, basandosi sulla retta di regressione lineare (nel grafico), nonostante abbiano espansioni diverse, per $lim_{n \to 0}$ misurano tutti la stessa temperatura (che è proprio quella che ci aspettavamo, 100\textdegree C)? Perché elio e idrogeno hanno pendenza negativa mentre tutti gli altri gas positiva?\\
+1) La rimozione di moli di gas a parità di volume (il bulbo) produce una diminuzione di pressione a livello macroscopico, che microscopicamente si rispecchia in un distanziamento fra le particelle di gas. Riferendosi al modello di Lennard-Jones, ciò si traduce in un aumento di r, e quindi ad una diminuzione del potenziale di interazione fra le particelle. Se le particelle interagiscono meno fra loro, risulterà anche più facile metterle in movimento e quindi aumentarne la temperatura. 2) Se le particelle di un gas sono estremamente lontane fra loro ($n \to 0$) non esercitano nessuna interazione reciproca, in questa situazione i gas non presentano differenze fra loro, la temperatura dipenderà unicamente dal movimento delle particelle di gas (energia cinetica media del gas). Se un gas è sufficientemente rarefatto e il volume delle sincole particelle è abbastanza piccolo, saremo nelle condizioni di un \textbf{gas perfetto}. Questa è chiaramente una astrazione matematica poiché è impossibile ridurre esattamente a zero le interazioni ma esistono casi, ad esempio quello dell'aria nell'atmosfera, che approssimano molto bene queste condizioni. Per ogni elemento nelle condizioni di gas perfetto l'acqua in ebollizione ha la stessa temperatura: 373.15 \textdegree K. 3) la pendenza di idrogeno ed elio è negativa perché sono elementi con un basso numero atomico (1 e 2 rispettivamente) e le interazioni sono estremamente deboli. Ciò si traduce in una curva del potenziale di Lennard-Jones estremamente piccata ($U(r)$ tende velocemente a zero dal basso), avviene dunque che, allontanando le particelle (rarefacendo il gas) si passa da una interazione repulsiva ad una neutra (invece che da una attrattiva ad una neutra come negli altri gas).\\
+Esiste una tabella di punti fissi (come il punto triplo dell'acqua) utile per la taratura di termometri utili a misurazioni in qualsiasi range di temperatura:
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Punti_fissi}
+	\caption{Tabella dei principali punti fissi utili per la taratura di termometri}
+	\label{fig:puntifissi}
+\end{figure}
+\FloatBarrier
+Per ora, la misura di temperatura è ancora strettamente legata alla variazione di volume dei gas, tuttavia sappiamo che a basse temperature i gas cambiano stato liquefacendosi. Il gas che ha temperatura di liquefazione minore è l'elio che cambia di stato intorno a 0.5 \textdegree K, più in basso di questa temperatura non è possibile sfruttare un termometro a gas per effettuare misure e, visto che in fisica una grandezza ha senso solo se è misurabile, per ora la temperatura è definita a partire dai 0.5 gradi Kelvin. Vedremo che sarà possibile effettuare misure di temperatura anche molto minori quando svincoleremo il concetto di temperatura dalla sostanza termometrica usata per la misura, in quel momento, effettueremo il passaggio dalla simbologia usata fin' ora, $\theta$ (misurata col termometro a gas perfetto), al conosciuto simbolo $T$ (temperatura termodinamica assoluta).
+\section{Gas Perfetti}
+Possiamo dare una definizione precisa del nuovo concetto appena visto di gas perfetto
+\begin{definition}
+Un gas si dice \textbf{perfetto} se valgono contemporaneamente le due seguenti condizioni
+\begin{itemize}
+\item Il volume delle molecole è trascurabile rispetto a quello del contenitore.
+\item Le interazioni intermolecolari a lungo raggio sono trascurabili (le molecole sono sufficientemente distanti fra loro). 
+\end{itemize}
+\end{definition}
+A partire da esperimenti si è arrivati nel tempo (prima metà del 1800) alla formulazione di quattro leggi empiriche ($\beta = \frac{1}{273.15 C^{-1}}$)
+\begin{enumerate}
+\item I legge di Gay-Lussacc: a pressione costante
+ \begin{align*}
+ &V = V_0 \beta \theta
+\end{align*}
+\item II legge di Gay-Lussacc: a volume costante
+\begin{align*}
+	p = p_0 \beta \theta
+\end{align*}
+\item Legge di Boyle: a numero di moli e temperatura costanti
+\begin{align*}
+ V = \frac{cost}{p}
+\end{align*}
+\item Legge di Avogadro: a pressione e temperatura costanti
+\begin{align*}
+	V = cost' n
+\end{align*}
+\end{enumerate}
+Dove le temperature sono espresse in Kelvin e $V_0$ e $p_0$ sono volume e pressione del gas perfetto alla temperatura di congelamento dell'acqua (373.15\textdegree K). Questi risultati sono riassunti dalla legge di stato dei gas
+\begin{align}\label{eq:gaseperfetti}
+	pV = nR\theta
+\end{align}
+dove la temperatura è misurata in Kelvin e la costante $R\simeq 8.3145\ mol^{-1}\ K^{-1}$. In condizioni normali (0 oC e 1 atm) tutti i gas (perfetti) occupano lo stesso volume (n = 1 mol), calcolabile con al precedente relazione:
+\begin{align*}
+V_0 = \frac{n R \theta}{p_0} = \frac{8.3154\cdot 273.15}{1.013\cdot 10^{5}}\simeq 22.4 l = 0.0224 m^3
+\end{align*}
+\begin{exercize}
+Trovare i coefficienti di dilatazione termica e di comprimibilità isoterma per un gas perfetto
+\begin{align*}
+	\alpha \equiv \frac{1}{V}\frac{\partial}{\partial\theta}_p(\frac{n R \theta}{p}) = \frac{1}{V}\frac{n R}{p}
+\end{align*}
+Sostituiamo il volume avvalendoci della (\ref{eq:gaseperfetti})
+\begin{align*}
+	&\frac{n R}{n R \theta} = \frac{1}{\theta}\\
+	&\frac{1}{k} \equiv -\frac{1}{V}(\frac{\partial V}{\partial p})_{\theta} = -\frac{1}{V}\frac{\partial}{\partial p}(\frac{n R \theta}{p})= \frac{1}{V}\frac{n R \theta}{p^2} = \frac{n R \theta}{(Vp) p} = \frac{n R \theta}{n R \theta p} = \frac{1}{p}
+\end{align*}
+\end{exercize} 
+\begin{exercize}
+Ricavare la dipendenza della pressione dalla quota atmosferica (assumendo che l’aria sia un gas perfetto).\\
+Prendiamo in considerazione un cilindro d'aria di volume V, superficie di base S e altezza dz infinitesima. Sappiamo che la pressione varia con la quota perché più si va in alto minore sarà la forza esercitata dalla colonna d'aria che sovrasta una superficie: la pressione esercitata dall'aria sulla faccia inferiore del cilindro sarà minore (infinitesimamente) di quella sulla faccia superiore. Ricaviamo la relazione che descrive la variazione di pressione in funzione della quota.\\
+Se l'aria è ferma in un determinato istante, allora il gas all'interno del nostro cilindro è in equilibrio, cioè la pressione esercitata sulla faccia superiore è uguale e in verso contrario a quella esercitata sulla faccia inferiore più quella esercitata dal gas stesso all'interno del cilindro (i venti sono generati infatti da variazioni di pressione). Dovrà dunque verificarsi
+\begin{align}\label{eq:stevin}
+	&p + \frac{m g}{S} = p + dp \nonumber \\
+	&dp = -\frac{m g}{S} = -\frac{(\rho S dz) g}{S}= -\rho g dz \nonumber \\
+	\Rightarrow & \frac{d\rho}{dz}= - \rho g
+\end{align}
+Dove p = pressione dell'aria a quota dz
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{cilindro_aria}
+	\caption{Schema di un cilindro d'aria in equilibrio. La pressione sulle due facce deve uguagliarsi}
+	\label{fig:cilindroaria}
+\end{figure}
+\FloatBarrier
+Se la densità dell'aria ($\rho$) fosse costante a qualsiasi quota sarebbe semplice integrare per trovare l'espressione generale della pressione:
+\begin{align*}
+	&dp 0 -\rho  g dz \\
+	\Rightarrow & p = p_0 - \rho g z
+\end{align*}
+Tuttavia l'aria è un fluido comprimibile, ragion per cui la densità è una funzione della quota ($\rho = \rho(z)$ ). Sfruttiamo le leggi dei gas perfetti per valutare l'espansione dell'aria in funzione della quota (e quindi la sua diminuzione di pressione). Siano m la massa del cilindro pieno d'aria ed M la massa molare dell'aria
+\begin{align*}
+	&p V = n R \theta = \frac{m}{M} R \theta \\
+	&\rho = \frac{m}{V} = \frac{p V M}{R \theta} \frac{1}{V} = \frac{p M}{R \theta}\\
+	&\frac{dp}{dz}=-\rho(z) g = - \frac{p(z) M g(z)}{R\theta(z)}
+\end{align*}
+Quest'ultima è la forma generale di come varia la pressione al variare infinitesimo della quota. Si noti che a rigore sia g che $\theta$ dovrebbero variare ma per ora, in prima approssimazione li consideriamo costanti (maggiore precisione sarà aggiunta in seguito). 
+\begin{align*}
+	&\frac{dp}{dz}=- \frac{p(z) M g}{R\theta}\\
+	&\frac{dp}{p} = -\frac{M g}{R \theta} dz = - L dz
+\end{align*}
+L'ultimo passaggio è possibile poichè tutti i valori nella frazione sono costanti ($ L \simeq \frac{1}{8.82} km^{-1}$). Integriamo
+\begin{align*}
+	&\int_{p_0}^{p} = -L z\\
+	& \ln(p) \Big|_{p_0}^p = -L z\\
+	&\ln\left(\frac{p(z)}{p_0= - L z}\right)\\
+	\Rightarrow& p(z) = p_0 e^{-L z}
+\end{align*}
+Se, ad esempio, volessimo sapere a che quota si dimezza la pressione basta fare
+\begin{align*}
+	&p(z) = \frac{p_0}{2} \Rightarrow \frac{1}{2} = e^{-L z}\\
+	&L z = -\ln(\frac{1}{2}) = \ln(2) \\
+	&z = \frac{\ln(2)}{L} \simeq 6100\ m
+\end{align*}
+Tale valore sottostima quello reale poiché non abbiamo tenuto conto della diminuzione di temperatura all'aumentare della quota.
+\end{exercize}
+Prendiamo in considerazione un cilindro con del gas al suo interno ed un pistone che comprime il gas. Vogliamo effettuare una trasformazione di compressione isoterma, che porti da uno stato di equilibrio iniziale A ad uno finale B. Esistono infiniti modi per passare da uno stato all'altro ma se la trasformazione avviene rapidamente allora si creeranno perturbazioni all'interno del cilindro e non tutti i punti del cilindro avranno gli stessi valori di temperatura e pressione. Visto che la pressione è definita come uniforme in tutto il cilindro, se la trasformazione avviene velocemente avremo che negli stati intermedi fra A e B la pressione non sarà definita. Per ovviare a questo problema dobbiamo passare da A a B mediante una trasformazione che comprima il gas in tempi molto lunghi di modo che pressione e temperatura ad un certo istante siano infinitesimamente variati rispetto all'istante precedente. Una trasformazione di questo tipo viene detta \textbf{quasistatica}, un esempio potrebbe essere l'aggiungere un granello di sabbia alla volta sul pistone per aumentare la pressione di un infinitesimo alla volta. 
+\begin{definition}
+	Una trasformazione quasistatica è una trasformazione termodinamica che avviene in modo estremamente lento, in maniera tale che il sistema in esame, passando da uno stato di equilibrio iniziale A ad uno stato di equilibrio finale B, attraversi una successione di infiniti stati di equilibrio, separati tra loro da trasformazioni infinitesime e da variazioni infinitesime delle proprietà del sistema. Soltanto le trasformazioni quasistatiche possono essere rappresentate come linee continue in un diagramma pressione-volume.
+\end{definition} 
+La rappresentazione della trasformazione presa in esame si fa su un grafico pressione su volume detto \textbf{piano di Clapeyron}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{isoterma}
+	\caption{Compressione isoterma rappresentata in un piano di Clapeyron.}
+	\label{fig:isoterma}
+\end{figure}
+\FloatBarrier
+ La curva che descrive l'isoterma è un ramo d'iperbole infatti, se la temperatura è costante possiamo scrivere la funzione $p(V)$ come
+ \begin{align*}
+ 	&p V  = nR\theta \\
+ 	&p = \frac{n R \theta}{V} = \frac{cost}{V}
+ \end{align*}
+Che è proprio la funzione che descrive un'iperbole.
+\begin{exercize}
+ Un gas si espande come $p(V) = \frac{cost}{V^2}$, $\theta$ aumenta o diminuisce? 
+ \begin{align*}
+ 	&p V^2 = \left(p V \right) V = cost\\
+ 	&\left(n R \theta\right) V = cost\\
+ 	& \theta = \left(\frac{cost}{n R}\right)\frac{1}{V}
+ \end{align*} 
+Da cui ne segue che le il volume aumenta la temperatura diminuisce.
+\end{exercize}
+\begin{exercize}
+Un sub genera una bolla d'aria sott'acqua, a profondità h, di raggio $r_1 = 2\ mm$. Quando arriva sulla superficie la bolla ha raggio $r_2 = 3\ mm$. Supponendo la temperatura dell'aria all'interno della bolla costante e l'aria un gas perfetto, a che profondità si trova il sub, che pressione c'è a quella profondità?\\
+Siano $p_0$ e $V_0$ pressione e volume sulla superficie e $p$ e $V$ a profondità h, possiamo scrivere in entrambi i casi l'equazione di stato dei gas per poi dividere membro a membro e ottenere la pressione a profondità h. 
+\begin{align*}
+&\begin{cases}
+p_0 V_0 = n R \theta\\
+pV = nR\theta
+\end{cases}\\
+&\frac{p_0 V_0}{p V}=1 \Rightarrow p = \frac{p_0 V_0}{V} = \frac{p_0 \cdot r_2^3}{r_1^3} = p_0 \left(\frac{3}{2}\right)^3 = 341972 Pa
+\end{align*}
+Per la legge di Stevino, la pressione a profondità h è uguale alla pressione atmosferica sulla superficie più la pressione generata dalla colonna d'acqua di altezza h sopra il sub. Possiamo eguagliare questa espressione della pressione a quella trovata in precedenza per ricavare h.
+\begin{align*}
+&p = p_0 + \rho g h = p_0 \left(\frac{3}{2}\right)^3\\
+&h =\frac{p_0}{\rho g} \left(\left(\frac{3}{2}\right)^3 - 1\right) = 24.53\ m 
+\end{align*}
+\end{exercize}
+\begin{exercize}
+Due bulbi sferici di volumi differenti $V_a = 3.18 l$ e $V_b = 1.22 l$ sono collegati da un tubo sottile (volume trascurabile) e hanno un gas perfetto al loro interno. Inizialmente si trovano entrambi a temperatura e pressione iniziale rispettivamente uguali:
+\begin{align*}
+&\theta_{ai} = \theta_{bi} = 16 C\\
+&p_{ai} = p_{bi} = 1.44 atm. = 1.44\cdot 1.013 \cdot 10^5\ Pa
+\end{align*} 
+In seguito si riscalda A fino a portarlo a $\theta_{af} = 108\ C$ mantenendo $\theta_{bf} = 16\ C$. Si calcoli la pressione finale del sistema $p_{af}=p_{bf}=p_f$.\\
+Osserviamo che se il volume rimane costante e la pressione nei due bulbi è uguale, nonostante la differenza di temperatura, allora si sarà verificato uno spostamento di moli da A a B in modo da bilanciare l'aumento di temperatura con la diminuzione di moli. Possiamo scrivere, essendo il sistema chiuso (non scambia massa con l'esterno)
+\begin{align*}
+	n_a + n_b = n_a' + n_b'
+\end{align*}
+A partire dall'equazione di stato dei gas isoliamo n e sostituiamo
+\begin{align*}
+	&\begin{cases}
+	n_a = \frac{p_{ai} V_a}{R \theta_{ai}} \quad n_b = \frac{p_{bi} V_b}{R \theta_{bi}}\\
+	n_a' = \frac{p_{af}V_a}{R \theta_{af}} \quad n_b'= \frac{p_{bf}V_b}{R \theta_{bf}}
+	\end{cases}\\
+	&\frac{p_{ai}V_a}{R \theta_{ai}} + \frac{p_{bi} V_b}{R \theta_{bi}} = \frac{p_{af}V_a}{R \theta_{af}} + \frac{p_{bf}V_b}{R \theta_{bf}}\\
+	&p_f = p_0\left[\frac{V_a + V_b}{V_a + \frac{\theta_{bi}}{\theta_{bf}} V_b}\right]
+\end{align*}
+\end{exercize}
+\section{Gas Reali}
+A partire dall'astrazione dei gas perfetti vogliamo trovare un m,odo per descrivere i \textbf{gas reali}. Diamone prima una definizione
+\begin{definition}
+Un gas è detto \textbf{reale} se vale almeno una delle due seguenti condizioni
+\begin{itemize}
+\item Il volume delle molecole non è trascurabile rispetto a quello del contenitore. La somma dei volumi delle singole molecole di gas è detto \textbf{covolume}.
+\item Le interazioni intermolecolari a lungo raggio non sono trascurabili. 
+\end{itemize}
+\end{definition}
+\begin{definition}
+	Il \textbf{covolume} è il limite a cui tende il volume di un gas reale quando la temperatura tende allo zero assoluto (allo zero assoluto le molecole sono massimamente vicine fra loro).
+\end{definition}
+Per lo studio dei gas reali esistono più approcci, ne vedremo uno efficace dal punto di vista pratico cioè lo \textbf{sviluppo del viriale} ed uno più profondo dal punto di vista teorico che si basa sulla correzione dell'equazione di stato dei gas perfetti. 
+\subsection{Sviluppo del viriale}
+Definiamo il coefficiente di compressione per i gas reali come
+\begin{align*}
+	z_p \equiv \frac{p V}{n R \theta}
+\end{align*}
+Può essere definito anche rispetto alla densità come
+\begin{align*}
+	z_{\rho} \equiv \frac{p}{R \theta \rho}
+\end{align*}
+Se sviluppiamo in serie di Taylor otteniamo
+\begin{align*}
+	&z(p) = 1 + Ap + Bp^2+Cp^3+...\\
+	&z(\rho)= 1 + A'\rho + B'\rho^2+C'\rho^3+...
+\end{align*}
+I parametri A, B, C,... sono misurabili sperimentalmente, variano da gas a gas e anche in base alla temperatura. Sono molto utili a livello pratico e sono tabulati. Come appare chiaro dalla definizione di $z_p$, sarà paria 1 per i gas perfetti e maggiore o minore di uno per i gas reali; possiamo così valutare quanto uno specifico gas ad un valore esatto di pressione e temperatura, si discosti dalle condizioni di gas perfetto. La variazione dal valore ideale di 1 è dovuta dalle interazioni intermolecolari, il fatto che $z_p$ può essere maggiore o minore di 1 è dovuto al fatto che possono verificarsi interazioni attrattive o repulsive. 
+
+\subsection{Correzione dell'equazione dei gas perfetti}
+La strategia di questo approccio sta nel modificare la legge di stato dei gas perfetti, aggiungendo due parametri che tengano conto delle due condizioni che differenziano i gas reali dai perfetti: le interazioni intermolecolari ed il covolume. Cominciamo con il chiederci come cambia il volume di un gas reale rispetto ad uno perfetto: il volume di un gas reale sarà sicuramente maggiore di quello di un gas perfetto perché bisognerà tener conto anche del volume delle singole molecole. Ogni molecola ha un volume b, il covolume è dato dagli n volumi b, dunque
+\begin{align*}
+V_{reale} = V_{ideale}+ nb
+\end{align*}
+Riflettiamo ora su come cambia la pressione nei gas reali rispetto ai perfetti. A livello microscopico la pressione è data dalle collisioni delle molecole con le pareti del recipiente che contengono il gas, essendo le forze a lungo range di tipo attrattivo queste freneranno le molecole dall'urtare. Ciò provocherà, macroscopicamente, una diminuzione di pressione. Possiamo dunque scrivere
+\begin{align*}
+	p_{reale} = p_{ideale} - ?
+\end{align*}
+Per ricavare il termine di variazione di pressione prendiamo in considerazione una superficie infinitesima ds del contenitore di un gas ed una molecola che sta per collidere sulla superficie. Se, nel caso di gas perfetto, le interazioni intermolecolari fossero trascurabili, la molecola colliderebbe indisturbata producendo una pressione infinitesima, la somma di tutte le pressioni infinitesime producono la $p_{ideale}$. Se però dovessimo tener conto delle interazioni intermolecolari si avrebbe una variazione di pressione rispetto a quella ideale. Indichiamo la variazione di pressione infinitesima dovuta al rallentamento di una singola molecola a causa delle interazioni con $dp_i$. Chiaramente, più molecole ci sono in una porzione di volume, più le interazioni saranno forti, $dp_i$ è dunque proporzionale alla densità del gas $\rho$. 
+\begin{align*}
+dp_i = k \rho
+\end{align*}
+La variazione di pressione totale $dp_{tot}$ sarà formata dalla somma di tutte le variazioni infinitesime delle singole molecole ma sarà anch'essa proporzionale alla densità del gas poiché maggiore il numero di particelle, maggiori saranno le collisioni, e quindi la variazione di pressione. 
+\begin{align*}
+	dp_{tot} = k' \rho \sum_i dp_i 
+\end{align*}
+Essendo $dp_i = k \rho$ e $\rho \propto \frac{n}{V}$ (dove n è il numero di moli), possiamo scrivere
+\begin{align*}
+p_{reale} = p_{ideale}- a \rho^2 \left(\frac{n}{V}\right)^2
+\end{align*}
+Possiamo ora sostituire i valori di $V_{reale}$ e $p_{reale}$ nell'equazione di stato dei gas perfetti
+\begin{align*}
+	& p_{ideale} = p_{reale} + a \rho^2 \left(\frac{n}{V}\right)^2 \quad V_{ideale} = V_{reale} - b n\\
+	& p_{ideale} V_{ideale} = \left(p_{reale} + a \rho^2 \left(\frac{n}{V}\right)^2 \right) \left( V_{reale} - b n \right) = n R \theta 
+\end{align*}
+Questa è fondamentalmente l'equazione che cercavamo.\\
+Le costanti a e b sono dette \textbf{costanti di van der Waals}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{costantiaeb}
+	\caption{Alcuni valori delle costanti a e b tabulati}
+	\label{fig:costantiaeb}
+\end{figure}
+\FloatBarrier
+Possiamo renderla più leggibile sostituendo il volume molare (indicato con $v$ minuscola), in questo modo l'equazione studia una sola mole di gas.  
+\begin{align*}
+\left( p + \frac{a}{v^2}\right)\left(v-b\right) = R \theta
+\end{align*}
+
+Proviamo ora a disegnare la funzione p(v) per la $CO_2$ sul piano di Clapeyron
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{Van_der_Waals}
+	\caption{Rappresentazione di curve di stato per la $CO_2$ a diverse temperature.}
+	\label{fig:vanderwaals}
+\end{figure}
+\FloatBarrier
+Ogni curva corrisponde ad un valore di temperatura. Come vediamo, per alte temperature si ha una figura che approssima un ramo d'iperbole, proprio come per i gas perfetti, ciò perché le molecole hanno più energia cinetica e risentono meno delle interazioni intermolecolari. Diminuendo la temperatura osserviamo che la curva comincia a piegarsi fino ad arrivare ad una temperatura critica in cui si genera un flesso. Con considerazioni matematiche è possibile calcolare le coordinate (pressione e volume molare critici) del flesso a temperatura critica $\theta_c$. Innanzi tutto poniamo derivata prima e seconda uguali a zero per poi dividere membro a membro, ricavare il volume molare critico, sostituirlo in una delle due equazioni e ricavare $\theta_c$ (si presuppone che a e b siano noti). 
+\begin{align*}
+&\begin{cases}
+	\frac{\partial p}{\partial v} = -\frac{R \theta_c}{(v_c - b)^2} + \frac{2a}{v_c^3} = 0\\
+	\frac{\partial^2 p}{\partial v^2} = \frac{2 R \theta_c}{(v_c - b)^3} - \frac{6 a}{v_c^4} = 0
+\end{cases}\\\\
+&\begin{cases}
+	\frac{R \theta_c}{(v_c - b)^2} = \frac{2a}{v_c^3}\\
+	\frac{2 R \theta_c}{(v_c - b)^3} = \frac{6 a}{v_c^4} 
+\end{cases}\\
+&\frac{2}{(v_c-b)} = \frac{3}{v_c}\\ 
+& \Rightarrow v_c = 3b\\
+& \Rightarrow \theta_c = \frac{8a}{27 R b}\\
+\end{align*}
+Una volta trovati $\theta_c$ e $v_c$ sostituiamo nell'equazione dei gas reali per ottenere $p_c$
+\begin{align*}
+	p_c &= \frac{R \theta_c}{v_c - b}-  \left(\frac{a}{v_c^2}\right) = \\
+	&\frac{R \frac{8a}{27 R b}}{3b - b}-  \left(\frac{a}{9b^2}\right) = \frac{a}{27 b^2}\\
+\end{align*}
+Se invece a e b non fossero conosciuti, è possibile misurarli con le seguenti relazioni, derivanti dl precedente sistema. 
+\begin{align*}
+\begin{cases}
+a = \frac{9}{8} R \theta_c v_c\\
+b = \frac{v_c}{3}
+\end{cases}
+\end{align*}
+\'{E} inoltre interessante calcolare il valore della costante di compressione alla temperatura critica ($z_c$) sostituendo i valori di volume pressione e temperatura critici ottenuti. 
+\begin{align*}
+z_c = \frac{p_c v_c }{R \theta_c} = \frac{3}{8}
+\end{align*}
+Ne deduciamo che il coefficiente di compressione di qualsiasi gas reale al punto critico è costante ed è pari a $\frac{3}{8}$. Questa è un'occasione per valutare se la teoria sviluppata si adatti bene all'esperienza, effettivamente i gas perfetti alla temperatura critica presentano con buona approssimazione questo coefficiente di compressione.\\
+Tornando al grafico (\ref{fig:vanderwaals}), le curve al di sotto della temperatura critica presentano una regione all'interno della quale il modello teorico non rispecchia la realtà; sperimentalmente si nota infatti un andamento costante, perché? Ciò è dovuto al cambiamento di stato (detto anche transizione di fase) del gas che comincia a condensare, producendo goccioline d'acqua. In questa regione il materiale si trova allo stato di \textbf{vapore saturo}: se si aumenta il volume diminuiscono le molecole di gas e aumentano quelle di liquido. Ad un certo punto, quando il vapore sarà diventato completamente liquido, al diminuire del volume si avrà un aumento di pressione enorme, che conferisce l'alta pendenza delle curve nel lato sinistro. Ciò avviene perché un liquido è praticamente incomprimibile (servono pressioni enormi). Esiste inoltre un'altra regione in cui il gas è allo stato di \textbf{vapore} (si veda \ref{fig:diagramma-di-fase}). 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{"diagramma di fase"}
+	\caption{Diagramma di fase dell'acqua in cui sono distinte, con colori diversi, le regioni in cui si ha una specifica fase.}
+	\label{fig:diagramma-di-fase}
+\end{figure}
+\FloatBarrier
+Data una curva di van der Waals, è possibile trovare il segmento in cui la pressione è costante (transizione di fase vapore-liquido) seguendo la \textbf{costruzione di Maxwell}. Basterà scegliere il segmento che rende uguali le aree contenute fra la curva sovrastante il segmento ed il segmento stesso e fra il segmento e la curva sottostante il segmento. Si veda la figura per chiarimenti.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\linewidth]{"calcolo di maxwell"}
+	\caption{Il segmento compreso fra le intersezioni retta-curva rappresenta la transizione di fase, per ricavarlo bisogna che le due aree siano uguali.}
+	\label{fig:calcolo-di-maxwell}
+\end{figure}
+\FloatBarrier
+Il volume nell'estremità destra del segmento è il volume occupato dal gas quando è saturo ($V_g$), cioè quando una variazione infinitesima di volume fa cominciare la condensazione mentre il volume alla sinistra del segmento è quello occupato dal liquido ottenuto a seguito della transizione di fase ($V_l$). Tutti i valori di $V_g$ e $V_l$ al variare della temperatura formano una parabola rovesciata, con vertice nel punto di temperatura critica, che corrisponde con la regione a pressione costante a cui si accennava sopra. \\
+Possiamo disegnare un grafico 3D in cui nel terzo asse poniamo la temperatura (fino ad ora abbiamo disegnato su uno stesso grafico 2D diverse sezioni del grafico 3D al variare di $\theta$) per distinguere 5 regioni: gas, vapore, vapore-liquido, liquido, solido più una sesta, non indicata nel grafico 3D ma presente in \ref{fig:diagrammadifasept} detta \textbf{regione supercritica} in cui si ha una condizione intermedia fra liquido e gas.  
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{diagrammadifase3D}
+	\caption{Versione 3D del diagramma di fase.}
+	\label{fig:diagrammadifase3d}
+\end{figure}
+\FloatBarrier
+Possiamo notare inoltre che sotto una determinata temperatura avviene la transizione allo stato solido e che possiamo individuare un segmento in cui si ha uno stato intermedio fra quello di solido vapore e liquido, quelli sono i punti tripli al variare della temperatura. \'{E} interessante citare la regola delle fasi di Gibbs che ora risulta chiara: dette N il numero di gradi di libertà, F il numero di fasi e C il numero di componenti indipendenti che formano il composto, la legge di Gibbs afferma
+\begin{align*}
+	N = C + 2 - F
+\end{align*} 
+Ciò si applica perfettamente alla temperatura critica, infatti in questo caso C = 1, F = 3 e allora avremo zero gradi di libertà, cioè un punto. Per il punto critico invece avremo 1 grado di libertà e quindi una retta (con parametro V) e così via.\\
+Inoltre, possiamo guardare la proiezione del grafico 3D sul piano PT per ottenere diverse informazioni. 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{diagrammadifasePT}
+	\caption{Diagramma di fase sul piano PT}
+	\label{fig:diagrammadifasept}
+\end{figure}
+\FloatBarrier
+Le curve (una per la solidificazione, una per la liquefazione e una per la sublimazione) sono l'insieme delle temperature di passaggio di stato possibili al variare della pressione. Ad esempio, vediamo come la temperatura di ebollizione aumenti all'aumentare della temperatura. Inoltre possiamo apprezzare il punto triplo: l'intersezione delle tre curve. Il processo di cambiare stato da liquido a gassoso a temperatura costante variando la pressione si chiama cavitazione. Per temperature superiori a quella critica lo stato è detto \textbf{supercritico}, con caratteristiche intermedie fra quelle di liquido e di gas. 
+\section{Teoria cinetica dei gas} 
+Vogliamo ora interpretare alcune grandezze fisiche macroscopiche introdotte precedentemente, (in particolare pressione e temperatura) dal punto di vista microscopico. Per far ciò, a partire dalla teoria della meccanica classica costruiremo il modello di una scatola piena di gas perfetto e la analizzeremo dal punto di vista microscopico. Se il modello e la teoria sono corretti, allora dovremo avere un riscontro empirico nella realtà, altrimenti dovremo modificare il modello (problema relativamente risolvibile) o, più drammaticamente, dovremo modificare la teoria. Cominciamo con il definire le caratteristiche del nostro modello. 
+\begin{enumerate}
+	\item Numero N di molecole nel cubo molto grande 
+	\item Covolume trascurabile (molecole puntiformi)
+	\item Interazioni intermolecolari a lungo raggio trascurabili e interazioni a corto raggio (urti tra molecole o tra molecola e parete) totalmente elastiche 
+	\item Caos molecolare (ovvero isotropia e omogeneità delle molecole nel volume)
+\end{enumerate} 
+Vediamo ora se un $cm^3$ di aria rispetta queste condizioni:\\
+1) Calcoliamo il numero di molecole di aria in un $cm^3$. 
+\begin{align*}
+	&pV =nR\theta = \frac{N}{N_a} R\theta\\
+	&N = \frac{pV N_a}{R\theta} = \frac{1.013\ 10^5\ 10^{-6}\ 6 10^{23}}{8.314\ 300} = 2.5 10^{19}\ \text{molecole}
+\end{align*}
+Che è sufficientemente grande, anche su scale locali, per consentire un approccio statistico al problema, infatti l'incertezza sulla media sarebbe, considerando che questo sia un esperimento di conteggio, $\frac{1}{\sqrt{N}}$ .\\\\
+2) Assumendo per le molecole di $O_2$ ed $N_2$ (i maggiori costituenti dell'aria) un diametro di 1.7 ${\AA}$, stimiamo la frazione di volume libero di cui dispone ogni molecola del punto 1
+\begin{align*}
+	&d = 1.7 \AA\\
+	&V_{1mol} = N \frac{4}{3}\pi \frac{d}{2}^3 \simeq N \frac{d^3}{2} \simeq 6 10^{-11}\ m^3\\
+	&r = \frac{V_{1mol}}{V_c} = \frac{6 10^{-11}}{10^{-6}} = 6 10^{-5}\ m^3\\
+\end{align*}
+Dove $V_c$ è il volume della scatola di lato l che contiene il gas ed r è un coefficiente che indica il rapporto fra il covolume di una mole di gas (ovvero la summa dei volumi occupati dalle sue particelle) ed il volume del contenitore, che consideriamo abbastanza bassa. \\\\
+3)Possiamo stimare la distanza media tra le molecole dividendo il volume del contenitore per il numero di molecole, così da sapere il volume che ha a disposizione ogni molecola. Se immaginiamo questo volume cubico possiamo poi farne a radice cubica per ottenere la distanza media fra molecole.
+\begin{align*}
+	\lambda = \sqrt[3]{\frac{V_c}{N}} = \sqrt[3]{\frac{10^{-6}}{2.5 10^{13}}}= 3.4 10^{-3}\ m \simeq 34\AA
+\end{align*}
+Questa distanza è circa 20 volte il diametro della molecola meda d'aria (citato nel punto 2). Visto che il valore $r_{min}$ (ovvero la distanza a cui potenziale attrattivo e repulsivo si eguagliano) è comparabile a quello del diametro della molecola, anch'esso sarà 20 volte minore al valore calcolato di $\lambda$, ciò vuol dire che le molecole ad una distanza $\lambda$ sono in una regione sufficientemente a destra del grafico di Lennard-Jones per stimare le interazioni a lungo raggio trascurabili. Infine, gli urti con le pareti sono chiaramente elastici poiché le molecole d'aria sono tanto piccole da poter essere approssimate a puntiformi, cioè senza gradi di libertà interni mentre gli urti fra molecole, essendo la scatola prevalentemente vuota (a causa del rapporto r molto basso) non avverranno praticamente urti fra molecole.\\\\
+4) Omogeneità significa che la densità è costante in tutto il recipiente (cioè non ci sono addensamenti o rarefazioni) mentre isotropia vuol dire che non ci sono direzioni privilegiate, ovvero che per ogni molecola che si muove in un verso ne esiste un'altra che si muove in verso opposto. Ciò si traduce in una velocità media nulla ovvero $\sum_i \vec{v}_i = 0$. Il gas è macroscopicamente fermo.\\\\
+Possiamo ora calcolare la pressione che genera il gas sulla parete, concentriamoci sulla parete $S_x$ di destra, perpendicolare all'asse x. Calcoliamo la pressione come l'impulso complessivo scambiato in un certo intervallo di tempo dall'insieme delle molecole con la parete. Considerando inizialmente una qualsiasi particella i-esima di velocità $\vec{v}_i$ che si muove obliquamente e collide con la parete destra, si avrà che la componente della velocità in x cambierà di segno mentre le altre componenti rimarranno invariate.
+\begin{align*}
+	\begin{cases}
+		v'_{ix}=v_{ix} \Rightarrow \Delta q_{ix} = mv'_{ix}-mv'_{ix}=-2mv_{ix}\\
+		v'_{iy}=v_{iy} \Rightarrow \Delta q_{iy} = 0\\
+		v'_{iz}=v_{iz} \Rightarrow \Delta q_{iz} = 0
+	\end{cases}
+\end{align*}
+In un intervallo di tempo $\Delta t$ la particella i-esima colpisce la parete destra un numero di volte unicamente proporzionale alla componente x di $\vec{v}_i$ per l'intervallo di tempo (ovvero lo spazio percorso in quel tempo) e inversamente proporzionale alla distanza che deve compiere, che sarà $2l$ ovvero due volte il lato del cubo. 
+\begin{align*}
+	&n_u = \frac{|v_{ix}| \Delta t}{2l}\\
+	&|\Delta Q_{ix}|= |\Delta q_{ix}| n_u = (2m|v_{ix}|) \frac{|v_{ix}| \Delta t}{2l} = m v_{ix}^2 \frac{\Delta t}{l}\\
+	&|\Delta Q_{x}| = \sum_i |\Delta Q_{ix}|= \frac{m \Delta t}{l} \sum_i v_{ix}^2 
+\end{align*}
+Dove nella penultima riga abbiamo moltiplicato l'impulso generato da un urto per il numero d'urti in un intervallo di tempo $\Delta t$ mentre nell'ultima abbiamo tenuto conto di tutte le particelle sommando gli i impulsi. Quest'ultima forma rappresenta l'impulso esercitato dalle collisioni di una molecola con la parete in un intervallo di tempo $\Delta t$.
+Possiamo ora volutare la forza e la pressione esercitati dalla molecola in un intervallo di tempo. 
+\begin{align*}
+	&F_x = \frac{|\Delta Q_{x}|}{\Delta t} =  \frac{m}{l} \sum_i v_{ix}^2\\
+	&p_x = \frac{F_{x}}{S_x} =  \frac{1}{l^2}\frac{m}{l} \sum_i v_{ix}^2=\frac{m}{l^3} \sum_i v_{ix}^2 = \frac{m}{V_c} \sum_i v_{ix}^2
+\end{align*}
+Possiamo ripetere considerazioni analoghe per ottenere l'espressione della pressione sulle altre pareti
+\begin{align*}
+	\begin{cases}
+		p_x = \frac{m}{V_c} \sum_i v_{ix}^2\\
+		p_y = \frac{m}{V_c} \sum_i v_{iy}^2\\
+		p_z = \frac{m}{V_c} \sum_i v_{iz}^2
+	\end{cases}
+\end{align*}
+Per l'ipotesi del caos molecolare, non esiste una direzione privilegiata verso cui si muovono le molecole per cui le velocità nei diversi assi sono statisticamente uguali. Per l'ipotesi di un N molto grande le fluttuazioni statistiche sono molto ridotte per cui possiamo approssimare, entro gli errori di misura, che 
+\begin{align*}
+	p_x = p_y = p_z \equiv p
+\end{align*}
+Abbiamo così ricavato il \textbf{principio di Pascal}, che afferma, in forma semplice, che la pressione esercitata da un fluido su un contenitore è uguale in ogni punto della superficie.\\
+Possiamo dunque scrivere
+\begin{align*}
+	&p_x+p_y+p_z = 3p = \frac{m}{V} \sum_i (v_{ix}^2+v_{iy}^2+v_{iz}^2) = \frac{m}{V} \sum_i v_i^2\\
+	&pV = \frac{m}{3}\sum_i v_i^2
+\end{align*}
+Possiamo introdurre la velocità quadratica media, per poi sostituirla nella formula ed effettuare alcuni passaggi
+\begin{align*}
+	&\overline{v^2} \equiv \sum_i\frac{v_i^2}{N}\\
+	&pV = \frac{m}{3}N \overline{v^2} = \frac{2}{3} N (\frac{1}{2}m \overline{v^2})=\frac{2}{3}N \overline{\varepsilon}\\
+\end{align*}
+Dove $\overline{\varepsilon}$ è detta energia cinetica media ed è definita come
+\begin{align*}
+	\overline{\varepsilon} \equiv \frac{1}{2} m \overline{v^2} = \frac{1}{2} m \sum_i\frac{v_i^2}{N}
+\end{align*}
+La connessione per passare dall'approccio microscopico a quello macroscopico ci è offerta dall'equazione di stato dei gas perfetti
+\begin{align}\label{eq:energiacinmedia}
+	&pV = n R \theta = \frac{2}{3}N \overline{\varepsilon}\nonumber\\
+	\Rightarrow & \overline{\varepsilon} = \frac{3}{2} \frac{R}{N_a} \theta = \frac{3}{2}\theta
+\end{align}
+dove nell'ultimo passaggio è stata sostituita la costante k, detta \textbf{costante di Boltzmann}, definita come
+\begin{align*}
+k_b = \frac{R}{N_a}
+\end{align*}
+misurabile mediante esperimenti, come quello di Perrin sul moto browniano.\\ 
+La \ref{eq:energiacinmedia} collega la temperatura (grandezza macroscopica) all'energia cinetica media (grandezza microscopica), ciò ci suggerisce che misurare la temperatura è perfettamente equivalente a misurare l'energia cinetica media in una diversa unità di misura, che differisce dai kelvin semplicemente per una costante. Ora è possibile introdurre il concetto di \textbf{zero assoluto} ovvero, il limite inferiore di temperatura possibile (solamente approssimabile) in cui tutte le molecole del gas sono in quiete, cioè quando hanno energia cinetica nulla.\\
+\'{E} inoltre utile notare che il 3 al denominatore nella \ref{eq:energiacinmedia} proviene dai 3 gradi di libertà della molecola di gas, che è ipotizzato perfetto e dunque come formato da particelle puntiformi con 3 d.o.f.(che da ora chiameremo $\nu$) Possiamo estendere questa formula per annoverare casi con diversi d.o.f.
+\begin{align*}
+	&\overline{\varepsilon} = \frac{\nu}{2} k \theta\\
+	&\theta = \frac{2 \overline{\varepsilon}}{k \nu}
+\end{align*}
+Dal novembre 2018 si è decisa una nuova strategia di misurazione del grado Kelvin: si è definita la $k_b$ come costante con il valore esatto
+\begin{align*}
+	k_b \equiv 1.380649 \cdot 10^{-23}
+\end{align*}
+priva di errore, si è dunque definita la temperatura di 1 Kelvin come la temperatura che possiede un corpo la cui energia cinetica media per ogni grado di libertà è $\frac{k_b}{2}$. Inoltre, dalla definizione della costante di Boltzmann, ricaviamo che l'aumento di un Kelvin di temperatura di una sostanza corrisponde ad un aumento di energia cinetica media di $k_b$ Kelvin. 
+\begin{align*}
+	1\ K = k_b\ J
+\end{align*} 
+Ecco il fattore di conversione da Kelvin a Joule.\\
+Nella fisica nucleare non è comodo usare i Joule, unità di misura utile nel mondo macroscopico, per questo si fa uso degli \textbf{elettronvolt}, definito come l'energia di un elettrone accelerato da un Volt. Da ciò si ha 
+\begin{align*}
+	1\ eV = q\ J
+\end{align*}
+Dove q è la carica dell'elettrone. Da ciò possiamo ricavare la relazione fra $eV$ e $J$.
+\begin{align*}
+	1\ eV = \frac{q}{k_b}\ K = J = \frac{1.6\cdot 10^{-19}}{1.38\cdot10^{-23}}=\simeq 1.6 \cdot 10^4
+\end{align*}
+
+\subsection{Deduzione della p.d.f. delle velocità}
+Abbiamo dedotto il valore dell'energia cinetica media, calcolata mediante la velocità quadratica media. Vogliamo ora sapere quale sia la distribuzione delle velocità da cui si estrae la velocità quadratica media. Vogliamo trovare la p.d.f. di
+\begin{align*}
+	v \equiv |\vec{v}| = \sqrt{v_x^2+v_y^2+v_z^2}
+\end{align*}
+Cominciamo con il ricavare la \textbf{p.d.f. congiunta} $f(v_x, v_y, v_z)$, ovvero la probabilità di avere contemporaneamente le velocità sui tre assi in un intorno di ampiezza infinitesima. Per capire meglio cominciamo consideriamo il caso con una velocità unidimensionale, la p.d.f. è $f(v_x)$, per calcolare la probabilità che $v_x$ stia in un intorno basterà integrare fra gli estremi di quell'intorno
+\begin{align*}
+	& P(v'_x<v_x<v'_x+dx)= \int_{v_x}^{v_x+dx}f(v_x)dx
+\end{align*}
+Estendendo il concetto ai 3 assi si parla di p.d.f. congiunta (in questo caso congiunta è sinonimo di trivariata) che sarà $f(v_x, v_y, v_z)$, per trovare la probabilità ora dobbiamo fare un integrale triplo
+\begin{align*}
+	&P(v'_x<v_x<v'_x+dx, v'_y<v_y<v'_y+dy, v'_z<v_z<v'_z+dz) =\\
+	&\int_{v_x}^{v_x+dx}\int_{v_y}^{v_y+dy}\int_{v_z}^{v_z+dz} f(v_x,v_y,v_z) dxdydz
+\end{align*}
+Possiamo vedere la probabilità $f(v_x, v_y, v_z)$ geometricamente su un grafico f(v) su v 3D come un cubetto di lati $dx, dy, dz$.\\
+Essendo la velocità su ogni asse indipendente dalle altre la probabilità di trovare in un intorno specifico ogni componente della velocità sarà semplicemente il prodotto delle probabilità delle singole componenti.
+\begin{align}\label{eq:cond1}
+	&f(v_x, v_y, v_z) = f(v_x)\cdot f(v_y)\cdot f(v_z)\\
+	& P(v'_x<v_x<v'_x+dx, v'_y<v_y<v'_y+dy, v'_z<v_z<v'_z+dz) =\nonumber\\ 
+	&P(v'_x<v_x<v'_x+dx) P(v'_y<v_y<v'_y+dy) P(v'_z<v_z<v'_z+dz)=\nonumber\\
+	&\int_{v_x}^{v_x+dx} f(v_x)dx \cdot \int_{v_y}^{v_y+dy}f(v_y)dy \cdot \int_{v_z}^{v_z+dz}f(v_z)dz\nonumber
+\end{align}
+A noi interessa la distribuzione del modulo delle velocità delle molecole dunque la p.d.f. congiunta che cerchiamo deve dipendere da $(v_x^2+v_y^2+v_z^2)$ ovvero il modulo della velocità (non ci interessa la radice ma semplicemente che dipenda dalla somma quadratica, in modo da annullare il contributo del segno). Ne segue che la p.d.f. deve rispettare la condizione
+\begin{align}\label{eq:cond2}
+	f(v_x,v_y,v_z) = f(v_x^2+v_y^2+v_z^2)
+\end{align}
+Come intuì lo stesso Maxwell, l'unica funzione che rispetta contemporaneamente le condizioni (\ref{eq:cond1}) e (\ref{eq:cond2}) è quella esponenziale, infatti
+\begin{align*}
+	e^{a^2+b^2+c^2}=e^{a^2} e^{b^2} e^{c^2}
+\end{align*}
+Dunque possiamo ipotizzare che la p.d.f. della velocità su un singolo asse è
+\begin{align*}
+	f(v_i) = \eta e^{\pm \xi v_i^2}
+\end{align*}
+Possiamo escludere il "+" sin da subito sia per considerazioni matematiche, infatti l'integrale della funzione da $- \infty$ a $+ \infty$ deve fare 1 e se non fosse un esponente negativo l'integrale andrebbe ad infinito; ma anche per considerazioni fisiche, infatti se la densità di probabilità fosse sempre crescente allora sarebbe sempre molto più probabile trovare molecole molto veloci rispetto a molto lente, ciò è chiaramente assurdo perché ci aspettiamo un valore di velocità medio e nelle code della distribuzione valori molto alti e molto bassi egualmente poco probabili.\\
+Con il segno meno abbiamo dunque una p.d.f. del tipo di una gaussiana. Ricaviamo dunque le costanti $\eta$ e $\xi$. la prima la ricaviamosfruttando la condizione di normalizzazione ad 1 delle p.d.f.
+\begin{align*}
+	\int_{-\infty}^{+\infty} f(v_i)dv_i = \eta \int_{-\infty}^{+\infty} e^{\pm \xi v_i^2} dv_i
+\end{align*}
+Questo è detto \textbf{integrale di Laplace} la cui risoluzione è in Appendice. Ne risulta che
+\begin{align*}
+	\eta = \sqrt{\frac{\xi}{\pi}}
+\end{align*}
+Per ricavare $\xi$ calcoliamo la velocità quadratica media ricordando la definizione di momento del secondo ordine di una p.d.f.
+\begin{align*}
+	&\overline{v^2} \equiv \int_{-\infty}^{+\infty} v_i^2 f(v_i)dv_i = \frac{1}{2\xi}\\
+	&\overline{v^2} = \overline{v_x^2}+\overline{v_y^2}+\overline{v_z^2} = 3\overline{ v_i^2} = \frac{3}{2\xi}
+\end{align*}
+Ricordando ora la relazione che lega velocità quadratica media e temperatura (\ref{eq:energiacinmedia}) sostituiamo
+\begin{align*}
+	&\frac{3}{2} k_b \theta = \overline{\varepsilon} = \frac{1}{2} m \overline{v^2}\\
+	\Rightarrow & \overline{v^2} = \frac{3k_b\theta}{m}\\
+	&\xi = \frac{m}{2k_b\theta} \quad \eta = \sqrt{\frac{m}{2\pi k_b \theta}}
+\end{align*}
+Possiamo dunque riscrivere la p.d.f.
+\begin{align*}
+	f(v_i) = \sqrt{\frac{m}{2\pi k_b\theta}} e^{-\frac{m v_i^2}{2 k_b \theta}}
+\end{align*}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{gausspdf}
+	\caption{Funzione di distribuzione di probabilità (p.d.f.) della velocità lungo l'asse x (gaussiana).}
+	\label{fig:gausspdf}
+\end{figure}
+\FloatBarrier
+
+Osservando questa p.d.f. gaussiana possiamo trarne alcune caratteristiche fondamentali: 
+\begin{align*}
+	\mu = 0 \quad \sigma = \sqrt{\frac{k_b \theta}{m}}
+\end{align*}
+Il fatto che la curva abbia media in zero non ci stupisce poiché, essendo in ipotesi di caos molecolare le velocità di segno diverso si cancellano statisticamente. Inoltre notiamo che la varianza, ovvero la larghezza della curva, è direttamente proporzionale alla temperatura, ciò avviene perché l'aumento di temperatura equivale ad un aumento delle velocità, che continueranno ad annullarsi reciprocamente ma che non saranno singolarmente nulle.\\
+Essendo le p.d.f. indipendenti, per ottenere la p.d.f. congiunta basta moltiplicarle
+\begin{align*}
+	f(v_x, v_y,v_z) = \left(\frac{m}{2\pi k_b\theta}\right)^{\frac{3}{2}} e^{-\frac{m( v_x^2+v_y^2+v_z^2)}{2 k_b \theta}} = \left(\frac{m}{2\pi k_b\theta}\right)^{\frac{3}{2}} e^{-\frac{m v^2}{2 k_b \theta}}
+\end{align*}
+A partire dalla congiunta possiamo ricavare la p.d.f. del modulo del vettore velocità. Se la $f(v_x, v_y,v_z)$ era rappresentabile geometricamente come un cubo all'interno del quale si trovava la probabilità di trovare una molecola nell'intorno di un'esatta terna di valori (ad esempio $(v_x \in I_{dx}(a), v_y \in I_{dy}(b), v_z = \in I_{dz}(c)))$ . Noi vogliamo invece trovare una p.d.f. che ci dica la probabilità che il modulo del vettore velocità si trovi in un certo intorno cioè $ \sqrt{v_x+v_y+v_z} \in I_{dv}(v)$. Risulta chiaro che esistono diverse terne di intorni che soddisfano quest'ultima relazione. In particolare l'insieme di queste terne è il luogo geometrico dei punti a distanza dal centro compresa fra v e dv. Chiaramente otterremo un guscio sferico di spessore dv. Per calcolare la p.d.f. ($\rho(v)$) moltiplichiamo il volume del guscio per la probabilità associata all'unità di volume (ovvero quella del cubetto $f(v_x,v_y, v_z)$)
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{guscio}
+	\caption{Grafico qualitativo della p.d.f. $\rho(v_x,v_y,v_z)$ a confronto con quella di $f(v_x, v_y, v_z)$}
+	\label{fig:guscio}
+\end{figure}
+\FloatBarrier
+\begin{align*}
+	&\rho(v) dv = f(v_x, v_y, v_z) 4\pi v^2 dv\\
+	&\rho(v)=\frac{4}{\sqrt{\pi}}\left(\frac{m}{2k_b\theta}\right)^{\frac{3}{2}} v^2 e^{-\frac{mv^2}{2 k_b \theta}}
+\end{align*}
+Questa è detta di \textbf{p.d.f. di Maxwell-Boltzmann}. Offre una quantità di informazioni molto interessanti: possiamo calcolare il modulo velocità media ad ogni temperatura, conoscere il numero di molecole atteso che abbia una velocità compresa in un certo intervallo... \'{E} interessante che con questo grafico possiamo spiegare un semplice evento della vita quotidiana: perché i panni si asciugano una volta stesi? In teoria per far evaporare l'acqua bisognerebbe riscaldare l'acqua ad un punto tale che l'energia cinetica delle singole molecole è tale da rompere i legami intermolecolari e "scappare", se però non facciamo riscaldare i panni fino a 100 \textdegree C (temperatura di ebollizione dell'acqua) come fanno a scappare queste molecole? la risposta è che non tutte le molecole hanno la stessa velocità e che questa è distribuita in base ad una p.d.f.: esiste una soglia dopo la quale la velocità delle molecole è tale da poter rompere il legame, ed esiste una probabilità che si trovino molecole a questa velocità anche se in media le molecole hanno una velocità minore. Chiaramente, maggiore la temperatura maggiore sarà la probabilità di trovare molecole oltre questa soglia. Ecco perché al caldo i panni si asciugano più velocemente!
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{speedpdf}
+	\caption{Funzione di distribudione delle probabilità (p.d.f.) del modulo della velocità detta di Maxwell-Boltzmann}
+	\label{fig:speedpdf}
+\end{figure}
+ \FloatBarrier
+A partire da questa distribuzione possiamo ricavare alcuni parametri interessanti:
+\begin{itemize}
+	\item Valore più probabile o moda
+	\begin{align*}
+		&\rho'(v)  =  0\\
+		&v_p = \sqrt{\frac{2R\theta}{M}}
+	\end{align*}
+	\item Valore atteso o di aspettazione (applicando la definizione per distribuzioni continue)
+	\begin{align*}
+		\overline{v} = \int_{-\infty}^{\infty}v \rho(v)dv = \sqrt{\frac{8R\theta}{\pi M}}
+	\end{align*}
+	\item valore quadratico medio (applicando la definizione per distribuzioni continue)
+	\begin{align*}
+			\sqrt{\overline{v^2}} = \left(\int_{-\infty}^{\infty}v^2 \rho(v)dv\right)^{\frac{1}{2}} = \sqrt{\frac{3k\theta}{m}}= \sqrt{\frac{3R\theta}{M}}
+	\end{align*}
+\end{itemize}
+Si noti che questi valori, nonostante simili, non sono uguali, ciò è dovuto all'asimmetria della distribuzione. 
+\begin{align*}
+	v_p<\overline{v}<\sqrt{\overline{v^2}}
+\end{align*}
+\begin{exercize}
+	Calcolare i valori tipici delle velocità molecolari di $H_2$ e $N_2$ a temperatura ambiente (300 K).
+	\begin{align*}
+		\sqrt{\overline{v^2}}_{H_2}=\sqrt{\frac{3\cdot 8.3145\cdot 300}{2\cdot 10^{-3}}}=1934\ \frac{m}{s}\\
+			\sqrt{\overline{v^2}}_{N_2}=\sqrt{\frac{3\cdot 8.3145\cdot 300}{28\cdot 10^{-3}}}=493\ \frac{m}{s}\\
+	\end{align*}
+\end{exercize}
+Vogliamo ora verificare empiricamente che la distribuzione trovata rispecchi la realtà. esistono varie apparecchiature sperimentali, in questa sede ne descriveremo una delle più semplici e rudimentali: \textbf{il selettore di velocità}. Questo è formato da un contenitore cubico pieno di gas (il tutto a temperatura e pressione costanti) al quale su una faccia è applicato un foro da cui escono alcune molecole di gas con diverse velocità. Di fronte alla faccia forata è posizionato un selettore, ovvero uno schermo a cui è applicato un ulteriore foro, allineato con il primo, che permette il passaggio solamente delle molecole in direzione ortogonale alla faccia del contenitore. Le molecole selezionate viaggeranno su una retta ed avranno diverse velocità. Una volta superato il selettore le molecole incontrano un cilindro di raggio R con una fenditura verticale che ruota sul suo asse a velocità angolare $\omega$ fissata; nella superficie interna del cilindro è posizionata una pellicola che riesce a rilevare l'impatto (cambiando colorazione) di una molecola. Ora, a seconda della velocità delle molecole il tempo impiegato nel percorrere il diametro del cilindro (da quando entrano la fenditura a quando collidono con il cilindro) è inversamente proporzionale alla velocità, dunque se la teoria è corretta dovremmo vedere una regione con molte collisioni in corrispondenza della velocità più probabile e poi sempre minori collisioni allontanandosi, con una diminuzione proporzionale a quanto previsto dalla distribuzione.\\
+La dipendenza della distanza dalla velocità è
+\begin{align*}
+	&v = \frac{2R}{\Delta t} \Rightarrow \Delta t = \frac{2R}{v}\\
+	&\Delta l = l-l_0 = \alpha R = \omega \Delta t=\omega \frac{2R}{v}R = \frac{2 \omega R^2}{v} 
+\end{align*}
+
+Se immaginiamo, una volta finito l'esperimento, di srotolare il cilindro in un rettangolo, avremo che $l_0$ è il segmento passante per i punti medi delle basi del rettangolo ed $l$ la posizione di una generica rilevazione di impatto di una molecola (dunque $\Delta l$ sarà la distanza della rilevazione dal centro).  Questa distanza è uguale all'angolo in radianti spazzato nel tempo $\Delta t$ per il raggio (dalla definizione di radiante).
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.9\linewidth]{Esperimento_Maxwell}
+	\caption{Diagramma dell'apparato sperimentale per la conferma empirica della distribuzione di Maxwell}
+	\label{fig:esperimentomaxwell}
+\end{figure}
+\FloatBarrier
+Per trovare le velocità delle singole molecole basterà misurare la distanza $\Delta l$ e inserirla nella formula
+\begin{align*}
+	v = \frac{2\omega R^2}{\Delta l}
+\end{align*}
+Dalla distribuzione delle molecole nel cilindro è possibile ricavare la distribuzione delle velocità che è compatibile con una distribuzione Maxwelliana entro gli errori. 
+\subsection{Evaporazione ed atmosfera dei pianeti}
+Alcuni pianeti posseggono un'atmosfera più o meno grande, che riesce a trattenere diversi tipi di gas a seconda delle caratteristiche del pianeta. Una modello estremamente semplificato che descrive l'atmosfera di un pianeta è basato sulla distribuzione delle velocità delle molecole di un gas. L'atmosfera infatti trattiene il gas grazie alla forza di gravità del pianeta, essa però deve trattenere molecole che hanno una certa velocità, in particolare riuscirà a trattenere molecole che hanno velocità minore della velocità di fuga del pianeta. La velocità delle molecole dipende dalla temperatura dell'atmosfera mentre quella di fuga dalla massa e dal raggio del pianeta. Ne segue che la probabilità e il numero atteso di molecole che escano dall'atmosfera è
+\begin{align*}
+	&v_f = \sqrt{\frac{2 G m}{R}}\\
+	&P(v > v_f) = \int_{v_f}^{+\infty}\rho(v)dv\\
+	&N_{att} = N_{tot} \cdot P(v > v_f)\\
+\end{align*}
+Dove $N_{att}$ è il numero atteso di molecole che usciranno dall'atmosfera e $N_{tot}$ quello totale. Si noti che questa probabilità è sempre maggiore di zero dunque, anche se molto lentamente, l'atmosfera dei pianeti evapora. Svolgiamo qualche esercizio per chiarire queste applicazioni della teoria:
+\begin{exercize}
+	Calcolare il numero di molecole di $N_2$ atteso in un $cm^3$ d'aria a velocità compresa tra a e b $\frac{m}{s}$. (Il numero di moelcole di $N_2$ in un $cm^3$ è già stato calcolato precedentemente )
+	\begin{align*}
+		&N_{molecole} = 10^{13}\\
+		&P(a<v<b) = \int_{a}^{b}\rho(v)dv\\
+		&N_{att}=P(a<v<b)\cdot P(a<v<b) 
+	\end{align*}
+\end{exercize}
+\begin{exercize}
+ Un pianeta ha densità media $\rho = 5500\ \frac{kg}{m^3}$ e una temperatura atmosferica $\theta = 400 C = 673,15 K$, la sua atmosfera trattiene l'ossigeno molecolare ($O_2$). Calcolare il raggio minimo del pianeta.\\
+ Consideriamo le componenti verticali delle velocità delle molecole di $O_2$, se esso è trattenuto vuol dire che la sua velocità media è minore o uguale della velocità di fuga, per ottenere il raggio minore imponiamo 
+ \begin{align*}
+	&v_f = \sqrt{\overline{v^2}}\\
+	&\sqrt{\frac{3 R \theta}{M}} = \sqrt{\frac{2 G m}{R}}
+ \end{align*}
+Dove M è la massa molare dell'ossigeno, m è la massa del pianeta ed $R_p$ il suo raggio. Avendo la densità data sostituiamo al posto di m 
+\begin{align*}
+	&\rho = \frac{m}{\frac{4}{3}\pi R_p^3}=5500 \frac{kg}{m^3} \Rightarrow m = \frac{4 \pi R_p^3 \rho}{3}\\
+	&\sqrt{\frac{3 R\theta}{M}} = \sqrt{\frac{8 G \pi R_p^2 \rho}{3}}\\
+	& R_p = \left(\frac{9 R \theta}{8G\pi \rho M}\right)^{\frac{1}{2}}\simeq 10 km
+\end{align*}
+\end{exercize}
+Abbiamo dunque visto cos'è l'evaporazione, ovvero la fuga di alcune molecole a causa della loro velocità, maggiore di una certa soglia, che può essere data da diverse cause. Si noti che l'evaporazione è sempre presente nei liquidi a causa della casualità della variabile velocità per come descritta nella distribuzione di Maxwell.
+\begin{definition}
+Si dice evaporazione il fenomeno fisico per cui, a causa delle fluttuazioni casuali di velocità, vi è un cambiamento di stato di alcune molecole sulla superficie da liquido a gassoso quando la velocità della molecola supera la velocità di soglia. 
+\end{definition}
+\subsection{Ebollizione}
+Se si aumenta la temperatura l'evaporazione avverrà più velocemente perché la curva della Maxwelliana sarà più spostata verso destra. Consideriamo per fissare le idee un recipiente pieno d'acqua, arrivati ad una certa temperatura, per fluttuazioni casuali, si formano micro bolle di vapor d'acqua, isolate dal liquido circostante, in corrispondenza delle asperità (microscopiche) del contenitore. La pressione del vapore all'interno delle bolle è chiaramente quella del vapore saturo $p_{vap}$, la bolla implode se la pressione esterna è maggiore di $p_{vap}$ mentre si dilata e viene a galla se la pressione esterna è minore. La pressione esterna è data dalla pressione atmosferica $p_{atm}$ più la pressione esercitata dalla colonna d'acqua per la legge di Stevino ($\rho g h$) dove h è l'altezza dell'acqua nel contenitore. Nel caso di una comune pentola da cucina la pressione data dalla colonna d'acqua è trascurabile (h è piccolo) dunque la bolla si espanderà quando $p_{vap} \geq p_{atm}$. Nel caso dell'acqua sappiamo che $p_{atm} = p_{vap}$ per $\theta = 100 C$, dunque dovremo aspettare questa temperatura perché l'ebollizione avvenga. Se vogliamo far bollire l'acqua in montagna, in cui la pressione esterna è minore, la temperatura di ebollizione diminuirà. Contrariamente, a profondità sottomarine la colonna d'acqua non sarà più trascurabile e l'acqua bolle a temperature molto più elevate. A profondità superiori a 2 km la pressione supera la soglia critica al di là della quale entra in uno stato supercritico in cui l'ebollizione non è più possibile. Questa è semplicemente una reinterpretazione a livello microscopico e alla luce della teoria cinetica dei gas, della figura (\ref{fig:diagrammadifasept}). 
+\begin{definition}[Ebollizione]
+	Il passaggio di una sostanza dallo stato liquido allo stato aeriforme, che avviene attraverso la formazione di bolle gassose le quali, dilatandosi per effetto termico, salgono alla superficie e liberano il vapore in esse contenuto; il fenomeno, contrariamente all'evaporazione, avviene a una determinata temperatura per ogni sostanza (temperatura d'ebollizione).
+\end{definition}
+\subsection{Libero cammino medio (Mean Free Path)}
+\begin{definition}
+Si dice libero cammino medio (o mean free path) la distanza media percorsa da una molecola prima di urtarne un’altra. 
+\end{definition}
+Questa è da non confondere con la distanza media intermolecolare, già calcolata, che è molto minore come vedremo poiché ora si tiene conto del movimento delle molecole.\\
+In questa sede ci limiteremo a calcolare il numero di urti che una molecola, che si muove di velocità $\overline{v}$, compie in un intervallo di tempo dt considerando le altre molecole ferme. In questo contesto è chiaro che non si sta approssimando la molecola a puntiforme ma si sta considerando il volume che occupa. Consideriamo un contenitore di volume $V_{tot}$ con all'interno N molecole di gas, concentriamoci ora su una singola molecola: il cilindro che descrive in un intervallo di tempo dt muovendosi di moto rettilineo uniforme (ogni moto in un intervallo di tempo infinitesimo è approssimabile a rettilineo uniforme) ha raggio di base pari al diametro della molecola e altezza uguale allo spazio percorso nel tempo dt: $\overline{v}dt$. Ipotizzando per semplicità che tutte le molecole nel gas abbiano lo stesso diametro, avremo che la collisione avviene solamente se il centro dell'altra molecola si trova all'interno del cilindro con diametro di base 2d e altezza uguale a quella del cilindro precedente.  
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{libero_cammino_medio}
+	\caption{Schema del modello adottato per valutare il numero di collisioni medio di una molecola in un intervallo di tempo dt, ipotizzando le altre molecole ferme e di diametro uguale alla prima}
+	\label{fig:liberocamminomedio}
+\end{figure}
+\FloatBarrier
+Calcoliamo il volume del cilindro $V_c$ e la frequenza di collisioni, considerando che il numero di molecole con centro all'interno del volume del cilindro è calcolabile moltiplicando questo volume per la densità di molecole nel contenitore del gas, ottenuto con il rapporto $\frac{N}{V_{tot}}$. 
+\begin{align*}
+	&V_c = \pi d^2 \overline{v} dt = \sigma \overline{v} dt\\
+	&f = \frac{\left(\sigma \overline{v} dt\right)}{dt} \frac{N}{V_{tot}} = \frac{\sigma \overline{v} N}{V_tot}\\
+\end{align*}
+Dove $\sigma$ è una costante definita come $\sigma \equiv \pi d^2$.\\
+Si ottiene che, eliminando le ipotesi semplificative, si ottiene un fattore $\sqrt{2}$ in più, dunque la frequenza diventa
+\begin{align*}
+f = \frac{\sigma \overline{v} N}{V_tot}\sqrt{2}\\
+\end{align*}
+Dall'espressione della frequenza è immediato calcolare il libero cammino medio $\lambda$
+\begin{align*}
+	\lambda = \frac{\overline{v}}{f} = \frac{\overline{v} V_{tot}}{\sigma \overline{v} N\sqrt{2}} = \frac{n R \frac{\theta}{p} }{\sigma n N_a \sqrt{2}} = \frac{k_b\theta}{\sqrt{2}\sigma p}
+\end{align*}
+Dove $V_{tot}$ è stato sostituito avvalendosi dell'equazione di stato dei gas perfetti, il numero di molecole è stato sostituito con il numero di moli per il numero di Avogadro, infine è stata sostituita la costante di Boltzmann.\\
+A titolo d'esempio, il mfp dell'$O_2$ a $300\ K$ e $1\ atm$ è di $\lambda = 300\ \mu m$ mentre la distanza intermolecolare media calcolata in precedenza era 100 volte più piccola. 
+\section{Generalizzazione della teoria}
+Come visto, il lavoro in meccanica è definito come l'integrale su un percorso del lavoro infinitesimo, il lavoro infinitesimo è invece definito come il prodotto fra la forza e lo spostamento infinitesimo. \'{E} possibile fornire una generalizzazione di questa definizione introducendo innanzitutto i concetti di \textbf{forza generalizzata} e \textbf{spostamento generalizzato}
+\begin{definition}[coordinate generalizzate]
+	Le coppie forza generalizzata-spostamento generalizzato sono dette coordinate generalizzate (di un sistema fisico) e costituiscono una coppia di generatori dello spazio delle configurazioni (ovvero dei possibili stati che un sistema può assumere). La prima è sempre una grandezza intensiva mentre la seconda estensiva.
+\end{definition}
+Abbiamo accennato alle coordinate generalizzate o termodinamiche nella prima sezione. A partire da questa definizione possiamo generalizzare anche il concetto di lavoro
+\begin{definition}[lavoro generalizzato]
+	Il lavoro termodinamico generalizzato infinitesimo è definito come il prodotto fra una forza generalizzata (grandezza intensiva) esercitata dall'ambiente esterno ed uno spostamento generalizzato (grandezza estensiva) infinitesimo.\\
+	Il lavoro generalizzato è definito come l'integrale del lavoro infinitesimo. 
+	Per convenzione, è positivo se il lavoro è fatto dal sistema e negativo quando è subito (cioè fatto dall'ambiente esterno sul sistema). 
+\end{definition}
+In un grafico che rappresenti le coordinate generalizzate avremmo che il lavoro è l'area sotto la curva della trasformazione (che congiunge due stati di equilibrio). la forma della curva dipende dal tipo di trasformazione.  
+Alcuni esempi di coordinate generalizzate con i rispettivi lavori generalizzati infinitesimi sono sono:
+\begin{align*}
+	\text{meccanica: }(F, s)\rightarrow\delta L = F ds\\ 
+	\text{pV: }(p, V)\rightarrow\delta L=p dV\\
+	\text{torcente: }(\tau, \theta)\rightarrow\delta L=\tau d\theta\\
+	\text{elettrico: }(\varepsilon_e, q)\rightarrow\delta L=\varepsilon_edq\\
+	\text{magnetico: }(\mu, u)\rightarrow\delta L=\mu du\\
+\end{align*}
+Vediamo dunque che esistono diverse categorie di lavoro generalizzato di cui il lavoro meccanico è solo una tipologia. Possiamo distinguere due tipologie di lavoro dal punto di vista macroscopico: quello meccanico, che genera uno spostamento e quello termodinamico che non lo genera, a livello microscopico tuttavia ogni tipo di lavoro è riducibile ad uno spostamento di particelle. Esempi di questa differenza sono:
+
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{ || c| c ||}
+			\hline
+			Meccanico & Non meccanico\\
+			\hline
+			 & Elettrico\\
+			Torcente & Magnetico\\
+			 pV& Chimico\\
+			 & Gravitazionale\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+Concentriamoci ora sul lavoro pV, quello che useremo di più, ricordando che ciò che svolgeremo è generalizzabile a tutti i tipi di lavoro cambiando le coordinate generalizzate.
+\subsection{Lavoro pV}
+Consideriamo un cilindro adiabatico (isolante termicamente) di volume V pieno di gas a temperatura $\theta$ su cui preme un pistone con pressione p. In questo caso il lavoro generalizzato infinitesimo è definito come la forza generalizzata esercitata dall'ambiente sul sistema cilindro-pistone per lo spostamento infinitesimo da essa provocato. Immaginiamo che il sistema sia immerso nell'aria a pressione di 1 atm e che sul pistone siano poste due masse $m_1$ ed $m_2$. Immaginiamo poi di togliere la massa $m_2$: avremo una pressione esterna iniziale ed una finale
+\begin{align*}
+&p_e=p_a+\frac{(m_1+m_2)\cdot g}{S}\\
+&p_e'=p_a+\frac{m_1\cdot g}{S}\\
+\end{align*}
+La pressione diminuisce dunque il gas si espande e nel farlo muove il pistone verso l'alto contro una forza esterna. Siamo dunque in presenza di lavoro generalizzato, ricaviamo la sua espressione per le coordinate pV a partire dalla definizione meccanica di lavoro (integrale della forza per uno spostamento infinitesimo). 
+\begin{align*}
+	&F_e = p_e' S = p_a S + m_1 g\\
+	&\delta L = F_e dh\\
+	&L= \int_{i}^{f}F_e dh = \int_{i}^{f} p_e' S dh = \int_{i}^{f} p_e' dV = p_e' \Delta V
+\end{align*}
+In questo caso la pressione esterna è costante dunque è stato semplice risolvere l'integrale, bisogna tuttavia precisare che in generale l'espressione funzionale di p dipende dal volume e dalla temperatura, dunque se non conosciamo come la temperatura dipenda dal volume e come la pressione dipenda dal volume non sappiamo calcolare l'integrale. Esistono casi particolarmente semplici, come le trasformazioni a temperatura costante, ed è nota la funzione $p(V)$ in cui è immediato calcolare questo integrale.
+\begin{align*}
+	&L= \int_{i}^{f} p_e(V,\theta) dV
+\end{align*}
+Questa è la forma generale che descrive il lavoro di un sistema idrostatico. Possiamo svincolarci dall'esempio del pistone immaginando un qualsiasi sistema che espandendosi riesca a contrastare la pressione esterna (o contraendosi venga contrastato da essa). In generale è importante sottolineare che \textbf{il lavoro generalizzato è definito in base alla forza esterna}. \\
+Se lo spostamento generalizzato avviene gradualmente, per step infinitesimi, la trasformazione sarà quasistatica cioè transita fra stati infinitamente vicini fra loro e quindi approssimabili come di equilibrio. In virtù di ciò, in ognuno di questi stati la pressione esterna e quella interna saranno uguali quindi solo in questo caso potremo sostituire la pressione esterna con quella interna 
+\begin{align*}
+	\delta L = p_e dV = (p_e+dp)dv =p_edV + dpdV = p_e dV\simeq p_i dV
+\end{align*}
+\textit{Potremo dunque calcolare il lavoro generalizzato come l'integrale della forza generalizzata interna per lo spostamento generalizzato solo se la trasformazione è quasistatica}
+\begin{align*}
+	L = \int_{i}^{f}p_i dV
+\end{align*}
+\subsection{Calcolo del lavoro in casi semplici}
+Vediamo ora alcuni casi semplici in cui è possibile calcolare l'integrale
+\begin{enumerate}
+	\item Isocòra: V costante, il sistema non effettua alcuno spostamento generalizzato (dV = 0), l'integrale è nullo. 
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.4\linewidth]{trasformazione-isocora}
+		\caption{Grafico sul piano di Clapeyron di una trasformazione isocora}
+		\label{fig:figname}
+	\end{figure}
+	\FloatBarrier
+	\item Isobara: P costante, la trasformazione deve essere quasistatica altrimenti la variazione di volume sarebbe diversa per motivi che vedremo in seguito. Il grafico è semplicemente un segmento dunue calcolare l'aria sottesa è molto semplice. 
+	\begin{align*}
+		L = \int_{v_i}^{v_f}p dV = p\int_{v_i}^{v_f} dV = p\Delta V = p(V_f-V_i) 
+	\end{align*}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\linewidth]{trasformazione-isobara}
+	\caption{Grafico sul piano di Clapeyron di una trasformazione isobara}
+	\label{fig:trasformazione_isobara}
+\end{figure}
+\FloatBarrier
+	\item Isoterma con gas perfetto: $\theta$ costante e $p(V) = \frac{nR\theta}{V}$, quasistatica
+	\begin{align*}
+		L = \int_{V_i}^{V_f} p(V)dV = \int_{V_i}^{V_f} \frac{nR\theta}{V} dV = n r \theta \int_{V_i}^{V_f} \frac{dV}{V} = n R \theta \ln\left(\frac{V_f}{V_i}\right)
+	\end{align*}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{trasformazione-isoterma}
+	\caption{Grafico sul piano di Clapeyron di una trasformazione isoterma}
+	\label{fig:trasformazione-isoterma}
+\end{figure}
+\FloatBarrier
+	\item Isoterma con gas reale: $\theta$ costante e $p(v) =\frac{R\theta}{v-b}-\frac{a}{v^2}$, quasistatica
+	\begin{align*}
+	&L = \int_{v_i}^{v_f} p(v)dv =\int_{v_i}^{v_f} \frac{R\theta}{v-b}-\frac{a}{v^2} dv = R\theta\int_{v_i}^{v_f} \frac{dv}{v-b}  - a\int_{v_i}^{V_f}\frac{dv}{v^2} dv =\\
+	&R\theta \ln\left(\frac{v_f-b}{v_i-b}\right) + a\left(\frac{1}{v_f}-\frac{1}{v_i}\right)
+	\end{align*}
+	Si noti che questa espressione differisce da quella dei gas perfetti per il secondo termine, negativo, e per la sottrazione del covolume al primo termine. Il secondo termine riduce il lavoro compiuto, ciò è dovuto alle interazioni intermolecolari. Anche la sottrazione del covolume riduce il lavoro. Ne segue che il lavoro di espansione di un gas reale è sempre minore di quello di un gas perfetto.
+	\item Espansione libera: espansione non-quasistatica in cui il gas si espande liberamente contro una pressione esterna nulla (nel vuoto). Ricordando che il lavoro generalizzato è definito in base alla forza generalizzata esterna (in questo caso la pressione), questo sarà nullo poiché la pressione esterna è pari a zero. 
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.5\linewidth]{espansione_libera}
+		\caption{Schema dell'espansione libera, inizialmente il rubinetto è chiuso, una volta aperto comincia l'espansione non quasistatica del gas nel vuoto}
+		\label{fig:espansione_libera}
+	\end{figure}
+	\FloatBarrier
+	\item Stati condensati: ovvero liquidi e solidi, in cui in generale non si conosce la p(V) ma è possibile comunque calcolare il lavoro con alcune approssimazioni. Cominciamo con l'esplicitare la dipendenza del volume dalla temperatura e dalla pressione per poi scrivere la variazione infinitesima in funzione di essi (scritta come lineare perché qualunque variazione infinitesima è approssimabile a lineare). Sostituiamo poi i valori $\alpha$ e $k$ ottenuti precedentemente e approssimiamo la variazione di temperatura nulla ($d\theta = 0$).  
+	\begin{align*}
+		&V = V(\theta, p)\\
+		&dV = \left(\frac{\partial V}{\partial \theta}\right)_p d\theta + \left(\frac{\partial V}{\partial p}\right)_{\theta} dp = V(\alpha d\theta-\frac{1}{k} dp)\simeq-\frac{V}{k}dp\\
+	\end{align*} 
+Sostituiamo quindi il differenziale del volume e consideriamo il volume costante durante la trasformazione poiché negli stati condensati una variazione di volume molto piccola provoca una grande variazione di pressione (volume approssimabile a costante). Infine possiamo calcolare l'integrale definito e ottenere il valore finale della pressione. 
+\begin{align*}
+	&L=\int_{i}^{f}pdV = -\int_{p_i}^{p_f}p\frac{V}{k}dp \simeq -\frac{V}{k}\int_{p_i}^{p_f}pdp = -\frac{V}{2k}\left(p_f^2-p_i^2\right)
+\end{align*}
+Si noti che se $p_f > p_i$ si ha un lavoro negativo, cioè operato dall'ambiente sul sistema. 
+\end{enumerate}
+\begin{exercize}
+	Un blocco d'acciaio di volume $V = 1\ dm^3$ inizialmente a pressione atmosferica viene compresso con una pressione di $200\ atm$, il modulo di comprimibilità isoterma dell'acciaio è $k = 160\ GPa$. Calcolare il lavoro termodinamico considerando i casi in cui la trasformazione sia quasistatica o brusca.\\
+	Cominciamo con il verificare che l'approssimazione a volume costante sia accettabile sfruttando la definizione di k:
+	\begin{align*}
+		|\frac{dV}{V}|=|\frac{p}{k}|=\frac{200\ atm}{160\ Gpa}=\frac{200\cdot 1.013\cdot 10^5}{160\cdot 10^9} \simeq 10^{-4} = 0.01 \%
+	\end{align*}
+	Cioè in percentuale il volume varia di una percentuale trascurabile. Studiamo ora il caso quasistatico, ovvero quello ricavato nel punto 6 precedente:
+	\begin{align*}
+		&L_{qs} = -\frac{V}{2k}\left(p_f^2-p_i^2\right) = -1.28\ J\\	
+	\end{align*}
+	Il segno è negativo perché si ha una compressione. Nel caso brusco consideriamo la pressione costante durante la trasformazione, visto che cambia istantaneamente.
+	\begin{align*}
+	L_b = p_f\Delta V = p_f\Delta V = p_f\left(-\frac{V}{k}\Delta p \right)=-\frac{V}{k} p_f(p_f - p_i) = -2.55\ J
+	\end{align*}
+	Ipotizzando il solido perfettamente elastico, ripetere il calcolo inverso, ovvero se il passaggio avviene da $200\ atm$ a $1\ atm$ ($p_i$ e $p_f$ inversi rispetto a prima).
+	\begin{align*}
+		&L'_{qs} = -\frac{V}{2k}\left(p_f^2-p_i^2\right) = +1.28\ J\\
+		&L'_b = -\frac{V}{k} p_f(p_f - p_i) = 1.28 \cdot 10^{-2}\ J
+	\end{align*}
+	Si noti che, tenendo conto del segno, il lavoro quasistatico è sempre maggiore di quello adiabatico, questo è un risultato completamente generale che vale per ogni tipo di lavoro (non solo quello pV) e che sarà più chiaro grazie al secondo principio della termodinamica.
+\end{exercize}
+\subsection{Attrito e lavoro}
+Spesso nel lavoro pV non è possibile trascurare l'attrito. Se dovessimo tenerne conto avremmo intuitivamente che in un espansione, a parità di spostamento generalizzato il lavoro compiuto sarà maggiore (è come se l'attrito fosse una forza esterna che si oppone nell'espansione). D'altra parte, in una compressione, l'attrito contrasta la forza esterna, è come se fosse una forza interna che si oppone alla compressione dunque avrà segno opposto a quello del lavoro della forza esterna. Riassumendo
+\begin{align*}
+	&\text{Espansione: } L = |L_e| + L_a\\
+	&\text{Compressione: } L = -|L_e| +L_a
+\end{align*}
+\subsection{Circuitazione del lavoro generlizzato}
+Dal punto di vista geometrico, rappresentando l' espansione e la compressione sul piano di Clapeyron (per un lavoro pV, ma più in generale su qualsiasi piano che riporti le coordinate generalizzate) il lavoro sarà l'integrale sotto la curva della trasformazione, per convenzione in un espansione l'integrale è positivo e in na compressione negativo. Se avviene una espansione ed una compressione in modo che il punto di arrivo della prima coincida con il punto di partenza della seconda (e vice versa) avremo un ciclo il cui lavoro è definito dall'area all'interno della figura chiusa, se il ciclo è in senso orario per definizione è positivo, se antiorario negativo. 
+\begin{definition}[Ciclo termodinamico]
+	Si dice ciclo termodinamico o semplicemente ciclo una trasformazione o composizione di trasformazioni che, partendo da uno stato iniziale, alla fine della trasformazione troni a quello stato. Graficamente è rappresentato da una linea chiusa. 
+\end{definition}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5 \linewidth]{ciclo}
+	\caption{Grafico di un lavoro generalizzato positivo, uno negativo e la combinazione dei due (un ciclo) in cui il lavoro è dato dall'area della figura chiusa}
+	\label{fig:ciclo}
+\end{figure}
+\FloatBarrier
+Il lavoro di un ciclo non è altro che la circuitazione che in generale abbiamo visto essere diversa da zero. Ne segue quindi che in generale un lavoro generalizzato non è conservativo e che un lavoro conservativo è un caso particolare in cui l'area è pari a zero, cioè la curva di andata e di ritorno sono identiche.
+%Tensione superficiale e bolla di sapone
+\section{Calore e primo principio}
+Cominciamo introducendo il lavoro adiabatico, ovvero il lavoro condotto tenendo un sistema all'interno di pareti adiabatiche, ovvero che isola termicamente il sistema dall'ambiente esterno. Procediamo illustrando un esperimento: effettueremo trasformazioni adiabatiche concatenate che porteranno da uno stato i ad uno stato f passando per percorsi diversi. Il sistema adottato è un fluido in un cilindro con un pistone.\\
+Nel primo caso faremo una compressione adiabatica (da i a 1) e un'espansione isoterma (da 1 a f). 
+\begin{align*}
+	L = L_{i1}+L_{1f}= \int_{1}^{i}pdV +[\int_{f}^{1}pdV+mgh]
+\end{align*}
+La prima trasformazione è ottenuta semplicemente comprimendo il gas con il pistone mentre la seconda facendolo espandere e riscaldandolo contemporaneamente mediante un apposito apparecchio (ad esempio un mulinello che girando dissipa energia meccanica facendo aumentare la temperatura).\\
+nel secondo caso faremo prima un'espansione isoterma (da i a 2) come visto prima e poi aumenteremo la temperatura mantenendo il volume costante. 
+\begin{align*}
+	L' = \int_{i}^{2}pdV+mgh'+mgh''
+\end{align*}
+Si nota sperimentalmente che $L = L'$, da cui segue che, essendo il lavoro in un percorso chiuso, una trasformazione adiabatica è conservativa! Ne segue che il lavoro in questo caso è una funzione che dipende unicamente dallo stato iniziale e finale del sistema. 
+\begin{align*}
+	&\delta L = -dU\\
+	&\exists U : L^{(ad)} = -\Delta U = U_i-U_f
+\end{align*}
+Possiamo definire una nuova funzione di stato, che chiameremo \textbf{energia interna} U (misurata in Joule). La convenzione di porre il segno negativo serve per far risultare il lavoro positivo se $U_i>U_f$ in modo da poter interpretare il lavoro come una "spesa" di energia interna.\\
+Cosa succede se invece il lavoro non è adiabatico (uso pareti che non isolano termicamente il sistema)? Confrontiamo quindi una compressione adiabatica (da i ad f) con una compressione isoterma (da i a 1) concatenata ad un aumento di temperatura a volume costante (da 1 a f). Si noti che in quest'ultima trasformazione, visto che il volume non cambia, non abbiamo nessuno spostamento generalizzato dunque il lavoro sarà nullo. 
+\begin{align*}
+&L^{(ad)} = \int_{i}^{f} p dV = -dU\\
+&L^{(na)} = \int_{i}^{1}pdV+0
+\end{align*}
+risulta chiaro che l'integrale da i ad 1 è minore di quello da i ad f dunque si ha
+\begin{align*}
+	L^{(na)}<L^{(ad)}
+\end{align*}
+Possiamo quindi definire una nuova grandezza fondamentale in termodinamica: il \textbf{calore}.
+\begin{definition}[Calore]
+	Definiamo calore la differenza tra il Lavoro compiuto in un percorso e il lavoro adiabatico che sarebbe compiuto nel percorso corrispondente. Essendo il lavoro adiabatico conservativo possiamo dare una definizione equivalente scrivendo
+	\begin{align*}
+		Q = \Delta U + L
+	\end{align*}
+\end{definition}
+Quest'ultima formula è la formalizzazione del primo principio della termodinamica
+\begin{definition}[Primo principio della termodinamica]
+	Durante una qualsiasi trasformazione termodinamica la variazione di energia interna $\Delta U$ è uguale alla differenza tra il calore Q e il lavoro L scambiati con l'ambiente. 
+\end{definition}
+Svolgiamo alcune considerazioni su quanto visto.
+\begin{itemize}
+\item Fisicamente il calore può essere visto come l'energia scambiata fra due sistemi in forma diversa dal lavoro. Cioè, la variazione di energia interna di un sistema è data dallo scambio di energia per lavoro (il pistone che si muove ad esempio)  e per scambio di calore.
+\item Possiamo ora meglio comprendere il ruolo delle pareti adiabatiche nelle trasformazioni: esse semplicemente non permettono che avvengano scambi di calore con l'ambiente.
+\item Introdurre il concetto di calore non fa altro che dare un nome a tutte le energie che in meccanica erano "dissipate", ora sappiamo che queste non vengono perse ma trasformate in calore, che per ora è semplicemente un nome sotto cui cadono tutte le energie dissipate nelle trasformazioni. Ad esempio, l'energia meccanica "dissipata" da una forza d'attrito in realtà viene trasformata in calore. Ciò offre una estensione del principio di conservazione dell'energia meccanica ad un principio che ora diventa una legge di natura: il principio di conservazione dell'energia (L'energia non si crea e non si distrugge ma si trasforma). Per questo motivo la relazione espressa dal primo principio è universale, valida per qualsiasi tipo di trasformazione. 
+\item I differenziali $\delta Q$ e $\delta L$ non sono esatti ma $\delta(Q-L)$ lo è perché uguale a $dU$.
+\item In realtà la forma più generale del primo principio dovrebbe tener conto di tutte le energie agenti sul sistema che potrebbe ad esempio essere soggetto a campo gravitazionale. La forma più generale è dunque
+\begin{align*}
+	Q-L = \delta U + \sum_i \Delta E_i
+\end{align*}
+In seguito considereremo sempre sistemi in cui è presente solamente l'energia interna dove quindi il centro di massa è in quiete e quindi l'energia interna coincide con quella interna. 
+\item Nonostante il calore nel sistema internazionale si misuri in Joule (essendo omogeneo all'energia e al lavoro) per motivi storici è tutt'oggi in uso un'altra unità di misura, la caloria definita come la quantità di calore necessaria ad aumentare di un grado la temperatura di un grammo d'acqua da 14.5 C a 15.5 C a pressione atmosferica. 
+\begin{align*}
+	1\ cal = 4.186\ J
+\end{align*}
+\item Il primo principio sancisce l'impossibilità di realizzare il moto perpetuo di prima specie ovvero quello in cui mediante un moto periodico si produce lavoro utile all'infinito senza immettere energia nel sistema. Una macchina periodica (come il motore di una macchina) deve necessariamente compiere un ciclo termodinamico in cui $\Delta U = 0$ poiché U è una funzione di stato che (dipende solo da stato iniziale e finale che sono gli stessi in questo caso). Ne segue per il primo principio che $L = Q$ ovvero che il lavoro prodotto è uguale all'energia immessa nella macchina sotto forma di calore. Il lavoro non può venire dal nulla proprio per il principio di conservazione dell'energia, strettamente legato al primo principio. Con il secondo principio scopriremo che non è neanche possibile trasformare tutto il calore immesso in lavoro utile. 
+\end{itemize} 
+
+\section*{Appendice} 
+\subsection{Determinismo assoluto e libero arbitrio}
+La possibilità teorica di conoscere l'evoluzione (passata e futura) di un sistema fisico, diede vita al cosiddetto \textbf{determinismo assoluto} di Pierre Simon Laplace (1749 - 1827) secondo cui se si conoscesse lo stato di ogni particella nell'universo (per intenderci si stima ci siano $10^{80}$ protoni nell'universo osservabile) allora sarebbe possibile conoscere alla perfezione presente passato e futuro. Questa idea portata all'estremo sostiene che, se il cervello fosse mosso unicamente da reazioni chimiche (he altro non sono che cambiamenti nello stato del sistema cervello), se si conoscesse lo stato di ogni particella del cervello allora si potrebbe prevedere alla perfezione il comportamento di un essere umano. Da ciò sorgono svariati dilemmi filosofici, uno per tutti il problema del libero arbitrio: se ogni movimento, parola ed espressione umana fosse teoricamente prevedibile matematicamente allora la libertà che sembra scontata nell'agire umano sarebbe solamente apparente?\\
+In realtà è possibile smontare la tesi del determinismo assoluto alla luce delle nuove scoperte della fisica del XX secolo, principalmente grazie alla teoria del caos e al probabilismo (opposto al determinismo) della fisica quantistica, a causa del principio di indeterminazione di Heisenberg. Un sistema formato da un tale numero di particelle come l'universo (ma anche un cervello umano) è detto "caotico" che, in soldoni, vuol dire che dipende altamente dallo stato iniziale del sistema. Ora, sappiamo che ogni misura è sempre affetta da errore, dunque ogni minima incertezza sullo stato iniziale del sistema inficerebbe irrimediabilmente sulla "previsione del passato e del futuro" laplaciana. Ma allora è solamente questione di migliorare gli strumenti tecnologici per ridurre l'errore? No!, e qui entra in ballo la fisica quantistica: se riducessimo l'errore sull'ipotetica misura dello stato di ogni singola particella dell'universo si arriverebbe ad un punto in cui entreremmo nel mondo quantistico (infinitamente piccolo) in cui sappiamo che, per il principio di indeterminazione, aumentare la precisione sulla posizione diminuisce la precisione sulla quantità di moto. Non c'è scampo, il positivismo ottocentesco è destinato al fallimento. 
+\subsection{Integrale di Laplace}\label{subsec:laplaceint}
+\end{document}
