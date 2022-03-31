@@ -36,14 +36,14 @@
 		\begin{align*}
 			\text{Micro-stato del sistema } = \{ \vec{x}_i,\ \vec{p}_i\}
 		\end{align*}
-		Esiste inoltre il macro-stato di un sistema, ovvero la coppia di due coordinate specifiche (macroscopiche) del sistema dette \textbf{coordinate termodinamiche}. Un classico esempio è il recipiente cilindrico pieno di gas e messo a pressione da un pistone, questo macro sistema fisico ha come coordinate macroscopiche specifiche pressione e volume dunque il suo stato sarà dato da $\{P,\ V\}$. Fra le coordinate macroscopiche distinguiamo tra \textbf{intensive} ed \textbf{estensive}, le seconde variano con le dimensioni del sistema mentre le seconde no. Esiste una relazione interessante fra questi due tipi di coordinate: ognuna di un tipo ha un suo coniugato (\textbf{variabili coniugate}) nell'altro tipo, ad esempio 
+		Esiste inoltre il macro-stato di un sistema, ovvero la coppia di due coordinate specifiche (macroscopiche) del sistema dette \textbf{coordinate termodinamiche}. Un classico esempio è il recipiente cilindrico pieno di gas e messo a pressione da un pistone, questo macro sistema fisico ha come coordinate macroscopiche specifiche pressione e volume dunque il suo stato sarà dato da $\{P,\ V\}$. Fra le coordinate macroscopiche distinguiamo tra \textbf{intensive} ed \textbf{estensive}, le seconde variano con le dimensioni del sistema mentre le prime no. Esiste una relazione interessante fra questi due tipi di coordinate: ognuna di un tipo ha un suo coniugato (\textbf{variabili coniugate}) nell'altro tipo, ad esempio 
 		\begin{align*}
 			&(V,\ l ,\ S,\ R,\ H)\\
 			&\quad \quad \quad \downarrow\\
 			&(P,\ T,\ \tau,\ \epsilon,\ M)
 		\end{align*}
 		Questa caratteristica risulterà utile in seguito.\\
-		Un insieme di coordinate macroscopiche può essere indipendente o indipendente, nel primo caso le coordinate possono assumere qualsiasi valore indipendentemente dalle altre mentre nel secondo esiste una funzione, che ha come parametri alcune delle coordinate, da cui dipende una delle coordinate restanti (il suo valore non sarà dunque libero). 
+		Un insieme di coordinate macroscopiche può essere indipendente o dipendente, nel primo caso le coordinate possono assumere qualsiasi valore indipendentemente dalle altre mentre nel secondo esiste una funzione, che ha come parametri alcune delle coordinate, da cui dipende una delle coordinate restanti (il suo valore non sarà dunque libero). 
 		\begin{definition}[Stato termodinamico]
 			Si dice stato termodinamico (macroscopico) di un sistema i valori che assumono un'insieme di coordinate termodinamiche indipendenti di un sistema in un dato istante. Differisce dallo stato meccanico (microscopico) di un sistema definito dai valori dalle coordinate di posizione e quantità di moto di un sistema in un dato istante. 
 		\end{definition}
@@ -94,7 +94,7 @@ Cominciamo con il definire l'\textbf{equilibrio termodinamico}: due o più siste
 	\item Termico: i sistemi hanno la stessa temperatura
 \end{itemize}	
 Si noti che la temperatura di cui si parla al terzo punto è per noi ancora una grandezza da definire, sappiamo solo che se due sistemi hanno la proprietà di essere all'equilibrio termico, questa grandezza è la stessa per entrambe i sistemi. La termodinamica che studieremo in questa sede si occupa di sistemi all'equilibrio, la trattazione delle fasi di transizione è ben più complessa.\\
-Definiamo ora il \textbf{contatto adiabatico} e quello \textbf{termico}: siano due sistemi A e B, di coordinate macroscopiche rispettivamente (x, y) ed (x', y'). Questi sono sono detti in contatto adiabatico se separati da una parete adiabatica, tale che le coordinate non cambino nel tempo; in contatto termico se le coordinate cambiano fino a quando non soddisfano una funzione f(x, y, x', y') = 0. Sia C un terzo sistema fisico di coordinate (x'', y''), disponiamo i sistemi A, B e c in modo che C sia in contatto termico con A e con B ma A sia in contatto adiabatico con B. Ci chiediamo se, in una situazione del genere, dopo un adeguato intervallo di tempo, i due sistemi A e B siano in equilibrio termodinamico fra loro. Questo equivale a chiedersi se vale la proprietà transitiva per l'equilibrio termodinamico. Ciò non è verificabile teoricamente mediante formule e perciò costituisce un principio fondamentale della termodinamica: il \textbf{principio zero}. La risposta è affermativa.
+Definiamo ora il \textbf{contatto adiabatico} e quello \textbf{termico}: siano due sistemi A e B, di coordinate macroscopiche rispettivamente (x, y) ed (x', y'). Questi sono sono detti in contatto adiabatico se separati da una parete adiabatica, tale che le coordinate non cambino nel tempo; in contatto termico se le coordinate cambiano fino a quando non soddisfano una funzione f(x, y, x', y') = 0. Sia C un terzo sistema fisico di coordinate (x'', y''), disponiamo i sistemi A, B e C in modo che C sia in contatto termico con A e con B ma A sia in contatto adiabatico con B. Ci chiediamo se, in una situazione del genere, dopo un adeguato intervallo di tempo, i due sistemi A e B siano in equilibrio termodinamico fra loro. Questo equivale a chiedersi se vale la proprietà transitiva per l'equilibrio termodinamico. Ciò non è verificabile teoricamente mediante formule e perciò costituisce un principio fondamentale della termodinamica: il \textbf{principio zero}. La risposta è affermativa.
 \begin{definition}[Principio zero]
 Se un corpo A è in equilibrio termico con un corpo C e anche un altro corpo B è in equilibrio termico con C, allora A e B sono in equilibrio termico tra loro.
 \end{definition}
@@ -109,30 +109,30 @@ Sappiamo che le variabili indipendenti sono solamente due, possiamo dunque espir
 \begin{align}\label{eq:temp1}
 &\begin{cases}
 	y'' = g_{AC}(x, y, x'')\\
-	y'' = g_{BC}(x, y, x'')
+	y'' = g_{BC}(x', y', x'')
 \end{cases}\\\nonumber
-&\Rightarrow g_{AC}(x, y, x'')=  g_{BC}(x, y, x'')
+&\Rightarrow g_{AC}(x, y, x'')=  g_{BC}(x', y', x'')
 \end{align}
 Esprimiamo ora il prpincipio zero in forma matematica
 \begin{align}\label{eq:temp2}
 &\text{A è all'equilibrio termico con B}\\ \nonumber
-&f(x,y, x', y') = 0
+&f_{AB}(x,y, x', y') = 0
 \end{align}
-Sappiamo che (\ref{eq:temp1}) e (\ref{eq:temp2}) esprimono lo stesso concetto fisico, deve dunque essere possibile eguagliare, per farlo dovremo eliminare il termine in x'' nella (\ref{eq:temp1}) che deve dunque essere fattorizzabile (solo così potremmo eliminarlo e dobbiamo poterlo eliminare).
+Sappiamo che (\ref{eq:temp1}) e (\ref{eq:temp2}) esprimono lo stesso concetto fisico, deve dunque essere possibile eguagliarle, per farlo dovremo eliminare il termine in x'' della (\ref{eq:temp1}) (che non compare nella (\ref{eq:temp2})). Vista la necessità di poterle eguagliare, la variabile x''  deve essere fattorizzabile (solo così potremmo eliminarlo e dobbiamo poterlo eliminare).
 \begin{align*}
 	&g_{AC}(x, y, x'')=h_A(x, y) \Psi(x'') \\
 	&g_{BC}(x, y, x'')=h_B(x', y') \Psi(y'')\\
 	&h_A(x, y) \Psi(x'')=h_B(x', y') \Psi(y'')\\
 	&\Rightarrow h_A(x, y) = h_B(x', y')
 \end{align*}
-Quest'ultima equazione deve verificarsi all'equilibrio termico, ciò equivale a dire che devono avere una grandezza comune. La funzione h è chiamata \textbf{isoterma} mentre il valore di h è detto \textbf{temperatura} (che è la grandezza che condividono due sistemi all'equilibrio termico). Possiamo effettuare il plot di tutte le coppie (x, y) che, inserite nell'equazione isoterma $h_A$ risultano nello stesso valore di t, questo sarà il grafico dell'isoterma. l'isoterma del sistema A e del sistema B, se questi sono all'equilibrio termico, saranno dette \textbf{corrispondenti}. 
+Quest'ultima equazione deve verificarsi all'equilibrio termico, ciò equivale a dire che devono avere una grandezza comune. La funzione h è chiamata \textbf{isoterma} mentre il valore di h è detto \textbf{temperatura} (che è la grandezza che condividono due sistemi all'equilibrio termico). Possiamo effettuare il plot di tutte le coppie (x, y) che, inserite nell'equazione isoterma $h_A$ risultano nello stesso valore( di temperatura), questo sarà il grafico dell'isoterma. Le isoterme del sistema A e del sistema B, se questi sono all'equilibrio termico, saranno dette \textbf{corrispondenti}. 
 \subsection{Termometria}
 Ciò che abbiamo fatto fin'ora, è detto termoscopia, ovvero giudicare se due sistemi hanno la stessa temperatura, senza meglio specificare il valore di quest'ultima. Ora invece introduciamo la termometria, cioè la valutazione del valore della temperatura mediante una \textbf{scala termometrica}. \\
-Lo scopo che ci proponiamo è di trovare un modo per misurare la temperatura. Sappiamo che per diversi valori di t avremo diverse curve isoterme (infinite, una per ogni valore di temperatura, che è un numero reale), vogliamo trovare una funzione che intersechi tutte le isoterme. Esistono infinite funzioni che soddisfano questa condizione, scegliamo quella più semplice, ovvero quella lineare, con un unica variabile x, assumendo che la y rimanga costante e non influisca sulla x.
-\begin{align*}
-	\theta (x) = a x + b \quad \text{Funzione temperatura}
-\end{align*} 
-Per ottenere una scala con la quale misurare la temperatura bisogna determinare i valori dei parametri a e b, essendo due incognite necessiteremo di due sistemi. 
+Lo scopo che ci proponiamo è di trovare un modo per misurare la temperatura. Sappiamo che per diversi valori di temperatura avremo diverse curve isoterme (infinite, una per ogni valore di temperatura, che è un numero reale), vogliamo trovare una funzione che intersechi tutte le isoterme. Esistono infinite funzioni che soddisfano questa condizione; scegliamo quella più semplice, ovvero quella lineare, con un unica variabile x, assumendo che la y sia la variabile dipendente ed x indipendente (al variare di x la retta interseca diverse isoterme e dunque fornisce diverse temperature).
+\begin{align}\label{eq:funztemperatura}
+	\theta (x) = a x + b \quad \text{Funzionetemperaturagenerale}
+\end{align} 
+Per ottenere una scala con la quale misurare la temperatura bisogna determinare i valori dei parametri a e b, essendo due incognite necessiteremo di un sistema a due incognite. 
 \begin{align*}
 &\begin{cases}
 	&\theta_1 = a x_1 = a x_1 + b\\
@@ -140,17 +140,17 @@ Per ottenere una scala con la quale misurare la temperatura bisogna determinare 
 \end{cases}\\
 &\Rightarrow a = \frac{\theta_1 - \theta_2}{x_1 - x_2}\ ; \quad b = \frac{\theta_2 x_1 - \theta_1 x_2}{x_1 - x_2 }
 \end{align*}
-Si noti che $\theta_1$ e $\theta_2$ sono valori arbitrari. nella scala celsius o centigrada, molto diffusa anche nel quotidiano, questi valori sono scelti rispettivamente all'ebollizione e al congelamento dell'acqua a pressione ambientale. Per convenzione diciamo che $\theta_1 = 100$ e $\theta_2 = 0$. Per calibrare un termometro reale, ad esempio quello al mercurio, basato sulla coordinata di volume (il mercurio si espande all'aumentare della temperatura), sostituiamo $x_1 \equiv V$. 
+Si noti che $\theta_1$ e $\theta_2$ sono valori arbitrari; nella scala celsius o centigrada, molto diffusa anche nel quotidiano, questi valori sono scelti rispettivamente all'ebollizione e al congelamento dell'acqua a pressione ambientale. Per convenzione (è arbitrario, ed è questo che caratterizza le diverse scale termometriche) diciamo che $\theta_1 = 100$ e $\theta_2 = 0$ sono rispettivamente la temperatura dell'acqua che bolle e dell'acqua che congela. Per calibrare un termometro reale, ad esempio quello al mercurio, basato sulla coordinata termodinamica di volume (il mercurio si espande all'aumentare della temperatura), sostituiamo $x \equiv V$ (dunque $X_1=$ volume dell'acqua a 100 gradi ed analogamente per $x_2$) e sostituiamo i valori ottenuti di a e b nella funzione (\ref{eq:funztemperatura}).
 \begin{align*}
-	\theta(V) = \frac{V- V_0}{V_{100}-V_0}
+	\theta(V) = 100 \cdot \frac{V- V_0}{V_{100}-V_0}
 \end{align*}
 Chiaramente al posto del volume potremmo usare qualsiasi altra variabile a patto che vari al variare della temperatura, il procedimento sarebbe lo stesso. Essendo la funzione lineare, possiamo creare una scala in cui l'intervallo fra una tacca e l'altra rimane sempre uguale.\\
-La scala centigrada è stata sostituita poiché, quando si adotta la funzione lineare ad una variabile si presuppone che la y (pressione) resti costante e non influisca sulle misure, ciò in realtà non è del tutto vero e c'è il rischio che in misure di precisione ciò introduca un errore sistematico. Bisognava allora trovare un fenomeno (da sostituire ad ebollizione e congelamento) che avvenisse ad una pressione ben precisa in modo da eliminare il problema (il punto d'ebollizione varia sensibilmente a seconda della pressione). Il fenomeno scelto è il \textbf{punto triplo dell'acqua}, in cui questa raggiunge contemporaneamente stato solido liquido e gassoso, ciò avviene alla pressione esatta di $610,6165 Pa$. Volgiamo inoltre scegliere una funzione che abbia solamente il termine in a (b = 0), a differenza della scala celsius. Per determinare la a basterà una sola equazione che sarà calcolata al punto triplo dell'acqua, analogamente a prima ci avvaliamo dell'esempio del volume
-\begin{align*}
+La scala centigrada è stata sostituita poiché, quando si adotta la funzione lineare ad una variabile si presuppone che la y (pressione) resti costante e non influisca sulle misure, ciò in realtà non è del tutto vero e c'è il rischio che in misure di precisione ciò introduca un errore sistematico. Bisognava allora trovare un fenomeno (da sostituire ad ebollizione e congelamento dell'acqua) che avvenisse ad una pressione ben precisa in modo da eliminare il problema (il punto d'ebollizione varia sensibilmente a seconda della pressione). Il fenomeno scelto è il \textbf{punto triplo dell'acqua}, in cui questa raggiunge contemporaneamente stato solido liquido e gassoso, ciò avviene alla pressione esatta di $610.6165\ Pa$ e ad una temperatura esatta di $0.01\ C$. Volgiamo inoltre scegliere una funzione che abbia solamente il termine in a (poniamo b = 0), a differenza della scala celsius. Per determinare la a basterà una sola equazione che sarà calcolata al punto triplo dell'acqua, analogamente a prima ci avvaliamo dell'esempio del volume.
+\begin{align}\label{eq:Funzionetemperaturakelvin}
 	\theta_3 = a V_3 \Rightarrow a = \frac{\theta_3}{V_3} \Rightarrow \theta(V) = \frac{\theta_3}{V_3} V 
-\end{align*}
-$\theta_3$ è stato scelto (in modo arbitrario) a 273,16 gradi della nuova scala Kelvin in modo che il coefficiente angolare della retta dei gradi centigradi e quella dei kelvin sia la stessa, così la conversione fra i due risulta estremamente semplice: basta aggiungere o sottrarre 273,16.\\
-Si presenta infine un problema, al variare del materiale scelto per misurare il volume al variare della temperatura, non è detto che la relazione rimanga lineare (cosa che non succede infatti). Ne segue che la temperatura, che dovrebbe essere una proprietà generale, varia a seconda del materiale con cui è definita: bisogna scegliere un materiale "privilegiato" per definirla ma quale? Quello adottato, e da cui è stato ricavato il valore di 273,16 in realtà è una pura astrazione e non esiste nella realtà, stiamo parlando del \textbf{gas perfetto}, di cui approfondiremo in seguito.
+\end{align}
+$\theta_3$ è stato scelto (in modo arbitrario) a 273,16 gradi della nuova scala Kelvin in modo che il coefficiente angolare della retta dei gradi centigradi e quella dei kelvin sia lo stesso, per fare che questo si verifichi bisogna porre $\theta_3\equiv 276.16$. Ora, visto che il punto triplo dell'acqua risulta essere, sperimentalmente, a 0.01 \textdegree C, la conversione da gradi kelvin a gradi centigradi risulta immediata: basterà sottrarre 273.15.\\
+Si presenta infine un problema, al variare del materiale scelto per misurare il volume al variare della temperatura, non è detto che la relazione rimanga lineare (cosa che non succede infatti). Ne segue che la temperatura, che dovrebbe essere una proprietà generale, varia a seconda del materiale con cui è definita: bisogna scegliere un materiale "privilegiato" per definirla ma quale? Quello adottato, e da cui è stato ricavato il valore di 273,16 in realtà è una pura astrazione e non esiste nella realtà, stiamo parlando del \textbf{gas perfetto}, di cui approfondiremo in seguito (sezione \ref{sec:termometroagasperfetto}).
 \section{Breve digressione matematica}
 Vogliamo studiare la variazione di volume generata dalla variazione infinitesima di pressione e temperatura. Sappiamo che il sistema fisico considerato ha tre coordinate di cui due indipendenti, inoltre esiste una funzione del tipo
 \begin{align*}
@@ -236,8 +236,8 @@ Ad una temperatura e volume iniziali, un gas avrà un punto medio stabile attorn
 \begin{definition}
 	Si dice trasformazione termodinamica un processo che connette stati termodinamici all'equilibrio
 \end{definition}
-\section{Il termometro a gas perfetto}
-In fisica una grandezza deve poter essere misurata in modo univoco e preciso, è dunque necessario creare uno strumento per la misura della temperatura, il termometro, in modo ottimale. Abbiamo già osservato che diversi materiali hanno diverse espansioni a parità di variazione di temperatura, questo costituisce un problema per la misura; vediamo come ovviarlo.\\
+\section{Il termometro a gas perfetto}\label{sec:termometroagasperfetto}
+In fisica una grandezza deve poter essere misurata in modo univoco e preciso, è dunque necessario creare uno strumento per la misura della temperatura, il termometro, in modo ottimale. Abbiamo già osservato che diversi materiali hanno diverse espansioni a parità di variazione di temperatura (infatti ogni materiale ha uno specifico coefficiente d'espansione isoterma), questo costituisce un problema per la misura; vediamo come ovviarlo.\\
 Cominciamo a costruire un termometro che adotti un qualsiasi tipo di gas, ad esempio n moli di $O_2$, e che effettui la misura di temperatura sfruttando la pressione come variabile termometrica.
 \begin{figure}[h!]
 	\centering
@@ -253,11 +253,11 @@ Come vediamo in figura, lo strumento è costituito da un bulbo pieno di gas da c
 Quest'ultima è la \textbf{legge di Stevino}, che viene meglio spiegata nella (\ref{eq:stevin}).\\
 Vogliamo ora misurare, ad esempio, la temperatura dell'acqua in ebollizione, volendo adottare la pressione come variabile termometrica bisogna mantenere il volume costante (trasformazione isocora) e misurare la variazione di pressione in ragione della temperatura. Seguiamo i seguenti step:
 \begin{enumerate}
-	\item Taratura: si immerge il termometro in una cella a punto triplo e si misura la pressione $p_3$.
-	\item Successivamente si mette a contatto il termometro col corpo da misurare (in questo caso si immerge il bulbo in acqua bollente), e si misura la nuova pressione p. Attenzione: in questa operazione, il volume del gas deve ovviamente rimanere costante, e a tale scopo agiamo sul manometro indicato in figura: esso sfrutta le proprietà dei vasi comunicanti per far tornare il volume del gas a quello iniziale (a $p_3$).
-	\item Si calcola la temperatura del gas usando la relazione: $\theta = \frac{p}{p_3} \cdot 273.16 K$ (in questo caso 373,15).
+	\item Taratura: si immerge il termometro in una cella a punto triplo e si misura la pressione $p_3$, ovvero la pressione del gas portato alla temperatura del punto triplo dell'acqua. 
+	\item Successivamente si mette a contatto il termometro col corpo da misurare (in questo caso si immerge il bulbo in acqua bollente), e si misura la nuova pressione p analogamente a quanto fatto per la pressione $p_3$. Attenzione: in questa operazione, il volume del gas deve ovviamente rimanere costante, e a tale scopo agiamo sul manometro indicato in figura: esso sfrutta le proprietà dei vasi comunicanti per far tornare il volume del gas a quello iniziale (a $p_3$).
+	\item Si calcola la temperatura del gas usando la relazione (\ref{eq:Funzionetemperaturakelvin}) con p al posto di V: $\theta = \frac{p}{p_3} \cdot 273.16 K$ (in questo caso $\theta(p) = 373.15$).
 \end{enumerate}
-Possiamo ripetere queste procedure diminuendo progressivamente le moli di gas nel bulbo, per ogni iterazione si registrano i nuovi valori p’, p’3 (che sono una funzione del numero di moli di gas presenti nel bulbo). Ne risulta che i valori di temperatura $\theta$ sono tutti diversi fra loro, e si dispongono su una retta. Se poi ripetiamo la stessa procedura per diversi materiali, otterremo tante rette differenti, come riportato nel seguente grafico
+Possiamo ripetere queste procedure diminuendo progressivamente le moli di gas nel bulbo, per ogni iterazione si registrano i nuovi valori $p’$, $p_3’$ che sono una funzione del numero di moli di gas presenti nel bulbo. Ne risulta che i valori di temperatura $\theta$ sono tutti diversi fra loro e decrescenti al diminuire delle moli, si dispongono su una retta. Se poi ripetiamo la stessa procedura per diversi materiali, otterremo tante rette differenti, come riportato nel seguente grafico
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{../images/temp_e_puntotriplo}
@@ -265,9 +265,16 @@ Possiamo ripetere queste procedure diminuendo progressivamente le moli di gas ne
 	\label{fig:tempepuntotriplo}
 \end{figure}
 \FloatBarrier
-Alcune domande sorgono spontanee: perché diminuendo le moli di gas nel bulbo diminuisce anche la misura di temperatura (che ci aspettiamo essere 100\textdegree C = 373.15 \textdegree K e invece risulta sempre maggiore negli esperimenti)? Perché tutti i gas, basandosi sulla retta di regressione lineare (nel grafico), nonostante abbiano espansioni diverse, per $lim_{n \to 0}$ misurano tutti la stessa temperatura (che è proprio quella che ci aspettavamo, 100\textdegree C)? Perché elio e idrogeno hanno pendenza negativa mentre tutti gli altri gas positiva?\\
-1) La rimozione di moli di gas a parità di volume (il bulbo) produce una diminuzione di pressione a livello macroscopico, che microscopicamente si rispecchia in un distanziamento fra le particelle di gas. Riferendosi al modello di Lennard-Jones, ciò si traduce in un aumento di r, e quindi ad una diminuzione del potenziale di interazione fra le particelle. Se le particelle interagiscono meno fra loro, risulterà anche più facile metterle in movimento e quindi aumentarne la temperatura. 2) Se le particelle di un gas sono estremamente lontane fra loro ($n \to 0$) non esercitano nessuna interazione reciproca, in questa situazione i gas non presentano differenze fra loro, la temperatura dipenderà unicamente dal movimento delle particelle di gas (energia cinetica media del gas). Se un gas è sufficientemente rarefatto e il volume delle sincole particelle è abbastanza piccolo, saremo nelle condizioni di un \textbf{gas perfetto}. Questa è chiaramente una astrazione matematica poiché è impossibile ridurre esattamente a zero le interazioni ma esistono casi, ad esempio quello dell'aria nell'atmosfera, che approssimano molto bene queste condizioni. Per ogni elemento nelle condizioni di gas perfetto l'acqua in ebollizione ha la stessa temperatura: 373.15 \textdegree K. 3) la pendenza di idrogeno ed elio è negativa perché sono elementi con un basso numero atomico (1 e 2 rispettivamente) e le interazioni sono estremamente deboli. Ciò si traduce in una curva del potenziale di Lennard-Jones estremamente piccata ($U(r)$ tende velocemente a zero dal basso), avviene dunque che, allontanando le particelle (rarefacendo il gas) si passa da una interazione repulsiva ad una neutra (invece che da una attrattiva ad una neutra come negli altri gas).\\
-Esiste una tabella di punti fissi (come il punto triplo dell'acqua) utile per la taratura di termometri utili a misurazioni in qualsiasi range di temperatura:
+Alcune domande sorgono spontanee:
+\begin{itemize}
+ \item Perché elio e idrogeno hanno pendenza negativa mentre tutti gli altri gas positiva?\\
+ 
+ \item Perché tutti i gas, basandosi sulla retta di regressione lineare (nel grafico), nonostante abbiano espansioni diverse, per $\lim_{n \to 0}$ misurano tutti la stessa temperatura (che è proprio quella che ci aspettavamo, 100\textdegree C)? \\
+   Se le particelle di un gas sono estremamente lontane fra loro ($n \to 0$) non esercitano nessuna interazione reciproca, in questa situazione i gas non presentano differenze fra loro, la temperatura dipenderà unicamente dal movimento delle particelle di gas (energia cinetica media del gas), approfondiremo questo concetto nella sezione (\ref{sec:teoriacinetica}). Se un gas è sufficientemente rarefatto e il volume delle singole particelle è abbastanza piccolo, saremo nelle condizioni di un \textbf{gas perfetto}. Questa è chiaramente una astrazione matematica poiché è impossibile ridurre esattamente a zero le interazioni ma esistono casi, ad esempio quello dell'aria nell'atmosfera, che approssimano molto bene queste condizioni. Per ogni elemento nelle condizioni di gas perfetto l'acqua in ebollizione ha la stessa temperatura: 373.15 \textdegree K.
+  \item Perché diminuendo le moli di gas nel bulbo diminuisce anche la misura di temperatura (che ci aspettiamo essere 100\textdegree C = 373.15 \textdegree K e invece risulta sempre maggiore negli esperimenti)? 
+   Man mano che si diminuiscono le moli ci si avvicina sempre di più alla condizione di gas perfetto. In altre parole la misura di temperatura diventa sempre più una misura di energia cinetica e tiene conto sempre meno dell'energia intermolecolare (che invece aumenta all'aumentare delle moli, secondo il grafico di Lennard-Jones).
+\end{itemize}
+In conclusione, esiste una tabella di punti fissi (come il punto triplo dell'acqua) utile per la taratura di termometri utili a misurazioni in qualsiasi range di temperatura:
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{../images/Punti_fissi}
@@ -275,7 +282,12 @@ Esiste una tabella di punti fissi (come il punto triplo dell'acqua) utile per la
 	\label{fig:puntifissi}
 \end{figure}
 \FloatBarrier
-Per ora, la misura di temperatura è ancora strettamente legata alla variazione di volume dei gas, tuttavia sappiamo che a basse temperature i gas cambiano stato liquefacendosi. Il gas che ha temperatura di liquefazione minore è l'elio che cambia di stato intorno a 0.5 \textdegree K, più in basso di questa temperatura non è possibile sfruttare un termometro a gas per effettuare misure e, visto che in fisica una grandezza ha senso solo se è misurabile, per ora la temperatura è definita a partire dai 0.5 gradi Kelvin. Vedremo che sarà possibile effettuare misure di temperatura anche molto minori quando svincoleremo il concetto di temperatura dalla sostanza termometrica usata per la misura, in quel momento, effettueremo il passaggio dalla simbologia usata fin' ora, $\theta$ (misurata col termometro a gas perfetto), al conosciuto simbolo $T$ (temperatura termodinamica assoluta).
+Per ora, la misura di temperatura è ancora strettamente legata alla variazione di volume dei gas, tuttavia sappiamo che a basse temperature i gas cambiano stato liquefacendosi. Il gas che ha temperatura di liquefazione minore è l'elio che cambia di stato intorno a 0.5 \textdegree K, più in basso di questa temperatura non è possibile sfruttare un termometro a gas per effettuare misure e, visto che in fisica una grandezza ha senso solo se è misurabile, per ora la temperatura è definita a partire dai 0.5 gradi Kelvin. Vedremo che sarà possibile effettuare misure di temperatura anche molto minori quando svincoleremo il concetto di temperatura dalla sostanza termometrica usata per la misura, in quel momento, effettueremo il passaggio dalla simbologia usata fin' ora, $\theta$ (misurata col termometro a gas perfetto), al conosciuto simbolo $T$ (temperatura termodinamica assoluta).\\
+Possiamo dunque dare una prima definizione di temperatura
+\begin{definition}[Temperatura termometrica]
+	Si dice temperatura termometrica di un sistema fisico (indicata con $\theta$) la quantità misurata mediante un termometro a gas perfetto.
+\end{definition}
+
 \section{Gas Perfetti}
 Possiamo dare una definizione precisa del nuovo concetto appena visto di gas perfetto
 \begin{definition}
@@ -582,7 +594,7 @@ Inoltre, possiamo guardare la proiezione del grafico 3D sul piano PT per ottener
 \end{figure}
 \FloatBarrier
 Le curve (una per la solidificazione, una per la liquefazione e una per la sublimazione) sono l'insieme delle temperature di passaggio di stato possibili al variare della pressione. Ad esempio, vediamo come la temperatura di ebollizione aumenti all'aumentare della temperatura. Inoltre possiamo apprezzare il punto triplo: l'intersezione delle tre curve. Il processo di cambiare stato da liquido a gassoso a temperatura costante variando la pressione si chiama cavitazione. Per temperature superiori a quella critica lo stato è detto \textbf{supercritico}, con caratteristiche intermedie fra quelle di liquido e di gas. 
-\section{Teoria cinetica dei gas} 
+\section{Teoria cinetica dei gas} \label{sec:teoriacinetica}
 Vogliamo ora interpretare alcune grandezze fisiche macroscopiche introdotte precedentemente, (in particolare pressione e temperatura) dal punto di vista microscopico. Per far ciò, a partire dalla teoria della meccanica classica costruiremo il modello di una scatola piena di gas perfetto e la analizzeremo dal punto di vista microscopico. Se il modello e la teoria sono corretti, allora dovremo avere un riscontro empirico nella realtà, altrimenti dovremo modificare il modello (problema relativamente risolvibile) o, più drammaticamente, dovremo modificare la teoria. Cominciamo con il definire le caratteristiche del nostro modello. 
 \begin{enumerate}
 	\item Numero N di molecole nel cubo molto grande 
@@ -832,7 +844,9 @@ Per trovare le velocità delle singole molecole basterà misurare la distanza $\
 \begin{align*}
 	v = \frac{2\omega R^2}{\Delta l}
 \end{align*}
-Dalla distribuzione delle molecole nel cilindro è possibile ricavare la distribuzione delle velocità che è compatibile con una distribuzione Maxwelliana entro gli errori. 
+Dalla distribuzione delle molecole nel cilindro è possibile ricavare la distribuzione delle velocità che è compatibile con una distribuzione Maxwelliana entro gli errori.
+\subsection{Ricavare la distribuzione delle energie da quella delle velocità}
+
 \subsection{Evaporazione ed atmosfera dei pianeti}
 Alcuni pianeti posseggono un'atmosfera più o meno grande, che riesce a trattenere diversi tipi di gas a seconda delle caratteristiche del pianeta. Una modello estremamente semplificato che descrive l'atmosfera di un pianeta è basato sulla distribuzione delle velocità delle molecole di un gas. L'atmosfera infatti trattiene il gas grazie alla forza di gravità del pianeta, essa però deve trattenere molecole che hanno una certa velocità, in particolare riuscirà a trattenere molecole che hanno velocità minore della velocità di fuga del pianeta. La velocità delle molecole dipende dalla temperatura dell'atmosfera mentre quella di fuga dalla massa e dal raggio del pianeta. Ne segue che la probabilità e il numero atteso di molecole che escano dall'atmosfera è
 \begin{align*}
