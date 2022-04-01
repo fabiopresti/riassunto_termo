@@ -786,10 +786,10 @@ A partire dalla congiunta possiamo ricavare la p.d.f. del modulo del vettore vel
 	\label{fig:guscio}
 \end{figure}
 \FloatBarrier
-\begin{align*}
-	&\rho(v) dv = f(v_x, v_y, v_z) 4\pi v^2 dv\\
+\begin{align}\label{eq:pdfMaxwellvelocità}
+	&\rho(v) dv = f(v_x, v_y, v_z) 4\pi v^2 dv \nonumber \\
 	&\rho(v)=\frac{4}{\sqrt{\pi}}\left(\frac{m}{2k_b\theta}\right)^{\frac{3}{2}} v^2 e^{-\frac{mv^2}{2 k_b \theta}}
-\end{align*}
+\end{align}
 Questa è detta di \textbf{p.d.f. di Maxwell-Boltzmann}. Offre una quantità di informazioni molto interessanti: possiamo calcolare il modulo velocità media ad ogni temperatura, conoscere il numero di molecole atteso che abbia una velocità compresa in un certo intervallo... \'{E} interessante che con questo grafico possiamo spiegare un semplice evento della vita quotidiana: perché i panni si asciugano una volta stesi? In teoria per far evaporare l'acqua bisognerebbe riscaldare l'acqua ad un punto tale che l'energia cinetica delle singole molecole è tale da rompere i legami intermolecolari e "scappare", se però non facciamo riscaldare i panni fino a 100 \textdegree C (temperatura di ebollizione dell'acqua) come fanno a scappare queste molecole? la risposta è che non tutte le molecole hanno la stessa velocità e che questa è distribuita in base ad una p.d.f.: esiste una soglia dopo la quale la velocità delle molecole è tale da poter rompere il legame, ed esiste una probabilità che si trovino molecole a questa velocità anche se in media le molecole hanno una velocità minore. Chiaramente, maggiore la temperatura maggiore sarà la probabilità di trovare molecole oltre questa soglia. Ecco perché al caldo i panni si asciugano più velocemente!
 \begin{figure}[h!]
 	\centering
@@ -846,7 +846,23 @@ Per trovare le velocità delle singole molecole basterà misurare la distanza $\
 \end{align*}
 Dalla distribuzione delle molecole nel cilindro è possibile ricavare la distribuzione delle velocità che è compatibile con una distribuzione Maxwelliana entro gli errori.
 \subsection{Ricavare la distribuzione delle energie da quella delle velocità}
-
+Per passare dalla p.d.f. delle velocità a quella delle energie, ci avvaliamo dell'uguaglianza
+\begin{align*}
+	\rho(\varepsilon)d\varepsilon = \rho(v)dv \Rightarrow \rho(\varepsilon) = \rho(v)\frac{dv}{d\varepsilon}
+\end{align*}
+dove le $\rho(x)$ indicano le rispettive p.d.f.\\
+Conoscendo la relazione
+\begin{align*}
+	\varepsilon = \frac{1}{2}m v ^2 \Rightarrow v = \sqrt{\frac{2 \varepsilon}{m}}
+\end{align*}
+Possiamo ricavare 
+\begin{align*}
+	\frac{dv}{d\varepsilon} = \sqrt{\frac{1}{2 m \varepsilon}}
+\end{align*}
+Da sostituire nell'espressione di $\rho(\varepsilon)$ insieme al noto $\rho(v)$ ricavato nella (\ref{eq:pdfMaxwellvelocità}).
+\begin{align*}
+	\rho(\varepsilon)&= \left(\sqrt{\frac{1}{2 m \varepsilon}}\right) \frac{4}{\sqrt{\pi}}\left(\frac{m}{2k_b\theta}\right)^{\frac{3}{2}} v^2 e^{-\frac{mv^2}{2 k_b \theta}}= 2 \sqrt{\frac{\varepsilon}{\pi}} \left(\frac{1}{k_b \theta}\right)^{\frac{3}{2}}
+\end{align*} 
 \subsection{Evaporazione ed atmosfera dei pianeti}
 Alcuni pianeti posseggono un'atmosfera più o meno grande, che riesce a trattenere diversi tipi di gas a seconda delle caratteristiche del pianeta. Una modello estremamente semplificato che descrive l'atmosfera di un pianeta è basato sulla distribuzione delle velocità delle molecole di un gas. L'atmosfera infatti trattiene il gas grazie alla forza di gravità del pianeta, essa però deve trattenere molecole che hanno una certa velocità, in particolare riuscirà a trattenere molecole che hanno velocità minore della velocità di fuga del pianeta. La velocità delle molecole dipende dalla temperatura dell'atmosfera mentre quella di fuga dalla massa e dal raggio del pianeta. Ne segue che la probabilità e il numero atteso di molecole che escano dall'atmosfera è
 \begin{align*}
