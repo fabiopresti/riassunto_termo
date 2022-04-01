@@ -907,7 +907,7 @@ Se si aumenta la temperatura l'evaporazione avverrà più velocemente perché la
 Si dice libero cammino medio (o mean free path) la distanza media percorsa da una molecola prima di urtarne un’altra. 
 \end{definition}
 Questa è da non confondere con la distanza media intermolecolare, già calcolata, che è molto minore come vedremo poiché ora si tiene conto del movimento delle molecole.\\
-In questa sede ci limiteremo a calcolare il numero di urti che una molecola, che si muove di velocità $\overline{v}$, compie in un intervallo di tempo dt considerando le altre molecole ferme. In questo contesto è chiaro che non si sta approssimando la molecola a puntiforme ma si sta considerando il volume che occupa. Consideriamo un contenitore di volume $V_{tot}$ con all'interno N molecole di gas, concentriamoci ora su una singola molecola: il cilindro che descrive in un intervallo di tempo dt muovendosi di moto rettilineo uniforme (ogni moto in un intervallo di tempo infinitesimo è approssimabile a rettilineo uniforme) ha raggio di base pari al diametro della molecola e altezza uguale allo spazio percorso nel tempo dt: $\overline{v}dt$. Ipotizzando per semplicità che tutte le molecole nel gas abbiano lo stesso diametro, avremo che la collisione avviene solamente se il centro dell'altra molecola si trova all'interno del cilindro con diametro di base 2d e altezza uguale a quella del cilindro precedente.  
+In questa sede ci limiteremo a calcolare il numero di urti che una molecola, a velocità $\overline{v}$ in un intervallo $dt$, compie con le altre molecole considerate ferme. In questo contesto è chiaro che non si sta approssimando la molecola a puntiforme ma si sta considerando il volume che occupa. Consideriamo un contenitore di volume $V_{tot}$ con all'interno N molecole di gas, concentriamoci ora su una singola molecola: il cilindro che descrive in un intervallo di tempo dt muovendosi di moto rettilineo uniforme (ogni moto in un intervallo di tempo infinitesimo è approssimabile a rettilineo uniforme) ha raggio di base pari al diametro della molecola e altezza uguale allo spazio percorso nel tempo dt: $\overline{v}dt$. Ipotizzando per semplicità che tutte le molecole nel gas abbiano lo stesso diametro, avremo che la collisione avviene solamente se il centro dell'altra molecola si trova all'interno del cilindro con diametro di base 2d e altezza uguale a quella del cilindro precedente.  
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{../images/libero_cammino_medio}
@@ -1032,8 +1032,16 @@ Vediamo ora alcuni casi semplici in cui è possibile calcolare l'integrale
 	&L = \int_{v_i}^{v_f} p(v)dv =\int_{v_i}^{v_f} \frac{R\theta}{v-b}-\frac{a}{v^2} dv = R\theta\int_{v_i}^{v_f} \frac{dv}{v-b}  - a\int_{v_i}^{V_f}\frac{dv}{v^2} dv =\\
 	&R\theta \ln\left(\frac{v_f-b}{v_i-b}\right) + a\left(\frac{1}{v_f}-\frac{1}{v_i}\right)
 	\end{align*}
-	Si noti che questa espressione differisce da quella dei gas perfetti per il secondo termine, negativo, e per la sottrazione del covolume al primo termine. Il secondo termine riduce il lavoro compiuto, ciò è dovuto alle interazioni intermolecolari. Anche la sottrazione del covolume riduce il lavoro. Ne segue che il lavoro di espansione di un gas reale è sempre minore di quello di un gas perfetto.
-	\item Espansione libera: espansione non-quasistatica in cui il gas si espande liberamente contro una pressione esterna nulla (nel vuoto). Ricordando che il lavoro generalizzato è definito in base alla forza generalizzata esterna (in questo caso la pressione), questo sarà nullo poiché la pressione esterna è pari a zero. 
+	Si noti che questa espressione differisce da quella dei gas perfetti per il secondo termine, negativo, e per la sottrazione del covolume al primo termine. Il secondo termine riduce il lavoro compiuto, ciò è dovuto alle interazioni intermolecolari. Anche la sottrazione del covolume riduce il lavoro; del punto di vista fisico ce lo spieghiamo perché, essendo il lavoro direttamente proporzionale allo spostamento generalizzato (in questo caso il volume), se la molecola occupa uno spazio finito il volume restante dove espandersi è tanto minore quanto più volume occupano le molecole (la somma dei volumi occupati da tutte le molecole contenute in una mole è proprio il covolume b).
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{../images/lavorocovolume}
+	\caption{Considerando la regione in nero come la somma dei volumi occupati dalle singole molecole (a sinisttra il caso reale, a destra quello perfetto), risulta chiaro che il volume libero in cui può avvenire lo spostamento è tanto minore quanto è grande il covolume b.}
+	\label{fig:lavorocovolume}
+\end{figure}
+\FloatBarrier
+Ne segue che il lavoro di espansione di un gas reale è sempre minore di quello di un gas perfetto.
+\item Espansione libera: espansione non-quasistatica in cui il gas si espande liberamente contro una pressione esterna nulla (nel vuoto). Ricordando che il lavoro generalizzato è definito in base alla forza generalizzata esterna (in questo caso la pressione), questo sarà nullo poiché la pressione esterna è pari a zero. 
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=0.5\linewidth]{../images/espansione_libera}
@@ -1091,7 +1099,7 @@ Dal punto di vista geometrico, rappresentando l' espansione e la compressione su
 	\label{fig:ciclo}
 \end{figure}
 \FloatBarrier
-Il lavoro di un ciclo non è altro che la circuitazione che in generale abbiamo visto essere diversa da zero. Ne segue quindi che in generale un lavoro generalizzato non è conservativo e che un lavoro conservativo è un caso particolare in cui l'area è pari a zero, cioè la curva di andata e di ritorno sono identiche.
+Il lavoro di un ciclo non è altro che la circuitazione che in generale abbiamo visto essere diversa da zero. Ne segue quindi che in generale un lavoro generalizzato non è conservativo e che un lavoro conservativo è un caso particolare.
 %Tensione superficiale e bolla di sapone
 \section{Calore e primo principio}
 Cominciamo introducendo il lavoro adiabatico, ovvero il lavoro condotto tenendo un sistema all'interno di pareti adiabatiche, ovvero che isola termicamente il sistema dall'ambiente esterno. Procediamo illustrando un esperimento: effettueremo trasformazioni adiabatiche concatenate che porteranno da uno stato i ad uno stato f passando per percorsi diversi. Il sistema adottato è un fluido in un cilindro con un pistone.\\
