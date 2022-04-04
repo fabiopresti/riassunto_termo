@@ -1159,7 +1159,54 @@ In seguito considereremo sempre sistemi in cui è presente solamente l'energia i
 \end{align*}
 \item Il primo principio sancisce l'impossibilità di realizzare il moto perpetuo di prima specie ovvero quello in cui mediante un moto periodico si produce lavoro utile all'infinito senza immettere energia nel sistema. Una macchina periodica (come il motore di una macchina) deve necessariamente compiere un ciclo termodinamico in cui $\Delta U = 0$ poiché U è una funzione di stato che (dipende solo da stato iniziale e finale che sono gli stessi in questo caso). Ne segue per il primo principio che $L = Q$ ovvero che il lavoro prodotto è uguale all'energia immessa nella macchina sotto forma di calore. Il lavoro non può venire dal nulla proprio per il principio di conservazione dell'energia, strettamente legato al primo principio. Con il secondo principio scopriremo che non è neanche possibile trasformare tutto il calore immesso in lavoro utile. 
 \end{itemize} 
-
+\subsection{Esempio di applicazione del primo principio}
+Riprendiamo l'esempio del blocco e della rampa già visto precedentemente e reinterpretiamolo applicando il primo principio della termodinamica. Sappiamo che la scelta del sistema è arbitraria dunque confrontiamo le varie possibilità. Chiamiamo il sistema della rampa R e quello del blocco B.
+\begin{enumerate}
+\item $S \equiv B + R$\\
+In questo caso stiamo considerando la totalità del sistema, che è per ipotesi isolato dall'ambiente esterno, non ci sarà dunque scambio di calore (Q = 0). L'attrito è considerato interno al sistema, per questo il lavoro sarà fatto solo dal campo gravitazionale ($L = L_g$)
+\begin{equation}
+	L_g = -\Delta U_{tot} = U_i-U_f < 0
+\end{equation} 
+Il lavoro è negativo perchè è fatto dall'ambiente sul sistema (si veda la definizione di lavoro termodinamico)
+\item $S\equiv B$\\
+In questo caso l'attrito sarà esterno al sistema dunque il lavoro ha una componente dovuta alla gravità e una all'attrito. 
+\begin{align*}
+	L = L_g + L_a = - \Delta U_b + Q_b
+\end{align*}
+\item $S\equiv R$\\
+Essendo la rampa ferma rispetto al campo gravitazionale, il suo lavoro sarà nullo (L = 0).
+\begin{align*}
+	Q_r = \Delta U_r
+\end{align*} 
+\end{enumerate}
+Vogliamo trovare un'espressione della lavoro d'attrito, basterà sottrarre la somma di quanto ottenuto nel secondo e nel terzo caso con quanto ottenuto nel primo. Abbiamo ottenuto tre proprietà diverse relative allo stesso evento fisico e quindi valide contemporaneamente: mettiamo a sistema e risolviamo per $L_a$.
+\begin{align*}
+\begin{cases}
+		L_g =  -\delta U_{tot} \\
+		L_g + L_a = - \Delta U_b + Q_b\\
+		Q_r = \Delta U_r
+\end{cases}
+\end{align*}
+sappiamo inoltre che $\Delta U_{tot} = \Delta U_b + \Delta U_r$ dunque possiamo scrivere
+\begin{align*}
+	&-\Delta U_{tot} + L_a = - \Delta U_b + Q_b\\
+	&-\Delta U_b - \Delta U_r+L_a =  - \Delta U_b + Q_b\\
+	&- \Delta U_r+L_a =  Q_b\\
+	&\Rightarrow L_a =  Q_b + Q_r
+\end{align*}
+Quest'ultima relazione è di particolare interesse perché ci fornisce informazioni interessanti sul calore (che va a risolvere la "perdita" d'energia che operava l'attrito nell'ambito della meccanica). Il lavoro d'attrito totale è pari alla totalità del calore scambiato tra gli oggetti.\\
+Dal punto di vista microscopico possiamo immaginare un modello molto approssimativo ma efficace: immaginiamo la superficie di contatto scabra fra blocco e rampa con formata da lamelle che vanno a toccarsi quando c'è moto relativo fra i due. L'energia cinetica del corpo che si muove viene trasferita alle lamelle che si mettono ad oscillare, aumentando l'energia cinetica interna del corpo. come abbiamo già visto l'energia cinetica interna non è altro che la temperatura del corpo stesso, che quindi aumenterà. Il lavoro d'attrito non fa altro che trasformare energia cinetica in energia interna (aumenta la temperatura). 
+\section{Capacità termica, calore specifico e molare}
+Come visto, il principio zero ci ha portato ad introdurre la temperatura mentre il primo principio il calore (si noti come queste due grandezze scaturiscono formalmente da questi due principi), volgiamo ora studiare il legame fra queste. Possiamo vedere questa proprietà come \textbf{inerzia termica} (corrispettivo dell'inerzia in meccanica) cioè quella grandezza che si oppone alla variazione di temperatura (come la massa si oppone alla variazione di velocità).  \\
+In particolare, vogliamo una quantità che ci dica a parità di Joule di calore immessi, quanto varia la temperatura (o viceversa, a parità di variazione di temperatura quanti joule servano per ottenerla). In prima approssimazione potremmo formulare un indice, del tipo
+\begin{align*}
+	\overline{C} = \frac{Q}{\theta_f - \theta_i}
+\end{align*}
+Tuttavia risulta sperimentalmente che questo $\overline{C}$ dipende dalla temperatura: se la differenza di temperatura è fra 0 e 10 o fra 50 e 60 la quantità di calore per farla avvenire è diversa. Quella che abbiamo definito sarà dunque una proprietà media nell'intervallo ($\theta_f\ , \theta_i$) che chiameremo \textbf{capacità termica media}. \'{E} utile introdurre una grandezza analoga ma puntuale, che chiameremo \textbf{capacità termica}
+\begin{align*}
+	C(\theta) = \lim_{\theta_f \to \theta_i} \frac{Q}{\theta_f - \theta_i} = \frac{\delta Q}{d \theta}
+\end{align*}
+Il calore non è un differenziale esatto perché definito come somma di lavoro e variazione di energia interna e il lavoro non è un differenziale esatto
 \section*{Appendice} 
 \subsection{Determinismo assoluto e libero arbitrio}
 La possibilità teorica di conoscere l'evoluzione (passata e futura) di un sistema fisico, diede vita al cosiddetto \textbf{determinismo assoluto} di Pierre Simon Laplace (1749 - 1827) secondo cui se si conoscesse lo stato di ogni particella nell'universo (per intenderci si stima ci siano $10^{80}$ protoni nell'universo osservabile) allora sarebbe possibile conoscere alla perfezione presente passato e futuro. Questa idea portata all'estremo sostiene che, se il cervello fosse mosso unicamente da reazioni chimiche (he altro non sono che cambiamenti nello stato del sistema cervello), se si conoscesse lo stato di ogni particella del cervello allora si potrebbe prevedere alla perfezione il comportamento di un essere umano. Da ciò sorgono svariati dilemmi filosofici, uno per tutti il problema del libero arbitrio: se ogni movimento, parola ed espressione umana fosse teoricamente prevedibile matematicamente allora la libertà che sembra scontata nell'agire umano sarebbe solamente apparente?\\
