@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[italian]{babel}
+\usepackage[a4paper,top=2cm,bottom=3cm,left=3.2cm,right=3.2cm,bindingoffset=0mm]{geometry}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -228,7 +229,7 @@ Esiste un modello empirico detto di Lennard-Jones che elabora una funzione di po
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.6\linewidth]{../images/../images/Lennard-Jones_model}
-	\caption{Grafico del, potenziale con $\varepsilon =r_min = 1$.}
+	\caption{Grafico del potenziale con $\varepsilon =r_min = 1$.}
 	\label{fig:lennard-jonesmodel}
 \end{figure}
 \FloatBarrier
@@ -298,7 +299,7 @@ Un gas si dice \textbf{perfetto} se valgono contemporaneamente le due seguenti c
 \item Le interazioni intermolecolari a lungo raggio sono trascurabili (le molecole sono sufficientemente distanti fra loro). 
 \end{itemize}
 \end{definition}
-A partire da esperimenti si è arrivati nel tempo (prima metà del 1800) alla formulazione di quattro leggi empiriche ($\beta = \frac{1}{273.15 C^{-1}}$)
+A partire da esperimenti si è arrivati nel tempo (prima metà del 1800) alla formulazione di quattro leggi empiriche ($\beta = \frac{1}{273.15 °C^{-1}}$)
 \begin{enumerate}
 \item I legge di Gay-Lussacc: a pressione costante
  \begin{align*}
@@ -430,10 +431,10 @@ Per la legge di Stevino, la pressione a profondità h è uguale alla pressione a
 \begin{exercise}
 Due bulbi sferici di volumi differenti $V_a = 3.18 l$ e $V_b = 1.22 l$ sono collegati da un tubo sottile (volume trascurabile) e hanno un gas perfetto al loro interno. Inizialmente si trovano entrambi a temperatura e pressione iniziale rispettivamente uguali:
 \begin{align*}
-&\theta_{ai} = \theta_{bi} = 16 C\\
+&\theta_{ai} = \theta_{bi} = 16 °C\\
 &p_{ai} = p_{bi} = 1.44 atm. = 1.44\cdot 1.013 \cdot 10^5\ Pa
 \end{align*} 
-In seguito si riscalda A fino a portarlo a $\theta_{af} = 108\ C$ mantenendo $\theta_{bf} = 16\ C$. Si calcoli la pressione finale del sistema $p_{af}=p_{bf}=p_f$.\\
+In seguito si riscalda A fino a portarlo a $\theta_{af} = 108\ °C$ mantenendo $\theta_{bf} = 16\ °C$. Si calcoli la pressione finale del sistema $p_{af}=p_{bf}=p_f$.\\
 Osserviamo che se il volume rimane costante e la pressione nei due bulbi è uguale, nonostante la differenza di temperatura, allora si sarà verificato uno spostamento di moli da A a B in modo da bilanciare l'aumento di temperatura con la diminuzione di moli. Possiamo scrivere, essendo il sistema chiuso (non scambia massa con l'esterno)
 \begin{align*}
 	n_a + n_b = n_a' + n_b'
@@ -557,7 +558,7 @@ b = \frac{v_c}{3}
 z_c = \frac{p_c v_c }{R \theta_c} = \frac{3}{8}
 \end{align*}
 Ne deduciamo che il coefficiente di compressione di qualsiasi gas reale al punto critico è costante ed è pari a $\frac{3}{8}$. Questa è un'occasione per valutare se la teoria sviluppata si adatti bene all'esperienza, effettivamente i gas reali alla temperatura critica presentano con buona approssimazione di questo coefficiente di compressione.\\
-Tornando al grafico (\ref{fig:vanderwaals}), le curve al di sotto della temperatura critica presentano una regione all'interno della quale il modello teorico non rispecchia la realtà; sperimentalmente si nota infatti un andamento costante, perché? Ciò è dovuto al cambiamento di stato (detto anche transizione di fase) del gas che comincia a condensare, producendo goccioline d'acqua. In questa regione il materiale si trova allo stato di \textbf{vapore saturo}: se si aumenta il volume diminuiscono le molecole di gas e aumentano quelle di liquido. Ad un certo punto, quando il vapore sarà diventato completamente liquido, al diminuire del volume si avrà un aumento di pressione enorme, che conferisce l'alta pendenza delle curve nel lato sinistro. Ciò avviene perché un liquido è praticamente incomprimibile (servono pressioni enormi). Esiste inoltre un'altra regione in cui il gas è allo stato di \textbf{vapore} (si veda \ref{fig:diagramma-di-fase}). 
+Tornando al grafico (\ref{fig:vanderwaals}), le curve al di sotto della temperatura critica presentano una regione all'interno della quale il modello teorico non rispecchia la realtà; sperimentalmente si nota infatti un andamento costante, perché? Ciò è dovuto al cambiamento di stato (detto anche transizione di fase) del gas che comincia a condensare, producendo goccioline d'acqua. In questa regione il materiale si trova allo stato di \textbf{vapore saturo}: se si diminuisce il volume diminuiscono le molecole di gas e aumentano quelle di liquido. Ad un certo punto, quando il vapore sarà diventato completamente liquido, al diminuire del volume si avrà un aumento di pressione enorme, che conferisce l'alta pendenza delle curve nel lato sinistro. Ciò avviene perché un liquido è praticamente incomprimibile (servono pressioni enormi). Esiste inoltre un'altra regione in cui il gas è allo stato di \textbf{vapore} (si veda \ref{fig:diagramma-di-fase}). 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.6\linewidth]{../images/"diagramma di fase"}
@@ -884,7 +885,7 @@ Dove $N_{att}$ è il numero atteso di molecole che usciranno dall'atmosfera e $N
 	\end{align*}
 \end{exercise}
 \begin{exercise}
- Un pianeta ha densità media $\rho = 5500\ \frac{kg}{m^3}$ e una temperatura atmosferica $\theta = 400 C = 673,15 K$, la sua atmosfera trattiene l'ossigeno molecolare ($O_2$). Calcolare il raggio minimo del pianeta.\\
+ Un pianeta ha densità media $\rho = 5500\ \frac{kg}{m^3}$ e una temperatura atmosferica $\theta = 400 °C = 673,15 K$, la sua atmosfera trattiene l'ossigeno molecolare ($O_2$). Calcolare il raggio minimo del pianeta.\\
  Consideriamo le componenti verticali delle velocità delle molecole di $O_2$, se esso è trattenuto vuol dire che la sua velocità media è minore o uguale della velocità di fuga, per ottenere il raggio minore imponiamo 
  \begin{align*}
 	&v_f = \sqrt{\overline{v^2}}\\
@@ -902,7 +903,7 @@ Abbiamo dunque visto cos'è l'evaporazione, ovvero la fuga di alcune molecole a 
 Si dice evaporazione il fenomeno fisico per cui, a causa delle fluttuazioni casuali di velocità, vi è un cambiamento di stato di alcune molecole sulla superficie da liquido a gassoso quando la velocità della molecola supera la velocità di soglia. 
 \end{definition}
 \subsection{Ebollizione}
-Se si aumenta la temperatura l'evaporazione avverrà più velocemente perché la curva della Maxwelliana sarà più spostata verso destra. Consideriamo per fissare le idee un recipiente pieno d'acqua, arrivati ad una certa temperatura, per fluttuazioni casuali, si formano micro bolle di vapor d'acqua, isolate dal liquido circostante, in corrispondenza delle asperità (microscopiche) del contenitore. La pressione del vapore all'interno delle bolle è chiaramente quella del vapore saturo $p_{vap}$, la bolla implode se la pressione esterna è maggiore di $p_{vap}$ mentre si dilata e viene a galla se la pressione esterna è minore. La pressione esterna è data dalla pressione atmosferica $p_{atm}$ più la pressione esercitata dalla colonna d'acqua per la legge di Stevino ($\rho g h$) dove h è l'altezza dell'acqua nel contenitore. Nel caso di una comune pentola da cucina la pressione data dalla colonna d'acqua è trascurabile (h è piccolo) dunque la bolla si espanderà quando $p_{vap} \geq p_{atm}$. Nel caso dell'acqua sappiamo che $p_{atm} = p_{vap}$ per $\theta = 100 C$, dunque dovremo aspettare questa temperatura perché l'ebollizione avvenga. Se vogliamo far bollire l'acqua in montagna, in cui la pressione esterna è minore, la temperatura di ebollizione diminuirà. Contrariamente, a profondità sottomarine la colonna d'acqua non sarà più trascurabile e l'acqua bolle a temperature molto più elevate. A profondità superiori a 2 km la pressione supera la soglia critica al di là della quale entra in uno stato supercritico in cui l'ebollizione non è più possibile. Questa è semplicemente una reinterpretazione a livello microscopico e alla luce della teoria cinetica dei gas, della figura (\ref{fig:diagrammadifasept}). 
+Se si aumenta la temperatura l'evaporazione avverrà più velocemente perché la curva della Maxwelliana sarà più spostata verso destra. Consideriamo per fissare le idee un recipiente pieno d'acqua, arrivati ad una certa temperatura, per fluttuazioni casuali, si formano micro bolle di vapor d'acqua, isolate dal liquido circostante, in corrispondenza delle asperità (microscopiche) del contenitore. La pressione del vapore all'interno delle bolle è chiaramente quella del vapore saturo $p_{vap}$, la bolla implode se la pressione esterna è maggiore di $p_{vap}$ mentre si dilata e viene a galla se la pressione esterna è minore. La pressione esterna è data dalla pressione atmosferica $p_{atm}$ più la pressione esercitata dalla colonna d'acqua per la legge di Stevino ($\rho g h$) dove h è l'altezza dell'acqua nel contenitore. Nel caso di una comune pentola da cucina la pressione data dalla colonna d'acqua è trascurabile (h è piccolo) dunque la bolla si espanderà quando $p_{vap} \geq p_{atm}$. Nel caso dell'acqua sappiamo che $p_{atm} = p_{vap}$ per $\theta = 100 °C$, dunque dovremo aspettare questa temperatura perché l'ebollizione avvenga. Se vogliamo far bollire l'acqua in montagna, in cui la pressione esterna è minore, la temperatura di ebollizione diminuirà. Contrariamente, a profondità sottomarine la colonna d'acqua non sarà più trascurabile e l'acqua bolle a temperature molto più elevate. A profondità superiori a 2 km la pressione supera la soglia critica al di là della quale entra in uno stato supercritico in cui l'ebollizione non è più possibile. Questa è semplicemente una reinterpretazione a livello microscopico e alla luce della teoria cinetica dei gas, della figura (\ref{fig:diagrammadifasept}). 
 \begin{definition}[Ebollizione]
 	Il passaggio di una sostanza dallo stato liquido allo stato aeriforme, che avviene attraverso la formazione di bolle gassose le quali, dilatandosi per effetto termico, salgono alla superficie e liberano il vapore in esse contenuto; il fenomeno, contrariamente all'evaporazione, avviene a una determinata temperatura per ogni sostanza (temperatura d'ebollizione).
 \end{definition}
@@ -1010,9 +1011,9 @@ Vediamo ora alcuni casi semplici in cui è possibile calcolare l'integrale
 	\end{figure}
 	\FloatBarrier
 	\item Isobara: P costante, la trasformazione deve essere quasistatica altrimenti la variazione di volume sarebbe diversa per motivi che vedremo in seguito. Il grafico è semplicemente un segmento dunue calcolare l'aria sottesa è molto semplice. 
-	\begin{align*}
+	\begin{align}\label{eq:lavoro_pcost}
 		L = \int_{v_i}^{v_f}p dV = p\int_{v_i}^{v_f} dV = p\Delta V = p(V_f-V_i) 
-	\end{align*}
+	\end{align}
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.4\linewidth]{../images/trasformazione-isobara}
@@ -1243,7 +1244,7 @@ Spesso accade che un trasferimento di calore risulti in un aumento di temperatur
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.6\linewidth]{"../images/calore specifico acqua(1)"}
-	\caption{Grafico $\theta$ su $Q$ per l'$H_2 O$. Le regioni a temperatura costante sono quelle in cui avviene il cambio di fase.}
+	\caption{Grafico temperatura su tempo per l'$H_2 O$. Le regioni a temperatura costante sono quelle in cui avviene il cambio di fase.}
 	\label{fig:calore-specifico-acqua1}
 \end{figure}
 \FloatBarrier
@@ -1256,7 +1257,7 @@ Questo grafico smentisce l'ipotesi iniziale: ci sono regioni in cui la temperatu
 	&\lambda_f(H_2O) = 333 \frac{J}{g} \\
 	&\lambda_f(H_2O) = 2260 \frac{J}{g} 
 \end{align*}
-Durante il passaggio di fase la pressione rimane costante (come visto nella correzione di Maxwell dei grafici di Van der Waals) dunque varierà solo il volume. Come visto, il lavoro a pressione costante del passaggio di fase sarà
+Durante il passaggio di fase la pressione rimane costante (come visto nella correzione di Maxwell dei grafici di Van der Waals, figura (\ref{fig:calcolo-di-maxwell})) dunque varierà solo il volume. Ricordando la (\ref{eq:lavoro_pcost}), il lavoro a pressione costante del passaggio di fase sarà
 \begin{align*}
 	&L_{l-v} = p(v_v-v_l)\\
 	&L_{s-l} = p(v_l-v_s)
@@ -1271,14 +1272,14 @@ Bisogna tenere conto di due possibilità: se $\theta_i$ è abbastanza grande da 
 	&|Q_t| =  m_t c_m (\theta_i-\theta_0) = m_t c_m \theta_i\\
 	&Q_g = |Q_g| = m_g \lambda_f\\
 	&m_t c_m \theta_i >m_g \lambda_f\\
-	&\Rightarrow \Delta\theta > \frac{\lambda_f}{c_m} = \frac{333 \cdot 10^3}{4.186 \cdot 10^3} = 79.5 C
+	&\Rightarrow \Delta\theta > \frac{\lambda_f}{c_m} = \frac{333 \cdot 10^3}{4.186 \cdot 10^3} = 79.5 °C
 \end{align*}
 Dunque se si verifica $\Delta\theta = \theta_i >79.5$ \textdegree C allora il ghiaccio si scioglie totalmente.
 \begin{itemize}
 \item[a.] Poiché $\theta_i>79.5$ \textdegree C il ghiaccio si scioglie completamente. Possiamo scrivere la somma di tutti i calori scambiati, che dovrà essere pari a zero visto che il sistema del bicchiere pieno di té è isolato dall'ambiente. 
 \begin{align*}
 	&m_t c_m (\theta_e-\theta_i) + m_g \lambda_f + m_g c_m (\theta_e-\theta_0)= 0\\
-	&\rightarrow \theta_e = \frac{1}{2}\left(\theta_i-\frac{\lambda_f}{c_m}\right) = \frac{90-\frac{333}{4.187}}{2} = 5.2 C\\
+	&\Rightarrow \theta_e = \frac{1}{2}\left(\theta_i-\frac{\lambda_f}{c_m}\right) = \frac{90-\frac{333}{4.187}}{2} = 5.2 °C\\
 \end{align*}
 dove i termini sono rispettivamente: il calore necessario per raffreddare l'acqua da $\theta_i$ a $\theta_e$ (< 0 perché si raffredda), il calore necessario per far squagliare il ghiaccio e il calore necessario per portare a $\theta_e$ il ghiaccio sciolto (inizialmente a temperatura $\theta_0$).
 \item[b.] Poiché $\theta_i<79.5$ \textdegree C il ghiaccio non si scioglie completamente, la temperatura d'equilibrio sarà a 0 \textdegree C. Procedendo analogamente a come fatto otteniamo
@@ -1333,7 +1334,7 @@ Si noti l'analogia con gli urti fra punti materiali visti in meccanica: il caso 
 Il calorimetro di Bunsen è costituito da un tubo di vetro A, a pareti sottilissime, saldato ad un tubo di vetro di diametro maggiore B, il quale termina inferiormente con un tubo pure di vetro di piccolo diametro C piegato due volte ad angolo retto. Nella parte superiore del tubo C si può innestare, a perfetta tenuta, un tubo sottile R graduato. Si riempie apparecchio in parte con acqua distillata, e in parte con mercurio. Il mercurio deve anche occupare parte della vaschetta superiore, il tuo graduato R indica il volume del mercurio.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.6\linewidth]{../images/calorimetro_bunsen}
+	\includegraphics[width=0.5\linewidth]{../images/calorimetro_bunsen}
 	\caption{Schema del calorimetro di Bunsen}
 	\label{fig:calorimetrobunsen}
 \end{figure}
