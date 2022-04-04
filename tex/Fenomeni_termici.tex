@@ -10,6 +10,7 @@
 \usepackage{graphicx}
 \newtheorem{theorem}{Theorem}
 \newtheorem{exercise}{Exercise}
+\newtheorem{example}{Example}
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{definition}{Definition}
@@ -68,7 +69,7 @@
 			\end{cases}
 		\end{align*}
 		Ad esempio potremmo avere la forza di gravità che agisce come forza esterna su tutto il sistema e le forze elettriche e gravitazionali fra le singole particelle come forze interne. Questo sistema è teoricamente risolvibile (per $N > 2$ si ricorrerà al metodo perturbativo). \\
-		Tuttavia, i sistemi fisici macroscopici sono formati da un numero di particelle nell'ordine del numero di Avogadro ($6.022 \cdot  10^23$ ) dunque non esisterebbe una potenza di calcolo tale da poter studiare un sistema fisico macroscopico con questo approccio. Nasce allora la necessità di uno studio diverso del sistema.
+		Tuttavia, i sistemi fisici macroscopici sono formati da un numero di particelle nell'ordine del numero di Avogadro ($6.022 \cdot  10^{23}$ ) dunque non esisterebbe una potenza di calcolo tale da poter studiare un sistema fisico macroscopico con questo approccio. Nasce allora la necessità di uno studio diverso del sistema.
 	\subsection{Approccio macroscopico}
 		Possiamo sacrificare la conoscenza degli stati interni del sistema mediante la risoluzione delle equazioni cardinali sfruttando le proprietà del centro di massa, ma è proprio lo stato interno del sistema che interessa la termodinamica. Nasce allora l'esigenza della nascita della \textbf{termodinamica classica} e di quella \textbf{statistica}. La seconda è basata su una visione statistica della meccanica classica, è legittimata dal fatto che i sistemi termodinamici hanno un numero particelle elevatissimo dunque la statistica si applica alla perfezione (con errori trascurabili), tuttavia proprio perchè si basa sulla meccanica classica non è in grado di trattare i fenomeni fuori dal raggio d'azione di quest'ultima. La termodinamica classica invece si basa sulle coordinate macroscopiche specifiche, già viste. 
 	\subsection{Diversi tipi di sistemi}
@@ -1196,17 +1197,161 @@ sappiamo inoltre che $\Delta U_{tot} = \Delta U_b + \Delta U_r$ dunque possiamo 
 \end{align*}
 Quest'ultima relazione è di particolare interesse perché ci fornisce informazioni interessanti sul calore (che va a risolvere la "perdita" d'energia che operava l'attrito nell'ambito della meccanica). Il lavoro d'attrito totale è pari alla totalità del calore scambiato tra gli oggetti.\\
 Dal punto di vista microscopico possiamo immaginare un modello molto approssimativo ma efficace: immaginiamo la superficie di contatto scabra fra blocco e rampa con formata da lamelle che vanno a toccarsi quando c'è moto relativo fra i due. L'energia cinetica del corpo che si muove viene trasferita alle lamelle che si mettono ad oscillare, aumentando l'energia cinetica interna del corpo. come abbiamo già visto l'energia cinetica interna non è altro che la temperatura del corpo stesso, che quindi aumenterà. Il lavoro d'attrito non fa altro che trasformare energia cinetica in energia interna (aumenta la temperatura). 
-\section{Capacità termica, calore specifico e molare}
-Come visto, il principio zero ci ha portato ad introdurre la temperatura mentre il primo principio il calore (si noti come queste due grandezze scaturiscono formalmente da questi due principi), volgiamo ora studiare il legame fra queste. Possiamo vedere questa proprietà come \textbf{inerzia termica} (corrispettivo dell'inerzia in meccanica) cioè quella grandezza che si oppone alla variazione di temperatura (come la massa si oppone alla variazione di velocità).  \\
-In particolare, vogliamo una quantità che ci dica a parità di Joule di calore immessi, quanto varia la temperatura (o viceversa, a parità di variazione di temperatura quanti joule servano per ottenerla). In prima approssimazione potremmo formulare un indice, del tipo
+\section{Capacità termica, calore specifico e calore latente}
+Come visto, il principio zero ci ha portato ad introdurre la temperatura mentre il primo principio il calore (si noti come queste due grandezze scaturiscono formalmente da questi due principi), volgiamo ora studiare il legame fra queste. Possiamo vedere questa proprietà come \textbf{inerzia termica} (corrispettivo della massa o del momento d'inerzia in meccanica) cioè quella grandezza che si oppone alla variazione di temperatura (come la massa si oppone alla variazione di velocità).  \\
+In particolare, vogliamo una quantità che ci dica, a parità di Joule di calore immessi, quanto varia la temperatura. In prima approssimazione potremmo formulare un indice, del tipo
 \begin{align*}
-	\overline{C} = \frac{Q}{\theta_f - \theta_i}
+	\overline{C} \equiv \frac{Q}{\theta_f - \theta_i}
 \end{align*}
 Tuttavia risulta sperimentalmente che questo $\overline{C}$ dipende dalla temperatura: se la differenza di temperatura è fra 0 e 10 o fra 50 e 60 la quantità di calore per farla avvenire è diversa. Quella che abbiamo definito sarà dunque una proprietà media nell'intervallo ($\theta_f\ , \theta_i$) che chiameremo \textbf{capacità termica media}. \'{E} utile introdurre una grandezza analoga ma puntuale, che chiameremo \textbf{capacità termica}
 \begin{align*}
-	C(\theta) = \lim_{\theta_f \to \theta_i} \frac{Q}{\theta_f - \theta_i} = \frac{\delta Q}{d \theta}
+	C(\theta) \equiv \lim_{\theta_f \to \theta_i} \frac{Q}{\theta_f - \theta_i} = \frac{\delta Q}{d \theta}
 \end{align*}
-Il calore non è un differenziale esatto perché definito come somma di lavoro e variazione di energia interna e il lavoro non è un differenziale esatto
+Il calore non è un differenziale esatto perché definito come somma di lavoro e variazione di energia interna e il lavoro non è un differenziale esatto. Si noti che la dimensione della capacità termica è $\frac{J}{K}$.\\
+Tuttavia ciò non basta per avere un indice affidabile, è intuitivamente chiaro che più materiale si ha da riscaldare, più energia sarà necessaria. Vogliamo allora un indice che dipenda o dalla massa o dal numero di moli, definiamo così \textbf{calore specifico} ($c_m$) e \textbf{calore molare} ($c$)
+\begin{align*}
+&c_m \equiv \frac{1}{m} \frac{Q}{\theta_f - \theta_i}\\
+&c \equiv \frac{1}{n} \frac{Q}{\theta_f - \theta_i}
+\end{align*}
+dove m è la massa del corpo in esame ed n il numero di moli contenute.\\
+Infine, risulta che a seconda della modalità con cui è riscaldato il copro avremo che la temperatura varierà in modo diverso a parità di massa (o moli) e di $\Delta \theta$. Introduciamo quindi il calore molare a pressione costante e a volume costante (analogamente potremmo definirle a partire dal calore specifico)
+\begin{align*}
+	&c_p \equiv \frac{1}{n} \left(\frac{Q}{\theta_f - \theta_i}\right)_p \\
+	&c_v \equiv \frac{1}{n} \left(\frac{Q}{\theta_f - \theta_i}\right)_V
+\end{align*}
+Si noti che, nonostante siano cotanti, le funzioni $c_p$ e $c_v$ dipendono non solo da $\theta$ ma anche rispettivamente dai p e V scelti. 
+\begin{align*}
+	&c_p = f(\theta\ , p)\\
+	&c_v = f(\theta\ , V)
+\end{align*}
+Se il volume rimane costante, il calore non viene trasformato in energia meccanica utile a far muovere il pistone (L = 0) dunque verrà trasformato principalmente in energia interna: farà aumentare la temperatura. Se invece la pressione è costante, ma il pistone è libero di muoversi, una parte di calore sarà trasformata in energia meccanica dunque l'aumento di temperatura sarà minore. Ne deriviamo che vale sempre
+\begin{align*}
+	c_p > c_v
+\end{align*} 
+\begin{example}[$c_p$ e $c_v$ di $H_2 O$]
+Rappresentando in un grafico $c_m$ su $\theta$ la variazione del calore specifico rispetto alla temperatura, possiamo individuare tre regioni distinte, una in cui si ha lo stato solido una liquido e una gassoso. Risulta che il calore specifico allo stato solido è simile a quello allo stato gassoso ed è circa la metà di quello allo stato gassoso. Se però ci focalizziamo sulla regione allo stato liquido, notiamo che non è costante ma è del tipo
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{"../images/calore specifico acqua"}
+	\caption{Grafico $c_m$ su $\theta$ per $H_2O$ allo stato liquido. Presenta un minimo a 35 \textdegree C.}
+	\label{fig:calore-specifico-acqua}
+\end{figure}
+\FloatBarrier
+\end{example}
+\subsection{Calore latente}
+Spesso accade che un trasferimento di calore risulti in un aumento di temperatura, si potrebbe inferire che il calore genera sempre aumenti di temperatura. Questo è falso e ne vediamo un esempio di seguito.\\
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{"../images/calore specifico acqua(1)"}
+	\caption{Grafico $\theta$ su $Q$ per l'$H_2 O$. Le regioni a temperatura costante sono quelle in cui avviene il cambio di fase.}
+	\label{fig:calore-specifico-acqua1}
+\end{figure}
+\FloatBarrier
+Questo grafico smentisce l'ipotesi iniziale: ci sono regioni in cui la temperatura non cambia, cosa succede? Durante un cambiamento di stato, ad esempio da solido a liquido, l'energia del calore non viene trasformata in energia interna ma viene usata per rompere i legami che legano le molecole di $H_2O$ nella struttura cristallina del ghiaccio per farla cambiare di stato. Ne risulta che in una regione, fino a quando il ghiaccio non si scioglie, la temperatura rimane costante (analogamente per l'evaporazione). Il calore necessario per far avvenire il passaggio di stato, a parità di massa, chiaramente dipende dal tipo di materiale preso in considerazione (perché dipende dal tipo di legami da spezzare);  Il calore necessario per effettuare il passaggio di stato di un grammo di una sostanza è detto \textbf{calore latente}.
+\begin{align*}
+	&Q_{latente} = m \lambda
+\end{align*}
+ Esisteranno un calore latente di fusione ($\lambda_f$) per il passaggio solido-liquido e uno di vaporizzazione ($\lambda_v$) per il passaggio liquido-vapore. In particolare per l'acqua
+\begin{align*}
+	&\lambda_f(H_2O) = 333 \frac{J}{g} \\
+	&\lambda_f(H_2O) = 2260 \frac{J}{g} 
+\end{align*}
+Durante il passaggio di fase la pressione rimane costante (come visto nella correzione di Maxwell dei grafici di Van der Waals) dunque varierà solo il volume. Come visto, il lavoro a pressione costante del passaggio di fase sarà
+\begin{align*}
+	&L_{l-v} = p(v_v-v_l)\\
+	&L_{s-l} = p(v_l-v_s)
+\end{align*}
+dove la prima è il lavoro nel passaggio liquido-vapore e la seconda solido liquido. Tutte le v sono volumi molari e i vari pedici indicano il volume caratteristico prima e dopo della transizione di fase. Ad esempio, i valori del volume prima e dopo del segmento ottenuto con il metodo di Maxwell (Figura (\ref{fig:vanderwaals})) nel grafico di Van der Waals sono $v_v$ e $v_l$.
+\begin{exercise}
+Una persona prepara del té freddo mescolando $m_t = m_g =520$ g di té caldo (sostanzialmente acqua) con un’uguale quantità di ghiaccio a 0 \textdegree C. Calcolare la temperatura finale di equilibrio $\theta_e$ e l’eventuale massa di ghiaccio restante $m_g'$, se la temperatura iniziale è pari a a)$\theta_i = 90.0$ \textdegree C oppure b) $\theta_i = 70.0$ \textdegree C.\\
+Bisogna tenere conto di due possibilità: se $\theta_i$ è abbastanza grande da sciogliere tutto il ghiaccio o se $\theta_i$ non è sufficiente e rimane del ghiaccio non sciolto. Abbiamo infatti due tendenze contrapposte: quella dell'acqua che vuol squagliare il ghiaccio  e quella del ghiaccio che vuole portare l'acqua alla sua temperatura, ovvero 0 \textdegree C. Dobbiamo dunque calcolare il calore necessario perché il ghiaccio si sciolga completamente ($Q_g$) e quello necessario per far arrivare a 0 \textdegree C tutta l'acqua ($Q_t$). Chiaramente $Q_t$ è minore di zero perché per passare da una temperatura maggiore di zero a zero bisognerà "togliere" calore all'acqua. Se, in valore assoluto, serve più calore per portare l'acqua a 0 \textdegree C rispetto a squagliare il ghiaccio, allora questo si scioglierà del tutto. 
+\begin{align*}
+	&|Q_t| > |Q_g|\\
+	&Q_t = m_t c_m \Delta\theta = m_t c_m (\theta_0-\theta_i)\\
+	&|Q_t| =  m_t c_m (\theta_i-\theta_0) = m_t c_m \theta_i\\
+	&Q_g = |Q_g| = m_g \lambda_f\\
+	&m_t c_m \theta_i >m_g \lambda_f\\
+	&\Rightarrow \Delta\theta > \frac{\lambda_f}{c_m} = \frac{333 \cdot 10^3}{4.186 \cdot 10^3} = 79.5 C
+\end{align*}
+Dunque se si verifica $\Delta\theta = \theta_i >79.5$ \textdegree C allora il ghiaccio si scioglie totalmente.
+\begin{itemize}
+\item[a.] Poiché $\theta_i>79.5$ \textdegree C il ghiaccio si scioglie completamente. Possiamo scrivere la somma di tutti i calori scambiati, che dovrà essere pari a zero visto che il sistema del bicchiere pieno di té è isolato dall'ambiente. 
+\begin{align*}
+	&m_t c_m (\theta_e-\theta_i) + m_g \lambda_f + m_g c_m (\theta_e-\theta_0)= 0\\
+	&\rightarrow \theta_e = \frac{1}{2}\left(\theta_i-\frac{\lambda_f}{c_m}\right) = \frac{90-\frac{333}{4.187}}{2} = 5.2 C\\
+\end{align*}
+dove i termini sono rispettivamente: il calore necessario per raffreddare l'acqua da $\theta_i$ a $\theta_e$ (< 0 perché si raffredda), il calore necessario per far squagliare il ghiaccio e il calore necessario per portare a $\theta_e$ il ghiaccio sciolto (inizialmente a temperatura $\theta_0$).
+\item[b.] Poiché $\theta_i<79.5$ \textdegree C il ghiaccio non si scioglie completamente, la temperatura d'equilibrio sarà a 0 \textdegree C. Procedendo analogamente a come fatto otteniamo
+\begin{align*}
+	&(m_g-m_g') \lambda_f +m_t c_m (\theta_0-\theta_i) = 0\\
+	&mg' = \frac{m_t c_m 8\theta_0-\theta_i+mg\lambda_f}{\lambda_f} = \frac{520\cdot 4.187 \cdot(-70)+520\cdot 333}{333} = 62.3 g
+\end{align*}
+\end{itemize}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{../images/te_ghiaccio}
+	\caption{Grafico comparativo della temperatura in funzione del tempo nei due casi a e b.}
+	\label{fig:teghiaccio}
+\end{figure}
+\FloatBarrier
+\end{exercise}
+\subsection{Calcolo della temperatura d'equilibrio di sistemi a contatto}
+Si considerino due sistemi $S_1$ ed $S_2$ a contatto diatermico rispettivamente di temperatura e capacità $\theta_1\ , C_1$ e  $\theta_2\ , C_2$. Dando per scontato che esista l'equilibrio termico, vogliamo trovare un'espressione della temperatura all'equilibrio $\theta_e$ in funzione delle capacità e temperature iniziali. Cominciamo con il considerare come sistema l'unione dei due sistemi, lo scambio di calore ed il lavoro saranno nulli perchè questi sono isolati dall'esterno e non avviene nessuno spostamento. 
+\begin{align*}
+&S \equiv S_1 + S_2\\
+&Q = 0\;\quad L=0\ ; \quad \Rightarrow \Delta U_{tot} = 0\\
+\end{align*}
+Se consideriamo ora i sistemi singolarmente abbiamo sempre che il lavoro è nullo perché non avvengono spostamenti ma il calore verrà scambiato dunque
+\begin{align*}
+&S \equiv S_1 \Rightarrow \Delta U_1 = Q_1\\
+&S\equiv S_2 \Rightarrow  \Delta U_2 = Q_2
+&\Rightarrow 
+\end{align*}
+Visto che la variazione di energia totale deve essere uguale alla somma delle singole variazioni interne abbiamo
+\begin{align*}
+&\Delta U_{tot} = \Delta U_1 + \Delta U_2 = Q_1+Q_2 = 0\\
+&\Rightarrow Q_1 = -Q_2 
+\end{align*} 
+Questo è ciò che davvero ci dice il primo principio della termodinamica: il calore assorbito da un sistema deve essere lo stesso ceduto dall'altro. Si noti che fin ora non abbiamo nessuna indicazione sulla direzione del trasferimento di calore, teoricamente il calore potrebbe fluire sia dal sistema caldo a quello freddo sia in verso contrario (questo problema verrà risolto dall'introduzione del secondo principio). Possiamo dunque esprimere il calore in funzione di C e $\theta$ per poi applicare quanto trovato
+\begin{align*}
+&\begin{cases}
+	Q_1 = C_1 (\theta_e-\theta_1)\\
+	Q_2 = C_2 (\theta_e-\theta_2)
+\end{cases}\\
+&\Rightarrow C_1 (\theta_e-\theta_1) + C_2 (\theta_e-\theta_2) = 0\\
+&\Rightarrow \theta_e = \frac{C_1\theta_1+C_2\theta_2}{C_1+C_2} =  \frac{n_1 c_1\theta_1+n_2 c_2\theta_2}{c_1 + c_2}
+\end{align*}
+La temperatura di equilibrio si ottiene dalla media pesata delle capacità termica con peso la temperatura iniziale.\\
+Se $c_1>>c_2$, risolvendo il sistema otteniamo
+\begin{align*}
+	\theta_e = \left(\frac{1+\frac{c_2\theta_2}{c_1\theta_1}}{1+\frac{c_2}{c_1}}\right)\theta_1 \to \theta_1
+\end{align*}
+In questo caso il sistema con $c_1$ porta alla sua temperatura il sistema $S_2$ a contatto con esso: abbiamo ottenuto un \textbf{calorimetro}.\\
+Si noti l'analogia con gli urti fra punti materiali visti in meccanica: il caso del calorimetro è analogo all'urto di un punto materiale con la parete: come il sistema $S_1$ ha una capacità termica infinita così la parete ha una massa infinita (chiaramente in prima approssimazione e relativamente al sistema con cui interagisce).
+\subsection{Calorimetria: misura di $c_m$}
+\subsubsection*{Calorimetro di Bunsen (a ghiaccio)}
+Il calorimetro di Bunsen è costituito da un tubo di vetro A, a pareti sottilissime, saldato ad un tubo di vetro di diametro maggiore B, il quale termina inferiormente con un tubo pure di vetro di piccolo diametro C piegato due volte ad angolo retto. Nella parte superiore del tubo C si può innestare, a perfetta tenuta, un tubo sottile R graduato. Si riempie apparecchio in parte con acqua distillata, e in parte con mercurio. Il mercurio deve anche occupare parte della vaschetta superiore, il tuo graduato R indica il volume del mercurio.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{../images/calorimetro_bunsen}
+	\caption{Schema del calorimetro di Bunsen}
+	\label{fig:calorimetrobunsen}
+\end{figure}
+\FloatBarrier
+Dopo aver collocato l’apparecchio così preparato in un recipiente contenete del ghiaccio a 0 \textdegree C, in modo che l’acqua ed il mercurio siano portati alla temperatura di 0°C, è necessario procedere alla solidificazione dell’acqua contenuta nel calorimetro. Per questo si versa nel tubo interno A dell’etere, in questo modo l’acqua solidifica (D) e nell’atto della solidificazione il mercurio viene spinto dal tubo B nella vaschetta V per l’aumento di volume del ghiaccio rispetto all'acqua. Quando quasi tutta l’acqua presente nel calorimetro si è solidificata, si toglie l’etere, si versa nel tubo A una piccola quantità di acqua a 0 °C e si tappa il tubo. Si lascia stabilizzare il calorimetro affinché tutto l’apparecchio raggiunga l’equilibrio termico a 0°C. Raggiunta questa condizione, si registra il volume del mercurio ($V_0$).\\
+Preparato così l’apparecchio si riscalda il corpo di cui si cerca il calore specifico alla temperatura $\theta$ e lo si inserisce nell’acqua contenuta nel tubo A del calorimetro. Il calore ceduto dal corpo nel passare da $\theta$ a 0°C provoca la fusione di una certa quantità di ghiaccio e, poiché nella fusione del ghiaccio diminuisce il volume, il mercurio diminuirà di volume passando da $V_0$ a $V_1$ che raggiungerà quando tutto l’apparecchio sarà tornato in equilibrio termico a 0 °C.\\
+\'{E} chiaro che il volume di cui si è contratto il ghiaccio per quella porzione che si è fusa è uguale a $\delta V = V_1-V_0$, e questa contrazione sarà proporzionale al ghiaccio fuso e quindi anche alla quantità di calore ceduta dal corpo. Si vuole conoscere dalla contrazione il la massa $m_g$ del ghiaccio fuso. Noto il peso specifico del ghiaccio a 0°C = 0,91674 ed il peso specifico dell’acqua a 0°C = 0,99987 si ha:
+\begin{align*}
+	\Delta V = \frac{m_g}{0.91674}-\frac{m_g}{0.99987}
+\end{align*}
+Da cui è possibile ricavare $m_g$, essendo stato misurato $\Delta V$. Infine, sapendo che il calore necessario per fondere la massa $m_g$ di ghiaccio è uguale al calore trasferito dall'oggetto di cui si vuole misurare $c_m$ (contenuto nel bulbo A) al bulbo B.
+\begin{align*}
+&m_g \lambda_f = c_m m \Delta\theta\\
+&\Rightarrow c_m = \frac{m_g \lambda_f}{m \Delta \theta}
+\end{align*}
+Dove m è la massa dell'oggetto di cui si vuole misurare $c_m$, $\Delta \theta$ è la differenza di temperatura fra l'oggetto in esame e l'acqua (a 0 \textdegree C). Si noti che la misura è tutta basata sul cambiamento di volume dell'acqua da solido a liquido, che deve essere conosciuto con precisione; La variazione di volume a 0 \textdegree C di 1 g di acqua a pressione atmosferica è  $\Delta V_{sl} = 0.0907\ cm^3$.
+\subsection*{Calorimetro di Regnault (o delle mescolanze)}
+
 \section*{Appendice} 
 \subsection{Determinismo assoluto e libero arbitrio}
 La possibilità teorica di conoscere l'evoluzione (passata e futura) di un sistema fisico, diede vita al cosiddetto \textbf{determinismo assoluto} di Pierre Simon Laplace (1749 - 1827) secondo cui se si conoscesse lo stato di ogni particella nell'universo (per intenderci si stima ci siano $10^{80}$ protoni nell'universo osservabile) allora sarebbe possibile conoscere alla perfezione presente passato e futuro. Questa idea portata all'estremo sostiene che, se il cervello fosse mosso unicamente da reazioni chimiche (he altro non sono che cambiamenti nello stato del sistema cervello), se si conoscesse lo stato di ogni particella del cervello allora si potrebbe prevedere alla perfezione il comportamento di un essere umano. Da ciò sorgono svariati dilemmi filosofici, uno per tutti il problema del libero arbitrio: se ogni movimento, parola ed espressione umana fosse teoricamente prevedibile matematicamente allora la libertà che sembra scontata nell'agire umano sarebbe solamente apparente?\\
