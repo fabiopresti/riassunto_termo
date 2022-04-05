@@ -1,35 +1,11 @@
-\documentclass[10pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[italian]{babel}
-\usepackage[a4paper,top=2cm,bottom=3cm,left=3.2cm,right=3.2cm,bindingoffset=0mm]{geometry}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{makeidx}
-\usepackage{placeins}
-\usepackage{graphicx}
-\newtheorem{theorem}{Theorem}
-\newtheorem{exercise}{Exercise}
-\newtheorem{example}{Example}
-\newtheorem{corollary}{Corollary}[theorem]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{definition}{Definition}
-\newtheorem{prop}{Proposition}
-\makeatletter
-\def\th@plain{%
-	\thm@notefont{}% same as heading font
-	\itshape % body font
-}
-\def\th@definition{%
-	\thm@notefont{}% same as heading font
-	\normalfont % body font
-}
-\makeatother
+\include{preamble}
+
 \author{Fabio Prestipino}
 \title{Fenomeni termici}
+
 \begin{document}
-	\maketitle
+\maketitle
+
 \section{Introduzione}
 	Possiamo vedere la Termodinamica come una generalizzazione e reinterpretazione della meccanica classica, con un aggiunta di nuovi concetti. Einstein sostenne che la termodinamica è immortale perché non sostituibile o ampliabile (nel suo ambito di competenza). A Differenza della meccanica classica, la termodinamica permette di studiare qualsiasi sistema fisico. Questa nuova branca della fisica venne sviluppata nella seconda metà del XIX secolo, duecento anni dopo la nascita della scienza moderna, principalmente dalle celeberrime figure di Carnot, Kelvin, Joule, Clausius, Gibbs, Maxwell e Boltzmann (fra molti altri, fra cui alcuni ingegneri). L'approccio, più moderno, risulta differente ed è bene introdurre i termini del problema in una nuova forma.\\
 	\subsection{Lo stato di un sistema fisico}
