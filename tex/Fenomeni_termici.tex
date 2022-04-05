@@ -262,7 +262,7 @@ Vogliamo ora misurare, ad esempio, la temperatura dell'acqua in ebollizione, vol
 Possiamo ripetere queste procedure diminuendo progressivamente le moli di gas nel bulbo, per ogni iterazione si registrano i nuovi valori $p’$, $p_3’$ che sono una funzione del numero di moli di gas presenti nel bulbo. Ne risulta che i valori di temperatura $\theta$ sono tutti diversi fra loro e decrescenti al diminuire delle moli, si dispongono su una retta. Se poi ripetiamo la stessa procedura per diversi materiali, otterremo tante rette differenti, come riportato nel seguente grafico
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\linewidth]{../images/temp_e_puntotriplo}
+	\includegraphics[width=0.6\linewidth]{../images/temp_e_puntotriplo}
 	\caption{Esempi di rette ($\theta$, $p_3$) per aria, ossigeno, elio e idrogeno}
 	\label{fig:tempepuntotriplo}
 \end{figure}
@@ -1352,7 +1352,124 @@ Da cui è possibile ricavare $m_g$, essendo stato misurato $\Delta V$. Infine, s
 \end{align*}
 Dove m è la massa dell'oggetto di cui si vuole misurare $c_m$, $\Delta \theta$ è la differenza di temperatura fra l'oggetto in esame e l'acqua (a 0 \textdegree C). Si noti che la misura è tutta basata sul cambiamento di volume dell'acqua da solido a liquido, che deve essere conosciuto con precisione; La variazione di volume a 0 \textdegree C di 1 g di acqua a pressione atmosferica è  $\Delta V_{sl} = 0.0907\ cm^3$.
 \subsection*{Calorimetro di Regnault (o delle mescolanze)}
-
+Data una massa $m_a$ di acqua a temperatura $\theta_a$ e calore specifico $c_a$ noti all'interno di un recipiente adiabatico. Si inserisce un corpo, di massa m e temperatura $\theta$ note e calore specifico c da determinare. Dopo una quantità di tempo acqua e corpo arriveranno all'equilibrio termico $\theta_e$, che misuriamo.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{../images/calorimetro_regnault}
+	\caption{Schema esemplificativo del calorimetro di Regnault}
+	\label{fig:calorimetroregnault}
+\end{figure}
+\FloatBarrier
+Imponendo che la somma dei calori scambiati deve essere nulla (perchè il sistema è isolato) si ha
+\begin{align*}
+&Q_1 + Q_2 = m c \left(\theta - \theta_e\right) + m_a c_a \left(\theta_a - \theta_e \right) \\
+&\Rightarrow c = c_a \frac{m_a}{m}\left[\frac{\theta_e - \theta_a}{\theta - \theta_e}\right]
+\end{align*}
+Questo esperimento è basato sull'assunto che il recipiente sia perfettamente adiabatico, visto che tali recipienti non esistono si avrà sempre una quantità di calore, per quanto piccola, assorbita da esso. Per migliorare la misura calcoliamo la \textbf{massa equivalente in acqua} da aggiungere per poter assumere il recipiente perfettamente adiabatico. Per calcolala facciamo una taratura prima di effettuare la misura. Consideriamo il recipiente con dell'aqua all'interno di massa \(m_a\), a temperatura \(\theta_a\) e di calore specifico \(c_a\), aggiungiamo un' ulteriore massa \(m_a'\) d'acqua a temperatura\(\theta_a'\) e di calore specifico uguale; dopo un certo intervallo di tempo il sistema raggiungerà la temperatura all'equilibrio \(\theta_e\) che misuriamo. Per tener conto della non perfetta adiabaticità del recipiente, aggiungiamo al computo della somma dei calori la presenza di un'ulteriore massa \(m^*\) d'acqua a temperatura \(\theta_a\) che ci dovrebbe essere se il recipiente fosse perfettamente adiabatico, per raggiungere la $\theta_e$ che effettivamente si misura. 
+\begin{align*}
+	c_a m_a (\theta_a-\theta_e)+c_a m_a'(\theta_a'-\theta_e)+c_a m^*(\theta_a-\theta_e) = 0
+\end{align*}
+da cui è possibile ricavare la \(m^*\) caratteristica del recipiente usato.\\
+Rieffettuare la misura del calore specifico tenendo conto di \(m*\) offre un risultato più preciso. 
+\section{Legame fra energia interna e calore molare}
+Consideriamo l'energia interna di un sistema idrostatico, sappiamo per le considerazioni svolte nelle sezioni precedenti che la temperatura in realtà è energia interna, ne deduciamo che l'energia interna dipende dalla temperatura. Visto che in un siffatto sistema pV abbiamo solamente due variabili indipendenti dunque la seconda può essere o p o V. consideriamo i due casi in cui una delle due resta costante.
+\begin{itemize}
+	\item[a)] V = costante\\
+	\begin{align*}
+	&\delta Q = dU + pdV\\
+	&U = U(\theta\ ,\ V)\\
+	&dU = \left(\frac{\partial U}{\partial \theta}\right)_V d\theta +\left(\frac{\partial U}{\partial V}\right)_{\theta} dV\\
+	&\Rightarrow \delta Q = \left(\frac{\partial U}{\partial \theta}\right)_V d\theta +\left[\left(\frac{\partial U}{\partial V}\right)_{\theta}+p\right]dV
+	\end{align*}
+	ma essendo il volume costante \(dV = 0\) dunque il secondo termine si elimina e rimane
+	\begin{align*}
+	\delta Q = \left(\frac{\partial U}{\partial \theta}\right)_V d\theta \Rightarrow \left(\frac{\delta Q}{d \theta}\right)_V = \left(\frac{\partial U}{\partial \theta}\right)_V
+	\end{align*}
+	Ricordando la definizione di \(c_v\) possiamo scrivere
+	\begin{align*}
+		c_v = \frac{1}{n} \left( \frac{\delta Q}{\partial \theta}\right)_V = \frac{1}{n} \left(\frac{\partial U}{\partial \theta}\right)_V
+	\end{align*}
+	\item[b)] p = costante\\
+	\begin{align*}
+		&U = U(\theta\ ,\ p) \quad V = V(\theta\ ,\ p)\\
+		&\delta Q = dU + pdV\\
+	\end{align*}
+	In questo caso il volume non è costante e avremo del lavoro che è energia trasformata, ne dovremo tener conto nell'espressione dell'energia interna (nel caso a V era costante dunque L = 0). Dobbiamo dunque tener conto non solo di dU ma anche di dV.
+	\begin{align*}
+		&V = V(\theta\ ,\ p) \quad dV = \left( \frac{\partial V}{\partial \theta}\right)_p d\theta + \left( \frac{\partial V}{\partial p}\right)_{\theta} dp\\
+		&\delta Q = \left[\frac{\partial U}{\partial \theta} + p \frac{\partial V}{\partial \theta}\right]d\theta + \left[\frac{\partial U}{\partial p}+ p \frac{\partial V}{\partial p} \right]dp\\
+		&\delta Q = \left[\frac{\partial U}{\partial \theta} + p \frac{\partial V}{\partial \theta}\right]d\theta\\
+		&\Rightarrow \left(\frac{\delta Q}{d \theta}\right)_p = \left[\left(\frac{\partial U}{\partial \theta}\right)_p + p \left(\frac{\partial V}{\partial \theta}\right)_p\right]
+	\end{align*} 
+	Considerando la definizione di \(c_p\) possiamo scrivere
+	\begin{align*}
+		&c_p = \frac{1}{n}\left(\frac{\delta Q}{d\theta}\right)_p = \frac{1}{n} \left[\left(\frac{\partial U}{d \theta}\right)_p + p \left(\frac{\partial V}{d \theta}\right)_p\right]
+	\end{align*}
+\end{itemize} 
+Possiamo ora introdurre una nuova variabile di stato in modo da avere espressioni simmetriche di \(c_p\) e \(c_v\) (la ricerca di simmetrie ripaga spesso in fisica e questa nuova grandezza risulterà utile in seguito)
+\begin{align*}
+	H \equiv U + pdV
+\end{align*}
+questa è chiaramente una variabile di stato perché somma di variabili di stato; notiamo inoltre che è estensiva poiché U lo è ed anche V e il prodotto di una variabile estensiva per una intensiva risulta ancora in una variabile estensiva. Chiamiamo la variabile H \textbf{entalpia}. Intuitivamente, quello che rappresenta U a volume costante lo rappresenta H a pressione costante (questa è la simmetria). Per la teoria dei differenziali, dH è
+\begin{align*}
+	&dH = dU + pdV + Vdp \\
+	&(dH)_p = dU + pdV = (\delta Q)_p
+\end{align*}
+come ci aspettavamo, il differenziale dell'entalpia a pressione costante è uguale a quello del calore a pressione costante. Possiamo dunque riscrivere \(c_p\) come
+\begin{align*}
+	c_p = \frac{1}{n} \left(\frac{\partial H}{\partial \theta}\right)_p
+\end{align*}
+Questi risultati torneranno utili in seguito per trovare l'espressione funzionale dell'energia interna. 
+\subsection{Esperimento di Joule}
+Sappiamo che l'energia interna U dipende da temperatura e volume (o pressione e volume, la scelta è arbitraria), vogliamo trovare l'espressione di questa funzione nel caso semplice di un gas perfetto per poi passare a quello reale. Si consideri un recipiente adiabatico all'interno del quale è presente un sistema di due bulbi collegati da un tubo e divisi da un setto inizialmente chiuso, dentro un bulbo è presente un gas molto rarefatto (in condizioni di gas perfetto); il tutto circondato da acqua. Inizialmente il sistema è in equilibrio termico a temperatura $\theta_i$.
+Ancor prima di effettuare l'esperimento, per il primo principio sappiamo che, essendo il recipiente adiabatico, non vi sono scambi di calore con l'esterno ed essendo l'espansione libera (nell'altro bulbo c'è il vuoto) il lavoro è nullo. 
+\[Q = 0\ ; \quad L = 0\ \Rightarrow U_f = U_i\]
+Se ora apriamo il setto avremo un'espansione libera del gas, ci chiediamo se vi sia una variazione di temperatura a seguito dell'espansione. Si nota sperimentalmente che la temperatura non cambia
+\[\theta_f )= \theta_i\]
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{../images/esperimento_Joule}
+	\caption{Schema dell'esperimento di Joule. La temperatura resta invariata a seguito dell'espansione.}
+	\label{fig:esperimentojoule}
+\end{figure}
+\FloatBarrier
+Combinando quanto ottenuto possiamo scrivere
+\[U_f(\theta\ ,\ V_f) = U_i(\theta_i\ ,\ V_i)\]
+Nonostante il volume sia cambiato l'energia interna è rimasta la stessa, ne deduciamo che U, nel caso di un gas perfetto non dipende da V. Se avessimo considerato la dipendenza dalla pressione invece che dal volume avremmo ottenuto che, nonostante la variazione di pressione prima e dopo l'espansione, U non cambia dunque non dipende neanche da p. Se ne deduce che U dipende solo dalla temperatura.\\
+Possiamo rivedere la formula appena ottenuta di \(c_v\) in quanto ora sappiamo che la derivata di U rispetto a $\theta$ non è più parziale ma totale
+\[c_v =\frac{1}{n}\left(\frac{\partial U}{\partial\theta}\right)=\frac{1}{n}\left(\frac{dU}{d\theta}\right)\]
+Possiamo esplicitare il differenziale dell'energia interna da quest'ultima espressione ed integrare ambo i membri per trovare l'espressione funzionale dell'energia in terna rispetto alla temperatura per un gas perfetto
+\begin{align*}
+	&\int dU = \int n c_v d\theta\\
+	&U(\theta) = n c_v \theta + cost.
+\end{align*}
+A breve discuteremo la costante additiva appena ottenuta.
+\subsection{Correzione per i gas reali}
+Se il gas non fosse perfetto non dipenderebbe solo da $\theta$ ma anche da V perché non avremmo più solo energia cinetica ma anche energia potenziale, dovuta alle interazioni intermolecolari. Consideriamo nuovamente l'esperimento di Joule, anche se all'interno del bulbo ci fosse un gas reale, il primo principio continuerebbe ad essere valido e avremmo sempre\(\Delta U = 0\). Se a seguito dell'apertura del setto il volume in cui è contenuto il gas aumenta, la distanza media fra le molecole (r) aumenterà. Considerando il grafico di Lennard-Jones notiamo che all'aumentare di r aumenta anche l'energia potenziale (considerando anche il segno, diventa meno negativa) ma visto che l'energia interna deve rimanere costante ciò significa che l'energia cinetica dovrà diminuire. Se però la temperatura e l'energia cinetica sono essenzialmente la stessa cosa, allora anche la temperatura dovrà diminuire. Ne segue che in un gas reale l'energia interna dipende sia dalla temperatura che dal volume (\(U = U(\theta\ ,\ V)\)). 
+\begin{align*}
+	dU = \left(\frac{\partial U}{\partial \theta}\right)_V d\theta + \left(\frac{\partial U}{\partial V}\right)_p dV = n c_v d\theta +\left(\frac{\partial U}{\partial V}\right)_{\theta dV}
+\end{align*}
+Dove il primo membro è stato sostituito con quanto ottenuto precedentemente per i gas perfetti.\\
+\'{E} necessario anticipare una relazione che dimostreremo in seguito che esprime la \textbf{seconda equazione dell'enrgia}
+\[ \left(\frac{\partial U}{\partial V}\right)_{\theta} = \theta \left(\frac{\partial p}{\partial \theta}\right)_v - p \]
+Questa è valida per una singola mole dunque restringiamo la trattazione ad una mole per poi tornare infine al caso generale.\\
+Per l'equazione dei gas reali sappiamo l'espressione di p in funzione di V e \(\theta\), possiamo derivarla rispetto a $\theta$ per poi sostituirla nella seconda equazione dell'energia. 
+\begin{align*}
+	&p = \frac{R\theta}{v-b}-\frac{a}{v^2}\\
+	&\left(\frac{\partial p}{\partial \theta}\right)_v = \frac{R}{v-b}\\
+	&\Rightarrow dU = c_v d\theta + \left[ \theta \left(\frac{R}{v-b}\right)-p \right]dV
+\end{align*}
+Possiamo sostituire nuovamente l'espressione della pressione di un gas reale in quest'ultima equazione per ottenere
+\begin{align*}
+	dU = c_v d\theta + \left[\frac{\theta R}{v-b}-\frac{\theta R}{v-b}+\frac{a}{v^2}\right] dV = c_v d\theta +\frac{a}{v^2}dV
+\end{align*}
+Si noti che, nel caso dell'esperimento di Joule con il gas perfetto, essendo \(dU = 0\), visto che sia \(c_v\) che \(\frac{a}{v^2}\) sono maggiori di zero, se il volume cresce la temperatura deve diminuire (come ottenuto dalle considerazioni sul grafico di Lennard-Jones).\\
+Integrando ambo i membri otteniamo l'espressione funzionale dell'energia interna rispetta a temperatura e volume per un gas perfetto. 
+\[U(\theta\ ,\ v) = c_v\theta - \frac{a}{v^2}+ cost.\]
+Possiamo riaggiungere la variabile del numero di moli (con considerazioni dimensionali otteniamo che al secondo termine deve essere \(n^2\))
+\[U(\theta\ ,\ v) = n c_v\theta - \frac{a n^2}{v^2}+ cost.\]
+Si noti che in questa espressione compare solo la costante, tipica di ogni gas perfetto, a e non b; ciò è dovuto al fatto che a è il termine correttivo per la presenza di interazioni intermolecolari (rilevanti nel computo dell'energia interna) mentre b è il covolume, che non influenza l'energia interna. Per a che tende a zero si ottiene\( U(\theta)\) per i gas perfetti. Le espressioni precedenti hanno una validità molto ridotta, infatti se la temperatura fosse lo zero assoluto avremmo che l'energia interna sarebbe \(\frac{a}{v^2}+cost.\), che non ha senso dal punto di vista fisico (oltre che un gas non sarebbe più tale allo zero assoluto). 
+\subsection{Energia interna per gas monoatomici, biatomici e poliatomici}
 \section*{Appendice} 
 \subsection{Determinismo assoluto e libero arbitrio}
 La possibilità teorica di conoscere l'evoluzione (passata e futura) di un sistema fisico, diede vita al cosiddetto \textbf{determinismo assoluto} di Pierre Simon Laplace (1749 - 1827) secondo cui se si conoscesse lo stato di ogni particella nell'universo (per intenderci si stima ci siano $10^{80}$ protoni nell'universo osservabile) allora sarebbe possibile conoscere alla perfezione presente passato e futuro. Questa idea portata all'estremo sostiene che, se il cervello fosse mosso unicamente da reazioni chimiche (he altro non sono che cambiamenti nello stato del sistema cervello), se si conoscesse lo stato di ogni particella del cervello allora si potrebbe prevedere alla perfezione il comportamento di un essere umano. Da ciò sorgono svariati dilemmi filosofici, uno per tutti il problema del libero arbitrio: se ogni movimento, parola ed espressione umana fosse teoricamente prevedibile matematicamente allora la libertà che sembra scontata nell'agire umano sarebbe solamente apparente?\\
