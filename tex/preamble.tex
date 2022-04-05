@@ -25,4 +25,11 @@
 	\thm@notefont{}% same as heading font
 	\normalfont % body font
 }
+\newcommand{\newparallel}{\mathrel{\mathpalette\new@parallel\relax}}
+\newcommand{\new@parallel}[2]{%
+	\begingroup
+	\sbox\z@{$#1T$}
+	\resizebox{!}{\ht\z@}{\raisebox{\depth}{$\m@th#1/\mkern-5mu/$}}%
+	\endgroup
+}
 \makeatother
