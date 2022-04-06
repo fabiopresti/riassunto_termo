@@ -658,12 +658,24 @@ dove nell'ultimo passaggio è stata sostituita la costante k, detta \textbf{cost
 k_b = \frac{R}{N_a}
 \end{align*}
 misurabile mediante esperimenti, come quello di Perrin sul moto browniano.\\ 
-La (\ref{eq:energiacinmedia}) collega la temperatura (grandezza macroscopica) all'energia cinetica media (grandezza microscopica), ciò ci suggerisce che misurare la temperatura è perfettamente equivalente a misurare l'energia cinetica media in una diversa unità di misura, che differisce dai kelvin semplicemente per una costante. Ora è possibile introdurre il concetto di \textbf{zero assoluto} ovvero, il limite inferiore di temperatura possibile (solamente approssimabile) in cui tutte le molecole del gas sono in quiete, cioè quando hanno energia cinetica nulla.\\
-\'{E} inoltre utile notare che il 3 al denominatore nella (\ref{eq:energiacinmedia}) proviene dai 3 gradi di libertà della molecola di gas, che è ipotizzato perfetto e dunque come formato da particelle puntiformi con 3 d.o.f.(che da ora chiameremo $\nu$) Possiamo estendere questa formula per annoverare casi con diversi d.o.f.
+La (\ref{eq:energiacinmedia}) collega la temperatura (grandezza macroscopica) all'energia cinetica media (grandezza microscopica), ciò ci suggerisce che misurare la temperatura è perfettamente equivalente a misurare l'energia cinetica media in una diversa unità di misura, che differisce dai kelvin semplicemente per una costante. Ora è possibile introdurre il concetto di \textbf{zero assoluto} ovvero, il limite inferiore di temperatura possibile (solamente approssimabile) in cui tutte le molecole del gas sono in quiete, cioè quando hanno energia cinetica nulla.
+
+\subsection{Energia cinetica e gradi di libertà}\label{sec:energiacinetica_d.o.f.}
+\'{E} utile notare che il 3 al denominatore nella (\ref{eq:energiacinmedia}) proviene dai 3 gradi di libertà della molecola di gas, che è ipotizzato perfetto e dunque come formato da particelle puntiformi con 3 d.o.f.(che da ora chiameremo $\nu$). Intuitivamente, ripercorrendo i passi fatti, a causa del caos molecolare siamo portati ad aggiungere uno stesso termine \((\frac{1}{2}k\theta)\) per ogni grado di libertà. 
 \begin{align*}
+	\overline{\varepsilon} = \frac{1}{2}m\overline{ v^2} = \frac{1}{2}m\overline{ v_x^2}+\frac{1}{2}m\overline{ v_y^2}+\frac{1}{2}m\overline{ v_z^2} = \frac{1}{2}k\theta+\frac{1}{2}k\theta+\frac{1}{2}k\theta
+\end{align*} 
+Esiste un teorema che generalizza e formalizza questa intuizione (per ora si fornisce solo l'enunciato, che verrà dimostrato in seguito).
+\begin{theorem}[Equipartizione delle energie]
+	Ad ogni grado di libertà $\nu$ che compare quadraticamente nell'espressione dell'energia si associa il valore \(\frac{1}{2}k\theta\)
+\end{theorem}
+Possiamo così riscrivere la formula dell'energia
+\begin{align}\label{eq:energiacinetica_d.o.f.}
 	&\overline{\varepsilon} = \frac{\nu}{2} k \theta\\
-	&\theta = \frac{2 \overline{\varepsilon}}{k \nu}
-\end{align*}
+	&\theta = \frac{2 \overline{\varepsilon}}{k \nu}\nonumber
+\end{align}
+Si approfondisce il significato fisico di questo risultato nella sezione (\ref{sec:energia_interna_mono_bi_poli})
+\subsection{$k_b$ come costante esatta}
 Dal novembre 2018 si è decisa una nuova strategia di misurazione del grado Kelvin: si è definita la $k_b$ come costante con il valore esatto
 \begin{align*}
 	k_b \equiv 1.380649 \cdot 10^{-23}
@@ -1444,11 +1456,36 @@ Integrando ambo i membri otteniamo l'espressione funzionale dell'energia interna
 \[U(\theta\ ,\ v) = c_v\theta - \frac{a}{v^2}+ cost.\]
 Possiamo riaggiungere la variabile del numero di moli (con considerazioni dimensionali otteniamo che al secondo termine deve essere \(n^2\))
 \[U(\theta\ ,\ v) = n c_v\theta - \frac{a n^2}{v^2}+ cost.\]
-Si noti che in questa espressione compare solo la costante, tipica di ogni gas perfetto, a e non b; ciò è dovuto al fatto che a è il termine correttivo per la presenza di interazioni intermolecolari (rilevanti nel computo dell'energia interna) mentre b è il covolume, che non influenza l'energia interna. Per a che tende a zero si ottiene\( U(\theta)\) per i gas perfetti. Le espressioni precedenti hanno una validità molto ridotta, infatti se la temperatura fosse lo zero assoluto avremmo che l'energia interna sarebbe \(\frac{a}{v^2}+cost.\), che non ha senso dal punto di vista fisico (oltre che un gas non sarebbe più tale allo zero assoluto). 
-\subsection{Energia interna per gas monoatomici, biatomici e poliatomici}
-\section*{Appendice} 
-\subsection{Determinismo assoluto e libero arbitrio}
+Si noti che in questa espressione compare solo la costante, tipica di ogni gas perfetto, a e non b; ciò è dovuto al fatto che a è il termine correttivo per la presenza di interazioni intermolecolari (rilevanti nel computo dell'energia interna) mentre b è il covolume, che non influenza l'energia interna. Per a che tende a zero si ottiene\( U(\theta)\) per i gas perfetti. Le espressioni precedenti hanno una validità molto ridotta, infatti se la temperatura fosse lo zero assoluto avremmo che l'energia interna sarebbe \(-\frac{a}{v^2}+cost.\), che non ha senso dal punto di vista fisico (oltre che un gas non sarebbe più tale allo zero assoluto). 
+\subsection{Energia interna per gas monoatomici, biatomici e poliatomici}\label{sec:energia_interna_mono_bi_poli}
+Possiamo vedere l'energia interna dal punto di vista microscopico come la somma dell'energia cinetica delle singole molecole, se ci sono molte molecole questa sarà pari all'energia cinetica media, di cui abbiamo già ricavato un'espressione precedentemente. 
+\begin{align*}
+	&U = \sum_i \varepsilon_i= N_a \overline{\varepsilon} = N_a \frac{3}{2} k \theta = \frac{3}{2}n R \theta\\
+	&c_v = \frac{1}{n}\left(\frac{dU}{d\theta}\right)_v=\frac{3}{2}R\\
+	&\Rightarrow U = n c_v\theta
+\end{align*}
+Si noti che abbiamo ricavato una nuova forma macroscopica dell'energia interna, passando per l'approccio microscopico, in cui non è presente la costante additiva risultante dall'integrale nel primo metodo. Ne deduciamo che, per l teoria cinetica dei gas, l'energia di un gas a zero gradi è nulla (sostituendo $\theta=0$). Oggi sappiamo, a fronte dell'approccio quantistico, che in realtà è impossibile avere una energia interna (e dunque un movimento) totalmente assente perché al minimo ci saranno sempre energie dovute all'incertezza inevitabile dovuta al principio d'indeterminazione. Il $c_p$ risulta essere invece \(\frac{5}{2}R\), si definisce infine $\gamma=\frac{c_p}{c_v}=\frac{5}{3}$.\\
+La trattazione svolta fin ora è valida solamente per gas perfetti monoatomici, se osserviamo molecole più complesse si nota che questi valori aumentano, in particolare per molecole biatomiche si ha
+\[c_v=\frac{5}{2}R\;\quad c_p=\frac{7}{2}R\ ; \quad \gamma = \frac{7}{5}\]
+Come ci spieghiamo questo fenomeno? Ricordando la funzione di energia cinetica interna (\ref{eq:energiacinetica_d.o.f.}) notiamo che, ripercorrendo i passaggi con cui abbiamo ottenuto $c_v$ e $c_p$, possiamo tener conto dei gradi di libertà
+\begin{align*}
+	&U = N_a \overline{\varepsilon} = N_a \frac{\nu}{2} k_b \theta = \frac{\nu}{2} R \theta\\
+	&c_v = \frac{1}{n}\left(\frac{dU}{d\theta}\right)_v=\frac{\nu}{2}R
+\end{align*}
+I gradi di libertà si calcolano, come visto nel capitolo di meccanica, considerando 3 d.o.f. per ogni particella e sottraendo i legami linearmente indipendenti che si instaurano. Nel caso di una molecola biatomica abbiamo $\nu = 3+3-1 = 5$. In questo caso i due gradi di libertà in più sono dovuti all'energia di vibrazione (possiamo vedere il legame come una molla che si comprime ed estende) e uno dovuto alla rotazione tridimensionale della molecola, in molecole poliatomiche i gradi di libertà dipenderanno dalla forma caratteristica (ad esempio \(H_2 O\) con forma a V avrà diversi d.o.f. della \(CO_2\) lineare).\\
+\'{E} interessante notare che per un solido, in cui \(c_p\simeq c_v\simeq c\) sono praticamente identici, graficando la variazione di c in funzione della temperatura si ottiene che c cresce fino ad una certa temperatura \(\theta_d\) detta \textbf{temperatura di Debye}, caratteristica per ogni elemento, e poi si stabilizza sempre sul valore di \(3R\). 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{../images/debye_temperature}
+	\caption{A sinistra: grafico capacità su temperatura di diversi elementi. A destra: lo stesso grafico riscalato rispetto alle diverse temperature di Debye.}
+	\label{fig:debyetemperature}
+\end{figure}
+\FloatBarrier
+Si è notato sperimentalmente che in un intorno di zero si ha \[c \sim \left(\frac{\theta}{\theta_d}\right)^3\]
+Nell'ambito della fisica classica non si riesce a spiegare perché c diminuisca dopo una temperatura di soglie e perchè lo faccia quadraticamente; questo fu un grande limite della fisica classica che venne poi risolto dalla fisica quantistica.
+\appendix
+\section{Determinismo assoluto e libero arbitrio}
 La possibilità teorica di conoscere l'evoluzione (passata e futura) di un sistema fisico, diede vita al cosiddetto \textbf{determinismo assoluto} di Pierre Simon Laplace (1749 - 1827) secondo cui se si conoscesse lo stato di ogni particella nell'universo (per intenderci si stima ci siano $10^{80}$ protoni nell'universo osservabile) allora sarebbe possibile conoscere alla perfezione presente passato e futuro. Questa idea portata all'estremo sostiene che, se il cervello fosse mosso unicamente da reazioni chimiche (he altro non sono che cambiamenti nello stato del sistema cervello), se si conoscesse lo stato di ogni particella del cervello allora si potrebbe prevedere alla perfezione il comportamento di un essere umano. Da ciò sorgono svariati dilemmi filosofici, uno per tutti il problema del libero arbitrio: se ogni movimento, parola ed espressione umana fosse teoricamente prevedibile matematicamente allora la libertà che sembra scontata nell'agire umano sarebbe solamente apparente?\\
 In realtà è possibile smontare la tesi del determinismo assoluto alla luce delle nuove scoperte della fisica del XX secolo, principalmente grazie alla teoria del caos e al probabilismo (opposto al determinismo) della fisica quantistica, a causa del principio di indeterminazione di Heisenberg. Un sistema formato da un tale numero di particelle come l'universo (ma anche un cervello umano) è detto "caotico" che, in soldoni, vuol dire che dipende altamente dallo stato iniziale del sistema. Ora, sappiamo che ogni misura è sempre affetta da errore, dunque ogni minima incertezza sullo stato iniziale del sistema inficerebbe irrimediabilmente sulla "previsione del passato e del futuro" laplaciana. Ma allora è solamente questione di migliorare gli strumenti tecnologici per ridurre l'errore? No!, e qui entra in ballo la fisica quantistica: se riducessimo l'errore sull'ipotetica misura dello stato di ogni singola particella dell'universo si arriverebbe ad un punto in cui entreremmo nel mondo quantistico (infinitamente piccolo) in cui sappiamo che, per il principio di indeterminazione, aumentare la precisione sulla posizione diminuisce la precisione sulla quantità di moto. Non c'è scampo, il positivismo ottocentesco è destinato al fallimento. 
-\subsection{Integrale di Laplace}\label{subsec:laplaceint}
+\section{Integrale di Laplace}\label{subsec:laplaceint}
 \end{document}
