@@ -346,7 +346,7 @@ Sostituiamo il volume avvalendoci della (\ref{eq:gaseperfetti})
 	&\frac{1}{k} \equiv -\frac{1}{V}(\frac{\partial V}{\partial p})_{\theta} = -\frac{1}{V}\frac{\partial}{\partial p}(\frac{n R \theta}{p})= \frac{1}{V}\frac{n R \theta}{p^2} = \frac{n R \theta}{(Vp) p} = \frac{n R \theta}{n R \theta p} = \frac{1}{p}
 \end{align*} 
 \end{exercise} 
-\begin{exercise}
+\begin{exercise}\label{ex:pressione_quota}
 Ricavare la dipendenza della pressione dalla quota atmosferica (assumendo che l’aria sia un gas perfetto).\\
 Prendiamo in considerazione un cilindro d'aria di volume V, superficie di base S e altezza dz infinitesima. Sappiamo che la pressione varia con la quota perché più si va in alto minore sarà la forza esercitata dalla colonna d'aria che sovrasta una superficie: la pressione esercitata dall'aria sulla faccia inferiore del cilindro sarà minore (infinitesimamente) di quella sulla faccia superiore. Ricaviamo la relazione che descrive la variazione di pressione in funzione della quota.\\
 Se l'aria è ferma in un determinato istante, allora il gas all'interno del nostro cilindro è in equilibrio, cioè la pressione esercitata sulla faccia superiore è uguale e in verso contrario a quella esercitata sulla faccia inferiore più quella esercitata dal gas stesso all'interno del cilindro (i venti sono generati infatti da variazioni di pressione). Dovrà dunque verificarsi
@@ -365,7 +365,7 @@ Dove p = pressione dell'aria a quota dz
 \FloatBarrier
 Se la densità dell'aria ($\rho$) fosse costante a qualsiasi quota sarebbe semplice integrare per trovare l'espressione generale della pressione:
 \begin{align*} 
-	&dp 0 -\rho  g dz \\
+	&dp = -\rho  g dz \\
 	\Rightarrow & p = p_0 - \rho g z
 \end{align*} 
 Tuttavia l'aria è un fluido comprimibile, ragion per cui la densità è una funzione della quota ($\rho = \rho(z)$ ). Sfruttiamo le leggi dei gas perfetti per valutare l'espansione dell'aria in funzione della quota (e quindi la sua diminuzione di pressione). Siano m la massa del cilindro pieno d'aria ed M la massa molare dell'aria
@@ -375,10 +375,10 @@ Tuttavia l'aria è un fluido comprimibile, ragion per cui la densità è una fun
 	&\frac{dp}{dz}=-\rho(z) g = - \frac{p(z) M g(z)}{R\theta(z)}
 \end{align*} 
 Quest'ultima è la forma generale di come varia la pressione al variare infinitesimo della quota. Si noti che a rigore sia g che $\theta$ dovrebbero variare ma per ora, in prima approssimazione li consideriamo costanti (maggiore precisione sarà aggiunta in seguito). 
-\begin{align*} 
-	&\frac{dp}{dz}=- \frac{p(z) M g}{R\theta}\\
+\begin{align}\label{eq:esercizio_pressione}
+	&\frac{dp}{dz}=- \frac{p(z) M g}{R\theta}\nonumber\\
 	&\frac{dp}{p} = -\frac{M g}{R \theta} dz = - L dz
-\end{align*} 
+\end{align} 
 L'ultimo passaggio è possibile poichè tutti i valori nella frazione sono costanti ($ L \simeq \frac{1}{8.82} km^{-1}$). Integriamo
 \begin{align*} 
 	&\int_{p_0}^{p} = -L z\\
@@ -1460,10 +1460,10 @@ Nonostante il volume sia cambiato l'energia interna è rimasta la stessa, ne ded
 Possiamo rivedere la formula appena ottenuta di \(c_v\) in quanto ora sappiamo che la derivata di U rispetto a $\theta$ non è più parziale ma totale
 \[c_v =\frac{1}{n}\left(\frac{\partial U}{\partial\theta}\right)=\frac{1}{n}\left(\frac{dU}{d\theta}\right)\]
 Possiamo esplicitare il differenziale dell'energia interna da quest'ultima espressione ed integrare ambo i membri per trovare l'espressione funzionale dell'energia in terna rispetto alla temperatura per un gas perfetto.
-\begin{align*} 
-	&\int dU = \int n c_v d\theta\\
+\begin{align}\label{eq:U_gas_perfetti}
+	&\int dU = \int n c_v d\theta\nonumber\\
 	&U(\theta) = n c_v \theta + cost.
-\end{align*} 
+\end{align} 
 A breve discuteremo la costante additiva appena ottenuta.
 \subsection{Correzione per i gas reali}
 Se il gas non fosse perfetto non dipenderebbe solo da $\theta$ ma anche da V perché non avremmo più solo energia cinetica ma anche energia potenziale, dovuta alle interazioni intermolecolari. Consideriamo nuovamente l'esperimento di Joule, anche se all'interno del bulbo ci fosse un gas reale, il primo principio continuerebbe ad essere valido e avremmo sempre\(\Delta U = 0\). Se a seguito dell'apertura del setto il volume in cui è contenuto il gas aumenta, la distanza media fra le molecole (r) aumenterà. Considerando il grafico di Lennard-Jones notiamo che all'aumentare di r aumenta anche l'energia potenziale (considerando anche il segno, diventa meno negativa) ma visto che l'energia interna deve rimanere costante ciò significa che l'energia cinetica dovrà diminuire. Se però la temperatura e l'energia cinetica sono essenzialmente la stessa cosa, allora anche la temperatura dovrà diminuire. Ne segue che in un gas reale l'energia interna dipende sia dalla temperatura che dal volume (\(U = U(\theta\ ,\ V)\)). 
@@ -1602,10 +1602,232 @@ Se al posto dei legami mettiamo delle molle e, come prima scegliamo un S.R.I. so
 \end{figure}
 \FloatBarrier
 Si è notato sperimentalmente che in un intorno di zero si ha \[c \sim \left(\frac{\theta}{\theta_d}\right)^3\]
-Nell'ambito della fisica classica non si riesce a spiegare perché c diminuisca dopo una temperatura di soglia e perché lo faccia quadraticamente; questo fu un grande limite della fisica classica che venne poi risolto dalla fisica quantistica.
+Nell'ambito della fisica classica non si riesce a spiegare perché c diminuisca dopo una temperatura di soglia e perché lo faccia quadraticamente; questo fu un grande limite della fisica classica che venne poi risolto dalla fisica quantistica. Tuttavia possiamo spiegarci la stabilizzazione $3R$. In un solido le molecole sono bloccati bloccate e l'unico grado di libertà è quello di vibrazione. Ci sono dunque due componenti indipendenti per ogni direzione (uno di energia cinetica e uno potenziale elastica), risultano così 6 gradi di libertà.
+ \[\Rightarrow c = \frac{6}{2}R = 3R\] 
+Che è proprio il valore a cui si stabilizza c sperimentale. 
 \subsection{Legame tra $c_p$ e $c_v$ in un gas perfetto}
+Cominciamo con il trovare \(dQ\) alla luce di quanto visto
+\begin{align*}
+	&pV = n R \theta \Rightarrow pdV = nRd\theta - Vdp \\
+	&dQ = dU+pdV = dU + nRd\theta - Vdp \\
+	&n c_vd\theta +nRd\theta - Vdp = n(c_v+R)d\theta-Vdp
+\end{align*}
+Dove il secondo passaggio è il primo principio della termodinamica a cui è stato sostituito il primo passaggio; nell'ultimo passaggio è stato sostituito quanto trovato nella (\ref{eq:U_gas_perfetti}). Se imponiamo la pressione costante (dp = 0) otteniamo
+\begin{align*}
+	&(dQ)_p=n(c_v+R)d\theta\\
+	&\left(\frac{dQ}{d\theta}\right)_p = n(c_v+R)
+\end{align*}
+Ricordando la definizione di \(C_p,\ c_p\) e \(c_v\) troviamo un'interessante relazione tra $c_p$ e $c_v$
+\begin{align}\label{eq:relazione_di_Mayer}
+	&C_p \equiv \left(\frac{dQ}{d\theta}\right)_p = n(c_v+R)\nonumber\\
+	&c_p = \frac{1}{n} C_p = (c_v + R)\nonumber\\
+	& \Rightarrow c_p - c_v = R
+\end{align}
+Questa è detta \textbf{Relazione di Mayer}. Sfruttandola, e avendo ricavato i valori di $c_v$ per gas mono, bi e poliatomici possiamo ricavare anche \(c_p \) e\(\gamma\)
+\begin{align*}
+	&c_p^{(mono)} = \frac{3}{2}R + R = \frac{5}{2}R\\
+	&c_p^{(bi)} = \frac{5}{2}R + R = \frac{7}{2} R\\
+	&c_p^{(poli,\ ang)} = 3(N-1)R + R = (3N - 2) R\\
+	&c_p^{(poli,\ lin)} =  \frac{6N-5}{2}R + R = \frac{6N-3}{2}R\\
+	&\gamma^{(ang)} = 1 + \frac{2}{6 N - 6}\\
+	&\gamma^{(lin)} = 1 + \frac{2}{6 N - 5}
+\end{align*}
+Questo modello è valido per N piccoli ma per N che tende a infinito da queste equazioni risulterebbe che gamma in entrambi i casi tende ad 1, sperimentalmente si rileva che gamma tende a $\frac{4}{3}$.
 \section{Trasformazioni adiabatiche}
+A partire da $\delta Q$ ricavato, consideriamo una trasformazione adiabatica in cui non vi sono scambi di calore. 
+\begin{align*}
+	&\delta Q = n c_v d\theta + pdV = n c_p d\theta - Vdp = 0\\
+	&\begin{cases}
+		n c_v d\theta = -pdV\\
+		n c_p d\theta = V dp
+	\end{cases} \Rightarrow \gamma = - \frac{V}{p}\frac{dp}{dV}\\
+	& \frac{dp}{p} = -\gamma \frac{dV}{V} \\
+	&\Rightarrow \int\frac{dp}{p} = -\int\gamma \frac{dV}{V}\\
+	&\ln(p) = -\gamma \ln(V + cost. = -\ln(V^{\gamma}) + cost.\\
+	&\ln(p)+\ln(V^{\gamma}) = cost.\\
+	&\ln(pV^{\gamma}) = cost.\\
+\end{align*}
+\begin{align}\label{eq:adiabatica1}
+	&\Rightarrow pV^{\gamma} = cost.
+\end{align}
+Quest'ultima è una relazione sempre valida per le trasformazioni adiabatiche, da ciò ricaviamo che in un piano di Clapeyron una curva adiabatica è più piccata di una isoterma avendo quest'ultima il volume elevato a potenza ( \(\gamma > 1\)).\\
+A partire da questa relazione (in cui compaiono p e V) possiamo ricavarne altre in cui appaiono \(\theta\) e V o \(\theta\) e p. Nel primo caso sostituiamo p, mediante l'equazione di stato dei gas perfetti
+\begin{align}\label{eq:adiabatica2}
+	&\left(\frac{n R \theta}{V}\right)V^{\gamma} = cost.\nonumber\\
+	&n R \theta V^{\gamma - 1} = cost \Rightarrow \theta V ^{\gamma-1}= cost.
+\end{align}
+Nel secondo caso, sostituiamo V con l'equazione di stato dei gas perfetti in quest'ultima relazione ricavata
+\begin{align}\label{eq:adiabatica3}
+	&\theta \left(\frac{n R \theta}{p} \right)^{\gamma-1}= \theta (n R \theta^{\gamma-1}) p^{1-\gamma}= cost.\nonumber\\
+	&\theta^{\gamma} p^{1-\gamma}= cost.\nonumber\\
+	&\theta p^{\frac{1-\gamma}{\gamma}} = cost.
+\end{align}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{../images/adiabatica_grafico}
+	\caption{Grafico esemplificativo di un'adiabatica ed una isoterma, la prima decresce più rapidamente.}
+	\label{fig:adiabaticagrafico}
+\end{figure}
+\FloatBarrier
+\'{E} immediato giustificare la pendenza maggiore della curva adiabatica con la seguente osservazione:
+\begin{align*}
+	\left(\frac{\partial p}{\partial V}\right)_{isoterma} = -\frac{p}{V} > -\gamma \frac{p}{V} = \left(\frac{\partial p}{\partial V}\right)_{adiabatica}
+\end{align*}
+\subsection{Calcolo del lavoro di una trasformazione adiabatica}
+Come visto per le isoterme, l'area sotto al grafico della trasformazione sul piano di Clapeyron è il lavoro. 
+\begin{align*}
+	L = \int_{i}^{f} p dV = cost. \int_{i}^{f} V^{-\gamma} dV = \frac{cost.}{1 - \gamma}[V_f^{1-\gamma}-V_i^{1-\gamma}]
+\end{align*}
+Dove è stata usata la relazione (\ref{eq:adiabatica1}) per sostituire p nell'integrale.\\
+Possiamo riscrivere queste relazioni notando che, a partire dalla (\ref{eq:adiabatica1}) otteniamo
+\begin{align*}
+	&V^{1- \gamma} cost. = pV^{\gamma} V^{1- \gamma} = pV\\
+	&\Rightarrow L =  \frac{cost.}{1 - \gamma}[p_f V_f-p_i V_i] = \frac{n R}{\gamma - 1}[\theta_i - \theta_f]
+\end{align*}
+In quest'ultimo passaggio abbiamo semplicemente usato l'equazione di stato dei gas perfetti e cambiato segno ($\gamma > 1$). Possiamo ora sostituire $\gamma \equiv \frac{c_p}{c_v}$ 
+\begin{align*}
+L = \frac{n R c_v}{c_p - c_v} [\theta_i - \theta_f] = \frac{n R c_v}{R} [\theta_i - \theta_f] = n c_v \Delta \theta = -\Delta U
+\end{align*}
+in quest'ultimo passaggio si ricordi la (\ref{eq:U_gas_perfetti}).\\
+Dall'espressione del lavoro possiamo trarre alcune conclusioni: se L > 0 si ha un'espansione adiabatica e il gas si raffredda: \(\Delta \theta< 0\), se L < 0 si ha una compressione adiabatica e il gas si riscalda : \(\Delta \theta > 0\), se L = 0 si ha un'espansione libera in cui, come visto nell'esperimento di Joule \(\theta_f = \theta_i\).
+\begin{exercise}[Espansione adiabatica]
+	Mostrare, usando il modello della T.C.G., che durante un’espansione adiabatica quasistatica
+	un gas si raffredda.\\
+	Consideriamo il gas nel cilindro+pistone, e concentriamoci su una singola molecola di cui andremo	a considerare la componente della velocità parallela al movimento del pistone (le altre componenti non cambiano modulo, essendo gli urti elastici). Sia v la velocità della molecola (verso l’alto) e V < v la velocità del pistone (sempre verso l’alto poiché è un'espansione). Mettiamo a sistema conservazione dell'energia e della quantità di moto
+	\begin{align*}
+		\begin{cases}
+			\frac{1}{2} m v^2 + \frac{1}{2}M V^2 = \frac{1}{2}M V'^2+\frac{1}{2}m v'^2\\
+			m v + M V = m v' + M V'
+		\end{cases} \Rightarrow 
+		\begin{cases}
+			v' = \frac{(m - M) v + 2 M V}{m + M}\\
+			V' = \frac{(M - m)V + 2m V}{m + M}
+		\end{cases}
+	\end{align*}
+Se il rapporto \(r \equiv \frac{m}{M}\) tende a 0 (poiché la massa della molecola è molto inferiore di quella del pistone siamo nelle condizioni di una pallina che colpisce un muro elasticamente) avremmo
+\begin{align*}
+	\begin{cases}
+		v' = -v + 2 V\\
+		V' = V
+	\end{cases}
+\end{align*}
+Possiamo quindi calcolare la variazione di energia cinetica della molecola, che corrisponde alla variazione di temperatura del gas dovuta all'urto di una singola molecola (ma le altre molecole si comporteranno analogamente dunque studiando l'energia cinetica di una molecola possiamo avere informazioni sulla temperatura). 
+\begin{align*}
+	\Delta\varepsilon = \varepsilon' - \varepsilon = \frac{1}{2} m (v'^2 - v^2) = \frac{1}{2} m [(-v+2v)^2 - v^2] = 2 m V (V - v)
+\end{align*}
+Ne deduciamo che 
+\begin{itemize}
+	\item se V > 0 (espansione) e V< v allora $\Delta\varepsilon < 0$ dunque si ha un raffreddamento
+	\item se V < 0 (compressione) e V< v allora $\Delta\varepsilon > 0$ dunque si ha un riscaldamento
+	\item se $V\to\infty$ la molecola non urta, saremmo dunque nel caso di un'espansione libera in cui  $\Delta\varepsilon = \Delta \theta = 0$
+\end{itemize}
+\end{exercise}
+\subsection{Applicazioni delle espansioni adiabatiche}
+\subsubsection{Espansione dell'universo}
+A seguito di conferme sperimentali si è arrivati alla conclusione che l'universo è in espansione, è interessante studiarne gli effetti mediante le conoscenze di termodinamica classica acquisite. Gli assunti che stanno alla base di questa trattazione sono che l'universo sia omogeneo ed isotropo e che sia modellizzabile come un fluido composito (stelle, pianeti ecc.) ma principalmente formato da fotoni liberi (fotoni primordiali). Inoltre sembra ovvio assumere che l'espansione dell'universo è libera visto che si sta espandendo nel vuoto (cosa ci sarebbe al di là dell'universo se no?).\\
+Isoliamo una regione sferica di volume V e con energia interna U di universo, definiamo il rapporto \(\rho = \frac{U}{V}\) e calcoliamone il differenziale. 
+\begin{align*}
+	d\rho = d\left(\frac{U}{V}\right) = \frac{d U}{V}- U \frac{dV}{V^2} = \frac{dU}{V}-\rho\frac{dV}{V}
+\end{align*}
+Essendo l'espansione adiabatica si ha \(dU = -pdV)\) e quindi, sostituendo
+\begin{align*}
+	d\rho = -\frac{pdV}{V}- U \frac{dV}{V^2} = \frac{dU}{V}-\rho\frac{dV}{V} = -(p + \rho)\frac{dV}{V}
+\end{align*}
+Dobbiamo però fare una breve digressione per chiarire come l'universo si espanda: in realtà, a differenza dell'espansione di un gas, in questo caso è lo spazio stesso ad espandersi, trascinando con sè tutto ciò che vi si trova dentro (per la relatività generale lo spazio è un mezzo elastico deformabile), l'espansione avviene indipendentemente da ciò che c'è dentro lo spazio. Per esprimere questa espansione si usa un fattore di scala $a(t)$ che stabilisce come cambia la distanza fra due punti nel tempo, se a $t_0$ questi avevano distanza $d_0$, dopo un intervallo di tempo si avrà \(d(t) = a(t)\cdot d_0\).\\
+Da questa informazione possiamo sapere come si espande la regione sferica tenuta in considerazione in funzione del tempo: sia $r_0$ il raggio iniziale della sfera e $V_0 \equiv \frac{4}{3}\pi r_0^3$il volume iniziale
+\begin{align*}
+	&V(t) = \frac{4}{3}\pi[a(t) r_0]^3 = \frac{4}{3}\pi a(t)^3 r_0^3\\
+	&dV = (3 a^2 da) V_0\\
+	&\frac{dV}{V} = \frac{(3 a^2 da) V_0}{\frac{4}{3}\pi a(t)^3 r_0^3} = \frac{(3 a^2 da) V_0}{ a(t)^3 r_0^2} =\frac{3 da}{a}
+\end{align*}
+Ricordando il valore di $d\rho$ ottenuto precedentemente possiamo dividere ambo i membri per dt e trovare una relazione fra derivate
+\begin{align*}
+	&\frac{d\rho}{dt} = -3(p + \rho)\frac{1}{a}\frac{da}{dt}\\\
+	&\dot{\rho} = -3(p + \rho)\frac{\dot{a}}{a}
+\end{align*}
+Notiamo che la variazione della densità di energia interna varia come la variazione del "rate" d'espansione fratto il rate d'espansione stesso, questo rapporto è stato dimostrato essere costante ed è detto \textbf{costante di Hubble} indicata come \(\frac{\dot{a}}{a}\equiv H\).  Possiamo così riscrivere l'equazione precedente
+\[\dot{\rho} = -3(p+\rho) H\]
+Quest'ultima è nota come una delle equazioni di Aleksandr Friedmann (1888 - 1925), ottenute da alcune delle soluzioni delle equazioni della relatività generale. Visto che abbiamo trovato questa equazione assumendo l'universo in espansione adiabatica, e dalla relatività generale si perviene allo stesso risultato, possiamo affermare che la R.G. prevede un universo in espansione adiabatica. 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{../images/Hubble}
+	\caption{Grafico velocità di espansione su espansione in cui ogni punto indica una galassia a diversa distanza; i dati sperimentali confermano la legge di Hubble.}
+	\label{fig:hubble}
+\end{figure}
+\FloatBarrier
+Volgiamo ora ricavare come varia la temperatura dell'universo in funzione del tempo, questo può fornirci un'enorme quantità di informazioni utili su di esso.\\
+Per far ciò serve conoscere l'equazione di stato del fluido \(p(\rho)\), da cui sono ricavabili sia la funzione \(a(t)\) che $\gamma$. Si è arrivato a sapere che per un fluido di tipo "radiazione" come il gas di fotoni, si ha \[a(t)\propto t^{\frac{1}{2}}\ , \gamma = \frac{4}{3}\] mentre per uno di tipo "materia" come per i barioni, si ha \[a(t)\propto t^{\frac{2}{3}}\ , \frac{5}{3}\]. Data la relazione (\ref{eq:adiabatica2}) per le trasformazioni adiabatiche quasistatiche e con gas perfetti (cosa che sono gas di fotoni e barioni), e ricordando che \(V(t)\) varia come \(a(t)^3\), otteniamo
+\begin{itemize}
+	\item Radiazione: \(\theta V^{1-\gamma} = \theta V^{\frac{1}{3}} \Rightarrow \theta a = cost.\)
+	\item Materia: \(\theta V^{1-\gamma} = \theta V^{\frac{2}{3}} \Rightarrow \theta a^2 = cost.\)
+\end{itemize}
+Avendo ipotizzato inizialmente  che la nostra porzione di universo è permeata da gas di fotoni, concentriamoci sulla relazione valida per le radiazioni, abbiamo una proporzionalità inversa dunque
+\begin{align*}
+	&a = \frac{cost.}{\theta} \Rightarrow  \theta t^{\frac{1}{2}} = cost.
+\end{align*}
+Portiamo ora questa relazione in scala logaritmica
+\[\ln(\theta) = -\frac{1}{2}\ln(t) + cost.\]
+Ecco ottenuta la relazione che cercavamo. Sapendo approssimativamente la vita dell'universo, e quindi i secondi che ci separano dal big bang ( circa $4\cdot 10^{17}\ s$), e conoscendo la temperatura dell'universo attuale (pari a circa 3\textdegree k) possiamo ricavare la temperatura dell'universo in qualunque tempo cosmologico. 
+\begin{align*}
+	&\ln(3) = -\frac{1}{2}\ln(4\cdot10^17) + cost.\\
+	& cost. = \ln(3) + \frac{1}{2}\ln(4\cdot10^17) \simeq 21\\
+	&\Rightarrow \ln(\theta) = -\frac{1}{2}\ln(t) + 21
+\end{align*}
+\'{E} interessante sapere che l'energia (e quindi temperatura) massima raggiunta in laboratorio sulla terra è quella del collisore LHC del CERN di Ginevra che corrisponde a $13 TeV = 1.3 \cdot 10^{13} eV = 1.3 \cdot 10^{13} \cdot 1.16 \cdot 10^4\ °K = 1.5\cdot 10^{17}\ °K $. Possiamo ricavare a quale tempo cosmico corrisponde questa temperatura
+\begin{align*}
+	& \ln(t) = 2(21 -\ln(\theta)) \simeq -36 \\
+	& t \simeq e^{-36} \simeq 10^{16}
+\end{align*}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{../images/temperatura_universo}
+	\caption{Grafico in scala doppio logaritmica della temperatura dell'universo in funzione del tempo cosmico. Si noti che c'è una soglia di tempo, detta \textbf{tempo di Planck} oltre il quale le leggi della fisica non valgono e le leggi della fisica quantistica e relativistica si contraddicono. Ciò, insieme ad altre considerazioni, ci suggerisce che le teorie odierne sono incomplete.}
+	\label{fig:temperaturauniverso}
+\end{figure}
+\FloatBarrier
+Infine, si può osservare come un universo in espansione conduce a un lento e progressivo
+raffreddamento verso lo zero assoluto, scenario che in ambito cosmologico va sotto il nome
+di\textbf{ morte fredda dell’Universo}.
+\subsubsection{Dipendenza della temperatura dalla quota}
+Nell'esercizio (\ref{ex:pressione_quota}) abbiamo ricavato una relazione che connette la pressione atmosferica con la quota, abbiamo tuttavia ipotizzato la temperatura costante al variare della quota, approssimazione che ci faceva sottostimare il valore misurato della pressione. Ci proponiamo ora di studiare la variazione di temperatura in funzione della quota per poi correggere la relazione trovata in precedenza. Partiamo da quanto già ricavato (\ref{eq:esercizio_pressione})
+\[\frac{dp}{p} = \frac{M g(z)}{R\theta(z)} dz\]
+Innanzitutto, bisogna svolgere una breve digressione su cosa accada quando l'aria viene riscaldata in atmosfera. I fotoni provenienti dal sole aumentano la temperatura dell'aria che, espandendosi, diminuisce la sua densità. Per la legge di Archimede, questa massa d'aria sale ma salendo di quota incontra strati d'atmosfera a pressione inferiore, avviene così un'altra espansione di tipo adiabatico (tutte le trasformazioni dell'aria sono considerate adiabatiche data la sua scarsissima capacità termica). Usiamo la (\ref{eq:adiabatica3}) facendone il logaritmo e calcolandone il differenziale. 
+\begin{align*}
+	&\theta p^{\frac{1-\gamma}{\gamma}} = cost\\
+	&\ln(\theta p) + \frac{1-\gamma}{\gamma}\ln(p) = cost.\\
+	&\frac{d\theta}{\theta}+\frac{1-\gamma}{\gamma}\frac{dp}{p} = 0\\
+	&\frac{dp}{p} = -\frac{\gamma}{1-\gamma}\frac{d\theta}{\theta}
+\end{align*}
+Possiamo eguagliare quest'ultima con l'espressione di $\frac{dp}{p}$ ottenuta nell'esercizio già fatto
+\begin{align*}
+	&-\frac{\gamma}{1-\gamma}\frac{d\theta}{\theta} = \frac{M g}{R \theta}dz\\
+	&\frac{d\theta}{dz} = -\frac{\gamma - 1}{\gamma} \frac{M g}{R}
+\end{align*}
+Definiamo ora il gradiente termico L come
+\begin{align*}
+	&L \equiv \frac{\gamma - 1}{\gamma} \frac{M g}{R}\\
+	&\frac{d\theta}{dz} = -L 
+\end{align*}
+Il segno negativo indica che all'aumentare della quota la temperatura diminuisce.\\
+Ad esempio, possiamo valutare L dell'aria considerandola un gas biatomico perfetto
+\[\gamma = \frac{7}{5},\ M = 28.8\ g,\ \Rightarrow L = \simeq 9.7\cdot 10^3\ \frac{K}{m} \simeq 10\ \frac{K}{km}\]
+Tuttavia, questa previsione classica sovrastima ancora il valore misurato poiché non tiene conto della condensa dell'aria: il calore latente di condensa trattiene calore e diminuisce la temperatura. Il vero gradiente termico è $6.5\ \frac{K}{km}$. Possiamo dunque determinare la temperatura in funzione della quota, conoscendo la temperatura alò livello del mare $\theta_0$ integrando 
+\begin{align*}
+	&\int d\theta = -\int L dz\\
+	&\theta (z) = \theta_0 - L z
+\end{align*}
+Questo approccio però ha validità solamente nei primi 10 km inferiori dell'atmosfera poiché a questa quota avvengono fenomeni che portano ad un'inversione di tendenza (come la formazione di ozono). 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{"../images/temperatura atmosferica"}
+	\caption{Grafico della temperatura in funzione della quota. La nostra trattazione è valida solamente nella troposfera. Si notino le varie inversioni di tendenza.}
+	\label{fig:temperatura-atmosferica}
+\end{figure}
+\FloatBarrier
+\section{Metodi per il calcolo di $\gamma$}
 
+
+ 
 \appendix
 \section{Determinismo assoluto e libero arbitrio}
 La possibilità teorica di conoscere l'evoluzione (passata e futura) di un sistema fisico, diede vita al cosiddetto \textbf{determinismo assoluto} di Pierre Simon Laplace (1749 - 1827) secondo cui se si conoscesse lo stato di ogni particella nell'universo (per intenderci si stima ci siano $10^{80}$ protoni nell'universo osservabile) allora sarebbe possibile conoscere alla perfezione presente passato e futuro. Questa idea portata all'estremo sostiene che, se il cervello fosse mosso unicamente da reazioni chimiche (he altro non sono che cambiamenti nello stato del sistema cervello), se si conoscesse lo stato di ogni particella del cervello allora si potrebbe prevedere alla perfezione il comportamento di un essere umano. Da ciò sorgono svariati dilemmi filosofici, uno per tutti il problema del libero arbitrio: se ogni movimento, parola ed espressione umana fosse teoricamente prevedibile matematicamente allora la libertà che sembra scontata nell'agire umano sarebbe solamente apparente?\\
