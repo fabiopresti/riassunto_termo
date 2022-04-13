@@ -1770,7 +1770,7 @@ Portiamo ora questa relazione in scala logaritmica
 Ecco ottenuta la relazione che cercavamo. Sapendo approssimativamente la vita dell'universo, e quindi i secondi che ci separano dal big bang ( circa $4\cdot 10^{17}\ s$), e conoscendo la temperatura dell'universo attuale (pari a circa 3\textdegree k) possiamo ricavare la temperatura dell'universo in qualunque tempo cosmologico. 
 \begin{align*}
 	&\ln(3) = -\frac{1}{2}\ln(4\cdot10^17) + cost.\\
-	& cost. = \ln(3) + \frac{1}{2}\ln(4\cdot10^17) \simeq 21\\
+	& cost. = \ln(3) + \frac{1}{2}\ln(4\cdot10^{17}) \simeq 21\\
 	&\Rightarrow \ln(\theta) = -\frac{1}{2}\ln(t) + 21
 \end{align*}
 \'{E} interessante sapere che l'energia (e quindi temperatura) massima raggiunta in laboratorio sulla terra è quella del collisore LHC del CERN di Ginevra che corrisponde a $13 TeV = 1.3 \cdot 10^{13} eV = 1.3 \cdot 10^{13} \cdot 1.16 \cdot 10^4\ °K = 1.5\cdot 10^{17}\ °K $. Possiamo ricavare a quale tempo cosmico corrisponde questa temperatura
@@ -1810,7 +1810,7 @@ Definiamo ora il gradiente termico L come
 \end{align*}
 Il segno negativo indica che all'aumentare della quota la temperatura diminuisce.\\
 Ad esempio, possiamo valutare L dell'aria considerandola un gas biatomico perfetto
-\[\gamma = \frac{7}{5},\ M = 28.8\ g,\ \Rightarrow L = \simeq 9.7\cdot 10^3\ \frac{K}{m} \simeq 10\ \frac{K}{km}\]
+\[\gamma = \frac{7}{5},\ M = 28.8\ g,\ \Rightarrow L \simeq 9.7\cdot 10^3\ \frac{K}{m} \simeq 10\ \frac{K}{km}\]
 Tuttavia, questa previsione classica sovrastima ancora il valore misurato poiché non tiene conto della condensa dell'aria: il calore latente di condensa trattiene calore e diminuisce la temperatura. Il vero gradiente termico è $6.5\ \frac{K}{km}$. Possiamo dunque determinare la temperatura in funzione della quota, conoscendo la temperatura alò livello del mare $\theta_0$ integrando 
 \begin{align*}
 	&\int d\theta = -\int L dz\\
@@ -1825,9 +1825,102 @@ Questo approccio però ha validità solamente nei primi 10 km inferiori dell'atm
 \end{figure}
 \FloatBarrier
 \section{Metodi per il calcolo di $\gamma$}
+\subsection{Esperimento di Ruchardt}
+In questo esperimento la misura di \(\gamma\) avviene tramite la misura del periodo d'oscillazione di una pallina posto all'imboccatura di un recipiente di vetro di volume V.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\linewidth]{../images/ruchardt}
+	\caption{Schema dell'apparato sperimentale di Ruchardt.}
+	\label{fig:ruchardt}
+\end{figure}
+\FloatBarrier
+ All'equilibrio la pressione interna eguaglia quella atmosferica più quella esercitata dalla pallina. \[p = p_0 + \frac{m g}{A}\] Dove A è la superficie dell'imboccatura. Se si perturba l'equilibrio con una forza \(dF = A dp\) la pallina comincerà a muoversi modificando il volume e quindi la pressione e temperatura all'interno del recipiente. Vista la velocità delle trasformazioni possiamo considerarle le adiabatiche, vale dunque la relazione \(\frac{dp}{p}=-\gamma\frac{dV}{V}\), sostituendo
+ \begin{align*}
+ 	&dp = -\gamma p \frac{dV}{V}\\
+ 	&dF = A dp = - A \gamma p \frac{dV}{V} = - \frac{A^2 \gamma p}{V}dz
+ \end{align*} 
+ Dove nell'ultimo passaggio si è sostituito $dV = A dz$. Notiamo che integrando la precedente, per il secondo principio della dinamica otteniamo l'equazione tipica dell'oscillatore armonico. 
+ \begin{align*}
+ 	&\int dF = -\int  \frac{A^2 \gamma p}{V}dz\\
+ 	&F = m \ddot{z}= - \frac{A^2 \gamma p}{V} z\\
+ 	&\ddot{z} + \frac{A^2 \gamma p}{m V} z = 0 \Rightarrow \tau = 2\pi \sqrt{\frac{mV}{\gamma p A^2}}\\
+ 	&\gamma = \frac{4 \pi^2 m V}{A^2 p \tau^2}
+ \end{align*}
+Abbiamo così ottenuto una relazione in cui gamma è misurabile. La precisione della misura su $\tau$, essendo elevato al quadrato, ha molta influenza sull'incertezza di $\gamma$. 
+\subsection{Velocità del suono}
+Un metodo più preciso consiste nel misurare la velocità di propagazione delle onde sonore
+in un gas per inferire il valore di $\gamma$. In generale la velocità di propagazione delle onde sonore è data dalla relazione
+\begin{align*}
+	v = \sqrt{\frac{k_s}{\rho}}
+\end{align*}
+Dove $\rho$ è la densità del mezzo e $k_s$ il \textbf{modulo di comprimibilità adiabatico} che è definito come \[\frac{1}{k_s}\equiv -\frac{1}{V}\left(\frac{\partial V}{\partial p}\right)_s\]
+Dove la s sta ad indicare che non vi sono scambi di calore.\\ In un gas la propagazione di un'onda sonora può essere vista come una compressione o espansione del mezzo che avviene adiabaticamente essendo estremamente rapida. Possiamo dunque scrivere
+\begin{align*}
+	&\frac{dp}{p} = -\gamma \frac{dV}{V}\\
+	&-\frac{1}{V}\frac{dV}{dp}=\frac{1}{\gamma p} = \frac{1}{k_s}\\
+	&k_s = \gamma p \Rightarrow v = \sqrt{\frac{\gamma p}{\rho}}
+\end{align*}
+Da questa relazione possiamo ricavare l'espressione di $\gamma$ in cui compaiono solo grandezze misurabili \[\gamma =\frac{ \rho v^2}{p}\]
+\begin{exercise}[Calcolo della capacità termica]
+Sia la capacità termica di un gas perfetto monoatomico nella trasformazione $\tau$ \[C = \frac{1}{n}\left(\frac{\delta Q}{d\theta}\right)_{\tau}\] 
+Dove $\tau$ è la trasformazione che porta dallo stato A: ($p_0$, $V_0$) a quello B:($p_0/2$, $2V_0$) come riportato in figura
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{../images/esercizio_capacità}
+	\caption{Grafico della trasformazione $\tau$}
+	\label{fig:eserciziocapacita}
+\end{figure}
+\FloatBarrier
+Si calcoli la funzione della capacità termica in funzione del volume \(C_{\tau}(V)\).\\\\
+
+La strategia di risoluzione (valida in generale per questo tipo di problemi) è quella di trovare una espressione di $\delta Q$ in cui si possa mettere in evidenza \(d\theta\) per poi trovare il rapporto \(\left(\frac{\delta Q}{d\theta}\right)_{\tau}\). Cominciamo con lo scrivere il primo principio 
+\begin{align*}
+	\delta Q = dU + pdV = n c_v d\theta + pdV = \left(n \frac{3}{2} R\right) d\theta + pdV
+\end{align*} 
+dove è stato sostituito $c_v$ considerando l'ipotesi di gas monoatomico perfetto. Si noti che se il secondo termine della somma non ci fosse avremmo già risolto il problema perché avremmo trovato un'espressione di $\delta Q$ in funzione di $d\theta$; questo sarebbe il caso in cui la trasformazione fosse a volume costante. Volendo mantenere la generalità, cerchiamo di esprimere sia $p$ che $dV$ in funzione di $d\theta$. Ricavare \(p(V)\) è semplice considerando che la funzione che descrive la trasformazione è quella di una retta. Scriviamo la funzione di una retta passante per i due punti A e B di coordinate \((p_0, V_0)\) e \((\frac{p_0}{2}, 2 V_0)\)
+\begin{align*}
+	&p-p_0 = \frac{\frac{p_0}{2}-p_0}{2V_0 - V_0}(V-V_0) = -\frac{p_0}{2V_0}(V-V_0) \\
+	&\Rightarrow p = p_0 \left(\frac{3}{2} - \frac{V}{2 V_0}\right)
+\end{align*}  
+Per ricavare dV in funzione di $d\theta$ usiamo l'ipotesi per cui il gas è perfetto. Dall'equazione di stato dei gas perfetti, sostituiamo p con la relazione appena ricavata
+\[\left[p_0\left(\frac{3}{2} - \frac{V}{2 V_0} \right) \right] V = n R \theta \] 
+Possiamo quindi differenziare quest'ultima equazione ed isolare $dV$
+\begin{align*}
+	&p_0\left(\frac{3}{2}dV - \frac{V}{V_0}dV\right) = n r d\theta\\
+	&\Rightarrow dV = \left[\frac{n R}{p_0 \left(\frac{3}{2}-\frac{V}{V_0}\right)}\right]d\theta
+\end{align*}
+Possiamo infine sostituire quanto trovato nell'espressione di $\delta Q$ per poi sostituire \(x \equiv \frac{V}{V_0}\) e svolgere semplificazioni
+\begin{align*}
+	\delta Q &= \left(n \frac{3}{2} R\right) d\theta + p_0 \left(\frac{3}{2} - \frac{V}{2 V_0}\right) \cdot \left[\frac{n R}{p_0 \left(\frac{3}{2}-\frac{V}{V_0}\right)}\right]d\theta =\\
+	&\left(n \frac{3}{2} R\right) d\theta + p_0 \left(\frac{3}{2} - \frac{x}{2}\right) \cdot \left[\frac{n R}{p_0 \left(\frac{3}{2}- x \right)}\right]d\theta= n R \frac{15-8x}{6-4x}d\theta\\
+	&\Rightarrow \frac{\delta Q}{d\theta}_{\tau} = n R \frac{15-8x}{6-4x}\\
+	&C_{\tau}(x) = \frac{1}{n}\frac{\delta Q}{d\theta}_{\tau} = R \frac{15-8x}{6-4x}
+\end{align*}
+Il problema è risolto. Risulta però molto interessante svolgere lo studio di funzione di quanto ottenuto il relazione al grafico della trasformazione. \\
+Preliminarmente, notiamo che per \(x = 1\) abbiamo \(C_{\tau}(1) = \frac{7}{2}R\). Possiamo studiare il grafico della funzione ponendo sull'asse y \(\frac{C_{tau}}{\frac{7}{2}R}\). Inoltre, visto che il denominatore si annulla per \(x = \frac{3}{2}\), abbiamo che la funzione tende a \(+\infty \) da sinistra e a  \(-\infty\) da destra per il limite di $x \to \frac{3}{2}$; avremo un asintoto verticale. La funzione si annulla per $x = \frac{15}{8}$.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.45\linewidth]{../images/studio_di_funz}\quad
+	\includegraphics[width=0.45\linewidth]{../images/esercizio_capacità2}
+	\caption{Grafico della funzione $C_{\tau}(x)$ affiancato da quello della trasformazione sul piano di Clapeyron.}
+	\label{fig:studiodifunz}
+\end{figure}
+\FloatBarrier
+
+Interpretiamo ora il grafico della funzione $C_{\tau}(x)$ in relazione a quello della trasformazione sul piano di Clapeyron.\\
+
+Richiamando il primo principio \[\delta Q = dU + \delta L\] si ha che $\delta L > 0$ sempre, poiché la trasformazione è un'espansione, mentre dU varia allo stesso modo di $\delta\theta$, visto che stiamo considerando un gas perfetto in cui la temperatura coincide con l'energia interna a meno di una costante.
+Si consideri inoltre che quando x è nel punto medio fra A e B, ovvero ad \(M=\frac{3}{2}\) si ha l'asintoto; ne segue che in un intorno sinistro di $\frac{3}{2}$, $C_{\tau}$ è positivo mentre in quello destro negativo (in M avviene un cambio di segno). Ora, ricordando che \[C_{\tau}(x) = \frac{1}{n}\left(\frac{\delta Q}{d\theta}\right)_{\tau}\] se questo è maggiore di zero da 1 a $\frac{3}{2}$ si ha che il rapporto è crescente dunque può accadere o \(d\theta > 0\) e \(\delta Q > 0\) oppure \(d\theta < 0\) e \(\delta Q < 0\). Tuttavia, considerando le curve isoterme che intersecano la trasformazione $\tau$ si deduce che il segno di $d\theta$ è positivo fino ad M e negativo da M a B dunque bisognerà accettare l'ipotesi che \(d\theta > 0\) e \(\delta Q > 0\). \\
+Per \(x = \frac{3}{2}\), ovvero in M, \(d\theta = 0\) e \(dU = 0\),siamo nelle condizioni di una trasformazione isoterma. Interpretiamo la capacità termica infinita, in un intorno infinitesimo di M, come: "indipendentemente da quanto calore fornisco, la temperatura non cambia".
+Per x compreso fra $\frac{3}{2}$ e 2 \(d\theta < 0\) e \(dU < 0\) ma visto che \(\delta Q = dU + \delta L\) nonostante dU sia negativo, a causa della presenza di $\delta L > 0$, esiste una regione in cui $\delta Q$ continua ad essere positivo e dunque la capacità risulta negativa (numeratore positivo e denominatore negativo). Interpretiamo la capacità negativa come: "fornendo energia la temperatura diminuisce". Questa regione va da M ad $N = \frac{15}{8}$ (in cui la capacità termica è nulla).
+Nel punto N in cui $C_{\tau}=0$ siamo in condizioni di adiabaticità locale: in un intorno infinitesimo di questo punto non si scambia calore con l'esterno. In corrispondenza di questo punto la curva della trasformazione adiabatica corrispondente è tangente al grafico della trasformazione $\tau$.
+Quando la componente in dU (negativa) sovrasta $\delta L$ anche $\delta Q < 0$ dunque la capacità tornerà positiva (sia numeratore che denominatore negativi), ciò corrisponde alla regione da N a B. 
+\end{exercise}
 
 
- 
+
+
 \appendix
 \section{Determinismo assoluto e libero arbitrio}
 La possibilità teorica di conoscere l'evoluzione (passata e futura) di un sistema fisico, diede vita al cosiddetto \textbf{determinismo assoluto} di Pierre Simon Laplace (1749 - 1827) secondo cui se si conoscesse lo stato di ogni particella nell'universo (per intenderci si stima ci siano $10^{80}$ protoni nell'universo osservabile) allora sarebbe possibile conoscere alla perfezione presente passato e futuro. Questa idea portata all'estremo sostiene che, se il cervello fosse mosso unicamente da reazioni chimiche (he altro non sono che cambiamenti nello stato del sistema cervello), se si conoscesse lo stato di ogni particella del cervello allora si potrebbe prevedere alla perfezione il comportamento di un essere umano. Da ciò sorgono svariati dilemmi filosofici, uno per tutti il problema del libero arbitrio: se ogni movimento, parola ed espressione umana fosse teoricamente prevedibile matematicamente allora la libertà che sembra scontata nell'agire umano sarebbe solamente apparente?\\
