@@ -1917,10 +1917,121 @@ Per x compreso fra $\frac{3}{2}$ e 2 \(d\theta < 0\) e \(dU < 0\) ma visto che \
 Nel punto N in cui $C_{\tau}=0$ siamo in condizioni di adiabaticità locale: in un intorno infinitesimo di questo punto non si scambia calore con l'esterno. In corrispondenza di questo punto la curva della trasformazione adiabatica corrispondente è tangente al grafico della trasformazione $\tau$.
 Quando la componente in dU (negativa) sovrasta $\delta L$ anche $\delta Q < 0$ dunque la capacità tornerà positiva (sia numeratore che denominatore negativi), ciò corrisponde alla regione da N a B. 
 \end{exercise}
+\section{Trasmissione del calore}
+Come visto, il calore è stato introdotto formalmente a seguito dell'enunciazione del primo principio della termodinamica. La sua funzione è essenzialmente quella di ristabilire la conservazione di energia in presenza di lavoro non-adiabatico (non conservativo). Trasferire calore, in assenza di lavoro termodinamico, ha l'effetto macroscopico di aumentare la temperatura, se ne deduce che il trasferimento di calore è un trasferimento di energia cinetica da un punto ad un altro dello spazio. Studiare il trasferimento di calore vuol dire studiare il passaggio da uno stato di equilibrio ad un altro, siamo interessati quindi ad una trasformazione: compare per questo la variabile tempo, fin ora mai usata (poiché abbiamo studiato solo stati di equilibrio). Esistono 3 distinte modalità di trasferimento di calore, vediamole.
+\subsection{Conduzione}
+Si ha conduzione termica quando il trasferimento di calore avviene senza spostamento macroscopico di materia. Ad esempio, nei solidi lo scambio avviene a causa dell'oscillazione elastica del reticolo o dall'oscillazione degli elettroni nella banda di conduzione. \\
+La \textbf{Legge di Fourier} è una legge empirica che descrive il passaggio di calore per conduzione: presa una porzione infinitesima di sostanza di superficie dA e spessore dx, posta fra due temperature $\theta$ e $\theta+d\theta$, la quantità di calore trasferita da una faccia all'altra della sostanza è pari a 
+\[\frac{\delta Q}{dt}= - k dA \frac{d\theta}{dx}\]
+La variazione del tempo del calore ha come unità il Watt ed è una potenza. Questa legge ci dice che il trasferimento di calore avviene dalla superficie a temperatura maggiore a quella minore (a causa del segno meno) proporzionalmente al gradiente di temperatura (la differenza di temperatura rispetto allo spessore), alla superficie di contatto e di una costante k (di dimensione \(W m^{-1} K^{-1}\)) detta \textbf{conducibilità termica}. Fisicamente, rappresenta un indice di "quanto bene la sostanza conduce il calore";  in generale la conducibilità termica può dipendere dalla temperatura (ad esempio nei gas $k = f(\sqrt{\theta}$)). Ecco alcuni esempi
+\begin{itemize}
+	\item $k_{Ag} = 400 W m^{-1} K^{-1}$
+	\item $k_{ghiaccio} = 2 W m^{-1} K^{-1}$
+	\item $k_{vetro} = 1 W m^{-1} K^{-1}$
+	\item $k_{aria} = 0.02 W m^{-1} K^{-1}$
+\end{itemize} 
+Notiamo che i metalli sono ottimi conduttori e che a loro confronto l'aria ha conducibilità termica minore di 4 ordini di grandezza, per questo motivo, molte delle trasformazioni dell'aria possono essere approssimate come adiabatiche (scarso scambio di calore per conduzione). \'{E} possibile applicare la legge di Fourier, con opportuni integrali, a forme diverse di conduttori, di seguito sono riportati alcuni semplici esempi
+\begin{example}[Conduttore con geometria planare omogeneo posto fra due termostati]
+	Si consideri un parallelepipedo di spessore d e con una facce di area A che deve isolare la temperatura interna $\theta_1$ da quella ambientale $\theta_2$. Il flusso di calore è costante dunque lo è anche il gradiente termico. Integrando l'equazione di Fourier per tutto lo spessore d si ottiene 
+	\[P = \frac{\delta Q}{dt}=\frac{k A}{d(\theta_1 - \theta_2)}= H A (\theta_1 - \theta_2)\]
+	dove \(H\equiv \frac{k}{d}\) è detta \textbf{conduttanza termica}. \'{E} semplice dimostrare che mettendo in serie n conduttori, ciascuno di conduttanza $H_i$, la conduttanza totale vale
+	\[\frac{1}{H} = \sum_{i = 1}^{n}\frac{1}{H_i}\]
+	Si noti che in questo caso particolare, nonostante il conduttore non sia in uno stato di equilibrio (infatti la temperatura non è la stessa in tutto il corpo), il suo sia uno stato stazionario cioè che la sua condizione non cambia nel tempo. La temperatura decresce linearmente rispetto allo spessore ma per ogni valore di spessore si ha una temperatura definita e costante, per questo si ha $\theta = f(x)$ e non $\theta= f(x, t)$. Questo caso semplice si ha perché le temperature a contatto con le due facce del conduttore sono costanti, se così non fosse si avrebbe un'espressione molto più complessa che non tratteremo. 
+\end{example}
 
+\begin{example}[Conduttore con geometria cilindrica omogeneo posto fra due termostati]
+	Un conduttore cilindrico cavo ha un termostato all'interno della cavità a temperatura $\theta_1$ e l'ambiente è a temperatura $\theta_2$ ($\theta_1 > \theta_2$), il cilindro è spesso \(d = r_2-r_1\) ed è lungo L. Calcolare la potenza termica. 
+	\begin{align*}
+		&A = 2\pi r L\\
+		&\frac{\delta Q}{dt} = -k 2 \pi r L \frac{d\theta}{d r}\\
+		&d\theta = -\frac{\delta Q}{d t}\frac{1}{2\pi L k}\frac{dr}{r}\\
+		&\int_{\theta_1}^{\theta_2} d\theta = - \int_{r_1}^{r_2}  \frac{\delta Q}{d t}\frac{1}{2\pi L k}\frac{dr}{r}\\
+		&\theta_2 - \theta_1 = -\frac{\delta Q}{d t}\frac{1}{2\pi L k}\ln\left(\frac{r_2}{r_1}\right)
+	\end{align*}
+\end{example}
+\subsection{Convezione}
+La convezione è un trasferimento di calore che avviene nei fluidi e che implica uno spostamento di materia. Il fenomeno è complesso dal punto di vista teorico ma è descritto approssimativamente dalla legge empirica, detta \textbf{legge di Newton}
+\begin{align*}
+	\frac{\delta Q}{dt} = h dA (\theta_0-\theta_{\infty})
+\end{align*}
+Dove $\theta_0$ è la temperatura iniziale del corpo di cui si vuole studiare l'evoluzione della temperatura nel tempo mentre $\theta_{\infty}$ è la temperatura dell'ambiente. A partire dalla legge di Newton è possibile ricavare la legge oraria della variazione di temperatura del corpo in funzione del tempo. Bisogna trovare una grandezza che faccia da "ponte" fra la variazione di calore nel tempo e la variazione di temperatura nel tempo, questa è la capacità termica. Assumiamo che il corpo immerso nell'ambiente abbia temperatura maggiore della temperatura ambiente \(\Delta\theta < 0\)
+\begin{align*}
+	&C = \frac{\delta Q}{d\theta} \Rightarrow \delta Q = C d\theta\\
+	&\frac{\delta Q }{dt} =C \frac{d\theta}{dt}=C \frac{d}{dt}(\theta(t)-\theta_{\infty}) = C \frac{d}{dt} (\Delta\theta)\\
+	&\frac{d}{dt} (\Delta\theta) = -\frac{h A}{C}\Delta\theta\\
+	&\Rightarrow\Delta\theta(t) =  \Delta\theta(0) e^{-\frac{h dA }{C}t}\\
+	&\theta(t) = \theta_{\infty} + (\theta(0)-\theta_{\infty}) e^{-\frac{h dA }{C}t}
+\end{align*} 
+Il raffreddamento del corpo avverrà esponenzialmente fino a stabilizzarsi alla temperatura ambiente dopo un certo intervallo di tempo. 
+\subsection{Irraggiamento}
+L'irraggiamento è una forma di scambio di calore che usa come mezzo le onde elettromagnetiche, per questo motivo può avvenire anche nel vuoto (a differenza dei precedenti due), per questo è la forma di scambio più diffusa nell'universo. Sperimentalmente, la \textbf{Legge di Stefan-Boltzmann} descrive la potenza irraggiata da un corpo
+\begin{align*}
+	\frac{\delta Q }{dt} = \varepsilon \sigma A \theta^4
+\end{align*}
+dove A è la superficie del copro, \(\sigma = 5.67 \cdot 10^{-8}\ W m^{-2}K^{-4}\) una costante di proporzionalità e $\varepsilon$ l'\textbf{emittanza spettrale}, un parametro che varia da 0 ad 1 e che indica quanto bene un corpo approssimi un \textbf{corpo nero}. Bisogna capire cosa sia un corpo nero. 
+\subsubsection{Il corpo nero} 
+Ogni corpo fisico investito da radiazione elettromagnetica può riflettere (non entra ma sbatte), trasmettere (entra ed esce modificata) o assorbire (entra e non esce) tale radiazione. Definiamo le frazioni di radiazione riflessa, trasmessa e assorbita (rispetto alla radiazione totale) come riflettanza r, trasmittanza t e assorbanza (o albedrio) a. Queste dipendono dalla lunghezza d'onda della radiazione (vale la relazione \(\nu \lambda = c\) dove $\nu$ è la frequenza, $\lambda$ la lunghezza d'onda e c la velocità della luce nel vuoto) e dall'angolo di incidenza $\alpha$. Chiaramente la somma di queste frazioni deve sempre essere pari all'unità. 
+\begin{definition}[Corpo nero]
+	Definiamo \textbf{corpo nero} un corpo tale che
+	\[\forall \alpha, \lambda a(\lambda, \alpha) = 1\]
+	cioè un corpo che assorbe tutte le radiazioni su di esso incidenti. 
+\end{definition}
+Per la \textbf{legge di Kirchoff}, valida per qualunque corpo, la radiazione assorbita deve essere totalmente riemessa dopo un certo intervallo di tempo. Per un corpo nero è nota la funzione con cui è emessa la radiazione in funzione della lunghezza d'onda, detta funzione di Planck
+\[f_{cn}(\lambda) = \frac{c_1}{\lambda^5 (e^{\frac{c_2}{\lambda\theta}}-1)}\]
+dove $c_1$ e $c_2$ sono costanti.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{../images/corpo_nero}
+	\caption{Curve di emissione di corpo nero in funzione della lunghezza d’onda a
+		diverse temperature (2500K; 3000K; 3500K; 4000K; 4500K; 5000K).}
+	\label{fig:corpo_nero}
+\end{figure}
+\FloatBarrier
+Possiamo ora fornire una spiegazione più esaustiva del significato dell'emittanza $\varepsilon$, che è definita come
+\[\varepsilon= \frac{f(\lambda)}{f_{cn}(\lambda)}\]
+Integrando la funzione di Planck su tutto lo spettro si ottiene la legge di Stefan-Boltzmann per un corpo nero ($\varepsilon = 1$)
+\[\int f_{cn}(\lambda)d\lambda = \sigma \theta^4\]
+che per un corpo generico va corretta con l'aggiunta di $\varepsilon$. Derivando la funzione di Planck e ponendola uguale a zero si ottiene la lunghezza d'onda in cui l'emissione è massima (a parità di temperatura del corpo che emette), questa soddisfa la relazione
+\[\lambda_{max} \theta= 2.9 \cdot 10^{-3}\ m K =cost.\] 
+Questa è detta \textbf{legge di Wien}.\\
+\'{E} possibile realizzare un corpo nero in laboratorio con un contenitore cubico le cui pareti interne sono rivestite di un materiale nero e su cui viene applicato un piccolo foro su una delle pareti. Si riscalda per irraggiamento il cubo (mettendolo in un forno molto più grande dentro il quale è stato realizzato il vuoto e senza far toccare il cubo con le pareti del forno), la radiazione che penetra nel cubo viene certamente assorbita e la radiazione riemessa dal forellino rispetta la legge di Planck. 
+\begin{exercise}[Sistema Terra-Sole]
+I dati noti sono:
+\begin{itemize}
+	\item $k_s = 1350\ W m^{-2}$  (energia che arriva per irraggiamento dal sole sulla cima dell'atmosfera per unità di superficie e di tempo)
+	\item $\lambda_{max} = $      (massimo dello spettro solare, corrispondente alla riga giallo-verde)
+	\item $R = 7\cdot 10^8\ m$ (raggio del sole)
+	\item $r = 6.7\cdot 10^6\ m$ (raggio della terra)
+	\item $d = 1.5 \cdot 10^{11}$ (distanza terra-sole)
+	\item $a = 0.35 $ (albedo medio della terra, ovvero la riflettanza della terra)
+\end{itemize}
+e si vuole calcolare (1) se il sole può essere approssimato ad un corpo nero e (2) la temperatura media sulla terra (considerando solo l'irraggiamento del sole).\\
+\begin{enumerate}
+	\item  Se il sole fosse un corpo nero avremmo $\varepsilon = 1$ e dovrebbero valere contemporaneamente la legge di Wien e quella di Stefan-Boltzmann, le possiamo mettere a sistema
+	\begin{align*}
+		&\begin{cases}
+			\theta = \frac{2.9 \cdot 10^{-3}}{\lambda_{max}} = 5686\ K\\
+			\frac{\delta Q}{dt} = 1 \cdot 4\pi R^2\cdot \sigma \theta^4 = 4\pi d^2 k_s
+		\end{cases}\\
+	&\begin{cases}
+		\theta = \frac{2.9 \cdot 10^{-3}}{\lambda_{max}} = 5686\ K\\
+		&\theta = \sqrt[4]{\frac{d^2 k_s}{R^2 \sigma}} = 5770\ K
+	\end{cases}
+	\end{align*}
+	Come vediamo, i due valori di $\theta$ sono molto simili, ne deduciamo che il sole approssima molto bene un corpo nero (il dato sperimentale è stato inserito nel sistema con \(k_s\), abbiamo poi confrontato la misura sperimentale con quella teorica ottenuta a partire dall'ipotesi di corpo nero ). 
+	\item Per conoscere la temperatura della terra imponiamo che l'energia emessa dalla terra è uguale a quella che assorbe dal sole
+	\begin{align*}
+		&(1-a)\pi r^2 k_s = 1\cdot 4 \pi r^2 \sigma \theta_e^4\\
+		&\theta_e = \left[\frac{(1-a)k_s}{4\sigma}\right]^{\frac{1}{4}}\simeq 255\ K \simeq -18\ C
+	\end{align*}
+dove la radiazione assorbita è uguale a quella che arriva dal sole meno quella riflessa secondo quanto indicato dall'albedo (da qui il coefficiente moltiplicativo \((1-a)\)).\\
+Il valore ottenuto è inferiore a quello reale, di circa 288 \textdegree K, poiché non abbiamo tenuto conto dell'effetto serra che, trattenendo all'interno dell'atmosfera le radiazioni infrarosse per riflessione, fa aumentare la temperatura. 
+\end{enumerate}
+\end{exercise}
 
-
-
+\begin{exercise}[Bilancio termico del corpo umano]
+	content...
+\end{exercise}
 \appendix
 \section{Determinismo assoluto e libero arbitrio}
 La possibilità teorica di conoscere l'evoluzione (passata e futura) di un sistema fisico, diede vita al cosiddetto \textbf{determinismo assoluto} di Pierre Simon Laplace (1749 - 1827) secondo cui se si conoscesse lo stato di ogni particella nell'universo (per intenderci si stima ci siano $10^{80}$ protoni nell'universo osservabile) allora sarebbe possibile conoscere alla perfezione presente passato e futuro. Questa idea portata all'estremo sostiene che, se il cervello fosse mosso unicamente da reazioni chimiche (he altro non sono che cambiamenti nello stato del sistema cervello), se si conoscesse lo stato di ogni particella del cervello allora si potrebbe prevedere alla perfezione il comportamento di un essere umano. Da ciò sorgono svariati dilemmi filosofici, uno per tutti il problema del libero arbitrio: se ogni movimento, parola ed espressione umana fosse teoricamente prevedibile matematicamente allora la libertà che sembra scontata nell'agire umano sarebbe solamente apparente?\\
