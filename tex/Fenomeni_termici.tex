@@ -1250,7 +1250,7 @@ Se il volume rimane costante, il calore non viene trasformato in energia meccani
 \begin{align*} 
 	c_p > c_v
 \end{align*}  
-\begin{example}[$c_p$ e $c_v$ di $H_2 O$]
+\begin{exercise}[$c_p$ e $c_v$ di $H_2 O$]
 Rappresentando in un grafico $c_m$ su $\theta$ la variazione del calore specifico rispetto alla temperatura, possiamo individuare tre regioni distinte, una in cui si ha lo stato solido una liquido e una gassoso. Risulta che il calore specifico allo stato solido è simile a quello allo stato gassoso ed è circa la metà di quello allo stato gassoso. Se però ci focalizziamo sulla regione allo stato liquido, notiamo che non è costante ma è del tipo
 \begin{figure}[h!]
 	\centering
@@ -1259,7 +1259,7 @@ Rappresentando in un grafico $c_m$ su $\theta$ la variazione del calore specific
 	\label{fig:calore-specifico-acqua}
 \end{figure}
 \FloatBarrier
-\end{example}
+\end{exercise}
 \subsection{Calore latente}
 Spesso accade che un trasferimento di calore risulti in un aumento di temperatura, si potrebbe inferire che il calore genera sempre aumenti di temperatura. Questo è falso e ne vediamo un esempio di seguito.\\
 \begin{figure}[h!]
@@ -1931,15 +1931,26 @@ La variazione del tempo del calore ha come unità il Watt ed è una potenza. Que
 	\item $k_{aria} = 0.02 W m^{-1} K^{-1}$
 \end{itemize} 
 Notiamo che i metalli sono ottimi conduttori e che a loro confronto l'aria ha conducibilità termica minore di 4 ordini di grandezza, per questo motivo, molte delle trasformazioni dell'aria possono essere approssimate come adiabatiche (scarso scambio di calore per conduzione). \'{E} possibile applicare la legge di Fourier, con opportuni integrali, a forme diverse di conduttori, di seguito sono riportati alcuni semplici esempi
-\begin{example}[Conduttore con geometria planare omogeneo posto fra due termostati]
+\begin{exercise}[Conduttore con geometria planare omogeneo posto fra due termostati]
 	Si consideri un parallelepipedo di spessore d e con una facce di area A che deve isolare la temperatura interna $\theta_1$ da quella ambientale $\theta_2$. Il flusso di calore è costante dunque lo è anche il gradiente termico. Integrando l'equazione di Fourier per tutto lo spessore d si ottiene 
-	\[P = \frac{\delta Q}{dt}=\frac{k A}{d(\theta_1 - \theta_2)}= H A (\theta_1 - \theta_2)\]
+	\begin{align*}
+		&P = \frac{\delta Q}{dt} = \frac{k A (\theta_1 - \theta_2)}{d}= H A (\theta_1 - \theta_2)
+	\end{align*}
 	dove \(H\equiv \frac{k}{d}\) è detta \textbf{conduttanza termica}. \'{E} semplice dimostrare che mettendo in serie n conduttori, ciascuno di conduttanza $H_i$, la conduttanza totale vale
-	\[\frac{1}{H} = \sum_{i = 1}^{n}\frac{1}{H_i}\]
+	\begin{align*}
+		\frac{1}{H_{tot}} = \sum_i \frac{1}{H_i}
+	\end{align*}
+Per semplicità ricaviamo il caso semplice di due conduttori piani in serie, chiamiamo $\theta_1$ la temperatura esterna, $\overline{\theta}$ la temperatura presente fra i due conduttori e $\theta_2$ la temperatura interna, tali che \(\theta_1>\overline{\theta}>\theta_2\). Imponiamo che la potenza del primo conduttore è uguale a quella del secondo che è uguale a quella totale
+	\begin{align*}
+		&P_{tot} = P_1 = P_2\\
+		&H_1 A (\theta_1 - \overline{\theta}) = H_2 A (\overline{\theta}-\theta_2)\\
+		&\Rightarrow \overline{\theta} = \frac{H_2\theta_2 + H_1\theta_1}{H_2 + H_1}\\
+		&H_{tot} A (\theta_1 - \theta_2) = H_1 A \left(\theta_1 - \left(\frac{H_2\theta_2 + H_1\theta_1}{H_2 + H_1}\right)\right)\\
+		&\Rightarrow H_{tot} = \frac{H_1 H_2}{H_2 + H_1} \Leftrightarrow \frac{1}{H_{tot}} = \frac{1}{H_1}+\frac{1}{H_2}
+	\end{align*}
 	Si noti che in questo caso particolare, nonostante il conduttore non sia in uno stato di equilibrio (infatti la temperatura non è la stessa in tutto il corpo), il suo sia uno stato stazionario cioè che la sua condizione non cambia nel tempo. La temperatura decresce linearmente rispetto allo spessore ma per ogni valore di spessore si ha una temperatura definita e costante, per questo si ha $\theta = f(x)$ e non $\theta= f(x, t)$. Questo caso semplice si ha perché le temperature a contatto con le due facce del conduttore sono costanti, se così non fosse si avrebbe un'espressione molto più complessa che non tratteremo. 
-\end{example}
-
-\begin{example}[Conduttore con geometria cilindrica omogeneo posto fra due termostati]
+\end{exercise}
+\begin{exercise}[Conduttore con geometria cilindrica omogeneo posto fra due termostati]
 	Un conduttore cilindrico cavo ha un termostato all'interno della cavità a temperatura $\theta_1$ e l'ambiente è a temperatura $\theta_2$ ($\theta_1 > \theta_2$), il cilindro è spesso \(d = r_2-r_1\) ed è lungo L. Calcolare la potenza termica. 
 	\begin{align*}
 		&A = 2\pi r L\\
@@ -1948,7 +1959,18 @@ Notiamo che i metalli sono ottimi conduttori e che a loro confronto l'aria ha co
 		&\int_{\theta_1}^{\theta_2} d\theta = - \int_{r_1}^{r_2}  \frac{\delta Q}{d t}\frac{1}{2\pi L k}\frac{dr}{r}\\
 		&\theta_2 - \theta_1 = -\frac{\delta Q}{d t}\frac{1}{2\pi L k}\ln\left(\frac{r_2}{r_1}\right)
 	\end{align*}
-\end{example}
+\end{exercise}
+\begin{exercise}[Conduttore guscio sferico tra due termostati]
+	Un termostato interno al guscio ha temperatura $\theta_1$ mentre la temperatura esterna è di $\theta_2$ (\(\theta_1 > \theta_2\)), i raggi interno ed esterno rono $r_1$ ed $r_2$ e lo spessore \(r_2-r_1 = dr\).
+	\begin{align*}
+		&A = 4 \pi r^2\\
+		&\frac{\delta Q }{dt} = -k 4\pi r^2 \frac{d\theta}{dr}\\
+		&d \theta = -\frac{\delta Q }{dt} \frac{1}{k 4 \pi}\frac{dr}{r^2}\\
+		&\int_{\theta_2}^{\theta_1}d\theta = -\frac{\delta Q }{dt} \frac{1}{k 4 \pi} \left(\int_{r_1}^{r_2}\frac{dr}{r^2}\right)\\
+		&(\theta_1 - \theta_2) = \frac{\delta Q }{dt} \frac{1}{k 4 \pi}\left(\frac{1}{r_2}-\frac{1}{r_1}\right)\\
+		&\frac{\delta Q }{dt} = \frac{4\pi k (\theta_1-\theta_2)r_1 r_2}{(r_2 - r_1)}
+	\end{align*}
+\end{exercise}
 \subsection{Convezione}
 La convezione è un trasferimento di calore che avviene nei fluidi e che implica uno spostamento di materia. Il fenomeno è complesso dal punto di vista teorico ma è descritto approssimativamente dalla legge empirica, detta \textbf{legge di Newton}
 \begin{align*}
@@ -2015,7 +2037,7 @@ e si vuole calcolare (1) se il sole può essere approssimato ad un corpo nero e 
 		\end{cases}\\
 	&\begin{cases}
 		\theta = \frac{2.9 \cdot 10^{-3}}{\lambda_{max}} = 5686\ K\\
-		&\theta = \sqrt[4]{\frac{d^2 k_s}{R^2 \sigma}} = 5770\ K
+		\theta = \sqrt[4]{\frac{d^2 k_s}{R^2 \sigma}} = 5770\ K
 	\end{cases}
 	\end{align*}
 	Come vediamo, i due valori di $\theta$ sono molto simili, ne deduciamo che il sole approssima molto bene un corpo nero (il dato sperimentale è stato inserito nel sistema con \(k_s\), abbiamo poi confrontato la misura sperimentale con quella teorica ottenuta a partire dall'ipotesi di corpo nero ). 
@@ -2030,11 +2052,98 @@ Il valore ottenuto è inferiore a quello reale, di circa 288 \textdegree K, poic
 \end{exercise}
 
 \begin{exercise}[Bilancio termico del corpo umano]
-	content...
+	Il corpo umano emette calore con una potenza di circa 110 W a causa del metabolismo basale dell'organismo. Il calore che scambia è dovuto sia all'irraggiamento che alla convezione (visto che l'aria è uno scarso conduttore la conduzione è trascurabile). \'{E} dimostrabile che se un corpo è immerso in un altro (come il corpo umano nell'aria) e la differenza fra le temperature è molto minore della media fra esse (cosa che si avvera per la temperatura ambiente e corporea), la legge che esprime la potenza con cui viene scambiato il calore è (dove $\theta$ è la temperatura corporea e $\theta_{infty}$ quella ambientale)
+	\[P  = \frac{\delta Q}{dt} = h A (\theta - \theta_{\infty})\]
+	Questo è della stessa forma della legge della convezione, basterà quindi sommarle
+	\begin{align*}
+		&P  = \frac{\delta Q}{dt} = h_t A (\theta - \theta_{\infty}) + h_c A (\theta - \theta_{\infty}) = H A (\theta - \theta_{\infty})\\
+	\end{align*}
+	dove $H \equiv h_t + h_c$, $h_c$ è in generale più piccolo di $h_t$.\\
+	Ora, conoscendo la temperatura corporea $\theta$, H e A e la potenza con cui emette calore il corpo (che si possono misurare) è possibile ricavare dalla formula precedente la temperatura che dovrebbe avere l'ambiente per essere in equilibrio termico con il corpo umano. ne risulta che la temperatura di equilibrio è di 26 \textdegree C (considerando un corpo nudo), se $\theta_{infty} < 26 C $ bisognerà vestirsi per isolare il copro e diminuire H, se $\theta_{infty} > 26 C $ sia attiveranno i meccanismi di termoregolazione corporei che con la sudorazione raffreddano il corpo poiché l'acqua sulla superficie della pelle evaporando assorbe calore latente di fusione. 
 \end{exercise}
+\begin{exercise}[Scambio combinato per conduzione ed irraggiamento]
+In un sistema come quello in figura, dove un'estremità è stata annerita (ovvero è stata resa un corpo nero) una sbarra di rame isolata sui lati lunghi è a contatto diretto con un termostato a 20 gradi Kelvin ad una estremità ed è riscaldato per irraggiamento da una sorgente a 300 Kelvin dall'estremità in cui è stata annerita. Vogliamo calcolare la differenza di temperatura fra le due estremità.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{../images/esercizio_scambio_calore}
+	\caption{Schema dell'apparato}
+	\label{fig:esercizioscambiocalore}
+\end{figure}
+\FloatBarrier
+La potenza con cui emette in corpo nero all'interno della sbarra di rame è regolato dalla legge di Stefan-Boltzmann, questa deve essere uguale alla potenza con cui assorbe calore, regolata dalla legge di Fourier 
+\begin{align*}
+	\frac{\delta Q}{dt} = \varepsilon \sigma A \theta^4 = k A \frac{d\theta}{dx}
+\end{align*}
+Si noti che $\varepsilon = 1$ perché è un corpo nero, dx = L e $d\theta = \Delta\theta$.
+\begin{align*}
+	&\Delta\theta = \frac{\sigma L \theta^4}{K} \simeq 4.6\cdot 10^{-3}\ K\\
+	&\theta_1 = \theta_2 + \Delta\theta \simeq 20.0046\ K
+\end{align*}
+
+\end{exercise}
+
+\section{Secondo principio della termodinamica}
+\subsection{Paradosso di Loschmidt}
+Consideriamo tre esempi di applicazione del primo principio della termodinamica già visti: il blocchetto che scivola su una rampa con attrito, due corpi in contatto che scambiano calore e l'espansione adiabatica di un gas nel vuoto (analogamente all'esperimento di Joule). Il primo principio fornisce informazioni sull'"economia" dell'energia scambiata nelle trasformazioni ma non fornisce alcuna restrizione sulla direzione in cui devono avvenire queste trasformazioni. In altre parole, attenendosi solo al primo principio basterebbe cambiare il segno alle trasformazioni per ottenere, ad esempio, un blocchetto che sale spontaneamente sulla rampa restituendo il calore dissipato per attrito, o il calore che passa da un corpo più freddo ad uno più caldo spontaneamente. \'{E} chiaro che questi fenomeni non si riscontrano nell'esperienza, ciò ci suggerisce la necessità di introdurre un nuovo principio che stabilisca una \textbf{linea del tempo}, infatti la possibilità di invertire le trasformazioni termodinamiche equivarrebbe a "mandare a ritroso" il tempo.\\
+Tuttavia, prendendo in esame le leggi fondamentali della fisica, ad esempio la legge di Newton \(F = m \ddot{x}\), risulta che queste sono \textbf{invarianti rispetto al tempo} (o t-invarianti), cioè sono valide sia per t che per -t. Anche se considerassimo le leggi della fisica quantistica, anche queste godono di t-invarianza. Sorge quindi un problema profondo: se a livello microscopico la natura "non distingue tra presente e futuro" perché a livello macroscopico sembra evidente dall'esperienza che vi sia una direzione privilegiata della freccia del tempo (dal passato verso il futuro), testimoniata dall'impossibilità di invertire le trasformazioni termodinamiche. Questo problema è detto \textbf{paradosso di Loschmidt}, alla fine di questa sezione arriveremo a fornire una spiegazione plausibile a questo problema ma è bene tenere a mente che ancora oggi non esiste un consenso generale su questo problema.\\
+Si consideri ad esempio un uovo posto sulla superficie di un tavolo, che costituisce lo stato termodinamico A, e lo stesso uovo che, una volta caduto a terra dal tavolo si è frantumato, che costituisce lo stato B. Lo spazio delle fasi di tutti gli atomi che compongono la trasformazione sarà costituito da una curva che congiunge gli stati A e B mediante un percorso $\Gamma$ (ad ogni punto su questo grafico è associato un vettore quantità di moto e uno posizione con 6N componenti ciascuno). Ci chiediamo se, in linea teorica, sia possibile prendere ogni singolo atomo dell'uovo e dell'ambiente circostante, invertire il verso del vettore quantità di moto, e quindi ripercorrere a ritroso la curva $\Gamma$, in questo modo potremmo "mandare a ritroso" la caduta dell'uovo. In teoria la meccanica classica non proibisce tale meccanismo ma ciò è in netta contraddizione con quanto si osserva: in termini della filosofia della scienza, infatti, vi è una propensione del sistema a passare da A a B e non viceversa. In realtà, a livello teorico sarebbe anche possibile riportare gli atomi dell'uovo allo stato iniziale in modo forzato, cioè bisogna che qualcosa nell'ambiente esterno (ad esempio lo sperimentatore) produca questa inversione. L'ambiente esterno deve dunque modificarsi per poter mandare gli atomi del sistema a ritroso: sarebbe dunque impossibile portare sia l'uovo che l'ambiente allo stato iniziale! A causa dell'impossibilità di portare a ritroso una trasformazione termodinamica si postula che non esistano trasformazioni \textbf{reversibili} (ovvero che si possono portare all'indietro) e cioè che tutte le trasformazioni reali sono \textbf{irreversibili}. Questi due concetti sono di fondamentale importanza.\\
+Esistono tre coppie di eventi sperimentali discordanti fra mondo microscopico e macrosocopico del tutto equivalenti:
+\begin{itemize}
+	\item t-invarianza delle leggi fondamentali $\nLeftrightarrow$ freccia del tempo macroscopica
+	\item reversibilità microscopica $\nLeftrightarrow$ irreversibilità macroscopica
+	\item forze fondamentali tutte conservative $\nLeftrightarrow$ esistenza di forze macroscopiche non conservative
+\end{itemize}
+L'ultimo punto è esattamente analogo ai primi due infatti possiamo vedere il problema in termini di calore e lavoro: ci chiediamo se sia sempre possibile trasformare tutto il lavoro in calore e tutto il calore in lavoro. Sicuramente trasformare tutto il lavoro in calore è possibile, ad esempio quando si sfregano due pietre sott'acqua; il problema sta nell'inverso. Dal punto di vista teorico, basandosi sul primo principio sarebbe possibile, ad esempio in una trasformazione quasistatica a temperatura costante di un gas perfetto all'interno di un pistone, si ha $\Delta U = 0$ perché la temperatura è costante dunque \(L = Q\).
+Si noti che una macchina come un pistone del tipo appena considerato non ha una vera utilità pratica perché non è una trasformazione ciclica: una volta finita l'espansione (facendo un lavoro $L>0$), per tornare allo stato iniziale bisognerà passare inevitabilmente dallo stesso percorso e dunque compiere lo stesso lavoro con segno opposto, il ciclo in totale avrebbe un lavoro pari a zero e dunque sarebbe inutile. Tuttavia, queste sono tutte idealizzazioni che non tengono conto delle forze d'attrito, che per quanto riducibili con varie tecniche non sono mai annullabili. A causa di ciò la trasformazione precedente dissiperebbe sempre una certa quantità di calore e il lavoro totale di un ciclo sarebbe negativo
+\begin{align*}
+	&L_{andata} = Q-Q_{att}\\
+	&L_{ritorno} = -Q-Q_{att}\\
+	&L_{tot} = -2Q_{att}
+\end{align*}
+Dunque in generale in un ciclo di una macchina isoterma si ha \(Q = L \leq 0\) dove è \(Q=L=0\) solo nel caso ideale in cui non vi siano forze non conservative. Il dato sperimentale dell'impossibilità di eliminare le forze non conservative (e dunque l'impossibilità di non dissipare calore in una trasformazione) è stato elevato a principio nella seconda metà del 1800
+\begin{definition}[Definizione di Kelvin-Planck del secondo principio]
+	È impossibile realizzare una trasformazione il cui unico risultato sia quello di convertire interamente in lavoro il calore assorbito da un unico serbatoio. In linguaggio matematico: in una trasformazione in cui $\Delta U =$ costante allora \(L = Q_1+Q_2 = |Q_1| - |Q_2|> 0\) dove $Q_1$ è il calore assorbito dalla macchina (> 0)e $Q_2$ il calore dissipato (< 0).
+\end{definition}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.3\linewidth]{../images/macchina-termica}
+	\caption{Schema della macchina termica minimale.}
+	\label{fig:macchina-termica}
+\end{figure}
+\FloatBarrier
+Si noti che per effettuare una trasformazione ciclica servono sempre almeno due serbatoi perché, come visto, se ci fosse solo un serbatoio (temperatura costante) l'area del ciclo sarebbe nulla. Dunque questo principio stabilisce l'impossibilità el moto perpetuo di seconda specie ovvero di sfruttare unicamente una fonte di calore, potenzialmente di capacità termica infinita (come il mare o l'aria) per creare lavoro. Parte del calore non viene convertito ma sprecato, dissipandosi in un serbatoio più freddo. \\
+Visto che non tutto il calore può essere trasformato in lavoro, possiamo definire l'efficienza come la frazione di calore assorbita convertita in lavoro utile
+\begin{align*}
+	\eta = \frac{L}{Q_1} = \frac{Q_1 + Q_2}{Q_1} = 1 + \frac{Q_2}{Q_1} = 1- \frac{|Q_2|}{|Q_1|}< 1
+\end{align*}
+Quest'ultima disuguaglianza è un'altra forma della definizione del secondo principio della termodinamica secondo Kelvin-Planck. Nel caso di macchine politermiche, cioè che lavorano in presenza di più di due termostati, l'efficienza è 
+\[\eta = \frac{L}{\sum_i Q_{abs}}\]
+\subsection{Macchina di Stirling}
+A parità di sorgenti è possibile costruire infinite macchine termiche con cicli termodinamici e rendimenti diversi. Consideriamo la macchina di Stirling, un ciclo reversibile composto da due isoterme e due isocore. 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\linewidth]{../images/ciclo_di_stirling}
+	\caption{Grafico sul piano di Clapeyron di un ciclo di Stirling}
+	\label{fig:ciclodistirling}
+\end{figure}
+\FloatBarrier
+Questo tipo di macchina è detta a "combustione esterna", cioè funziona con una sorgente di calore esterna al sistema. Si fa inoltre uso di un sistema esterno rigeneratore R, ovvero un sistema ausiliario che nella fase di andata accumula calore che viene restituito nella fase di ritorno. Questo rigeneratore R aiutò Stirling ad aumentare l'efficienza della sua macchina rispetto a quelle del tempo. Vogliamo calcolare il rendimento di questa macchina, cominciamo con il rilevare che nella trasformazione AB assorbe calore, BC lo emette, CD lo emette e DA lo assorbe. 
+\begin{align*}
+&\eta = \frac{L}{Q_{abs}} = \frac{L}{Q_1 + Q_R}\\
+&L_{AB}= n R \theta_1 \ln\left(\frac{V_b}{V_a}\right)\\
+&L_{CD}= n r \theta_2 \ln\left(\frac{V_d}{V_c}\right) = n r \theta_2 \ln\left(\frac{V_b}{V_a}\right)\\
+&L = L_{AB} + L_{CD} = n R \ln\left(\frac{V_b}{V_a}\right)(\theta_1 - \theta_2)\\
+&Q_1 = n R \ln\left(\frac{V_b}{V_a}\right)(\theta_1 - \theta_2)\\
+&Q_R = n c_v (\theta_1 - \theta_R)\\
+&\eta = \frac{L}{Q_{abs}} = \frac{L}{Q_1 + Q_R} = \frac{R \ln\left(\frac{V_b}{V_a}\right)(\theta_1 - \theta_2)}{R\theta_1\ln(\frac{V_b}{V_a})+c_v (\theta_1 - \theta_2)}
+\end{align*}
+
+
+
 \appendix
 \section{Determinismo assoluto e libero arbitrio}
 La possibilità teorica di conoscere l'evoluzione (passata e futura) di un sistema fisico, diede vita al cosiddetto \textbf{determinismo assoluto} di Pierre Simon Laplace (1749 - 1827) secondo cui se si conoscesse lo stato di ogni particella nell'universo (per intenderci si stima ci siano $10^{80}$ protoni nell'universo osservabile) allora sarebbe possibile conoscere alla perfezione presente passato e futuro. Questa idea portata all'estremo sostiene che, se il cervello fosse mosso unicamente da reazioni chimiche (he altro non sono che cambiamenti nello stato del sistema cervello), se si conoscesse lo stato di ogni particella del cervello allora si potrebbe prevedere alla perfezione il comportamento di un essere umano. Da ciò sorgono svariati dilemmi filosofici, uno per tutti il problema del libero arbitrio: se ogni movimento, parola ed espressione umana fosse teoricamente prevedibile matematicamente allora la libertà che sembra scontata nell'agire umano sarebbe solamente apparente?\\
 In realtà è possibile smontare la tesi del determinismo assoluto alla luce delle nuove scoperte della fisica del XX secolo, principalmente grazie alla teoria del caos e al probabilismo (opposto al determinismo) della fisica quantistica, a causa del principio di indeterminazione di Heisenberg. Un sistema formato da un tale numero di particelle come l'universo (ma anche un cervello umano) è detto "caotico" che, in soldoni, vuol dire che dipende altamente dallo stato iniziale del sistema. Ora, sappiamo che ogni misura è sempre affetta da errore, dunque ogni minima incertezza sullo stato iniziale del sistema inficerebbe irrimediabilmente sulla "previsione del passato e del futuro" laplaciana. Ma allora è solamente questione di migliorare gli strumenti tecnologici per ridurre l'errore? No!, e qui entra in ballo la fisica quantistica: se riducessimo l'errore sull'ipotetica misura dello stato di ogni singola particella dell'universo si arriverebbe ad un punto in cui entreremmo nel mondo quantistico (infinitamente piccolo) in cui sappiamo che, per il principio di indeterminazione, aumentare la precisione sulla posizione diminuisce la precisione sulla quantità di moto. Non c'è scampo, il positivismo ottocentesco è destinato al fallimento. 
+
 \section{Integrale di Laplace}\label{subsec:laplaceint}
 \end{document}
