@@ -162,7 +162,7 @@ La scala centigrada è stata sostituita poiché, quando si adotta la funzione li
 \end{align} 
 $\theta_3$ è stato scelto (in modo arbitrario) a 273,16 gradi della nuova scala Kelvin in modo che il coefficiente angolare della retta dei gradi centigradi e quella dei kelvin sia lo stesso, per fare che questo si verifichi bisogna porre $\theta_3\equiv 276.16$. Ora, visto che il punto triplo dell'acqua risulta essere, sperimentalmente, a 0.01 \textdegree C, la conversione da gradi kelvin a gradi centigradi risulta immediata: basterà sottrarre 273.15.\\
 Si presenta infine un problema, al variare del materiale scelto per misurare il volume al variare della temperatura, non è detto che la relazione rimanga lineare (cosa che non succede infatti). Ne segue che la temperatura, che dovrebbe essere una proprietà generale, varia a seconda del materiale con cui è definita: bisogna scegliere un materiale "privilegiato" per definirla ma quale? Quello adottato, e da cui è stato ricavato il valore di 273,16 in realtà è una pura astrazione e non esiste nella realtà, stiamo parlando del \textbf{gas perfetto}, di cui approfondiremo in seguito (sezione \ref{sec:termometroagasperfetto}).
-\section{Breve digressione matematica}
+\subsection{Breve digressione matematica}
 Vogliamo studiare la variazione di volume generata dalla variazione infinitesima di pressione e temperatura. Sappiamo che il sistema fisico considerato ha tre coordinate di cui due indipendenti, inoltre esiste una funzione del tipo
 \begin{align*} 
 	f(p, V, \theta) = 0
@@ -229,7 +229,7 @@ Si consideri un grande recipiente contenente mercurio liquido, un cubo di lato l
 \end{align*}  
 Dove per l'approssimazione ci siamo sempre avvalsi della serie di Taylor. Notiamo che la frazione che moltiplica d è maggiore di uno se sostituiamo le quantità fornite dal problema, ne deduciamo che $d' > d$ e che quindi il cubo d'acciaio sprofonda ulteriormente. 
 \end{exercise} 
-\section{Dilatazione dal punto di vista microscopico}
+\subsection{Dilatazione dal punto di vista microscopico}
 Fin ora abbiamo visto, dal punto di vista macroscopico, che se aumentiamo la temperatura i corpi di solito si dilatano ed in qualche caso particolare si contraggono, di ciò facciamo esperienza anche nel quotidiano. Tuttavia, se la temperatura è una grandezza emergente dal microscopico, perché una sua variazione ha effetto sulle dimensioni dei materiali?\\
 Esiste un modello empirico detto di Lennard-Jones che elabora una funzione di potenziale per le forze agenti fra molecole (che dipende dalla distanza a cui si trovano le molecole). 
 \begin{align*} 
@@ -247,7 +247,7 @@ Ad una temperatura e volume iniziali, un gas avrà un punto medio stabile attorn
 \begin{definition}
 	Si dice trasformazione termodinamica un processo che connette stati termodinamici all'equilibrio
 \end{definition}
-\section{Il termometro a gas perfetto}\label{sec:termometroagasperfetto}
+\subsection{Il termometro a gas perfetto}\label{sec:termometroagasperfetto}
 In fisica una grandezza deve poter essere misurata in modo univoco e preciso, è dunque necessario creare uno strumento per la misura della temperatura, il termometro, in modo ottimale. Abbiamo già osservato che diversi materiali hanno diverse espansioni a parità di variazione di temperatura (infatti ogni materiale ha uno specifico coefficiente d'espansione isoterma), questo costituisce un problema per la misura; vediamo come ovviarlo.\\
 Cominciamo a costruire un termometro che adotti un qualsiasi tipo di gas, ad esempio n moli di $O_2$, e che effettui la misura di temperatura sfruttando la pressione come variabile termometrica.
 \begin{figure}[h!]
@@ -1686,7 +1686,7 @@ Possiamo riscrivere queste relazioni notando che, a partire dalla (\ref{eq:adiab
 \end{align*}
 In quest'ultimo passaggio abbiamo semplicemente usato l'equazione di stato dei gas perfetti e cambiato segno ($\gamma > 1$). Possiamo ora sostituire $\gamma \equiv \frac{c_p}{c_v}$ 
 \begin{align*}
-L = \frac{n R c_v}{c_p - c_v} [\theta_i - \theta_f] = \frac{n R c_v}{R} [\theta_i - \theta_f] = n c_v \Delta \theta = -\Delta U
+L = \frac{n R c_v}{c_p - c_v} [\theta_i - \theta_f] = \frac{n R c_v}{R} [\theta_i - \theta_f] = -n c_v \Delta \theta = -\Delta U
 \end{align*}
 in quest'ultimo passaggio si ricordi la (\ref{eq:U_gas_perfetti}).\\
 Dall'espressione del lavoro possiamo trarre alcune conclusioni: se L > 0 si ha un'espansione adiabatica e il gas si raffredda: \(\Delta \theta< 0\), se L < 0 si ha una compressione adiabatica e il gas si riscalda : \(\Delta \theta > 0\), se L = 0 si ha un'espansione libera in cui, come visto nell'esperimento di Joule \(\theta_f = \theta_i\).
@@ -2101,6 +2101,7 @@ Si noti che una macchina come un pistone del tipo appena considerato non ha una 
 	&L_{tot} = -2Q_{att}
 \end{align*}
 Dunque in generale in un ciclo di una macchina isoterma si ha \(Q = L \leq 0\) dove è \(Q=L=0\) solo nel caso ideale in cui non vi siano forze non conservative. Il dato sperimentale dell'impossibilità di eliminare le forze non conservative (e dunque l'impossibilità di non dissipare calore in una trasformazione) è stato elevato a principio nella seconda metà del 1800
+\subsection{Enunciato di Kelvin-Planck}
 \begin{definition}[Definizione di Kelvin-Planck del secondo principio]
 	È impossibile realizzare una trasformazione il cui unico risultato sia quello di convertire interamente in lavoro il calore assorbito da un unico serbatoio. In linguaggio matematico: in una trasformazione in cui $\Delta U =$ costante allora \(L = Q_1+Q_2 = |Q_1| - |Q_2|> 0\) dove $Q_1$ è il calore assorbito dalla macchina (> 0)e $Q_2$ il calore dissipato (< 0).
 \end{definition}
@@ -2118,7 +2119,7 @@ Visto che non tutto il calore può essere trasformato in lavoro, possiamo defini
 \end{align*}
 Quest'ultima disuguaglianza è un'altra forma della definizione del secondo principio della termodinamica secondo Kelvin-Planck. Nel caso di macchine politermiche, cioè che lavorano in presenza di più di due termostati, l'efficienza è 
 \[\eta = \frac{L}{\sum_i Q_{abs}}\]
-\subsection{Macchina di Stirling}
+\subsubsection{Macchina di Stirling}
 A parità di sorgenti è possibile costruire infinite macchine termiche con cicli termodinamici e rendimenti diversi. Consideriamo la macchina di Stirling, un ciclo reversibile composto da due isoterme e due isocore. 
 \begin{figure}[h!]
 	\centering
@@ -2137,13 +2138,208 @@ Questo tipo di macchina è detta a "combustione esterna", cioè funziona con una
 &Q_R = n c_v (\theta_1 - \theta_R)\\
 &\eta = \frac{L}{Q_{abs}} = \frac{L}{Q_1 + Q_R} = \frac{R \ln\left(\frac{V_b}{V_a}\right)(\theta_1 - \theta_2)}{R\theta_1\ln(\frac{V_b}{V_a})+c_v (\theta_1 - \theta_2)}
 \end{align*}
+\subsubsection{Ciclo Otto}
+Questo ciclo termodinamico a combustione interna, tipicamente usato nei motori a benzina che sfrutta l'utilizzo di una candela per far esplodere il fluido ed ottenere un'espansione adiabatica (visto che esplode l'espansione avviene tanto rapidamente da non scambiare calore con l'ambiente). \'{E} caratterizzato da due adiabatiche chiuse da due isocore, come in figura.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\linewidth]{../images/ciclo-otto}
+	\caption{Grafico del ciclo otto. AB e CD sono curve adiabatiche, BC e DA curve isocore.}
+	\label{fig:ciclo-otto}
+\end{figure}
+\FloatBarrier
+vogliamo ricavare il rendimento di questo ciclo. Osservando che il calore viene assorbito solamente nel tratto isotermo DA ($Q_1$) , possiamo scrivere
+\begin{align*}
+ &\eta = \frac{L}{Q_{abs}}
+\end{align*} 
+Ipotizziamo che il gas all'interno della macchina sia perfetto, sappiamo che il lavoro di un'isocora è nullo e conosciamo quello di un'adiabatica per un gas perfetto; inoltre sappiamo che il calore è assorbito unicamente nell'isocora CB ed è uguale alla variazione di energia interna del gas perfetto (essendo un'isocora), che conosciamo.
+\begin{align*}
+	&L =n c_v (\theta_C-\theta_D) + n c_v(\theta_A-\theta_B)\\
+	&Q_{abs} = \Delta U = n c_v (\theta_C-\theta_B)\\
+	&\eta = \frac{n c_v (\theta_C-\theta_D) + n c_v(\theta_A-\theta_B)}{n c_v (\theta_C-\theta_B)} = \frac{(\theta_C-\theta_D + \theta_A-\theta_B)}{(\theta_C-\theta_B)} = 1 - \frac{\theta_D - \theta_A}{\theta_C - \theta_B}
+\end{align*}
+ Sfruttiamo ora la proprietà delle adiabatiche che mette in relazione temperatura e volume
+ \begin{align*}
+ &\begin{cases}
+ 	&\theta_C V_1^{\gamma-1} = \theta_D V_2^{\gamma-1}\\
+ 	&\theta_B V_1^{\gamma-1} = \theta_A V_2^{\gamma-1}
+ \end{cases}\\
+& \Rightarrow \frac{\theta_C}{\theta_B} = \frac{\theta_D}{\theta_A}ù \quad \frac{\theta_D}{\theta_C}=\frac{V_2^{\gamma-1}}{V_1^{\gamma-1}}\\
+&\eta = 1 - \frac{\theta_D}{\theta_C}\left(\frac{1-\frac{\theta_A}{\theta_D}}{1-\frac{\theta_B}{\theta_C}}\right) = 1-\frac{\theta_D}{\theta_C} = 1-\frac{V_2^{\gamma-1}}{V_1^{\gamma-1}}
+\end{align*}
+\subsubsection{Ciclo Diesel}
+Il ciclo Diesel è un ciclo termodinamico per motori a combustione interna dove, a differenza del ciclo Otto, l'accensione della miscela non avviene attraverso una candela bensì per effetto dell'alta temperatura conseguente alla fase di compressione. Esso comprende 4 fasi o trasformazioni. L'idea di tale macchina termica fu di Rudolf Diesel che sviluppò successivamente il motore Diesel. \'{E} caratterizzato da due adiabatiche chiuse da un'isobara e un'isocora, come in figura
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\linewidth]{../images/ciclo-diesel}
+	\caption{Grafico del ciclo Diesel. CD e AB sono due adiabatiche, DA è un'isocora e BC un'isobara}
+	\label{fig:ciclo-diesel}
+\end{figure}
+\FloatBarrier
+Vogliamo ricavare il rendimento. L'unica trasformazione in cui si assorbe calore è l'isobara, l'unica in cui si cede è l'isocora
+\begin{align*}
+	&\eta = \frac{L}{Q_{abs}} = \frac{Q_{abs}+Q_{ced}}{Q_{abs}} = 1 +\frac{Q_{ced}}{Q_{abs}} = 1 + \frac{c_v(\theta_A-\theta_D)}{c_p(\theta_C-\theta_B)} = 1+\frac{1}{\gamma}\frac{(\theta_A-\theta_D)}{(\theta_C-\theta_B)} = 1 - \frac{(\theta_D-\theta_A)}{(\theta_C-\theta_B)}
+\end{align*}
+\subsection{Enunciato di Clausius}
+\begin{definition}[Macchina frigorifera]
+	Viene detta macchina frigorifera una macchina che fa lavoro per trasferire calore da corpi più freddi a corpi più caldi. 
+\end{definition}
+\begin{definition}[Enunciato del secondo principio secondo Clausius]
+	\'{E} impossibile ottenere una trasformazione che come unico risultato abbia quello di trasferire calore da un corpo più freddo ad uno più caldo. 
+\end{definition}
+Vista la definizione di macchina frigorifera, si deduce che questo principio vieta l'esistenza una macchina frigorifera che porti calore da un corpo freddo ad uno caldo senza fare lavoro. 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.35\linewidth]{../images/clausius}
+	\caption{Schema della macchina frigorifera proibita dall'enunciato di Clausius.}
+	\label{fig:clausius}
+\end{figure}
+\FloatBarrier
+Possiamo definire, analogamente al rendimento per una macchina termica, il coefficiente di prestazione per una macchina frigorifera
+\begin{definition}[coefficiente di prestazione]
+	Definiamo il coefficiente di prestazione di una macchina frigorifera come \[\omega =\equiv \frac{Q_2}{|L|} = \frac{Q_2}{|Q_1|-|Q_2|}\]
+\end{definition}
+Dimostriamo ora che l'enunciato di Kelvin-Planck (KP) e quello di Clausius (C) sono equivalenti. Preliminarmente, svolgiamo alcune considerazioni logiche.
+\begin{align*}
+	&KP \Leftrightarrow C\\
+	&\begin{cases}
+		KP \Rightarrow C\\
+		C \Rightarrow KP
+	\end{cases}\\
+	&\begin{cases}
+		\neg(KP)\Rightarrow \neg(C)\\
+		\neg(C)\Rightarrow \neg(KP)
+	\end{cases}
+\end{align*}
+Dunque basta dimostrare che la negazione di uno implica la negazione dell'altro per dimostrare l'equivalenza dei due enunciati. Si noti che negare uno dei due enunciati equivale ad ammettere l'esistenza di una macchina che contravvenga all'enunciato. 
+\begin{enumerate}
+	\item \(\neg(KP)\Rightarrow \neg(C)\)\\
+	
+	Neghiamo KP costruendo una macchina termica che lo neghi ed uniamola ad una macchina frigorifera che rispetti C, otteniamo una macchina come in figura
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{../images/KP-C}
+	\caption{Schema dell'unione di una macchina che contravviene l'enunciato KP (perché non scambia calore con il secondo serbatoio) a sinistra con una che rispetta l'enunciato C a destra (perché per funzionare assorbe il calore proveniente dalla prima macchina). La seconda macchina è costruita in modo che \(Q_C = Q_A + Q_{A2}\)}
+	\label{fig:kp-c}
+\end{figure}
+\FloatBarrier
+Questa macchina nella sua totalità è equivalente ad una macchina \(M_1 + M_2\) che assorbe calore \(Q_{A2}\) e ne cede \(-Q_A+Q_C\), dove $Q_C = Q_{A}+Q_{A2}$ dunque in totale cede \(Q_{A2}\). Il lavoro prodotto dalla prima macchina è lo stesso assorbito dalla seconda con segno invertito dunque il lavoro totale prodotto/assorbito è nullo. Abbiamo così ottenuto un macchina che come unico effetto ha quello di assorbire calore da una sorgente più fredda e portarlo ad una più calda, che equivale ad una macchina che nega l'enunciato di Clausius.
 
+\item \(\neg(C)\Rightarrow \neg(KP)\)\\
 
+Costruiamo una macchina che nega l'enunciato di Clausius, ovvero che porta calore da una sorgente fredda ad una calda senza fare lavoro, e la uniamo ad una macchina che rispetta l'enunciato di KP come in figura.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{../images/C-KP}
+	\caption{Schema dell'unione di una macchina che nega l'enunciato di C con una che rispetta quello di KP. Si noti che la seconda macchina è stata costruita in modo da assorbire la stessa quantità di calore che la prima trasferisce (in figura \(Q = Q_A\) }
+	\label{fig:c-kp}
+\end{figure}
+\FloatBarrier
+Visto che la seconda macchina espelle calore e lavoro, per la conservazione dell'energia \(Q_C<Q_A=Q\).
+Unire queste due macchine equivale ad avere una macchina che assorbe \(Q-Q_C = Q' > 0 \) ed espelle \(Q-Q_A = 0\) producendo lavoro W. Questa macchina prende calore da una sola sorgente e produce lavoro, contraddice dunque l'enunciato di KP.  
+\end{enumerate} 
+\subsubsection{Ciclo di Carnot}
+Il ciclo formato da due isoterme chiuse da due adiabatiche, come in figura, è detto \textbf{ciclo di Carnot}. Ogni sostanza ha un ciclo di Carnot diverso poiché la forma delle adiabatiche e delle isoterme dipendono dalle caratteristiche chimiche dei materiali. 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{../images/ciclo_carnot}
+	\caption{Schema del ciclo di Carnot, le trasformazioni AB e CD sono due isoterme, BC e DA sono adiabatiche.}
+	\label{fig:ciclocarnot}
+\end{figure}
+\FloatBarrier
+Questo è un ciclo particolare perché è dimostrabile che sia quello con rendimento maggiore, a parità di serbatoi termici con i quali si opera. 
+\begin{theorem}[Teorema di Carnot]
+	Il rendimento di una macchina termica M che opera tra o con due serbatoi termici è sempre minore o uguale al rendimento della macchina di Carnot corrispondente.
+	\[\eta \leq \eta_c\]
+\end{theorem}
+Per dimostrare questo teorema consideriamo una macchina termica M qualsiasi che assorbe Q da una sorgente calda a $\theta_1$ producendo un lavoro $L_m$ ed emette calore $Q-L_m$ ad un serbatoio a temperatura $\theta_2$. Consideriamo inoltre una macchina di Carnot C che assorbe Q dalla stessa sorgente calda a $\theta_1$ producendo un lavoro $L_c$ ed emette calore $Q-L_m$ ad un serbatoio a temperatura $\theta_2$. Vista l'invertibilità di una macchina di Carnot, possiamo trasformarla in una macchina frigorifera semplicemente cambiando i segni dei calori emessi/assorbiti e del lavoro emesso/assorbito. Otteniamo così una macchina $\overline{C}$ che possiamo unire alla macchina M, il calore scambiato con il serbatoio a $\theta_1$ è \(Q-Q = 0\) mentre con quello a $\theta_2$ scambia \(Q-L_m - (Q-L_c) = L_c-L_m\) e assorbe/produce lavoro pari a \(L_m-L_c\). Non sapendo quale sia maggiore tra \(L_c\) ed \(L_m\) non sappiamo in che direzione fluisca il calore e se il lavoro venga prodotto o assorbito. sappiamo tuttavia, per il secondo principio secondo Kelvin Planck che non può esistere una macchina che trasforma tutto il calore prelevato da un'unica sorgente in lavoro (impedisce dunque un verso) ne deduciamo che sarà il lavoro ad essere trasformato in calore, allora \[L_m-L_c \leq 0 \Rightarrow L_m \leq L_c\] Abbiamo così dimostrato che, a parità di temperature dei serbatoi tra o con cui opera una macchina generica ed una di Carnot, il lavoro di quest'ultima sarà sempre maggiore. Dividendo per Q ambo i membri e ricordando la definizione di rendimento
+\[frac{[L_m }{Q} \leq \frac{L_c}{Q} \Rightarrow \eta_m \leq \eta_c\]
+Dove la condizione di uguaglianza si verifica solo se anche $\eta_m$ è una macchina di Carnot.
+\begin{corollary}[Tutte le macchine di Carnot hanno lo stesso rendimento]
+Come dimostrato dal teorema di Carnot, il rendimento della macchina di Carnot è il maggiore ottenibile da una macchina termica. Date due macchine di Carnot C1 e C2 considerando C1 macchina termica qualsiasi e C2 macchina di Carnot abbiamo \[\eta_{c1}\leq \eta_{c2}\] Se contrariamente consideriamo C1 macchina di Carnot e C2 macchina termica generica, otteniamo \[\eta_{c1}\geq \eta_{c2}\] Mettendo a sistema le due precedenti relazioni si ottiene \[\eta_{c1} = \eta_{c2}\] Da cui si ricava che due macchine di Carnot qualsiasi hanno lo steso rendimento. 
+\end{corollary}
 
+A causa di questo corollario, notiamo che qualunque materiale venga usato in una macchina di Carnot, questa avrà sempre lo stesso rendimento che dipende unicamente da $\theta_1$ e $\theta_2$. 
+\[\eta_ c= f(\theta_1\ ,\theta_2 )\]
+Vogliamo calcolare f, visto che questa è indipendente dal tipo di materiale usato, adottiamo un gas perfetto per semplicità. 
+\begin{align*}
+	\eta_c = \frac{L}{Q}=\frac{Q_1 + Q_2}{Q_1}= 1 + \frac{Q_2}{Q_1}
+\end{align*} 
+Calcoliamo \(Q_1\) e \(Q_2\). \(Q_1\) è il calore assorbito nella trasformazione AB, come in figura. Visto che è una trasformazione isoterma si ha \(\Delta U = 0 \Rightarrow L_{AB}  = Q_1\). Sappiamo calcolare il lavoro di un gas perfetto in un'isoterma, per semplicità consideriamo solamente una mole. Analogamente ad AB procediamo con CD
+\begin{align*}
+	&Q_1 = L_{AB} = R\theta_1\ln(\frac{V_B}{V_A})\\
+	&Q_2 = L_{CD} = R\theta_2\ln(\frac{V_D}{V_C})
+\end{align*}
+Nelle adiabatiche invece $Q=0$. Dalle precedenti si ricava
+\begin{align*}
+	\eta_C = 1+\frac{\theta_1\ln(\frac{V_B}{V_A})}{\theta_2\ln(\frac{V_D}{V_C})}
+\end{align*}
+Visto che gli stati B-C e A-D sono legati da trasformazioni adiabatiche, possiamo sfruttare le relazione 
+\begin{align*}
+	&\begin{cases}
+		\theta_1 V_B^{\gamma -1} = \theta_2 V_C^{\gamma -1}\\
+		\theta_1 V_A^{\gamma -1} = \theta_2 V_D^{\gamma -1}
+	\end{cases}
+	\Rightarrow \frac{V_B}{V_A} = \frac{V_C}{V_D}\\
+	&\Rightarrow \eta_C = 1-\frac{\theta_1}{\theta_2}
+\end{align*}
+Possiamo anche ricavare il coefficiente di prestazione $\omega$ di un macchina frigorifera di Carnot. 
+\begin{align*}
+\omega = \frac{Q_2}{|L|} = \frac{Q_2}{|Q_1|-|Q_2|} = \frac{\theta_2}{\theta_1 - \theta_2}
+\end{align*}
+\section{Ridefinizione della temperatura con il ciclo di Carnot}
+Come visto in precedenza, il simbolo $\theta$ indica la temperatura definita mediante il termometro a gas perfetto: un corpo ha una temperatura $\theta$ se la grandezza indicata dal termometro a gas perfetto posto in equilibrio termico con tale corpo è di $\theta$. Questa definizione ha il limite di appellarsi ad un gas che, a temperature troppo basse, inevitabilmente fonde (la minima temperatura di fusione è 0.5K per l'$H^3$). Per temperature minori a 0.5 K non possiamo definire la temperatura.\\
+Eliminiamo dunque la definizione della temperatura mediante i gas perfetti e torniamo al punto di partenza in cui avevamo grandezze "t", prive di scala termometrica. Vogliamo sfruttare la relazione \[\eta_c = 1+\frac{|Q_2|}{|Q_1|}=f(t_1,t_2) \Rightarrow \frac{|Q_2|}{|Q_1|}=f(t_1,t_2)\]
+per ridefinire la temperatura. Consideriamo due macchine di Carnot C1 e C2 operanti una tra $t_0$ e $t_1$ e l'altra tra $t_0$ e $t_2$. La prima assorbe calore \(Q_1\) dal serbatoio a \(t_1\), produce lavoro \( L_1\) e restituisce calore \(Q_0\) al serbatoio \(t_0\), analogamente la seconda preleva \(Q_2\) da \(t_2\), produce \(L_2\) e cede \(Q_0\) a \(t_0\). Sappiamo che
+\begin{align*}
+	&\frac{|Q_1|}{|Q_0|} =f(t_1\ , t_0) \quad \frac{|Q_2|}{|Q_0|} =f(t_2\ , t_0)\\
+	&\Rightarrow \frac{|Q_2|}{|Q_1|} =\frac{f(t_1\ , t_0)}{f(t_2\ , t_0)}
+\end{align*}
+Ora, posso invertire C1 invertendo i segni e trasformandola in una macchina frigorifera di Carnot $\overline{C1}$. Avremo dunque che $\overline{C1}$ assorbe \(Q_0\) da \(t_0\), assorbe lavoro \(L_1\) e cede calore \(Q_1\) a \(t_1\). Unendo le due macchine otterremo una macchina ($\overline{C1}+C2$) che sarà indipendente dal serbatoio a \(t_0\) poiché scambia calore \(Q_0-Q_0 =  0\) e che assorbe calore \(Q_2\) da \(t_2\) e ne cede \(Q_1\) a \(t_1\). Possiamo quindi scrivere
+\begin{align*}
+&\frac{|Q_1|}{|Q_2|} = f(t_1\ ,t_2)\\
+&\Rightarrow f(t_1\ , t_2) = \frac{f(t_1\ ,t_0)}{f(t_2\ ,t_0)}
+\end{align*}
+Dove nell'ultimo passaggio abbiamo uguagliato con quanto ottenuto appena sopra. data questa uguaglianza è necessario che \(t_0\) sia fattorizzabile da f per poterlo semplificare dunque
+\begin{align*}
+&\frac{|Q_1|}{|Q_2|} = f(t_1\ , t_2) = \frac{f(t_1\ ,t_0)}{f(t_2\ ,t_0)}= \frac{T(t_1)\Psi(t_0)}{T(t_2)\Psi(t_0)}=\frac{T(t_1)}{T(t_1)}
+\end{align*}
+Possiamo ridefinire la temperatura come la funzione T: \[T \equiv T(t)\]
+possiamo ora fissare la temperatura $T(t_2)\equiv T_3$ come la temperatura del punto triplo dell'acqua e il calore \(Q_2\equiv Q_3\) come il calore scambiato fra il corpo a temperatura del punto triplo con la macchina di Carnot dove invece \(Q_1\equiv Q\) è il calore scambiato tra la macchina di Carnot ed il corpo a temperatura incognita \(T(t_1)\equiv T_x\). 
+\[T_x = T_3\frac{|Q|}{|Q_3|}\]
+Ecco ottenuta una definizione del calore dipendente solamente dai calori scambiati da due corpi con la macchina di Carnot, e quindi indipendenti dal materiale usato per la misurazione. Abbiamo dunque risolto il problema della definizione di temperature inferiori a \(0.5 K\). 
+\section{L'entropia}
+Confrontiamo il rendimento di una macchina termica generica ed una di Carnot, ricordando che per il thm. di Carnot \(\eta \leq \eta_c\)
+\begin{align*}
+	&\eta = 1 + \frac{Q_2}{Q_1} \quad \eta_c = 1 - \frac{T_2}{T_1}\\
+	&1 + \frac{Q_2}{Q_1} \leq \eta_c = 1 - \frac{T_2}{T_1}\\
+	&\Rightarrow \frac{Q_2}{T_2}+\frac{Q_1}{T_1}\leq 0
+\end{align*}
+Dove l'uguaglianza si avvera se la macchina è di Carnot. Se al posto di avere due termostati ne avessimo n (macchina politermica) come si modificherebbe questa disuguaglianza? Una macchina politermica può essere schematizzata come in figura
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{../images/macchina_polit}
+	\caption{Schema di una macchina politermica}
+	\label{fig:macchinapolit}
+\end{figure}
+\FloatBarrier
+Sommando  tutte le macchine otteniamo una macchina singola (\(M_g+\sum_i^n C_i\)) che opera con un unico serbatoio termico, \(T_0\) e che produce/assorbe lavoro; si tratta di determinare il verso del lavoro e dello scambio di calore. Per il secondo principio secondo KP una macchina che assorbe calore da un unico serbatoio producendo calore non può esistere dunque il verso obbligato è quello in cui la macchina trasforma il lavoro in calore che emette al serbatoio \(T_0\). Ne risulta che il calore scambiato con il serbatoio ha segno negativo dunque 
+\[\sum_i Q'_i \leq 0\]
+Per ogni macchina di Carnot che forma la macchina politermica vale 
+\[Q'_i = T_0 \frac{Q_i}{T_i}\]
+Dunque sommando tutti gli n calori scambiati dalle macchine di Carnot si ottiene
+\begin{align*}
+	&\sum_i Q'_i = \sum_i\frac{T_0 Q_i}{T_i}\leq 0\\
+	&\Rightarrow \sum_i \frac{Q_i}{T_i}\leq 0
+\end{align*}
+Per un numero infinito di macchine di Carnot (e quindi di termostati con cui lavora la macchina politermica) è possibile passare al continuo sostituendo la sommatoria all'integrale. Visto che il grafico di una macchina, in un piano di Clapeyron è una linea chiusa avremo un integrale su un percorso chiuso, ovvero una circuitazione, possiamo dunque scrivere
+\begin{align*}
+	\oint \frac{\delta Q}{T}\leq 0
+\end{align*}
+Quest'ultima è detta disuguaglianza di Clausius ed è fondamentale perché da essa è possibile ricavare una nuova funzione di stato (analogamente alla temperatura per il principio zero ed al calore per il primo principio) : l'entropia.
 \appendix
 \section{Determinismo assoluto e libero arbitrio}
 La possibilità teorica di conoscere l'evoluzione (passata e futura) di un sistema fisico, diede vita al cosiddetto \textbf{determinismo assoluto} di Pierre Simon Laplace (1749 - 1827) secondo cui se si conoscesse lo stato di ogni particella nell'universo (per intenderci si stima ci siano $10^{80}$ protoni nell'universo osservabile) allora sarebbe possibile conoscere alla perfezione presente passato e futuro. Questa idea portata all'estremo sostiene che, se il cervello fosse mosso unicamente da reazioni chimiche (he altro non sono che cambiamenti nello stato del sistema cervello), se si conoscesse lo stato di ogni particella del cervello allora si potrebbe prevedere alla perfezione il comportamento di un essere umano. Da ciò sorgono svariati dilemmi filosofici, uno per tutti il problema del libero arbitrio: se ogni movimento, parola ed espressione umana fosse teoricamente prevedibile matematicamente allora la libertà che sembra scontata nell'agire umano sarebbe solamente apparente?\\
 In realtà è possibile smontare la tesi del determinismo assoluto alla luce delle nuove scoperte della fisica del XX secolo, principalmente grazie alla teoria del caos e al probabilismo (opposto al determinismo) della fisica quantistica, a causa del principio di indeterminazione di Heisenberg. Un sistema formato da un tale numero di particelle come l'universo (ma anche un cervello umano) è detto "caotico" che, in soldoni, vuol dire che dipende altamente dallo stato iniziale del sistema. Ora, sappiamo che ogni misura è sempre affetta da errore, dunque ogni minima incertezza sullo stato iniziale del sistema inficerebbe irrimediabilmente sulla "previsione del passato e del futuro" laplaciana. Ma allora è solamente questione di migliorare gli strumenti tecnologici per ridurre l'errore? No!, e qui entra in ballo la fisica quantistica: se riducessimo l'errore sull'ipotetica misura dello stato di ogni singola particella dell'universo si arriverebbe ad un punto in cui entreremmo nel mondo quantistico (infinitamente piccolo) in cui sappiamo che, per il principio di indeterminazione, aumentare la precisione sulla posizione diminuisce la precisione sulla quantità di moto. Non c'è scampo, il positivismo ottocentesco è destinato al fallimento. 
-
-\section{Integrale di Laplace}\label{subsec:laplaceint}
+\newpage
+\tableofcontents
 \end{document}
