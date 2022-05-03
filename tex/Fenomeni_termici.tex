@@ -1232,14 +1232,14 @@ Tuttavia risulta sperimentalmente che questo $\overline{C}$ dipende dalla temper
 Il calore non è un differenziale esatto perché definito come somma di lavoro e variazione di energia interna e il lavoro non è un differenziale esatto. Si noti che la dimensione della capacità termica è $\frac{J}{K}$.\\
 Tuttavia ciò non basta per avere un indice affidabile, è intuitivamente chiaro che più materiale si ha da riscaldare, più energia sarà necessaria. Vogliamo allora un indice che dipenda o dalla massa o dal numero di moli, definiamo così \textbf{calore specifico} ($c_m$) e \textbf{calore molare} ($c$)
 \begin{align*} 
-&c_m \equiv \frac{1}{m} \frac{Q}{\theta_f - \theta_i}\\
-&c \equiv \frac{1}{n} \frac{Q}{\theta_f - \theta_i}
+&c_m \equiv \frac{1}{m} \frac{\delta Q}{d\theta}\\
+&c \equiv \frac{1}{n} \frac{\delta Q}{d\theta}
 \end{align*} 
 dove m è la massa del corpo in esame ed n il numero di moli contenute.\\
 Infine, risulta che a seconda della modalità con cui è riscaldato il copro avremo che la temperatura varierà in modo diverso a parità di massa (o moli) e di $\Delta \theta$. Introduciamo quindi il calore molare a pressione costante e a volume costante (analogamente potremmo definirle a partire dal calore specifico)
 \begin{align*} 
-	&c_p \equiv \frac{1}{n} \left(\frac{Q}{\theta_f - \theta_i}\right)_p \\
-	&c_v \equiv \frac{1}{n} \left(\frac{Q}{\theta_f - \theta_i}\right)_V
+	&c_p \equiv \frac{1}{n} \left(\frac{\delta Q}{d\theta}\right)_p \\
+	&c_v \equiv \frac{1}{n} \left(\frac{\delta Q}{d\theta}\right)_V
 \end{align*} 
 Si noti che, nonostante siano cotanti, le funzioni $c_p$ e $c_v$ dipendono non solo da $\theta$ ma anche rispettivamente dai p e V scelti. 
 \begin{align*} 
@@ -1961,12 +1961,12 @@ Per semplicità ricaviamo il caso semplice di due conduttori piani in serie, chi
 	\end{align*}
 \end{exercise}
 \begin{exercise}[Conduttore guscio sferico tra due termostati]
-	Un termostato interno al guscio ha temperatura $\theta_1$ mentre la temperatura esterna è di $\theta_2$ (\(\theta_1 > \theta_2\)), i raggi interno ed esterno rono $r_1$ ed $r_2$ e lo spessore \(r_2-r_1 = dr\).
+	Un termostato interno al guscio ha temperatura $\theta_1$ mentre la temperatura esterna è di $\theta_2$ (\(\theta_1 > \theta_2\)), i raggi interno ed esterno sono $r_1$ ed $r_2$ e lo spessore \(r_2-r_1 = dr\).
 	\begin{align*}
 		&A = 4 \pi r^2\\
 		&\frac{\delta Q }{dt} = -k 4\pi r^2 \frac{d\theta}{dr}\\
 		&d \theta = -\frac{\delta Q }{dt} \frac{1}{k 4 \pi}\frac{dr}{r^2}\\
-		&\int_{\theta_2}^{\theta_1}d\theta = -\frac{\delta Q }{dt} \frac{1}{k 4 \pi} \left(\int_{r_1}^{r_2}\frac{dr}{r^2}\right)\\
+		&\int_{\theta_1}^{\theta_2}d\theta = -\frac{\delta Q }{dt} \frac{1}{k 4 \pi} \left(\int_{r_1}^{r_2}\frac{dr}{r^2}\right)\\
 		&(\theta_1 - \theta_2) = \frac{\delta Q }{dt} \frac{1}{k 4 \pi}\left(\frac{1}{r_2}-\frac{1}{r_1}\right)\\
 		&\frac{\delta Q }{dt} = \frac{4\pi k (\theta_1-\theta_2)r_1 r_2}{(r_2 - r_1)}
 	\end{align*}
