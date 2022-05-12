@@ -351,8 +351,9 @@ Ricavare la dipendenza della pressione dalla quota atmosferica (assumendo che l�
 Prendiamo in considerazione un cilindro d'aria di volume V, superficie di base S e altezza dz infinitesima. Sappiamo che la pressione varia con la quota perché più si va in alto minore sarà la forza esercitata dalla colonna d'aria che sovrasta una superficie: la pressione esercitata dall'aria sulla faccia inferiore del cilindro sarà minore (infinitesimamente) di quella sulla faccia superiore. Ricaviamo la relazione che descrive la variazione di pressione in funzione della quota.\\
 Se l'aria è ferma in un determinato istante, allora il gas all'interno del nostro cilindro è in equilibrio, cioè la pressione esercitata sulla faccia superiore è uguale e in verso contrario a quella esercitata sulla faccia inferiore più quella esercitata dal gas stesso all'interno del cilindro (i venti sono generati infatti da variazioni di pressione). Dovrà dunque verificarsi
 \begin{align}\label{eq:stevin}
-	&p + \frac{m g}{S} = p + dp \nonumber \\
-	&dp = -\frac{m g}{S} = -\frac{(\rho S dz) g}{S}= -\rho g dz \nonumber \\
+	&\text{p faccia superiore} = \text{p faccia inferiore}\\
+	&-p  = p + dp \nonumber - \frac{(dm) g}{S}\\
+	&dp = -\frac{(dm)g}{S} = -\frac{(\rho S dz) g}{S}= -\rho g dz \nonumber \\
 	\Rightarrow & \frac{d\rho}{dz}= - \rho g
 \end{align} 
 Dove p = pressione dell'aria a quota dz
@@ -1919,7 +1920,7 @@ Quando la componente in dU (negativa) sovrasta $\delta L$ anche $\delta Q < 0$ d
 \end{exercise}
 \section{Trasmissione del calore}
 Come visto, il calore è stato introdotto formalmente a seguito dell'enunciazione del primo principio della termodinamica. La sua funzione è essenzialmente quella di ristabilire la conservazione di energia in presenza di lavoro non-adiabatico (non conservativo). Trasferire calore, in assenza di lavoro termodinamico, ha l'effetto macroscopico di aumentare la temperatura, se ne deduce che il trasferimento di calore è un trasferimento di energia cinetica da un punto ad un altro dello spazio. Studiare il trasferimento di calore vuol dire studiare il passaggio da uno stato di equilibrio ad un altro, siamo interessati quindi ad una trasformazione: compare per questo la variabile tempo, fin ora mai usata (poiché abbiamo studiato solo stati di equilibrio). Esistono 3 distinte modalità di trasferimento di calore, vediamole.
-\subsection{Conduzione}
+\subsection{Conduzione}\label{sec:conduzione}
 Si ha conduzione termica quando il trasferimento di calore avviene senza spostamento macroscopico di materia. Ad esempio, nei solidi lo scambio avviene a causa dell'oscillazione elastica del reticolo o dall'oscillazione degli elettroni nella banda di conduzione. \\
 La \textbf{Legge di Fourier} è una legge empirica che descrive il passaggio di calore per conduzione: presa una porzione infinitesima di sostanza di superficie dA e spessore dx, posta fra due temperature $\theta$ e $\theta+d\theta$, la quantità di calore trasferita da una faccia all'altra della sostanza è pari a 
 \[\frac{\delta Q}{dt}= - k dA \frac{d\theta}{dx}\]
@@ -2252,7 +2253,7 @@ Questo è un ciclo particolare perché è dimostrabile che sia quello con rendim
 	\[\eta \leq \eta_c\]
 \end{theorem}
 Per dimostrare questo teorema consideriamo una macchina termica M qualsiasi che assorbe Q da una sorgente calda a $\theta_1$ producendo un lavoro $L_m$ ed emette calore $Q-L_m$ ad un serbatoio a temperatura $\theta_2$. Consideriamo inoltre una macchina di Carnot C che assorbe Q dalla stessa sorgente calda a $\theta_1$ producendo un lavoro $L_c$ ed emette calore $Q-L_m$ ad un serbatoio a temperatura $\theta_2$. Vista l'invertibilità di una macchina di Carnot, possiamo trasformarla in una macchina frigorifera semplicemente cambiando i segni dei calori emessi/assorbiti e del lavoro emesso/assorbito. Otteniamo così una macchina $\overline{C}$ che possiamo unire alla macchina M, il calore scambiato con il serbatoio a $\theta_1$ è \(Q-Q = 0\) mentre con quello a $\theta_2$ scambia \(Q-L_m - (Q-L_c) = L_c-L_m\) e assorbe/produce lavoro pari a \(L_m-L_c\). Non sapendo quale sia maggiore tra \(L_c\) ed \(L_m\) non sappiamo in che direzione fluisca il calore e se il lavoro venga prodotto o assorbito. sappiamo tuttavia, per il secondo principio secondo Kelvin Planck che non può esistere una macchina che trasforma tutto il calore prelevato da un'unica sorgente in lavoro (impedisce dunque un verso) ne deduciamo che sarà il lavoro ad essere trasformato in calore, allora \[L_m-L_c \leq 0 \Rightarrow L_m \leq L_c\] Abbiamo così dimostrato che, a parità di temperature dei serbatoi tra o con cui opera una macchina generica ed una di Carnot, il lavoro di quest'ultima sarà sempre maggiore. Dividendo per Q ambo i membri e ricordando la definizione di rendimento
-\[frac{[L_m }{Q} \leq \frac{L_c}{Q} \Rightarrow \eta_m \leq \eta_c\]
+\[\frac{L_m }{Q} \leq \frac{L_c}{Q} \Rightarrow \eta_m \leq \eta_c\]
 Dove la condizione di uguaglianza si verifica solo se anche $\eta_m$ è una macchina di Carnot.
 \begin{corollary}[Tutte le macchine di Carnot hanno lo stesso rendimento]
 Come dimostrato dal teorema di Carnot, il rendimento della macchina di Carnot è il maggiore ottenibile da una macchina termica. Date due macchine di Carnot C1 e C2 considerando C1 macchina termica qualsiasi e C2 macchina di Carnot abbiamo \[\eta_{c1}\leq \eta_{c2}\] Se contrariamente consideriamo C1 macchina di Carnot e C2 macchina termica generica, otteniamo \[\eta_{c1}\geq \eta_{c2}\] Mettendo a sistema le due precedenti relazioni si ottiene \[\eta_{c1} = \eta_{c2}\] Da cui si ricava che due macchine di Carnot qualsiasi hanno lo steso rendimento. 
@@ -2307,7 +2308,7 @@ Possiamo ridefinire la temperatura come la funzione T: \[T \equiv T(t)\]
 possiamo ora fissare la temperatura $T(t_2)\equiv T_3$ come la temperatura del punto triplo dell'acqua e il calore \(Q_2\equiv Q_3\) come il calore scambiato fra il corpo a temperatura del punto triplo con la macchina di Carnot dove invece \(Q_1\equiv Q\) è il calore scambiato tra la macchina di Carnot ed il corpo a temperatura incognita \(T(t_1)\equiv T_x\). 
 \[T_x = T_3\frac{|Q|}{|Q_3|}\]
 Ecco ottenuta una definizione del calore dipendente solamente dai calori scambiati da due corpi con la macchina di Carnot, e quindi indipendenti dal materiale usato per la misurazione. Abbiamo dunque risolto il problema della definizione di temperature inferiori a \(0.5 K\). 
-\section{L'entropia}
+\section{La disuguaglianza di Clausius}
 Confrontiamo il rendimento di una macchina termica generica ed una di Carnot, ricordando che per il thm. di Carnot \(\eta \leq \eta_c\)
 \begin{align*}
 	&\eta = 1 + \frac{Q_2}{Q_1} \quad \eta_c = 1 - \frac{T_2}{T_1}\\
@@ -2335,7 +2336,182 @@ Per un numero infinito di macchine di Carnot (e quindi di termostati con cui lav
 \begin{align*}
 	\oint \frac{\delta Q}{T}\leq 0
 \end{align*}
-Quest'ultima è detta disuguaglianza di Clausius ed è fondamentale perché da essa è possibile ricavare una nuova funzione di stato (analogamente alla temperatura per il principio zero ed al calore per il primo principio) : l'entropia.
+\subsection{Completamento del teorema di Carnot}
+Il teorema di Carnot per come abbiamo visto si limita a fornire informazioni su una macchina reversibile che opera tra o con due serbatoi. Vogliamo ora estendere il teorema a macchine reversibili che lavorano con infiniti serbatoi e dimostrare che comunque il rendimento è minore di quello di una macchina di Carnot che lavora fra o con le stesse temperature minima e massima.\\
+Consideriamo una trasformazione ciclica continua qualsiasi che lavora fra due isoterme \(T_1\) e \(T_2\) e approssimiamola con un numero discreto di cicli di Carnot come in figura, l'approssimazione è fatta in modo che il calore scambiato sia lo stesso di quello nel tratto di ciclo continuo corrispondente
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{../images/ciclo_continuo}
+	\caption{Schema dell'approssimazione di un ciclo continuo mediante un numero discreto di cicli di Carnot (due adiabatiche e due isoterme).}
+	\label{fig:ciclocontinuo}
+\end{figure}
+\FloatBarrier
+Detto \(Q_i\) il calore scambiato nell'isesimo ciclo di Carnot abbiamo, per la relazione ricavata in precedenza
+\begin{align*}
+	&\sum_i \frac{Q_i}{T_i} = 0\\
+	&\oint \frac{\delta Q}{T} = 0
+\end{align*}
+Possiamo dividere il calore scambiato nel ciclo in una componente positiva (AB) in cui viene ricevuto ed una negativa (BA) in cui viene ceduto; possiamo dunque scrivere
+\begin{align*}
+	&\oint \frac{\delta Q}{T} = \int_A^B \frac{|\delta Q_r|}{T}- \int_B^A \frac{|\delta Q_c|}{T}= 0\\
+	&\Rightarrow \int_A^B \frac{|\delta Q_r|}{T} = \int_B^A \frac{|\delta Q_c|}{T}
+\end{align*}
+Visto che per ipotesi \(T_1\) e \(T_2\) sono le temperature estreme, \(T_2<T<T_1 \Rightarrow \frac{1}{T_2}>T>\frac{1}{T_1}\).
+\begin{align*}
+	&\int_A^B \frac{|\delta Q_r|}{T_1} < \int_A^B \frac{|\delta Q_r|}{T} = \int_B^A \frac{|\delta Q_c|}{T} < \int_B^A \frac{|\delta Q_c|}{T_2}\\
+	&\frac{1}{T_1} \int_A^B |\delta Q_r| < \frac{1}{T_2} \int_B^A |\delta Q_c|\\
+	&\frac{T_2}{T_1} < \frac{|Q_c|}{|Q_r|}\\
+	&\Rightarrow 1-\frac{T_2}{T_1} = \eta_c < \eta_m = 1-\frac{|Q_c|}{|Q_r|}
+\end{align*} 
+ciò dimostra il teorema di Carnot per macchine che lavorano tra infiniti serbatoi di calore. 
+\section{L'entropia}
+Torniamo a considerare un ciclo continuo reversibile che va dallo stato A a quello B e vice versa. Distinguiamo il tratto reversibile da A a B \(R_1\) ed \(R_2\) da B ad A. Questi percorsi sono del tutto generici, come lo sono gli estremi A e B. 
+\begin{align*}
+	&\oint \frac{\delta Q}{T} = \left(\int_A^B\right)_{R_1} \frac{\delta Q}{T} + \left(\int_B^A\right)_{R_2} \frac{\delta Q}{T} = 0
+\end{align*}
+Essendo trasformazioni reversibili possiamo invertire \(R_2\) semplicemente cambiando il segno
+\begin{align*}
+	&\left(\int_B^A\right)_{R_2}  \frac{\delta Q}{T} = -\left(\int_A^B\right)_{R_2}  \frac{\delta Q}{T}\\
+	&\Rightarrow \left(\int_B^A\right)_{R_1}  \frac{\delta Q}{T} = \left(\int_A^B\right)_{R_2} 
+\end{align*}
+Vista l'arbitrarietà dei percorsi e degli stati iniziali e finali, se ne deduce che, qualunque essi siano, la grandezza \(\frac{\delta Q}{T}\) dipende unicamente dagli stati iniziali e finali della trasformazione. Possiamo quindi definire una nuova variabile di stato: l'\textbf{entropia}. Definiamo l'entropia di uno stato come 
+\begin{align*}
+	S(A) = \int_0^A \frac{\delta Q}{T}
+\end{align*}
+dove è arbitrario scegliere il punto in cui \(S(0)=0\). Questo procedimento è del tutto analogo al calcolo dell'energia interna o dell'energia potenziale gravitazionale (anch'esse variabili di stato) in cui il punto in cui la variabile è nulla è arbitrario. Ciò non è rilevante perché solitamente di parla di variazione di entropia e al costante si elimina
+\begin{align*}
+	\Delta S_{AB} = \int_A^B \frac{\delta Q}{T}
+\end{align*}
+dove la trasformazione che va da A a B è reversibile.\\
+Consideriamo ora il caso di un ciclo irreversibile, formato da un tratto AB irreversibile ed uno BA reversibile. Abbiamo
+\begin{align*}
+	&\oint =\left( \int_B^A\right)_R \frac{\delta Q}{T} + \left(\int_A^B\right)_I \frac{\delta Q}{T}=\left(\int_B^A \right)_I \frac{\delta Q}{T} - \Delta S < 0\\
+	&\Delta S > \left(\int_B^A\right)_I \frac{\delta Q}{T}\\
+\end{align*}
+Si noti che se la trasformazione è adiabatica la variazione di entropia è nulla perché non si hanno scambi di calore \((\delta Q = 0)\). \\
+Dunque, se un sistema è isolato termicamente ed evolve spontaneamente, se effettua trasformazioni reversibili l'entropia dell'universo resta costante, se ne fa di irreversibili l'entropia aumenta. Ne segue che l'entropia dell'universo tende ad aumentare finché possibile. Visto che quella delle trasformazioni perfettamente reversibili è un'idealizzazione, l'entropia di qualsiasi trasformazione reale aumenta dunque 
+\begin{align*}
+	\Delta S_U = \Delta S_A + \Delta S_S > 0
+\end{align*}
+Nonostante l'entropia del sistema o dell'ambiente possano essere singolarmente minori di zero, la loro somma deve sempre essere positiva. 
+\subsection{Irreversibilità ed entropia}
+Basandoci sul fatto appena ricavato che l'entropia dell'universo deve aumentare, proviamo che i tre casi gi° visti in precedenza di esempi di trasformazioni termodinamiche irreversibili non possono avvenire in senso opposto (altrimenti l'entropia dell'universo diminuirebbe). 
+\subsubsection{Espansione libera}
+Riprendiamo il caso della scatola isolata divisa in due setti uguali inizialmente chiusi con un gas perfetto in un setto ed il vuoto nell'altro (stato A), dove la trasformazione termodinamica consiste nell'aprire il setto e lasciare il gas espandersi liberamente. Ci chiediamo se la variazione di entropia è positiva (se la trasformazione avvenisse al contrario sarebbe negativa dunque impossibile). Per calcolare la variazione d'entropia sfrutto la definizione e scelgo una qualsiasi trasformazione reversibile che porti dallo stato A a quello B; l'isoterma è il caso più semplice. 
+\begin{align*}
+	&\Delta S = \int_{A}^{B}\frac{\delta Q}{T} = nR\int_{V_a}^{V_b}\frac{dV}{V} =nR\ln\left(\frac{V_b}{V_a}\right)= nR\ln(2)>0
+\end{align*}
+\subsection{Sistema rampa e blocco}
+
+\subsection{Passaggio di calore}
+Consideriamo due corpi che allo stato A sono a temperatura \(T_1\), \(T_2\) tali che \(T_2<T_1\)  con rispettive capacità termiche \(c_1\) e \(c_2\). Una volta messi a contatto la temperatura all'equilibrio (stato B) sarà
+\[T_e=\frac{c_1T_1 + c_2T_2}{c_1+c_2}\]
+La variazione di entropia dell'universo equivale alla variazione di entropia dei due corpi sommata
+\begin{align*}
+	&\Delta S_1 = \int_{A}^{B}\frac{\delta Q}{T} = \int_{T_1}^{T_e}\frac{c_1 dT}{T}=c_1 \ln\left(\frac{T_e}{T_1}\right)\\
+	&\Rightarrow \Delta S_U = \Delta S_1 + \Delta S_2 = c_1 \ln\left(\frac{T_e}{T_1}\right) + c_2 \ln\left(\frac{T_e}{T_2}\right)
+\end{align*}
+Vogliamo dimostrare che quest'ultima quantità sia maggiore di zero. Analizziamo due casi particolari in cui la dimostrazione è particolarmente semplice
+\subsubsection{\(c_1=c_2\)}
+\begin{align*}
+	&\Delta S_U = c\left(\ln\left(\frac{T_e^2}{T_1T_2}\right) \right) = c\left(\ln\left(\frac{(\frac{T_1 + T_2}{2})^2}{T_1T_2}\right) \right)=\\
+	&c\left(\ln\left(\frac{(T_1 + T_2)^2}{4T_1T_2}\right) \right)=c \ln\left[1 + \frac{(T_1 - T_2)^2}{4T_1T_2}\right]>0
+\end{align*}
+\subsubsection{\(c_1>>c_2\)}
+Definiamo \(r \equiv \frac{c_2}{c_1}>>1\) e \(R \equiv \frac{T_2}{T_1}\)
+\begin{align*}
+	&T_e = \frac{T_1 + r T_2}{1+r}= \frac{1+rR}{1+r}T_1\\
+	&\Delta S_1 = c_1 \ln\left(\frac{T_e}{T_1}\right) = c_1 \ln\left(\frac{1+rR}{1+r}\frac{T_1}{T_1}\right)\\
+	&\simeq c_1(R-1)r = c_1(\frac{T_2}{T_1}-1) \frac{c_2}{c_1} = \frac{c_2 (\Delta T)}{T_1} = -\frac{|c_2\Delta T|}{T_1}=-\frac{|Q|}{T_1}
+\end{align*}
+Dove è stato sviluppato il logaritmo naturale di \(\ln(1+rR)-\ln(1+r)\); infine sono stati sostituiti i valori definiti all'inizio con qualche sviluppo. Il valore assoluto è stato aggiunto perché per ipotesi \(T_2<T_1\).
+\begin{align*}
+	&\Delta S_2 = c_2 \ln\left(\frac{T_1}{T_2}\right)\\
+	&\Delta S_U = \Delta S_1 + \Delta S_2 = c_2 \left(\frac{T_2}{T_1}-1\right) +  c_2 \ln\left(\frac{T_1}{T_2}\right) 
+\end{align*}
+Dove \(T_1\) è la temperatura finale per il secondo corpo visto che il primo è un termostato. Ancora non è evidente che questa quantità sia maggiore di zero ma cambiando variabile \(x \equiv \frac{T_2}{T_1}\) otteniamo
+\begin{align*}
+	\Delta S_U = c_2(x-1)+ c_2\ln(x^{-1}) = c_2\left[x-1-\ln(x)\right]
+\end{align*}
+Considerando \(f(x) = x-1-\ln(x)\) ed effettuandone uno studio del segno notiamo che per \(x=1\) (\(T_1= T_2\)) la variazione d'entropia è nulla; sia per \(x<1\) che per \(x>1\) si ha invece che la funzione è positiva. 
+\subsection{Corpi separati da un conduttore piano}
+Si consideri un caso analogo a quello visto nella sezione (\ref{sec:conduzione}) in cui due corpi a temperatura \(T_1\) e \(T_2\) tali che \(T_1 > T_2\) siano connessi da un conduttore piano mediante il quale scambiano calore. Analizziamo le variazioni di entropia dei tre oggetti che formano il nostro sistema. Il conduttore, nonostante al suo interno fluisca calore, ha uno stato costante nel tempo e, essendo l'entropia una funzione di stato, questa è nulla se lo stato non cambia. La variazione di entropia dell'universo sarà data solamente da quella dei due corpi 
+\begin{align*}
+	&\Delta S_U = \Delta S_1 + \Delta S_2 = Q\left(\frac{1}{T_2}-frac{1}{T_1}\right)>0
+\end{align*}
+Il fatto che sia maggiore di zero deriva dall'ipotesi che \(T_1 > T_2\).
+\subsection{Completare la disuguaglianza di Clausius}
+La disuguaglianza di Clausius si limita ad esprimere una disuguaglianza, se volessimo trasformarla in un'uguaglianza, dovremmo sottrarre qualcosa a \(\Delta S\), vogliamo trovare questi termini.\\
+Cominciamo osservando che la quantità di calore assorbita da un sistema deve corrispondere ad una stessa quantità persa dall'ambiente, dunque
+\[\delta Q_s = -\delta Q_a\]
+Si noti ora che il sistema può perdere calore nell'ambiente ma non avrebbe senso dire che l'ambiente perde calore nel sistema. Ne segue che la variazione di entropia dell'ambiente è sempre uguale a \(\delta Q_a\) mentre non è detto che la variazione d'entropia del sistema non è detto che sia uguale a \(\delta Q_s\). 
+\begin{align*}
+	&dS_s + dS_a = dS_u\\
+	&dS_s - \frac{\delta Q_s}{T} =dS_u\\
+	&\int\frac{\delta Q_s}{T} = \Delta S - \Delta S_u
+\end{align*}
+quest'ultima è la versione completa della disuguaglianza di Clausius. Per un ciclo la variazione di entropia del sistema è nulla quindi
+\[\oint \frac{\delta Q}{T} = -\Delta S_u\]
+\subsection{Traccia di una trasformazione}
+La traccia di una trasformazione termodinamica è la variazione d'entropia che essa opera sull'universo. Per calcolare la traccia è utile far uso di tabelle come la seguente, che prende in esame un ciclo formato da un tratto reversibile AB ed uno irreversibile BA. 
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{ || c| c | c| c|| }
+			\hline
+			\(\Delta S\) & Sis& Amb& Univ\\
+			\hline
+		\(A\rightarrow B\)& -a   &a  &0  \\
+		\(B\rightarrow A\)& a    &b   &a+b\\
+		\hline
+			Ciclo         & 0    &a+b &a+b \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}\\
+Visto che la trasformazione AB è reversibile la variazione di entropia dell'universo dev'essere nulla quindi la variazione d'entropia interna è uguale ed in segno opposto a quella esterna. Nella trasformazione BA, essendo irreversibile, fa aumentare l'entropia dell'universo. Infine, essendo un ciclo, la variazione di entropia interna è nulla (si torna allo stato iniziale) ma la variazione di entropia dell'ambiente, e quindi dell'universo, è sempre diversa da zero. 
+\begin{exercise}[traccia di un gas perfetto in espansione libera]
+Studiamo la traccia dell'espansione libera di un gas perfetto, adottando il solito modello della scatola visto più volte, che nella trasformazione irreversibile AB si espande liberamente e in quella reversibile BA torna allo stato iniziale. La trasformazione BA è ottenuta con una compressione isoterma quasistatica. 
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{ || c| c | c| c|| }
+			\hline
+			\(\Delta S\) & Sis& Amb& Univ\\
+			\hline
+			\(A\rightarrow B\)& \(nR\ln(2)\)   &0  &\(nR\ln(2)\)  \\
+			\(B\rightarrow A\)& -\(nR\ln(2)\)    &\(nR\ln(2)\)   &0\\
+			\hline
+			Ciclo         & 0    &\(nR\ln(2)\) &\(nR\ln(2)\) \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}\\
+Nella trasformazione BA la variazione di entropia del sistema è data da 
+\begin{align*}
+	&\delta Q = 0+L = pdV=nRT\frac{dV}{V}\\
+	&\int_{B}^{A}\frac{\delta Q}{T} = \int_{V_B}^{V_A}nR\frac{dV}{V} = nR\ln\left(\frac{V_A}{V_B}\right) =-nR\ln(2)
+\end{align*}
+Dove dU è nullo visto che la temperatura è costante. Visto che la trasformazione BA è reversibile per ipotesi, la variazione d'entropia che opererà sull'universo è nulla quindi la variazione di entropia dell'ambiente deve essere \(nR\ln(2)\).\\
+Visto che la variazione di entropia del sistema, essendo la trasformazione totale un ciclo deve essere nulla quindi la variazione di entropia del sistema dev'essere \(nR\ln(2)\). Lo scambio di calore con l'ambiente è nullo perché il sistema è isolato quindi la variazione di entropia dell'ambiente è nulla. Ne segue che la variazione d'entropia dell'universo a causa del ciclo è \(nR\ln(2)\).
+\end{exercise}
+\subsection{Gas perfetti e variazione di entropia}
+L'entropia è una funzione di stato al pari di pressione volume e temperatura. Visto che i sistemi termodinamici macroscopici che prendiamo in considerazione hanno due gradi di libertà (con sole due variabili di stato è possibile definire lo stato di un sistema) ne segue che tutte le altre possono essere espresse in funzione di due sole variabili. Questo vale anche per l'entropia: vogliamo conoscere le funzioni che la legano alle altre variabili di stato. 
+\begin{align*}
+	&dS = \frac{\delta Q_r}{T} = \frac{dU}{T} + \frac{pdV}{T} = n c_v \frac{dT}{T}+nR\frac{dV}{V}\\
+	&\Delta S(T,\ V) = \int n c_v \frac{dT}{T}+nR\frac{dV}{V} = nc_v\ln\left(\frac{T_f}{T_i}\right)+nR\ln\left(\frac{V_f}{V_i}\right)=\\
+	&nc_v\left[\ln\left(\frac{T_f}{T_i}\right)+\frac{R}{c_v}\ln\left(\frac{V_f}{V_i}\right)\right]=\\
+	&nc_v\left[\ln\left(\frac{T_f}{T_i}\right)+(\gamma-1)\ln\left(\frac{V_f}{V_i}\right)\right]=\\
+	&nc_v\left[\ln\left(\frac{T_f}{T_i}\right)+\ln\left(\left(\frac{V_f}{V_i}\right)^{\gamma-1}\right)\right]=\\
+	&nc_v\ln\left(\frac{T_fV_f^{\gamma-1}}{T_iV_i^{\gamma-1}}\right)
+\end{align*}
+Notiamo che in una trasformazione adiabatica reversibile \(TV^{\gamma-1}\) è costante quindi l'argomento del logaritmo sarebbe 1: la variazione di entropia si annulla. Questo non ci stupisce infatti in quanto adiabatica non scambia calore con l'ambiente quindi la variazione di entropia deve essere nulla, essendo reversibile anche la variazione di entropia interna al sistema deve essere nulla. Sfruttando la legge di stato dei gas perfetti è possibile pervenire alle altre funzioni che legano l'entropia con le variabili di stato, l'argomento del logaritmo ricalca sempre le proprietà delle adiabatiche.
+\begin{align*}
+	&\Delta S(p,\ V)=nc_v\ln\left(\frac{p_fV_f^{\gamma}}{p_iV_i^{\gamma}}\right)\\
+	&\Delta S(T,\ p)=nc_p\ln\left(\frac{T_fp_f^{\frac{1-\gamma}{\gamma}}}{T_ip_i^{\frac{1-\gamma}{\gamma}}}\right)
+\end{align*}
+\subsection{Paradosso di Gibbs}
+Consideriamo una scatola isolata adiabaticamente divisa in due setti di egual volume da una parete conduttrice (i due setti sono all'equilibrio termico); all'interno dei setti ci sono due tipi di gas approssimabili come perfetti ma differenti con un numero di moli differente. Togliendo il setto i due gas si mischiano e la variazione di entropia dell'universo corrisponderà alla variazione di entropia del gas in A più quella del gas in B (non interagiscono fra loro perché sono gas perfetti). Abbiamo gi° visto la variazione di entropia di un gas perfetto in espansione libera adiabatica quindi
+\[\Delta S_U = \Delta S_A + \Delta S_B = (n_A + n_B)R\ln(2)\]
+Consideriamo ora il caso in cui nei due setti vi è la stessa quantità di gas e di moli e i due gas sono dello stesso tipo (indistinguibili). una volta tolto il setto divisorio, dal punto di vista macroscopico lo stato A e quello B sono indistinguibili (in questo caso bisogna vedere il gas non come un insieme di particelle ma come un fluido unico definito dalle sue variabili di stato). Ne segue che in questo caso la variazione di entropia è nulla (nulla è cambiato). Ne segue che, se dovessimo graficare la differenza di entropia in funzione di un parametro che indica la "diversità di due gas (che ad esempio indica che sono uguali quando questo parametro è uguale ad 1), avremmo che la variazione d'entropia è costante (ad \(nR\ln(2)\)) da 0 ad 1, 1 escluso, per poi arrivare a zero nel punto in cui i gas sono indistinguibili. Questa discontinuità teorica non ha spiegazione nella fisica classica, che è in grado solamente di formulare il problema. Per ottenere una risposta dovremo attendere l'introduzione della \textbf{termodinamica statistica}.
 \appendix
 \section{Determinismo assoluto e libero arbitrio}
 La possibilità teorica di conoscere l'evoluzione (passata e futura) di un sistema fisico, diede vita al cosiddetto \textbf{determinismo assoluto} di Pierre Simon Laplace (1749 - 1827) secondo cui se si conoscesse lo stato di ogni particella nell'universo (per intenderci si stima ci siano $10^{80}$ protoni nell'universo osservabile) allora sarebbe possibile conoscere alla perfezione presente passato e futuro. Questa idea portata all'estremo sostiene che, se il cervello fosse mosso unicamente da reazioni chimiche (he altro non sono che cambiamenti nello stato del sistema cervello), se si conoscesse lo stato di ogni particella del cervello allora si potrebbe prevedere alla perfezione il comportamento di un essere umano. Da ciò sorgono svariati dilemmi filosofici, uno per tutti il problema del libero arbitrio: se ogni movimento, parola ed espressione umana fosse teoricamente prevedibile matematicamente allora la libertà che sembra scontata nell'agire umano sarebbe solamente apparente?\\
