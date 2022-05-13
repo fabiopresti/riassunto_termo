@@ -352,7 +352,7 @@ Prendiamo in considerazione un cilindro d'aria di volume V, superficie di base S
 Se l'aria è ferma in un determinato istante, allora il gas all'interno del nostro cilindro è in equilibrio, cioè la pressione esercitata sulla faccia superiore è uguale e in verso contrario a quella esercitata sulla faccia inferiore più quella esercitata dal gas stesso all'interno del cilindro (i venti sono generati infatti da variazioni di pressione). Dovrà dunque verificarsi
 \begin{align}\label{eq:stevin}
 	&\text{p faccia superiore} = \text{p faccia inferiore}\\
-	&-p  = p + dp \nonumber - \frac{(dm) g}{S}\\
+	&p  = p + dp \nonumber + \frac{(dm) g}{S}\\
 	&dp = -\frac{(dm)g}{S} = -\frac{(\rho S dz) g}{S}= -\rho g dz \nonumber \\
 	\Rightarrow & \frac{d\rho}{dz}= - \rho g
 \end{align} 
@@ -2395,14 +2395,14 @@ Dunque, se un sistema è isolato termicamente ed evolve spontaneamente, se effet
 \end{align*}
 Nonostante l'entropia del sistema o dell'ambiente possano essere singolarmente minori di zero, la loro somma deve sempre essere positiva. 
 \subsection{Irreversibilità ed entropia}
-Basandoci sul fatto appena ricavato che l'entropia dell'universo deve aumentare, proviamo che i tre casi gi° visti in precedenza di esempi di trasformazioni termodinamiche irreversibili non possono avvenire in senso opposto (altrimenti l'entropia dell'universo diminuirebbe). 
+Basandoci sul fatto appena ricavato che l'entropia dell'universo deve aumentare, proviamo che i tre casi già visti in precedenza di esempi di trasformazioni termodinamiche irreversibili non possono avvenire in senso opposto (altrimenti l'entropia dell'universo diminuirebbe). 
 \subsubsection{Espansione libera}
-Riprendiamo il caso della scatola isolata divisa in due setti uguali inizialmente chiusi con un gas perfetto in un setto ed il vuoto nell'altro (stato A), dove la trasformazione termodinamica consiste nell'aprire il setto e lasciare il gas espandersi liberamente. Ci chiediamo se la variazione di entropia è positiva (se la trasformazione avvenisse al contrario sarebbe negativa dunque impossibile). Per calcolare la variazione d'entropia sfrutto la definizione e scelgo una qualsiasi trasformazione reversibile che porti dallo stato A a quello B; l'isoterma è il caso più semplice. 
+Riprendiamo il caso della scatola isolata divisa in due setti uguali inizialmente chiusi con un gas perfetto in un setto ed il vuoto nell'altro (stato A), dove la trasformazione termodinamica consiste nell'aprire il setto e lasciare il gas espandersi liberamente. Vogliamo dimostrare che la variazione di entropia è positiva. Per calcolare la variazione d'entropia sfrutto la definizione e scelgo una qualsiasi trasformazione reversibile che porti dallo stato A a quello B; la compressione isoterma (mettendo a contatto il sistema con un termostato) è il caso più semplice. 
 \begin{align*}
 	&\Delta S = \int_{A}^{B}\frac{\delta Q}{T} = nR\int_{V_a}^{V_b}\frac{dV}{V} =nR\ln\left(\frac{V_b}{V_a}\right)= nR\ln(2)>0
 \end{align*}
 \subsection{Sistema rampa e blocco}
-
+La trasformazione in cui il blocco scende dalla rampa con attrito è irreversibile quindi dobbiamo trovare una trasformazione reversibile che porti dallo stato A a quello B. Scegliamo quella in cui il blocchetto viene spostato in modo quasistatico dalla posizione in A a quella in B e poi viene riscaldato quasistaticamente iniettandovi calore in modo estremamente lento. Essendo la trasformazione reversibile l'entropia dell'universo deve essere nulla ma l'entropia del sistema deve aumentare. Visto che il calore viene iniettato dall'ambiente verso il sistema, la variazione di calore del sistema sarà positiva e così l'entropia. 
 \subsection{Passaggio di calore}
 Consideriamo due corpi che allo stato A sono a temperatura \(T_1\), \(T_2\) tali che \(T_2<T_1\)  con rispettive capacità termiche \(c_1\) e \(c_2\). Una volta messi a contatto la temperatura all'equilibrio (stato B) sarà
 \[T_e=\frac{c_1T_1 + c_2T_2}{c_1+c_2}\]
