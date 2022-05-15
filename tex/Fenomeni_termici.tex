@@ -1791,17 +1791,17 @@ raffreddamento verso lo zero assoluto, scenario che in ambito cosmologico va sot
 di\textbf{ morte fredda dell’Universo}.
 \subsubsection{Dipendenza della temperatura dalla quota}
 Nell'esercizio (\ref{ex:pressione_quota}) abbiamo ricavato una relazione che connette la pressione atmosferica con la quota, abbiamo tuttavia ipotizzato la temperatura costante al variare della quota, approssimazione che ci faceva sottostimare il valore misurato della pressione. Ci proponiamo ora di studiare la variazione di temperatura in funzione della quota per poi correggere la relazione trovata in precedenza. Partiamo da quanto già ricavato (\ref{eq:esercizio_pressione})
-\[\frac{dp}{p} = \frac{M g(z)}{R\theta(z)} dz\]
+\[\frac{dp}{p} = -\frac{M g(z)}{R\theta(z)} dz\]
 Innanzitutto, bisogna svolgere una breve digressione su cosa accada quando l'aria viene riscaldata in atmosfera. I fotoni provenienti dal sole aumentano la temperatura dell'aria che, espandendosi, diminuisce la sua densità. Per la legge di Archimede, questa massa d'aria sale ma salendo di quota incontra strati d'atmosfera a pressione inferiore, avviene così un'altra espansione di tipo adiabatico (tutte le trasformazioni dell'aria sono considerate adiabatiche data la sua scarsissima capacità termica). Usiamo la (\ref{eq:adiabatica3}) facendone il logaritmo e calcolandone il differenziale. 
 \begin{align*}
 	&\theta p^{\frac{1-\gamma}{\gamma}} = cost\\
-	&\ln(\theta p) + \frac{1-\gamma}{\gamma}\ln(p) = cost.\\
+	&\ln(\theta) + \frac{1-\gamma}{\gamma}\ln(p) = cost.\\
 	&\frac{d\theta}{\theta}+\frac{1-\gamma}{\gamma}\frac{dp}{p} = 0\\
 	&\frac{dp}{p} = -\frac{\gamma}{1-\gamma}\frac{d\theta}{\theta}
 \end{align*}
 Possiamo eguagliare quest'ultima con l'espressione di $\frac{dp}{p}$ ottenuta nell'esercizio già fatto
 \begin{align*}
-	&-\frac{\gamma}{1-\gamma}\frac{d\theta}{\theta} = \frac{M g}{R \theta}dz\\
+	&-\frac{\gamma}{1-\gamma}\frac{d\theta}{\theta} = -\frac{M g}{R \theta}dz\\
 	&\frac{d\theta}{dz} = -\frac{\gamma - 1}{\gamma} \frac{M g}{R}
 \end{align*}
 Definiamo ora il gradiente termico L come
@@ -2308,6 +2308,7 @@ Possiamo ridefinire la temperatura come la funzione T: \[T \equiv T(t)\]
 possiamo ora fissare la temperatura $T(t_2)\equiv T_3$ come la temperatura del punto triplo dell'acqua e il calore \(Q_2\equiv Q_3\) come il calore scambiato fra il corpo a temperatura del punto triplo con la macchina di Carnot dove invece \(Q_1\equiv Q\) è il calore scambiato tra la macchina di Carnot ed il corpo a temperatura incognita \(T(t_1)\equiv T_x\). 
 \[T_x = T_3\frac{|Q|}{|Q_3|}\]
 Ecco ottenuta una definizione del calore dipendente solamente dai calori scambiati da due corpi con la macchina di Carnot, e quindi indipendenti dal materiale usato per la misurazione. Abbiamo dunque risolto il problema della definizione di temperature inferiori a \(0.5 K\). 
+
 \section{La disuguaglianza di Clausius}
 Confrontiamo il rendimento di una macchina termica generica ed una di Carnot, ricordando che per il thm. di Carnot \(\eta \leq \eta_c\)
 \begin{align*}
@@ -2508,6 +2509,59 @@ Notiamo che in una trasformazione adiabatica reversibile \(TV^{\gamma-1}\) è co
 	&\Delta S(p,\ V)=nc_v\ln\left(\frac{p_fV_f^{\gamma}}{p_iV_i^{\gamma}}\right)\\
 	&\Delta S(T,\ p)=nc_p\ln\left(\frac{T_fp_f^{\frac{1-\gamma}{\gamma}}}{T_ip_i^{\frac{1-\gamma}{\gamma}}}\right)
 \end{align*}
+\begin{exercise}[Traccia di un gas perfetto]
+Una mole di gas perfetto monoatomico compie il ciclo ABCDA dove: AB è un'isoterma reversibile a temperatura \(T_1 = 800 K\), BC è adiabatica dove si raggiunge una temperatura \(T_2 = 200 K\) e in cui la variazione di entropia è \(\Delta S_{BC}=R\ln(2)\), CD è una compressione isoterma reversibile tale che \(V_D = \frac{1}{10}V_C\) e DA- è una compressione adiabatica. Le due isoterme sono quasistatiche mentre le due adiabatiche no: conosciamo dunque gli stati finali ed iniziali ma non quelli intermedi. Infine sappiamo che \(V_A = 1l,\ V_B =2V_A=2l\).
+\begin{enumerate}
+\item \(\frac{V_C}{V_B} = ?\)\\
+Conoscendo la variazione di entropia in BC possiamo scrivere
+\begin{align*}
+	&\Delta S_{BC} = c_v \ln(\frac{T_2}{T_1}\left(\frac{V_c}{V_b}\right)^{\gamma - 1}) = R\ln(2)\\
+	&\Rightarrow V_c = 32l
+\end{align*}
+\item \(\eta = ?\)\\
+Per definizione di rendimento
+\begin{align*}
+	&\eta = \frac{L}{Q_{abs}} = \frac{Q_{tot}+\Delta U_{tot}}{Q_{abs}}=\frac{Q_{tot}}{Q_{abs}}=\frac{Q_1 + Q_2}{Q_1} = 1+\frac{Q_2}{Q_1}
+\end{align*}
+Dove la variazione di energia interna in un ciclo è nulla essendo una funzione di stato e \(Q_2\) è il calore ceduto mentre \(Q_1\) quello assorbito, in questo caso nelle adiabatiche non vi è scambio di calore, viene assorbito in AB e ceduto in CD (poiché nella prima il lavoro è positivo mentre nella seconda negativo e la variazione di energia interna è nulla in entrambe i casi).
+\begin{align*}
+	&\eta = 1+\frac{Q_{CD}}{Q_{AB}} = 1+\frac{R T_2\ln(\frac{V_D}{V_C})}{R T_1\ln(\frac{V_B}{V_A})}=0.17
+\end{align*}
+\item DA è reversibile?\\
+La condizione di reversibilità è che la variazione di entropia sia nulla (\(\Delta S_{DA} = 0\))
+\begin{align*}
+	\Delta S_{DA} = c_v \ln\left(\frac{T_A}{T_D}\left(\frac{V_A}{V_D}\right)^{\gamma - 1}\right) = 7.62 \frac{J}{K}\neq 0
+\end{align*}
+Si conclude che è irreversibile. 
+\item Variazione di entropia dell'universo operata ciclo?\\
+Impostiamo la tabella per ricavare la traccia (ovvero la variazione di entropia dell'universo operata dal ciclo) per poi sostituire i valori. 
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{ || c| c | c| c|| }
+			\hline
+			\(\Delta S\) & Sis& Amb& Univ\\
+			\hline
+			\(A\rightarrow B\)& a  &-a  &0  \\
+			\(B\rightarrow C\)& b   &0   &b\\
+			\(C\rightarrow D\)& -c    &c   &0\\
+			\(D\rightarrow A\)& d   &0   &d\\
+			\hline
+			Ciclo             & 0      & -a-c & b+d  \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}\\
+Procedendo per righe, essendo AB reversibile la variazione d'entropia dell'universo dev'essere nulla quindi il segno di quella dell'ambiente e del sistema devono essere opposti, se il calore è assorbito in AB la variazione di entropia (a) del sistema sarà positiva quindi quella dell'ambiente uguale e opposta. Essendo BC un'adiabatica non scambia calore con l'ambiente dunque la variazione di entropia (b) con l'ambiente è nulla ma essendo irreversibile aumenta l'entropia dell'universo quindi la variazione d'entropia del sistema sarà positiva. Essendo CD reversibile non varia l'entropia (c) dell'universo, visto che cede calore la variazione d'entropia interna è negativa dunque quella dell'ambiente sarà uguale in modulo e opposta in segno. Infine, per DA (d) si argomenta con per BC. Sommando otteniamo che la variazione d'entropia dell'universo è b+d che risulta essere uguale anche a -a-c. Verifichiamo.
+\begin{align*}
+&b =\Delta S_{BC}=R\ln\left(2\right)=5.763 \frac{J}{K}\\
+&d =\Delta S_{DA}=7.618 \frac{J}{K}\\
+&a =\Delta S_{AB}=R\ln\left(\frac{V_{B}}{V_{A}}\right)=5.763 \frac{J}{K}\\
+&c =\Delta S_{CD}=R\ln\left(\frac{V_{D}}{V_{C}}\right)=-19.145 \frac{J}{K}\\
+&\Rightarrow \Delta S_U = b+d = -a-c = 13.4\frac{J}{K}
+\end{align*}
+
+\end{enumerate}
+\end{exercise}
 \subsection{Paradosso di Gibbs}
 Consideriamo una scatola isolata adiabaticamente divisa in due setti di egual volume da una parete conduttrice (i due setti sono all'equilibrio termico); all'interno dei setti ci sono due tipi di gas approssimabili come perfetti ma differenti con un numero di moli differente. Togliendo il setto i due gas si mischiano e la variazione di entropia dell'universo corrisponderà alla variazione di entropia del gas in A più quella del gas in B (non interagiscono fra loro perché sono gas perfetti). Abbiamo gi° visto la variazione di entropia di un gas perfetto in espansione libera adiabatica quindi
 \[\Delta S_U = \Delta S_A + \Delta S_B = (n_A + n_B)R\ln(2)\]
