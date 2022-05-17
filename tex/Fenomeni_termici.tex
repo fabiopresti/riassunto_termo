@@ -238,7 +238,7 @@ Esiste un modello empirico detto di Lennard-Jones che elabora una funzione di po
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.6\linewidth]{../images/../images/Lennard-Jones_model}
-	\caption{Grafico del potenziale con $\varepsilon =r_min = 1$.}
+	\caption{Grafico del potenziale con $\varepsilon =r_{min} = 1$.}
 	\label{fig:lennard-jonesmodel}
 \end{figure}
 \FloatBarrier
@@ -2113,7 +2113,7 @@ Dunque in generale in un ciclo di una macchina isoterma si ha \(Q = L \leq 0\) d
 	\label{fig:macchina-termica}
 \end{figure}
 \FloatBarrier
-Si noti che per effettuare una trasformazione ciclica servono sempre almeno due serbatoi perché, come visto, se ci fosse solo un serbatoio (temperatura costante) l'area del ciclo sarebbe nulla. Dunque questo principio stabilisce l'impossibilità el moto perpetuo di seconda specie ovvero di sfruttare unicamente una fonte di calore, potenzialmente di capacità termica infinita (come il mare o l'aria) per creare lavoro. Parte del calore non viene convertito ma sprecato, dissipandosi in un serbatoio più freddo. \\
+Si noti che per effettuare una trasformazione ciclica servono sempre almeno due serbatoi perché, come visto, se ci fosse solo un serbatoio (temperatura costante) l'area del ciclo sarebbe nulla. Dunque questo principio stabilisce l'impossibilità del moto perpetuo di seconda specie ovvero di sfruttare unicamente una fonte di calore, potenzialmente di capacità termica infinita (come il mare o l'aria) per creare lavoro. Parte del calore non viene convertito ma sprecato, dissipandosi in un serbatoio più freddo. \\
 Visto che non tutto il calore può essere trasformato in lavoro, possiamo definire l'efficienza come la frazione di calore assorbita convertita in lavoro utile
 \begin{align*}
 	\eta = \frac{L}{Q_1} = \frac{Q_1 + Q_2}{Q_1} = 1 + \frac{Q_2}{Q_1} = 1- \frac{|Q_2|}{|Q_1|}< 1
@@ -2190,7 +2190,7 @@ Vogliamo ricavare il rendimento. L'unica trasformazione in cui si assorbe calore
 Vista la definizione di macchina frigorifera, si deduce che questo principio vieta l'esistenza una macchina frigorifera che porti calore da un corpo freddo ad uno caldo senza fare lavoro. 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.35\linewidth]{../images/clausius}
+	\includegraphics[width=0.3\linewidth]{../images/clausius}
 	\caption{Schema della macchina frigorifera proibita dall'enunciato di Clausius.}
 	\label{fig:clausius}
 \end{figure}
@@ -2231,15 +2231,25 @@ Costruiamo una macchina che nega l'enunciato di Clausius, ovvero che porta calor
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.5\linewidth]{../images/C-KP}
-	\caption{Schema dell'unione di una macchina che nega l'enunciato di C con una che rispetta quello di KP. Si noti che la seconda macchina è stata costruita in modo da assorbire la stessa quantità di calore che la prima trasferisce (in figura \(Q = Q_A\) }
+	\caption{Schema dell'unione di una macchina che nega l'enunciato di C con una che rispetta quello di KP. Si noti che la seconda macchina è stata costruita in modo da assorbire la stessa quantità di calore che la prima trasferisce (in figura \(Q = Q_A\)) }
 	\label{fig:c-kp}
 \end{figure}
 \FloatBarrier
 Visto che la seconda macchina espelle calore e lavoro, per la conservazione dell'energia \(Q_C<Q_A=Q\).
 Unire queste due macchine equivale ad avere una macchina che assorbe \(Q-Q_C = Q' > 0 \) ed espelle \(Q-Q_A = 0\) producendo lavoro W. Questa macchina prende calore da una sola sorgente e produce lavoro, contraddice dunque l'enunciato di KP.  
 \end{enumerate} 
-\subsubsection{Ciclo di Carnot}
-Il ciclo formato da due isoterme chiuse da due adiabatiche, come in figura, è detto \textbf{ciclo di Carnot}. Ogni sostanza ha un ciclo di Carnot diverso poiché la forma delle adiabatiche e delle isoterme dipendono dalle caratteristiche chimiche dei materiali. 
+\subsection{Ciclo di Carnot}
+Dopo aver visto vari tipi di cicli termodinamici con rendimenti diversi ci chiediamo quale sia il ciclo con il massimo rendimento e quanto questo valga, state il fatto che, per il secondo principio, è impossibile ostruire una macchina con rendimento pari ad 1. Lo scienziato francese Nicolas Léonard Sadi Carnot ( 1796 – 1832) si pose gli stessi quesiti pervenendo ad una soluzione ideando un ciclo detto appunto "di Carnot". Prima di illustrare il funzionamento di un ciclo siffatto è utile riportare il significati di trasformazione e ciclo reversibile.
+\begin{definition}[Trasformazione reversibile]
+	Una trasformazione termodinamica è detta reversibile se è possibile operare una trasformazione dello stesso tipo ma in verso contrario tale che lo stato del sistema e dell'ambiente tornino identici allo stato iniziale. \\
+	Un ciclo reversibile è un ciclo formato unicamente da trasformazioni reversibili.
+\end{definition}
+Le condizioni di reversibilità sono la quasistaticità della trasformazione e l'assenza di forze dissipative (come l'attrito). Infatti, se il processo avviene quasistaticamente il sistema passa per stati d'equilibrio termodinamico che possono essere percorsi ugualmente nei due versi. Dunque, se nel passare per questi stati non si perde energia a causa di forze dissipative, alla fine di questi infiniti step di equilibrio sarà possibile tornare allo stato iniziale (anche il calore prelevato e rilasciato ai serbatoi fra cui opera la macchina deve essere scambiato in modo quasistatico).\\
+In natura non si osservano mai trasformazioni reversibili poiché è un fatto d'esperienza che è impossibile eliminare del tutto gli attriti.  Gli esempi di cicli termodinamici appena visti sono stati idealizzati come quasistatici (condizione necessaria affinché ogni stato attraversato dalla trasformazione sia definito) e non sono stati considerati gli attriti, ne segue che si è assunta la loro reversibilità. 
+\begin{definition}[Ciclo di Carnot]
+	Il ciclo formato da due isoterme quasistatiche reversibili, chiuse da due adiabatiche quasistatiche reversibili, come in figura, è detto \textbf{ciclo di Carnot}.
+\end{definition} 
+ Ogni sostanza ha un ciclo di Carnot diverso poiché la forma delle adiabatiche e delle isoterme dipendono dalle caratteristiche chimiche dei materiali. 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.5\linewidth]{../images/ciclo_carnot}
@@ -2247,7 +2257,7 @@ Il ciclo formato da due isoterme chiuse da due adiabatiche, come in figura, è d
 	\label{fig:ciclocarnot}
 \end{figure}
 \FloatBarrier
-Questo è un ciclo particolare perché è dimostrabile che sia quello con rendimento maggiore, a parità di serbatoi termici con i quali si opera. 
+Il seguente teorema risponde alla domanda di inizio capitolo: qual è il ciclo con rendimento maggiore, a parità di serbatoi termici con i quali si opera? 
 \begin{theorem}[Teorema di Carnot]
 	Il rendimento di una macchina termica M che opera tra o con due serbatoi termici è sempre minore o uguale al rendimento della macchina di Carnot corrispondente.
 	\[\eta \leq \eta_c\]
@@ -2255,6 +2265,7 @@ Questo è un ciclo particolare perché è dimostrabile che sia quello con rendim
 Per dimostrare questo teorema consideriamo una macchina termica M qualsiasi che assorbe Q da una sorgente calda a $\theta_1$ producendo un lavoro $L_m$ ed emette calore $Q-L_m$ ad un serbatoio a temperatura $\theta_2$. Consideriamo inoltre una macchina di Carnot C che assorbe Q dalla stessa sorgente calda a $\theta_1$ producendo un lavoro $L_c$ ed emette calore $Q-L_m$ ad un serbatoio a temperatura $\theta_2$. Vista l'invertibilità di una macchina di Carnot, possiamo trasformarla in una macchina frigorifera semplicemente cambiando i segni dei calori emessi/assorbiti e del lavoro emesso/assorbito. Otteniamo così una macchina $\overline{C}$ che possiamo unire alla macchina M, il calore scambiato con il serbatoio a $\theta_1$ è \(Q-Q = 0\) mentre con quello a $\theta_2$ scambia \(Q-L_m - (Q-L_c) = L_c-L_m\) e assorbe/produce lavoro pari a \(L_m-L_c\). Non sapendo quale sia maggiore tra \(L_c\) ed \(L_m\) non sappiamo in che direzione fluisca il calore e se il lavoro venga prodotto o assorbito. sappiamo tuttavia, per il secondo principio secondo Kelvin Planck che non può esistere una macchina che trasforma tutto il calore prelevato da un'unica sorgente in lavoro (impedisce dunque un verso) ne deduciamo che sarà il lavoro ad essere trasformato in calore, allora \[L_m-L_c \leq 0 \Rightarrow L_m \leq L_c\] Abbiamo così dimostrato che, a parità di temperature dei serbatoi tra o con cui opera una macchina generica ed una di Carnot, il lavoro di quest'ultima sarà sempre maggiore. Dividendo per Q ambo i membri e ricordando la definizione di rendimento
 \[\frac{L_m }{Q} \leq \frac{L_c}{Q} \Rightarrow \eta_m \leq \eta_c\]
 Dove la condizione di uguaglianza si verifica solo se anche $\eta_m$ è una macchina di Carnot.
+
 \begin{corollary}[Tutte le macchine di Carnot hanno lo stesso rendimento]
 Come dimostrato dal teorema di Carnot, il rendimento della macchina di Carnot è il maggiore ottenibile da una macchina termica. Date due macchine di Carnot C1 e C2 considerando C1 macchina termica qualsiasi e C2 macchina di Carnot abbiamo \[\eta_{c1}\leq \eta_{c2}\] Se contrariamente consideriamo C1 macchina di Carnot e C2 macchina termica generica, otteniamo \[\eta_{c1}\geq \eta_{c2}\] Mettendo a sistema le due precedenti relazioni si ottiene \[\eta_{c1} = \eta_{c2}\] Da cui si ricava che due macchine di Carnot qualsiasi hanno lo steso rendimento. 
 \end{corollary}
@@ -2262,6 +2273,7 @@ Come dimostrato dal teorema di Carnot, il rendimento della macchina di Carnot è
 A causa di questo corollario, notiamo che qualunque materiale venga usato in una macchina di Carnot, questa avrà sempre lo stesso rendimento che dipende unicamente da $\theta_1$ e $\theta_2$. 
 \[\eta_ c= f(\theta_1\ ,\theta_2 )\]
 Vogliamo calcolare f, visto che questa è indipendente dal tipo di materiale usato, adottiamo un gas perfetto per semplicità. 
+
 \begin{align*}
 	\eta_c = \frac{L}{Q}=\frac{Q_1 + Q_2}{Q_1}= 1 + \frac{Q_2}{Q_1}
 \end{align*} 
@@ -2287,6 +2299,7 @@ Possiamo anche ricavare il coefficiente di prestazione $\omega$ di un macchina f
 \begin{align*}
 \omega = \frac{Q_2}{|L|} = \frac{Q_2}{|Q_1|-|Q_2|} = \frac{\theta_2}{\theta_1 - \theta_2}
 \end{align*}
+
 \section{Ridefinizione della temperatura con il ciclo di Carnot}
 Come visto in precedenza, il simbolo $\theta$ indica la temperatura definita mediante il termometro a gas perfetto: un corpo ha una temperatura $\theta$ se la grandezza indicata dal termometro a gas perfetto posto in equilibrio termico con tale corpo è di $\theta$. Questa definizione ha il limite di appellarsi ad un gas che, a temperature troppo basse, inevitabilmente fonde (la minima temperatura di fusione è 0.5K per l'$H^3$). Per temperature minori a 0.5 K non possiamo definire la temperatura.\\
 Eliminiamo dunque la definizione della temperatura mediante i gas perfetti e torniamo al punto di partenza in cui avevamo grandezze "t", prive di scala termometrica. Vogliamo sfruttare la relazione \[\eta_c = 1+\frac{|Q_2|}{|Q_1|}=f(t_1,t_2) \Rightarrow \frac{|Q_2|}{|Q_1|}=f(t_1,t_2)\]
@@ -2307,7 +2320,8 @@ Dove nell'ultimo passaggio abbiamo uguagliato con quanto ottenuto appena sopra. 
 Possiamo ridefinire la temperatura come la funzione T: \[T \equiv T(t)\]
 possiamo ora fissare la temperatura $T(t_2)\equiv T_3$ come la temperatura del punto triplo dell'acqua e il calore \(Q_2\equiv Q_3\) come il calore scambiato fra il corpo a temperatura del punto triplo con la macchina di Carnot dove invece \(Q_1\equiv Q\) è il calore scambiato tra la macchina di Carnot ed il corpo a temperatura incognita \(T(t_1)\equiv T_x\). 
 \[T_x = T_3\frac{|Q|}{|Q_3|}\]
-Ecco ottenuta una definizione del calore dipendente solamente dai calori scambiati da due corpi con la macchina di Carnot, e quindi indipendenti dal materiale usato per la misurazione. Abbiamo dunque risolto il problema della definizione di temperature inferiori a \(0.5 K\). 
+Ecco ottenuta una definizione del calore dipendente solamente dai calori scambiati da due corpi con la macchina di Carnot, e quindi indipendenti dal materiale usato per la misurazione. Abbiamo risolto il problema della definizione di temperature inferiori a \(0.5 K\).\\
+Da un punto di vista formale si ottiene che lo zero assoluto è ottenibile solo se \(Q = 0\), che equivale ad assumere l'esistenza di una macchina di Carnot che opera tra i serbatoi a temperatura \(T_3\) e \(T_0 = 0K\) non scambiando calore con il serbatoio freddo. Questo è apparentemente contraddittorio con l'enunciato K-P ma riflettendoci sarebbe assurdo fornire calore (energia) ad un serbatoio allo zero assoluto, che per definizione ha energia nulla. 
 
 \section{La disuguaglianza di Clausius}
 Confrontiamo il rendimento di una macchina termica generica ed una di Carnot, ricordando che per il thm. di Carnot \(\eta \leq \eta_c\)
@@ -2365,6 +2379,7 @@ Visto che per ipotesi \(T_1\) e \(T_2\) sono le temperature estreme, \(T_2<T<T_1
 	&\Rightarrow 1-\frac{T_2}{T_1} = \eta_c < \eta_m = 1-\frac{|Q_c|}{|Q_r|}
 \end{align*} 
 ciò dimostra il teorema di Carnot per macchine che lavorano tra infiniti serbatoi di calore. 
+
 \section{L'entropia}
 Torniamo a considerare un ciclo continuo reversibile che va dallo stato A a quello B e vice versa. Distinguiamo il tratto reversibile da A a B \(R_1\) ed \(R_2\) da B ad A. Questi percorsi sono del tutto generici, come lo sono gli estremi A e B. 
 \begin{align*}
@@ -2402,9 +2417,9 @@ Riprendiamo il caso della scatola isolata divisa in due setti uguali inizialment
 \begin{align*}
 	&\Delta S = \int_{A}^{B}\frac{\delta Q}{T} = nR\int_{V_a}^{V_b}\frac{dV}{V} =nR\ln\left(\frac{V_b}{V_a}\right)= nR\ln(2)>0
 \end{align*}
-\subsection{Sistema rampa e blocco}
+\subsubsection{Sistema rampa e blocco}
 La trasformazione in cui il blocco scende dalla rampa con attrito è irreversibile quindi dobbiamo trovare una trasformazione reversibile che porti dallo stato A a quello B. Scegliamo quella in cui il blocchetto viene spostato in modo quasistatico dalla posizione in A a quella in B e poi viene riscaldato quasistaticamente iniettandovi calore in modo estremamente lento. Essendo la trasformazione reversibile l'entropia dell'universo deve essere nulla ma l'entropia del sistema deve aumentare. Visto che il calore viene iniettato dall'ambiente verso il sistema, la variazione di calore del sistema sarà positiva e così l'entropia. 
-\subsection{Passaggio di calore}
+\subsubsection{Passaggio di calore}
 Consideriamo due corpi che allo stato A sono a temperatura \(T_1\), \(T_2\) tali che \(T_2<T_1\)  con rispettive capacità termiche \(c_1\) e \(c_2\). Una volta messi a contatto la temperatura all'equilibrio (stato B) sarà
 \[T_e=\frac{c_1T_1 + c_2T_2}{c_1+c_2}\]
 La variazione di entropia dell'universo equivale alla variazione di entropia dei due corpi sommata
@@ -2413,34 +2428,38 @@ La variazione di entropia dell'universo equivale alla variazione di entropia dei
 	&\Rightarrow \Delta S_U = \Delta S_1 + \Delta S_2 = c_1 \ln\left(\frac{T_e}{T_1}\right) + c_2 \ln\left(\frac{T_e}{T_2}\right)
 \end{align*}
 Vogliamo dimostrare che quest'ultima quantità sia maggiore di zero. Analizziamo due casi particolari in cui la dimostrazione è particolarmente semplice
-\subsubsection{\(c_1=c_2\)}
-\begin{align*}
-	&\Delta S_U = c\left(\ln\left(\frac{T_e^2}{T_1T_2}\right) \right) = c\left(\ln\left(\frac{(\frac{T_1 + T_2}{2})^2}{T_1T_2}\right) \right)=\\
-	&c\left(\ln\left(\frac{(T_1 + T_2)^2}{4T_1T_2}\right) \right)=c \ln\left[1 + \frac{(T_1 - T_2)^2}{4T_1T_2}\right]>0
-\end{align*}
-\subsubsection{\(c_1>>c_2\)}
-Definiamo \(r \equiv \frac{c_2}{c_1}>>1\) e \(R \equiv \frac{T_2}{T_1}\)
-\begin{align*}
-	&T_e = \frac{T_1 + r T_2}{1+r}= \frac{1+rR}{1+r}T_1\\
-	&\Delta S_1 = c_1 \ln\left(\frac{T_e}{T_1}\right) = c_1 \ln\left(\frac{1+rR}{1+r}\frac{T_1}{T_1}\right)\\
-	&\simeq c_1(R-1)r = c_1(\frac{T_2}{T_1}-1) \frac{c_2}{c_1} = \frac{c_2 (\Delta T)}{T_1} = -\frac{|c_2\Delta T|}{T_1}=-\frac{|Q|}{T_1}
-\end{align*}
-Dove è stato sviluppato il logaritmo naturale di \(\ln(1+rR)-\ln(1+r)\); infine sono stati sostituiti i valori definiti all'inizio con qualche sviluppo. Il valore assoluto è stato aggiunto perché per ipotesi \(T_2<T_1\).
-\begin{align*}
-	&\Delta S_2 = c_2 \ln\left(\frac{T_1}{T_2}\right)\\
-	&\Delta S_U = \Delta S_1 + \Delta S_2 = c_2 \left(\frac{T_2}{T_1}-1\right) +  c_2 \ln\left(\frac{T_1}{T_2}\right) 
-\end{align*}
-Dove \(T_1\) è la temperatura finale per il secondo corpo visto che il primo è un termostato. Ancora non è evidente che questa quantità sia maggiore di zero ma cambiando variabile \(x \equiv \frac{T_2}{T_1}\) otteniamo
-\begin{align*}
-	\Delta S_U = c_2(x-1)+ c_2\ln(x^{-1}) = c_2\left[x-1-\ln(x)\right]
-\end{align*}
-Considerando \(f(x) = x-1-\ln(x)\) ed effettuandone uno studio del segno notiamo che per \(x=1\) (\(T_1= T_2\)) la variazione d'entropia è nulla; sia per \(x<1\) che per \(x>1\) si ha invece che la funzione è positiva. 
-\subsection{Corpi separati da un conduttore piano}
+\begin{itemize}
+	\item \(c_1=c_2\)\\
+	\begin{align*}
+		&\Delta S_U = c\left(\ln\left(\frac{T_e^2}{T_1T_2}\right) \right) = c\left(\ln\left(\frac{(\frac{T_1 + T_2}{2})^2}{T_1T_2}\right) \right)=\\
+		&c\left(\ln\left(\frac{(T_1 + T_2)^2}{4T_1T_2}\right) \right)=c \ln\left[1 + \frac{(T_1 - T_2)^2}{4T_1T_2}\right]>0
+	\end{align*}
+	\item \(c_1>>c_2\)\\
+	Definiamo \(r \equiv \frac{c_2}{c_1}>>1\) e \(R \equiv \frac{T_2}{T_1}\)
+	\begin{align*}
+		&T_e = \frac{T_1 + r T_2}{1+r}= \frac{1+rR}{1+r}T_1\\
+		&\Delta S_1 = c_1 \ln\left(\frac{T_e}{T_1}\right) = c_1 \ln\left(\frac{1+rR}{1+r}\frac{T_1}{T_1}\right)\\
+		&\simeq c_1(R-1)r = c_1(\frac{T_2}{T_1}-1) \frac{c_2}{c_1} = \frac{c_2 (\Delta T)}{T_1} = -\frac{|c_2\Delta T|}{T_1}=-\frac{|Q|}{T_1}
+	\end{align*}
+	Dove è stato sviluppato il logaritmo naturale di \(\ln(1+rR)-\ln(1+r)\); infine sono stati sostituiti i valori definiti all'inizio con qualche sviluppo. Il valore assoluto è stato aggiunto perché per ipotesi \(T_2<T_1\).
+	\begin{align*}
+		&\Delta S_2 = c_2 \ln\left(\frac{T_1}{T_2}\right)\\
+		&\Delta S_U = \Delta S_1 + \Delta S_2 = c_2 \left(\frac{T_2}{T_1}-1\right) +  c_2 \ln\left(\frac{T_1}{T_2}\right) 
+	\end{align*}
+	Dove \(T_1\) è la temperatura finale per il secondo corpo visto che il primo è un termostato. Ancora non è evidente che questa quantità sia maggiore di zero ma cambiando variabile \(x \equiv \frac{T_2}{T_1}\) otteniamo
+	\begin{align*}
+		\Delta S_U = c_2(x-1)+ c_2\ln(x^{-1}) = c_2\left[x-1-\ln(x)\right]
+	\end{align*}
+	Considerando \(f(x) = x-1-\ln(x)\) ed effettuandone uno studio del segno notiamo che per \(x=1\) (\(T_1= T_2\)) la variazione d'entropia è nulla; sia per \(x<1\) che per \(x>1\) si ha invece che la funzione è positiva. 
+\end{itemize}
+
+\subsubsection{Corpi separati da un conduttore piano}
 Si consideri un caso analogo a quello visto nella sezione (\ref{sec:conduzione}) in cui due corpi a temperatura \(T_1\) e \(T_2\) tali che \(T_1 > T_2\) siano connessi da un conduttore piano mediante il quale scambiano calore. Analizziamo le variazioni di entropia dei tre oggetti che formano il nostro sistema. Il conduttore, nonostante al suo interno fluisca calore, ha uno stato costante nel tempo e, essendo l'entropia una funzione di stato, questa è nulla se lo stato non cambia. La variazione di entropia dell'universo sarà data solamente da quella dei due corpi 
 \begin{align*}
 	&\Delta S_U = \Delta S_1 + \Delta S_2 = Q\left(\frac{1}{T_2}-frac{1}{T_1}\right)>0
 \end{align*}
 Il fatto che sia maggiore di zero deriva dall'ipotesi che \(T_1 > T_2\).
+
 \subsection{Completare la disuguaglianza di Clausius}
 La disuguaglianza di Clausius si limita ad esprimere una disuguaglianza, se volessimo trasformarla in un'uguaglianza, dovremmo sottrarre qualcosa a \(\Delta S\), vogliamo trovare questi termini.\\
 Cominciamo osservando che la quantità di calore assorbita da un sistema deve corrispondere ad una stessa quantità persa dall'ambiente, dunque
@@ -2559,13 +2578,106 @@ Procedendo per righe, essendo AB reversibile la variazione d'entropia dell'unive
 &c =\Delta S_{CD}=R\ln\left(\frac{V_{D}}{V_{C}}\right)=-19.145 \frac{J}{K}\\
 &\Rightarrow \Delta S_U = b+d = -a-c = 13.4\frac{J}{K}
 \end{align*}
-
 \end{enumerate}
 \end{exercise}
 \subsection{Paradosso di Gibbs}
 Consideriamo una scatola isolata adiabaticamente divisa in due setti di egual volume da una parete conduttrice (i due setti sono all'equilibrio termico); all'interno dei setti ci sono due tipi di gas approssimabili come perfetti ma differenti con un numero di moli differente. Togliendo il setto i due gas si mischiano e la variazione di entropia dell'universo corrisponderà alla variazione di entropia del gas in A più quella del gas in B (non interagiscono fra loro perché sono gas perfetti). Abbiamo gi° visto la variazione di entropia di un gas perfetto in espansione libera adiabatica quindi
 \[\Delta S_U = \Delta S_A + \Delta S_B = (n_A + n_B)R\ln(2)\]
 Consideriamo ora il caso in cui nei due setti vi è la stessa quantità di gas e di moli e i due gas sono dello stesso tipo (indistinguibili). una volta tolto il setto divisorio, dal punto di vista macroscopico lo stato A e quello B sono indistinguibili (in questo caso bisogna vedere il gas non come un insieme di particelle ma come un fluido unico definito dalle sue variabili di stato). Ne segue che in questo caso la variazione di entropia è nulla (nulla è cambiato). Ne segue che, se dovessimo graficare la differenza di entropia in funzione di un parametro che indica la "diversità di due gas (che ad esempio indica che sono uguali quando questo parametro è uguale ad 1), avremmo che la variazione d'entropia è costante (ad \(nR\ln(2)\)) da 0 ad 1, 1 escluso, per poi arrivare a zero nel punto in cui i gas sono indistinguibili. Questa discontinuità teorica non ha spiegazione nella fisica classica, che è in grado solamente di formulare il problema. Per ottenere una risposta dovremo attendere l'introduzione della \textbf{termodinamica statistica}.
+\subsection{Entropia per gas reali}
+Scriviamo, mediante la definizione, la variazione di entropia per un gas reale
+\begin{align*}
+	&dS = \frac{\delta Q_R}{T}=\frac{dU}{T}+\frac{\delta L_R}{T}=\frac{dU}{T}+\frac{pdV}{T}=\\
+	&\frac{(c_v dT + \frac{a}{V^2}dV)}{T} + \frac{\left(\frac{RT}{V-b}-\frac{a}{V^2}\right)dV}{T}=\\
+	&c_v \frac{dT}{T}+\frac{1}{T}\left(\frac{a}{V^2}+\frac{RT}{V-b}-\frac{a}{V^2}\right)dV = c_v \frac{dT}{T}+ \frac{R}{V-b}dV
+\end{align*}
+Integrando otteniamo l'espressione per l'entropia e quella della sua variazione
+\begin{align*}
+	&S(T,\ V) = n c_v \ln(T)+n R \ln(V-b)+S_0\\
+	&\Delta S(T,\ V) = n c_v \ln\left(\frac{T_f}{T_i}\right)+n R \ln\left(\frac{V_f - b}{V_i - b}\right)
+\end{align*}
+\'{E} interessante notare che l'entropia non dipende dal coefficiente a, che introduce una correzione sulla interazione intermolecolare; ciò ci suggerisce che l'entropia sia legata solamente ad un fatto geometrico (b è il covolume), ad esempio in un'espansione libera si ha solamente un aumento di volume e l'entropia aumenta. Approfondiremo questo punto successivamente. 
+\subsection{Entropia per stati condensati}
+Gli stati condensati hanno la peculiarità di mantenere il volume pressoché costante. L'espressione dell'entropia diventa
+\begin{align*}
+	dS = \frac{\delta Q_R}{T}=C\frac{dT}{T}
+\end{align*}
+Se C viene assunto costante, l'integrazione è immediata quindi
+\begin{align*}
+	S = C \ln(T)+S_0 = m c \ln(T)+S_0
+\end{align*}
+Tuttavia abbiamo visto nella figura (\ref{fig:debyetemperature}) l'approssimazione di C costante è valida per un buona parte delle temperature di uso comune ma non è accettabile per temperature minori della temperatura di Debye, in cui decresce come la temperatura al quadrato. Si noti che nell'approssimazione di C costante, calcolando l'entropia per \(T \to 0 \) si ha \(S(T) = -\infty\) che non ha senso. Assumendo \(C(T) = AT^3\) si ha
+\begin{align*}
+	&dS = C(T)\frac{dT}{T} = AT^3 \frac{dT}{T} = AT^2 dT\\
+	&S \propto T^3
+\end{align*}
+Il problema dell'entropia che tende ad infinito è risolto. Per la maggior parte delle applicazioni l'approssimazione di C costante è accettabile. 
+\begin{exercise}[Variazione di entropia nel versare acqua in un bicchiere]
+	Quanto aumenta l'entropia nel versare dell'acqua da una bottiglia ad altezza h in un bicchiere (ad altezza 0)?\\
+	Tutta l'energia potenziale dell'acqua viene trasformata in energia interna nella caduta. Uguagliamo l'espressione dell'energia che serve all'acqua per passare da una temperatura iniziale ad una finale incognita alla variazione di energia potenziale per ottenere l'espressione della temperatura finale dell'acqua
+	\begin{align*}
+		&m_a c_a = (T_f - T_i) = mgh\\
+		&T_f = \frac{gh}{c_a}+T_i
+	\end{align*}
+	Calcoliamo ora la variazione d'entropia, che a priori ci aspettiamo essere maggiore di zero
+	\begin{align*}
+		\Delta S = m_a c_a \ln\left(\frac{T_f}{T_i}\right) = m_a c_a \ln\left(\frac{ \frac{gh}{c_a}+T_i}{T_i}\right) = m_a c_a \ln \left(1+ \frac{gh}{T_ic_a}\right)>0
+	\end{align*}
+\end{exercise}
+\subsection{Entropia nei passaggi di stato}
+Sapiamo che nei passaggi di stato la temperatura rimane costante quindi
+\[\Delta S = \frac{Q}{T}=\pm\frac{m\lambda}{denT}\]
+Lo scambio di calore in una trasformazione è dato dal calore che questa cede o rilascia nel passaggio di stato, valore che risulta dal prodotto di massa e calore latente ($\lambda$). Mentre il calore è una quantità algebrica che può essere positiva o negativa a seconda che sia assorbito o ceduto, m e $\lambda$ sono quantità positive quindi dovremo aggiungere un $\pm$. Ad esempio nel congelamento si cede energia quindi \(Q<0\Rightarrow \Delta S < 0\) mentre nella fusione si assorbe calore quindi \(Q<0\Rightarrow \Delta S < 0\). 
+\subsection{Legame tra entropia e lavoro}
+ Non tutte le forme di lavoro sono uguali: alcuni tipi di energia possono produrre "meglio" lavoro termodinamico di altre e possono essere considerate "più pregiate". In questa sezione ci proponiamo di estendere il teorema di Carnot: se quest'ultimo enuncia che qualsiasi macchina ha rendimento minore di quello della macchina di Carnot (una disuguaglianza), vogliamo ora sapere di quanto i rendimenti differiscano (mediante un'uguaglianza). Cominciamo considerando una macchina termica irreversibile generica M che opera fra i serbatoi di temperatura \(T_1\), da cui assorbe Q, e \(T_2\), a cui cede \((L-Q)\) e che produce un lavoro L. Calcoliamone la variazione di entropia come somma delle variazioni d'entropia dei due serbatoi e della macchina
+ \begin{align*}
+ 	&\Delta S_U = \Delta S_1 + \Delta S_m + \Delta S_2 = -\frac{Q}{T_2}+0+\frac{-(L-Q)}{T_2}= Q \left(\frac{1}{T_2}-\frac{1}{T_1}\right)-\frac{L}{Q}
+ \end{align*}
+notiamo però che $\frac{L}{Q}$ è il rendimento \(\eta_m\) quindi 
+\[ \eta_m = \left(1-\frac{T_2}{T_1}\right)-\frac{T_2\Delta S_U}{Q} \]
+notiamo che l'espressione tra parentesi è il rendimento della macchina di Carnot, ovvero, come dimostrato, il massimo ottenibile. 
+\[ \eta_m = \eta_c-\frac{T_2\Delta S_U}{Q} = \eta_c - \eta_{clausius} \]
+la quantità che viene sottratta, detta \textbf{rendimento di Clausius}, è positiva. Abbiamo ottenuto ciò che cercavamo: sappiamo di quanto il rendimento di una macchina reversibile bitermica generica è minore di quello di una macchina di Carnot di una quantità di cui abbiamo trovato l'espressione. Questa dipende dalla variazione di entropia dell'universo, che ha a che fare con l'irreversibilità della macchina: se questa fosse nulla avremmo che il rendimento della macchina termica è uguale a quello della macchina di Carnot (in linea con il teorema di Carnot) mentre più una macchina è irreversibile più aumenta la variazione d'entropia che opera sull'universo, minore sarà il suo rendimento.\\
+Nel caso di macchine politermiche si ottiene un risultato analogo 
+\[\eta_m = \eta_r - \eta_{clausius} < \eta_c -\eta_{clausius}\]
+Ne segue che più una macchina politermica è irreversibile meno lavoro utile può produrre.\\
+Possiamo ora trovare la differenza fra il lavoro di una macchina reversibile e quello di una irreversibile: richiamando quanto ottenuto in precedenza
+\[dS = \frac{\delta Q}{T}+dS_U=dS_{calore} +dS_{irreversibilità}\]
+ciò ci dice che in una trasformazione irreversibile (in cui $\delta Q_U \neq 0$) l'entropia non è generata solo da scambi di calore ma anche da un termine che ha a che fare con l'irreversibilità del processo. dividendo tutto per dt otteniamo
+\begin{align*}
+	&\frac{dS}{dt}=\frac{dS_{calore}}{dt}+\frac{dS_{irreversibile}}{dt}\\
+	&\dot{S} = \dot{S}_{calore} + \dot{S}_{irreversibile}
+\end{align*}
+dove la componente dovuta al calore può essere positiva o negativa a seconda che questo sia assorbito o ceduto mentre la componente dovuta all'irreversibilità è sempre positiva. Un esempio immediato che la variazione d'entropia in una trasformazione irreversibile non dipende unicamente dagli scambi di calore è l'espansione adiabatica libera in cui non vi è scambio di calore ma l'entropia aumenta.\\
+Vogliamo ora valutare quanto valga la differenza di lavoro prodotto fra una trasformazione reversibile ed una irreversibile che operano fra gli stessi stati A e B. Cominciamo rilevando che se le trasformazioni avvengono fra gli stessi stati la variazione di energia interna dev'essere la stessa
+\begin{align*}
+	&dU = \delta Q - \delta L\ \text{irreversibile}\\
+	&dU = \delta Q_R - \delta L_R\ \text{reversibile}\\
+	&\delta Q - \delta L = \delta Q_R - \delta L_R\\
+	&\frac{\delta Q}{T} - \frac{\delta L}{T} = \frac{\delta Q_R}{T} - \frac{\delta L_R}{T}\\
+	&dS = \frac{\delta Q}{T}+\frac{1}{T}(\delta L_R-\delta L)
+\end{align*}
+Sostituendo la precedente espressione di dS in quest'ultima otteniamo
+\[\Rightarrow \delta L_R-\delta L = T dS_U>0\]
+Come ci aspettavamo, c'è sempre una differenza positiva fra lavoro reversibile e irreversibile proporzionale alla variazione d'entropia generata dalla trasformazione.\\
+Il risultato appena ottenuto è in forma  differenziale, passare alla forma generale non è immediato ma è  possibile dimostrare che per qualsiasi tipo di trasformazione il lavoro perso è dato da
+\[L_{lost} = T_0 \Delta S_u\]
+Possiamo mostrare la validità di questa relazione per alcuni esempi particolari
+\subsubsection{Aggiungere un serbatoio termico}
+Confrontiamo due macchine: una C di Carnot che opera fra i serbatoi \(T_1\) (da cui riceve Q) e \(T_0\) ed una reversibile M formata da 3 serbatoi di temperatura tali che \(T_1\) cede calore Q a \(T_2\) (a temperatura minore di \(T_1\)) e \(T_1\) cede calore alla macchina M che produce lavoro e rilascia calore a \(T_0\). Vediamo la differenza fra i due lavori prodotti (ottenibili moltiplicando il calore assorbito per il rendimento delle macchine reversibili)
+\begin{align*}
+	&L_{max}^{(c)}-L_{max}^{(m)}=Q\left(1-\frac{T_0}{T_1}\right)-Q\left(1-\frac{T_0}{T_2}\right)=Q\left(\frac{T_0}{T_2}-\frac{T_0}{T_1}\right)=Q(\Delta S_{2-1}-\Delta S_{1-2}) 
+\end{align*}
+Visto che il calore scambiato da \(T_1\) a \((T_2)\) è negativo mentre quello da \((T_2)\) a \(T_1\) è positivo la differenza fra il lavoro della macchina di Carnot e la macchina m è positiva. Il solo fatto di aver trasferito il calore da una sorgente più calda ad una più fredda (irreversibile) ha diminuito il rendimento della macchina M. La formula ottenuta è proprio \(T_0\Delta S_U\) di cui sopra. 
+\subsubsection{Espansione libera}
+Tornando all'esempio dell'espansione libera in una scatola divisa in due volumi uguali, abbiamo già visto che la variazione d'entropia dell'universo da essa generata è \[\Delta S_U = n R \ln(2)\]
+Il lavoro perso sarà dunque \[T\Delta S_U = n R T \ln(2)\]
+\subsubsection{Due copri a contatto}
+Consideriamo due termostati a temperatura \(T_1\) e \(T_2\) (per fissare le idee \(T_1 > T_2\)). Il lavoro perso è 
+\[T_2 \Delta S_U = T_2(\Delta S{1-2}+\Delta S_{2-1})=T_2\left[\frac{|Q|}{T_2}-\frac{|Q|}{T_1}\right] = Q\left(1-\frac{T_2}{T_1}\right) =Q\eta_c\]
+Notiamo che il lavoro perduto è pari a quello massimo che avremmo potuto produrre con le medesime temperature ovvero quello di una macchina di Carnot operante tra \(T_1\) e \(T_2\). ù
+\subsection{Morte termica}
+Si consideri una macchina che opera tra le temperature \(T_1\) e \(T_2\): per produrre una certa quantità di lavoro dovrà cedere del calore al serbatoio freddo. Se poi quello stesso calore volessimo riportarlo al serbatoio caldo con un frigorifero di Carnot, per non fargli perdere energia e quindi farlo diminuire in temperatura visto che il frigo di Carnot ha rendimento minore di 1 (nonostante sia il massimo possibile) non si potrà riportare tutto il calore nuovamente a \(T_1\) quindi inevitabilmente la sorgente \(T_1\) è destinata a perdere energia e a diminuire in temperatura. Questo è un evento che avviene in qualsiasi macchina termica dell'universo e porta al risultato che ogni volta che si espleta del lavoro, la differenza di temperatura fra i due serbatoi fra cui avviene tende ad appiattirsi. L'universo tende asintoticamente ad azzerare le differenze di temperatura presenti al suo interno. In uno scenario in cui le differenze di temperatura saranno infinitesimali in ogni parte dell'universo non sarà possibile creare lavoro termodinamico (servono due sorgenti a temperatura diversa per il secondo principio) queso scenario è detto \textbf{morte termica} dell'universo. Quando questa ipotesi venne esposta per la prima volta a fine ottocento generò un forte impatto sul pensiero filosofico dell'epoca. 
 \appendix
 \section{Determinismo assoluto e libero arbitrio}
 La possibilità teorica di conoscere l'evoluzione (passata e futura) di un sistema fisico, diede vita al cosiddetto \textbf{determinismo assoluto} di Pierre Simon Laplace (1749 - 1827) secondo cui se si conoscesse lo stato di ogni particella nell'universo (per intenderci si stima ci siano $10^{80}$ protoni nell'universo osservabile) allora sarebbe possibile conoscere alla perfezione presente passato e futuro. Questa idea portata all'estremo sostiene che, se il cervello fosse mosso unicamente da reazioni chimiche (he altro non sono che cambiamenti nello stato del sistema cervello), se si conoscesse lo stato di ogni particella del cervello allora si potrebbe prevedere alla perfezione il comportamento di un essere umano. Da ciò sorgono svariati dilemmi filosofici, uno per tutti il problema del libero arbitrio: se ogni movimento, parola ed espressione umana fosse teoricamente prevedibile matematicamente allora la libertà che sembra scontata nell'agire umano sarebbe solamente apparente?\\
