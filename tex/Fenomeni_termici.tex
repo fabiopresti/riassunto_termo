@@ -351,8 +351,8 @@ Ricavare la dipendenza della pressione dalla quota atmosferica (assumendo che l�
 Prendiamo in considerazione un cilindro d'aria di volume V, superficie di base S e altezza dz infinitesima. Sappiamo che la pressione varia con la quota perché più si va in alto minore sarà la forza esercitata dalla colonna d'aria che sovrasta una superficie: la pressione esercitata dall'aria sulla faccia inferiore del cilindro sarà minore (infinitesimamente) di quella sulla faccia superiore. Ricaviamo la relazione che descrive la variazione di pressione in funzione della quota.\\
 Se l'aria è ferma in un determinato istante, allora il gas all'interno del nostro cilindro è in equilibrio, cioè la pressione esercitata sulla faccia superiore è uguale e in verso contrario a quella esercitata sulla faccia inferiore più quella esercitata dal gas stesso all'interno del cilindro (i venti sono generati infatti da variazioni di pressione). Dovrà dunque verificarsi
 \begin{align}\label{eq:stevin}
-	&\text{p faccia superiore} = \text{p faccia inferiore}\\
-	&p  = p + dp \nonumber + \frac{(dm) g}{S}\\
+	&\text{p faccia superiore} = \text{p faccia inferiore}\nonumber\\
+	&p  = p + dp \nonumber + \frac{(dm) g}{S}\nonumber\\
 	&dp = -\frac{(dm)g}{S} = -\frac{(\rho S dz) g}{S}= -\rho g dz \nonumber \\
 	\Rightarrow & \frac{d\rho}{dz}= - \rho g
 \end{align} 
@@ -488,7 +488,7 @@ Se sviluppiamo in serie di Taylor otteniamo
 \end{align*} 
 I parametri A, B, C,... sono misurabili sperimentalmente, variano da gas a gas e anche in base alla temperatura. Sono molto utili a livello pratico e sono tabulati. Come appare chiaro dalla definizione di $z_p$, sarà paria 1 per i gas perfetti e maggiore o minore di uno per i gas reali; possiamo così valutare quanto uno specifico gas ad un valore esatto di pressione e temperatura, si discosti dalle condizioni di gas perfetto. La variazione dal valore ideale di 1 è dovuta dalle interazioni intermolecolari, il fatto che $z_p$ può essere maggiore o minore di 1 è dovuto al fatto che possono verificarsi interazioni attrattive o repulsive. 
 
-\subsection{Correzione dell'equazione dei gas perfetti}
+\subsection{Correzione dell'equazione dei gas perfetti}\label{sec:correzione_gas_perfetti}
 La strategia di questo approccio sta nel modificare la legge di stato dei gas perfetti, aggiungendo due parametri che tengano conto delle due condizioni che differenziano i gas reali dai perfetti: le interazioni intermolecolari ed il covolume. Cominciamo con il chiederci come cambia il volume di un gas reale rispetto ad uno perfetto: il volume di un gas reale sarà sicuramente maggiore di quello di un gas perfetto perché bisognerà tener conto anche del volume delle singole molecole. Ogni mole ha un volume b, il covolume è dato dagli n moli di volume b, dunque
 \begin{align*} 
 V_{reale} = V_{ideale}+ nb
@@ -503,9 +503,9 @@ dp_i = k \rho
 \end{align*} 
 La variazione di pressione totale $dp_{tot}$ sarà formata dalla somma di tutte le variazioni infinitesime delle singole molecole ma sarà anch'essa proporzionale alla densità del gas poiché maggiore il numero di particelle, maggiori saranno le collisioni, e quindi la variazione di pressione. 
 \begin{align*} 
-	dp_{tot} = k' \rho \sum_i dp_i 
+	dp_{tot} = k'dp_i\rho  = kk' \rho^2 \propto \rho^2
 \end{align*} 
-Essendo $dp_i = k \rho$ e $\rho \propto \frac{n}{V}$ (dove n è il numero di moli), possiamo scrivere
+Essendo $\rho \propto \frac{n}{V}$ (dove n è il numero di moli), possiamo scrivere
 \begin{align*} 
 p_{reale} = p_{ideale}- a  \left(\frac{n}{V}\right)^2
 \end{align*} 
@@ -593,11 +593,11 @@ Possiamo disegnare un grafico 3D in cui nel terzo asse poniamo la temperatura (f
 	\label{fig:diagrammadifase3d}
 \end{figure}
 \FloatBarrier
-Possiamo notare inoltre che sotto una determinata temperatura avviene la transizione allo stato solido e che possiamo individuare un segmento in cui si ha uno stato intermedio fra quello di solido vapore e liquido, quelli sono i punti tripli al variare della temperatura. \'{E} interessante citare la regola delle fasi di Gibbs che ora risulta chiara: dette N il numero di gradi di libertà, F il numero di fasi e C il numero di componenti indipendenti che formano il composto, la legge di Gibbs afferma
+Possiamo notare inoltre che sotto una determinata temperatura avviene la transizione allo stato solido e che possiamo individuare un segmento in cui si ha uno stato intermedio fra quello di solido vapore e liquido, quelli sono i punti tripli al variare della temperatura. \'{E} interessante citare la regola delle fasi di Gibbs che ora risulta chiara: dette N il numero di variabili intensive indipendenti, F il numero di fasi e C il numero di componenti indipendenti che formano il composto, la legge di Gibbs afferma
 \begin{align*} 
 	N = C + 2 - F
 \end{align*}  
-Ciò si applica perfettamente alla temperatura critica, infatti in questo caso C = 1, F = 3 e allora avremo zero gradi di libertà, cioè un punto. Per il punto critico invece avremo 1 grado di libertà e quindi una retta (con parametro V) e così via.\\
+Ciò si applica perfettamente alla temperatura critica, infatti in questo caso C = 1, F = 3 e allora avremo zero gradi di libertà, cioè un punto. Per il punto triplo invece avremo 1 grado di libertà e quindi una retta (con parametro V) e così via.\\
 Inoltre, possiamo guardare la proiezione del grafico 3D sul piano PT per ottenere diverse informazioni. 
 \begin{figure}[h!]
 	\centering
@@ -638,7 +638,7 @@ Questa distanza è circa 20 volte il diametro della molecola meda d'aria (citato
 Possiamo ora calcolare la pressione che genera il gas sulla parete, concentriamoci sulla parete $S_x$ di destra, perpendicolare all'asse x. Calcoliamo la pressione come l'impulso complessivo scambiato in un certo intervallo di tempo dall'insieme delle molecole con la parete. Considerando inizialmente una qualsiasi particella i-esima di velocità $\vec{v}_i$ che si muove obliquamente e collide con la parete destra, si avrà che la componente della velocità in x cambierà di segno mentre le altre componenti rimarranno invariate.
 \begin{align*} 
 	\begin{cases}
-		v'_{ix}=v_{ix} \Rightarrow \Delta q_{ix} = mv'_{ix}-(-mv'_{ix})=-2mv_{ix}\\
+		v'_{ix}=-v_{ix} \Rightarrow \Delta q_{ix} = -mv'_{ix}-(mv'_{ix})=-2mv_{ix}\\
 		v'_{iy}=v_{iy} \Rightarrow \Delta q_{iy} = 0\\
 		v'_{iz}=v_{iz} \Rightarrow \Delta q_{iz} = 0
 	\end{cases}
@@ -692,7 +692,7 @@ dove nell'ultimo passaggio è stata sostituita la costante k, detta \textbf{cost
 k_b = \frac{R}{N_a}
 \end{align*} 
 misurabile mediante esperimenti, come quello di Perrin sul moto browniano.\\ 
-La (\ref{eq:energiacinmedia}) collega la temperatura (grandezza macroscopica) all'energia cinetica media (grandezza microscopica), ciò ci suggerisce che misurare la temperatura è perfettamente equivalente a misurare l'energia cinetica media in una diversa unità di misura, che differisce dai kelvin semplicemente per una costante. Ora è possibile introdurre il concetto di \textbf{zero assoluto} ovvero, il limite inferiore di temperatura possibile (solamente approssimabile) in cui tutte le molecole del gas sono in quiete, cioè quando hanno energia cinetica nulla.
+La (\ref{eq:energiacinmedia}) collega la temperatura (grandezza macroscopica) all'energia cinetica media (grandezza microscopica), ciò ci suggerisce che misurare la temperatura è perfettamente equivalente a misurare l'energia cinetica media in una diversa unità di misura, che differisce dai kelvin semplicemente per una costante. Ora è possibile introdurre il concetto di \textbf{zero assoluto} ovvero, il limite inferiore di temperatura possibile (solamente approssimabile) in cui tutte le molecole del gas sono in quiete, cioè quando hanno energia cinetica nulla (in realtà secondo la meccanica quantistica questa affermazione è falsa ma questo esula dal presente ambito di studio).
 
 \subsection{Energia cinetica e gradi di libertà}\label{sec:energiacinetica_d.o.f.}
 \'{E} utile notare che il 3 al denominatore nella (\ref{eq:energiacinmedia}) proviene dai 3 gradi di libertà della molecola di gas, che è ipotizzato perfetto e dunque come formato da particelle puntiformi con 3 d.o.f.(che da ora chiameremo $\nu$). Intuitivamente, ripercorrendo i passi fatti, a causa del caos molecolare siamo portati ad aggiungere uno stesso termine \((\frac{1}{2}k\theta)\) per ogni grado di libertà. 
@@ -733,14 +733,14 @@ Abbiamo dedotto il valore dell'energia cinetica media, calcolata mediante la vel
 \begin{align*} 
 	v \equiv |\vec{v}| = \sqrt{v_x^2+v_y^2+v_z^2}
 \end{align*} 
-Cominciamo con il ricavare la \textbf{p.d.f. congiunta} $f(v_x, v_y, v_z)$, ovvero la probabilità di avere contemporaneamente le velocità sui tre assi in un intorno di ampiezza infinitesima. Per capire meglio cominciamo consideriamo il caso con una velocità unidimensionale, la p.d.f. è $f(v_x)$, per calcolare la probabilità che $v_x$ stia in un intorno basterà integrare fra gli estremi di quell'intorno
+Cominciamo con il ricavare la \textbf{p.d.f. congiunta} $f(v_x, v_y, v_z)$, ovvero la probabilità di avere contemporaneamente le velocità sui tre assi in un intorno di ampiezza infinitesima (distribuzione di probabilità trivariata). Per capire meglio cominciamo consideriamo il caso con una velocità unidimensionale(p.d.f. monovariata); la p.d.f. è $f(v_x)$, per calcolare la probabilità che $v_x$ stia in un intorno basterà integrare fra gli estremi di quell'intorno
 \begin{align*} 
-	& P(v'_x<v_x<v'_x+dx)= \int_{v_x}^{v_x+dx}f(v_x)dx
+	& P(v'_x<v_x<v'_x+dx)= \int_{v'_x}^{v'_x+dx}f(v_x)dx
 \end{align*} 
 Estendendo il concetto ai 3 assi si parla di p.d.f. congiunta (in questo caso congiunta è sinonimo di trivariata) che sarà $f(v_x, v_y, v_z)$, per trovare la probabilità ora dobbiamo fare un integrale triplo
 \begin{align*} 
 	&P(v'_x<v_x<v'_x+dx, v'_y<v_y<v'_y+dy, v'_z<v_z<v'_z+dz) =\\
-	&\int_{v_x}^{v_x+dx}\int_{v_y}^{v_y+dy}\int_{v_z}^{v_z+dz} f(v_x,v_y,v_z) dxdydz
+	&\int_{v'_x}^{v'_x+dx}\int_{v'_y}^{v'_y+dy}\int_{v'_z}^{v'_z+dz} f(v_x,v_y,v_z) dv_xdv_ydv_z
 \end{align*} 
 Possiamo vedere la probabilità P geometricamente su un grafico f(v) su v 3D come la probabilità che la velocità sia contenuta in un parallelepipedo di lati $dx, dy, dz$.\\
 Essendo la velocità su ogni asse indipendente dalle altre la probabilità di trovare in un intorno specifico ogni componente della velocità sarà semplicemente il prodotto delle probabilità delle singole componenti.
@@ -748,7 +748,7 @@ Essendo la velocità su ogni asse indipendente dalle altre la probabilità di tr
 	&f(v_x, v_y, v_z) = f(v_x)\cdot f(v_y)\cdot f(v_z)\\
 	& P(v'_x<v_x<v'_x+dx, v'_y<v_y<v'_y+dy, v'_z<v_z<v'_z+dz) =\nonumber\\ 
 	&P(v'_x<v_x<v'_x+dx) P(v'_y<v_y<v'_y+dy) P(v'_z<v_z<v'_z+dz)=\nonumber\\
-	&\int_{v_x}^{v_x+dx} f(v_x)dx \cdot \int_{v_y}^{v_y+dy}f(v_y)dy \cdot \int_{v_z}^{v_z+dz}f(v_z)dz\nonumber
+	&\int_{v'_x}^{v'_x+dx} f(v_x)dx \cdot \int_{v_y}^{v_y+dy}f(v_y)dy \cdot \int_{v'_z}^{v'_z+dz}f(v_z)dz\nonumber
 \end{align} 
 A noi interessa la distribuzione del modulo delle velocità delle molecole dunque la p.d.f. congiunta che cerchiamo deve dipendere da $(v_x^2+v_y^2+v_z^2)$ ovvero il modulo della velocità (non ci interessa la radice ma semplicemente che dipenda dalla somma quadratica, in modo da annullare il contributo del segno). Ne segue che la p.d.f. deve rispettare la condizione
 \begin{align}\label{eq:cond2}
@@ -758,14 +758,16 @@ Come intuì lo stesso Maxwell, l'unica funzione che rispetta contemporaneamente 
 \begin{align*} 
 	e^{a^2+b^2+c^2}=e^{a^2} e^{b^2} e^{c^2}
 \end{align*} 
-Dunque possiamo ipotizzare che la p.d.f. della velocità su un singolo asse è
+Dunque possiamo ipotizzare che la p.d.f. della velocità è
 \begin{align*} 
-	f(v_i) = \eta e^{\pm \xi v_i^2}
+	&f(v_x) = \eta e^{\pm \xi v_x^2}\\
+	&f(v_x,\ v_y,\ v_z) = f(v_x)\cdot f(v_y)\cdot f(v_z)=\\
+	&\eta e^{- \xi v_x^2}\cdot\eta e^{- \xi v_y^2}\cdot\eta e^{- \xi v_z^2}=\eta e^{- \xi (v_x^2+v_y^2+v_z^2)}=f(v_x^2+v_y^2+v_z^2)
 \end{align*} 
-Possiamo escludere il "+" sin da subito sia per considerazioni matematiche, infatti l'integrale della funzione da $- \infty$ a $+ \infty$ deve fare 1 e se non fosse un esponente negativo l'integrale andrebbe ad infinito; ma anche per considerazioni fisiche, infatti se la densità di probabilità fosse sempre crescente allora sarebbe sempre molto più probabile trovare molecole molto veloci rispetto a molto lente, ciò è chiaramente assurdo perché ci aspettiamo un valore di velocità medio e nelle code della distribuzione valori molto alti e molto bassi egualmente poco probabili.\\
-Con il segno meno abbiamo dunque una p.d.f. del tipo di una gaussiana. Ricaviamo dunque le costanti $\eta$ e $\xi$. la prima la ricaviamo sfruttando la condizione di normalizzazione ad 1 delle p.d.f.
+Possiamo escludere il "+" da \(\eta e^{\pm \xi v_x^2}\) sin da subito sia per considerazioni matematiche, infatti l'integrale della funzione da $- \infty$ a $+ \infty$ deve fare 1 e se non fosse un esponente negativo l'integrale andrebbe ad infinito; ma anche per considerazioni fisiche, infatti se la densità di probabilità fosse sempre crescente allora sarebbe sempre molto più probabile trovare molecole molto veloci rispetto a molto lente, ciò è chiaramente assurdo perché ci aspettiamo un valore di velocità medio e nelle code della distribuzione valori molto alti e molto bassi egualmente poco probabili.\\
+Con il segno meno abbiamo dunque una p.d.f. del tipo di una gaussiana. Ricaviamo dunque le costanti $\eta$ e $\xi$. La prima la ricaviamo sfruttando la condizione di normalizzazione ad 1 delle p.d.f.
 \begin{align*} 
-	\int_{-\infty}^{+\infty} f(v_i)dv_i = \eta \int_{-\infty}^{+\infty} e^{\pm \xi v_i^2} dv_i = 1
+	\int_{-\infty}^{+\infty} f(v_x)dv_x = \eta \int_{-\infty}^{+\infty} e^{\pm \xi v_x^2} dv_x = 1
 \end{align*} 
 Questo è detto \textbf{integrale di Laplace} la cui risoluzione è in Appendice. Ne risulta che
 \begin{align*} 
@@ -773,18 +775,18 @@ Questo è detto \textbf{integrale di Laplace} la cui risoluzione è in Appendice
 \end{align*} 
 Per ricavare $\xi$ calcoliamo la velocità quadratica media ricordando la definizione di momento del secondo ordine di una p.d.f.
 \begin{align*} 
-	&\overline{v^2} \equiv \int_{-\infty}^{+\infty} v_i^2 f(v_i)dv_i = \frac{1}{2\xi}\\
-	&\overline{v^2} = \overline{v_x^2}+\overline{v_y^2}+\overline{v_z^2} = 3\overline{ v_i^2} = \frac{3}{2\xi}
+	&\overline{v^2}_x \equiv \int_{-\infty}^{+\infty} v_x^2 f(v_i)dv_x = \frac{1}{2\xi}\\
+	&\Rightarrow \overline{v^2} = \overline{v_x^2}+\overline{v_y^2}+\overline{v_z^2} = 3\overline{ v_i^2} = \frac{3}{2\xi}
 \end{align*} 
 Ricordando ora la relazione che lega velocità quadratica media e temperatura (\ref{eq:energiacinmedia}) sostituiamo
 \begin{align*} 
 	&\frac{3}{2} k_b \theta = \overline{\varepsilon} = \frac{1}{2} m \overline{v^2}\\
-	\Rightarrow & \overline{v^2} = \frac{3k_b\theta}{m}\\
-	&\xi = \frac{m}{2k_b\theta} \quad \eta = \sqrt{\frac{m}{2\pi k_b \theta}}
+	&\overline{v^2} = \frac{3k_b\theta}{m}\\
+	&\Rightarrow \xi = \frac{m}{2k_b\theta} \quad \eta = \sqrt{\frac{m}{2\pi k_b \theta}}
 \end{align*} 
-Possiamo dunque riscrivere la p.d.f.
+Possiamo dunque riscrivere la p.d.f. della velocità su un singolo asse
 \begin{align*} 
-	f(v_i) = \sqrt{\frac{m}{2\pi k_b\theta}} e^{-\frac{m v_i^2}{2 k_b \theta}}
+	f(v_x) = \sqrt{\frac{m}{2\pi k_b\theta}} e^{-\frac{m v_x^2}{2 k_b \theta}}
 \end{align*} 
 \begin{figure}[h!]
 	\centering
@@ -803,7 +805,7 @@ Essendo le p.d.f. indipendenti, per ottenere la p.d.f. congiunta basta moltiplic
 \begin{align*} 
 	f(v_x, v_y,v_z) = \left(\frac{m}{2\pi k_b\theta}\right)^{\frac{3}{2}} e^{-\frac{m( v_x^2+v_y^2+v_z^2)}{2 k_b \theta}} = \left(\frac{m}{2\pi k_b\theta}\right)^{\frac{3}{2}} e^{-\frac{m v^2}{2 k_b \theta}}
 \end{align*} 
-A partire dalla congiunta possiamo ricavare la p.d.f. del modulo del vettore velocità. Se la $f(v_x, v_y,v_z)$ era rappresentabile geometricamente come un cubo all'interno del quale si trovava la probabilità di trovare una molecola nell'intorno di un'esatta terna di valori (ad esempio $(v_x \in I_{dx}(a), v_y \in I_{dy}(b), v_z = \in I_{dz}(c)))$ . Noi vogliamo invece trovare una p.d.f. che ci dica la probabilità che il modulo del vettore velocità si trovi in un certo intorno cioè $ \sqrt{v_x+v_y+v_z} \in I_{dv}(v)$. Risulta chiaro che esistono diverse terne di intorni che soddisfano quest'ultima relazione. In particolare l'insieme di queste terne è il luogo geometrico dei punti a distanza dal centro compresa fra v e dv. Chiaramente otterremo un guscio sferico di spessore dv. Per calcolare la p.d.f. ($\rho(v)$) moltiplichiamo il volume del guscio per la probabilità associata all'unità di volume (ovvero quella del cubetto $f(v_x,v_y, v_z)$)
+A partire dalla congiunta possiamo ricavare la p.d.f. del modulo del vettore velocità. Se la $f(v_x, v_y,v_z)$ era rappresentabile geometricamente come un cubo all'interno del quale si trovava la probabilità di trovare una molecola nell'intorno di un'esatta terna di valori (ad esempio $(v_x \in I_{dx}(a), v_y \in I_{dy}(b), v_z = \in I_{dz}(c)))$ . Noi vogliamo invece trovare una p.d.f. che ci dica la probabilità che il modulo del vettore velocità si trovi in un certo intorno cioè $ \sqrt{v_x^2+v_y^2+v_z^2} \in I_{dv}(v)$. Risulta chiaro che esistono diverse terne di intorni che soddisfano quest'ultima relazione. In particolare l'insieme di queste terne è il luogo geometrico dei punti a distanza dal centro compresa fra v e dv. Chiaramente otterremo un guscio sferico di spessore dv. Per calcolare la p.d.f. ($\rho(v)$) moltiplichiamo il volume del guscio per la probabilità associata all'unità di volume (ovvero quella del cubetto $f(v_x,v_y, v_z)$)
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{../images/guscio}
@@ -819,7 +821,7 @@ Questa è detta di \textbf{p.d.f. di Maxwell-Boltzmann}. Offre una quantità di 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.6\linewidth]{../images/speedpdf}
-	\caption{Funzione di distribudione delle probabilità (p.d.f.) del modulo della velocità detta di Maxwell-Boltzmann}
+	\caption{Funzione di distribuzione delle probabilità (p.d.f.) del modulo della velocità detta di Maxwell-Boltzmann}
 	\label{fig:speedpdf}
 \end{figure}
  \FloatBarrier
@@ -927,7 +929,7 @@ Si dice evaporazione il fenomeno fisico per cui, a causa delle fluttuazioni casu
 \subsection{Ebollizione}
 Se si aumenta la temperatura l'evaporazione avverrà più velocemente perché la curva della Maxwelliana sarà più spostata verso destra. Consideriamo per fissare le idee un recipiente pieno d'acqua, arrivati ad una certa temperatura, per fluttuazioni casuali, si formano micro bolle di vapor d'acqua, isolate dal liquido circostante, in corrispondenza delle asperità (microscopiche) del contenitore. La pressione del vapore all'interno delle bolle è chiaramente quella del vapore saturo $p_{vap}$, la bolla implode se la pressione esterna è maggiore di $p_{vap}$ mentre si dilata e viene a galla se la pressione esterna è minore. La pressione esterna è data dalla pressione atmosferica $p_{atm}$ più la pressione esercitata dalla colonna d'acqua per la legge di Stevino ($\rho g h$) dove h è l'altezza dell'acqua nel contenitore. Nel caso di una comune pentola da cucina la pressione data dalla colonna d'acqua è trascurabile (h è piccolo) dunque la bolla si espanderà quando $p_{vap} \geq p_{atm}$. Nel caso dell'acqua sappiamo che $p_{atm} = p_{vap}$ per $\theta = 100 °C$, dunque dovremo aspettare questa temperatura perché l'ebollizione avvenga. Se vogliamo far bollire l'acqua in montagna, in cui la pressione esterna è minore, la temperatura di ebollizione diminuirà. Contrariamente, a profondità sottomarine la colonna d'acqua non sarà più trascurabile e l'acqua bolle a temperature molto più elevate. A profondità superiori a 2 km la pressione supera la soglia critica al di là della quale entra in uno stato supercritico in cui l'ebollizione non è più possibile. Questa è semplicemente una reinterpretazione a livello microscopico e alla luce della teoria cinetica dei gas, della figura (\ref{fig:diagrammadifasept}). 
 \begin{definition}[Ebollizione]
-	Il passaggio di una sostanza dallo stato liquido allo stato aeriforme, che avviene attraverso la formazione di bolle gassose le quali, dilatandosi per effetto termico, salgono alla superficie e liberano il vapore in esse contenuto; il fenomeno, contrariamente all'evaporazione, avviene a una determinata temperatura per ogni sostanza (temperatura d'ebollizione).
+	Il passaggio di una sostanza dallo stato liquido allo stato aeriforme, che avviene attraverso la formazione di bolle gassose le quali, dilatandosi per effetto termico, salgono alla superficie e liberano il vapore in esse contenuto; il fenomeno, contrariamente all'evaporazione, avviene a una determinata temperatura (a parità di pressione) per ogni sostanza (temperatura d'ebollizione).
 \end{definition}
 \subsection{Libero cammino medio (Mean Free Path)}
 \begin{definition}
@@ -1122,7 +1124,7 @@ Dal punto di vista geometrico, rappresentando l' espansione e la compressione su
 \end{definition}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.5 \linewidth]{../images/ciclo}
+	\includegraphics[width=0.6 \linewidth]{../images/ciclo}
 	\caption{Grafico di un lavoro generalizzato positivo, uno negativo e la combinazione dei due (un ciclo) in cui il lavoro è dato dall'area della figura chiusa}
 	\label{fig:ciclo}
 \end{figure}
@@ -1160,6 +1162,10 @@ Possiamo quindi definire una nuova grandezza fondamentale in termodinamica: il \
 	Definiamo calore la differenza tra il Lavoro compiuto in un percorso e il lavoro adiabatico che sarebbe compiuto nel percorso corrispondente. Essendo il lavoro adiabatico conservativo possiamo dare una definizione equivalente scrivendo
 	\begin{align*} 
 		Q = \Delta U + L
+	\end{align*} 
+	Oppure, in forma differenziale
+		\begin{align*} 
+		\delta Q = d U + \delta L
 	\end{align*} 
 \end{definition}
 Quest'ultima formula è la formalizzazione del primo principio della termodinamica
@@ -1474,10 +1480,12 @@ Se il gas non fosse perfetto non dipenderebbe solo da $\theta$ ma anche da V per
 \end{align*} 
 
 Dove il primo membro è stato sostituito con quanto ottenuto precedentemente per i gas perfetti.\\
-\'{E} necessario anticipare una relazione che dimostreremo in seguito che esprime la \textbf{seconda equazione dell'enrgia}
-\[ \left(\frac{\partial U}{\partial V}\right)_{\theta} = \theta \left(\frac{\partial p}{\partial \theta}\right)_v - p \]
+\'{E} necessario anticipare una relazione che dimostreremo in seguito che esprime la \textbf{prima equazione dell'energia}, che sarà dimostrata nella sezione \ref{sec:prima_eq_energia}.
+\begin{align}\label{eq:prima_eq_energia}
+	\left(\frac{\partial U}{\partial V}\right)_{\theta} = \theta \left(\frac{\partial p}{\partial \theta}\right)_v - p 
+\end{align}
 Questa è valida per una singola mole dunque restringiamo la trattazione ad una mole per poi tornare infine al caso generale.\\
-Per l'equazione dei gas reali sappiamo l'espressione di p in funzione di V e \(\theta\), possiamo derivarla rispetto a $\theta$ per poi sostituirla nella seconda equazione dell'energia. 
+Per l'equazione dei gas reali sappiamo l'espressione di p in funzione di V e \(\theta\), possiamo derivarla rispetto a $\theta$ per poi sostituirla nella prima equazione dell'energia. 
 
 \begin{align*} 
 	&p = \frac{R\theta}{v-b}-\frac{a}{v^2}\\
@@ -2351,12 +2359,13 @@ Per un numero infinito di macchine di Carnot (e quindi di termostati con cui lav
 \begin{align*}
 	\oint \frac{\delta Q}{T}\leq 0
 \end{align*}
+Quest'ultima è detta \textbf{disuguaglianza di Clausius}.
 \subsection{Completamento del teorema di Carnot}
 Il teorema di Carnot per come abbiamo visto si limita a fornire informazioni su una macchina reversibile che opera tra o con due serbatoi. Vogliamo ora estendere il teorema a macchine reversibili che lavorano con infiniti serbatoi e dimostrare che comunque il rendimento è minore di quello di una macchina di Carnot che lavora fra o con le stesse temperature minima e massima.\\
 Consideriamo una trasformazione ciclica continua qualsiasi che lavora fra due isoterme \(T_1\) e \(T_2\) e approssimiamola con un numero discreto di cicli di Carnot come in figura, l'approssimazione è fatta in modo che il calore scambiato sia lo stesso di quello nel tratto di ciclo continuo corrispondente
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.6\linewidth]{../images/ciclo_continuo}
+	\includegraphics[width=0.5\linewidth]{../images/ciclo_continuo}
 	\caption{Schema dell'approssimazione di un ciclo continuo mediante un numero discreto di cicli di Carnot (due adiabatiche e due isoterme).}
 	\label{fig:ciclocontinuo}
 \end{figure}
@@ -2371,7 +2380,7 @@ Possiamo dividere il calore scambiato nel ciclo in una componente positiva (AB) 
 	&\oint \frac{\delta Q}{T} = \int_A^B \frac{|\delta Q_r|}{T}- \int_B^A \frac{|\delta Q_c|}{T}= 0\\
 	&\Rightarrow \int_A^B \frac{|\delta Q_r|}{T} = \int_B^A \frac{|\delta Q_c|}{T}
 \end{align*}
-Visto che per ipotesi \(T_1\) e \(T_2\) sono le temperature estreme, \(T_2<T<T_1 \Rightarrow \frac{1}{T_2}>T>\frac{1}{T_1}\).
+Visto che per ipotesi \(T_1\) e \(T_2\) sono le temperature estreme, \(T_2<T<T_1 \Rightarrow \frac{1}{T_2}>\frac{1}{T}>\frac{1}{T_1}\).
 \begin{align*}
 	&\int_A^B \frac{|\delta Q_r|}{T_1} < \int_A^B \frac{|\delta Q_r|}{T} = \int_B^A \frac{|\delta Q_c|}{T} < \int_B^A \frac{|\delta Q_c|}{T_2}\\
 	&\frac{1}{T_1} \int_A^B |\delta Q_r| < \frac{1}{T_2} \int_B^A |\delta Q_c|\\
@@ -2383,72 +2392,75 @@ ciò dimostra il teorema di Carnot per macchine che lavorano tra infiniti serbat
 \section{L'entropia}
 Torniamo a considerare un ciclo continuo reversibile che va dallo stato A a quello B e vice versa. Distinguiamo il tratto reversibile da A a B \(R_1\) ed \(R_2\) da B ad A. Questi percorsi sono del tutto generici, come lo sono gli estremi A e B. 
 \begin{align*}
-	&\oint \frac{\delta Q}{T} = \left(\int_A^B\right)_{R_1} \frac{\delta Q}{T} + \left(\int_B^A\right)_{R_2} \frac{\delta Q}{T} = 0
+	&\oint \frac{\delta Q}{T} = \left(\int_A^B  \frac{\delta Q}{T}\right)_{R_1} + \left(\int_B^A \frac{\delta Q}{T}\right)_{R_2}  = 0
 \end{align*}
 Essendo trasformazioni reversibili possiamo invertire \(R_2\) semplicemente cambiando il segno
 \begin{align*}
-	&\left(\int_B^A\right)_{R_2}  \frac{\delta Q}{T} = -\left(\int_A^B\right)_{R_2}  \frac{\delta Q}{T}\\
-	&\Rightarrow \left(\int_B^A\right)_{R_1}  \frac{\delta Q}{T} = \left(\int_A^B\right)_{R_2} 
+	&\left(\int_B^A \frac{\delta Q}{T}\right)_{R_2} -\left(\int_A^B \frac{\delta Q}{T}\right)_{R_2} = 0  \\
+	&\Rightarrow \left(\int_B^A \frac{\delta Q}{T}\right)_{R_1}   = \left(\int_A^B \frac{\delta Q}{T}\right)_{R_2} 
 \end{align*}
 Vista l'arbitrarietà dei percorsi e degli stati iniziali e finali, se ne deduce che, qualunque essi siano, la grandezza \(\frac{\delta Q}{T}\) dipende unicamente dagli stati iniziali e finali della trasformazione. Possiamo quindi definire una nuova variabile di stato: l'\textbf{entropia}. Definiamo l'entropia di uno stato come 
 \begin{align*}
-	S(A) = \int_0^A \frac{\delta Q}{T}
+	S(A) = \left(\int_0^A \frac{\delta Q}{T}\right)_{R}
 \end{align*}
-dove è arbitrario scegliere il punto in cui \(S(0)=0\). Questo procedimento è del tutto analogo al calcolo dell'energia interna o dell'energia potenziale gravitazionale (anch'esse variabili di stato) in cui il punto in cui la variabile è nulla è arbitrario. Ciò non è rilevante perché solitamente di parla di variazione di entropia e al costante si elimina
+dove è arbitrario scegliere il punto in cui \(S(0)=0\). \'{E} fondamentale notare che l'entropia è definita unicamente in percorsi reversibili. Essendo una variabile di stato è possibile calcolarla in percorsi irreversibili considerando una trasformazione reversibile che operi fra gli stessi stati iniziale e finale. Questo procedimento è del tutto analogo al calcolo dell'energia interna o dell'energia potenziale gravitazionale (anch'esse variabili di stato) in cui il punto in cui la variabile è nulla è arbitrario. Ciò non è rilevante perché solitamente di parla di variazione di entropia e al costante si elimina
 \begin{align*}
-	\Delta S_{AB} = \int_A^B \frac{\delta Q}{T}
+	\Delta S_{AB} = \left(\int_A^B \frac{\delta Q}{T}\right)_R
 \end{align*}
 dove la trasformazione che va da A a B è reversibile.\\
 Consideriamo ora il caso di un ciclo irreversibile, formato da un tratto AB irreversibile ed uno BA reversibile. Abbiamo
 \begin{align*}
-	&\oint =\left( \int_B^A\right)_R \frac{\delta Q}{T} + \left(\int_A^B\right)_I \frac{\delta Q}{T}=\left(\int_B^A \right)_I \frac{\delta Q}{T} - \Delta S < 0\\
-	&\Delta S > \left(\int_B^A\right)_I \frac{\delta Q}{T}\\
-\end{align*}
-Si noti che se la trasformazione è adiabatica la variazione di entropia è nulla perché non si hanno scambi di calore \((\delta Q = 0)\). \\
-Dunque, se un sistema è isolato termicamente ed evolve spontaneamente, se effettua trasformazioni reversibili l'entropia dell'universo resta costante, se ne fa di irreversibili l'entropia aumenta. Ne segue che l'entropia dell'universo tende ad aumentare finché possibile. Visto che quella delle trasformazioni perfettamente reversibili è un'idealizzazione, l'entropia di qualsiasi trasformazione reale aumenta dunque 
+	&\oint \frac{\delta Q}{dT}=\left( \int_A^B  \frac{\delta Q}{T}\right)_I + \left(\int_B^A \frac{\delta Q}{T}\right)_R =\left(\int_A^B \frac{\delta Q}{T}\right)_I  - \Delta S_{AB} < 0\\
+	&\Delta S_{AB} > \left(\int_A^B \frac{\delta Q}{T}\right)_I \\
+\end{align*}Tenendo conto anche del caso reversibile si ha
+\[\Delta S_{AB} \geq \int_A^B \frac{\delta Q}{T}\]
+Quest'ultimo è detto \textbf{integrale di Clausius}, da non confondere con l'omonima disuguaglianza (da cui peraltro discende).\\
+Notiamo che in una trasformazione adiabatica reversibile non si hanno scambi di calore quindi la variazione d'entropia è nulla ma se questa avvenisse in modo irreversibile la variazione di entropia sarebbe maggiore di zero (ciò ci suggerisce che l'entropia non dipenda unicamente da scambi di calore). Visto che quella delle trasformazioni perfettamente reversibili è un'idealizzazione, l'entropia di qualsiasi trasformazione reale aumenta dunque 
 \begin{align*}
 	\Delta S_U = \Delta S_A + \Delta S_S > 0
 \end{align*}
+Dove A indica l'ambiente, S il sistema ed U l'universo.\\
 Nonostante l'entropia del sistema o dell'ambiente possano essere singolarmente minori di zero, la loro somma deve sempre essere positiva. 
 \subsection{Irreversibilità ed entropia}
 Basandoci sul fatto appena ricavato che l'entropia dell'universo deve aumentare, proviamo che i tre casi già visti in precedenza di esempi di trasformazioni termodinamiche irreversibili non possono avvenire in senso opposto (altrimenti l'entropia dell'universo diminuirebbe). 
 \subsubsection{Espansione libera}
-Riprendiamo il caso della scatola isolata divisa in due setti uguali inizialmente chiusi con un gas perfetto in un setto ed il vuoto nell'altro (stato A), dove la trasformazione termodinamica consiste nell'aprire il setto e lasciare il gas espandersi liberamente. Vogliamo dimostrare che la variazione di entropia è positiva. Per calcolare la variazione d'entropia sfrutto la definizione e scelgo una qualsiasi trasformazione reversibile che porti dallo stato A a quello B; la compressione isoterma (mettendo a contatto il sistema con un termostato) è il caso più semplice. 
+Riprendiamo il caso della scatola isolata divisa in due setti uguali inizialmente chiusi con un gas perfetto in un setto ed il vuoto nell'altro (stato A), dove la trasformazione termodinamica consiste nell'aprire il setto e lasciare il gas espandersi liberamente. Vogliamo dimostrare che la variazione di entropia è positiva. Per calcolare la variazione d'entropia sfrutto la definizione e scelgo una qualsiasi trasformazione reversibile che porti dallo stato A a quello B; l'espansione isoterma quasistatica reversibile (mettendo a contatto il sistema con un termostato) è il caso più semplice.
 \begin{align*}
-	&\Delta S = \int_{A}^{B}\frac{\delta Q}{T} = nR\int_{V_a}^{V_b}\frac{dV}{V} =nR\ln\left(\frac{V_b}{V_a}\right)= nR\ln(2)>0
+	\Delta S &= \left(\int_{A}^{B}\frac{\delta Q}{T}\right)_R = \int_{A}^{B}\frac{1}{T}\frac{nRT}{V}dV =nR\int_{V_a}^{V_b}\frac{dV}{V} =\\
+	&nR\ln\left(\frac{V_b}{V_a}\right)= nR\ln(2)>0
 \end{align*}
 \subsubsection{Sistema rampa e blocco}
 La trasformazione in cui il blocco scende dalla rampa con attrito è irreversibile quindi dobbiamo trovare una trasformazione reversibile che porti dallo stato A a quello B. Scegliamo quella in cui il blocchetto viene spostato in modo quasistatico dalla posizione in A a quella in B e poi viene riscaldato quasistaticamente iniettandovi calore in modo estremamente lento. Essendo la trasformazione reversibile l'entropia dell'universo deve essere nulla ma l'entropia del sistema deve aumentare. Visto che il calore viene iniettato dall'ambiente verso il sistema, la variazione di calore del sistema sarà positiva e così l'entropia. 
 \subsubsection{Passaggio di calore}
-Consideriamo due corpi che allo stato A sono a temperatura \(T_1\), \(T_2\) tali che \(T_2<T_1\)  con rispettive capacità termiche \(c_1\) e \(c_2\). Una volta messi a contatto la temperatura all'equilibrio (stato B) sarà
-\[T_e=\frac{c_1T_1 + c_2T_2}{c_1+c_2}\]
+Consideriamo due corpi che allo stato A sono a temperatura \(T_1\), \(T_2\) tali che \(T_2<T_1\)  con rispettive capacità termiche \(C_1\) e \(C_2\). Una volta messi a contatto la temperatura all'equilibrio (stato B) sarà
+\[T_e=\frac{C_1T_1 + C_2T_2}{C_1+C_2}\]
 La variazione di entropia dell'universo equivale alla variazione di entropia dei due corpi sommata
 \begin{align*}
-	&\Delta S_1 = \int_{A}^{B}\frac{\delta Q}{T} = \int_{T_1}^{T_e}\frac{c_1 dT}{T}=c_1 \ln\left(\frac{T_e}{T_1}\right)\\
-	&\Rightarrow \Delta S_U = \Delta S_1 + \Delta S_2 = c_1 \ln\left(\frac{T_e}{T_1}\right) + c_2 \ln\left(\frac{T_e}{T_2}\right)
+	&\Delta S_1 = \int_{A}^{B}\frac{\delta Q}{T} = \int_{T_1}^{T_e}\frac{C_1 dT}{T}=C_1 \ln\left(\frac{T_e}{T_1}\right)\\
+	&\Rightarrow \Delta S_U = \Delta S_1 + \Delta S_2 = C_1 \ln\left(\frac{T_e}{T_1}\right) + C_2 \ln\left(\frac{T_e}{T_2}\right)
 \end{align*}
 Vogliamo dimostrare che quest'ultima quantità sia maggiore di zero. Analizziamo due casi particolari in cui la dimostrazione è particolarmente semplice
 \begin{itemize}
-	\item \(c_1=c_2\)\\
+	\item \(C_1=C_2\)\\
 	\begin{align*}
-		&\Delta S_U = c\left(\ln\left(\frac{T_e^2}{T_1T_2}\right) \right) = c\left(\ln\left(\frac{(\frac{T_1 + T_2}{2})^2}{T_1T_2}\right) \right)=\\
-		&c\left(\ln\left(\frac{(T_1 + T_2)^2}{4T_1T_2}\right) \right)=c \ln\left[1 + \frac{(T_1 - T_2)^2}{4T_1T_2}\right]>0
+		&\Delta S_U = C\left(\ln\left(\frac{T_e^2}{T_1T_2}\right) \right) = C\left(\ln\left(\frac{(\frac{T_1 + T_2}{2})^2}{T_1T_2}\right) \right)=\\
+		&C\left(\ln\left(\frac{(T_1 + T_2)^2}{4T_1T_2}\right) \right)=C \ln\left[1 + \frac{(T_1 - T_2)^2}{4T_1T_2}\right]>0
 	\end{align*}
-	\item \(c_1>>c_2\)\\
-	Definiamo \(r \equiv \frac{c_2}{c_1}>>1\) e \(R \equiv \frac{T_2}{T_1}\)
+	\item \(C_1>>C_2\)\\
+	Definiamo \(r \equiv \frac{C_2}{C_1}>>1\) e \(R \equiv \frac{T_2}{T_1}\)
 	\begin{align*}
 		&T_e = \frac{T_1 + r T_2}{1+r}= \frac{1+rR}{1+r}T_1\\
-		&\Delta S_1 = c_1 \ln\left(\frac{T_e}{T_1}\right) = c_1 \ln\left(\frac{1+rR}{1+r}\frac{T_1}{T_1}\right)\\
-		&\simeq c_1(R-1)r = c_1(\frac{T_2}{T_1}-1) \frac{c_2}{c_1} = \frac{c_2 (\Delta T)}{T_1} = -\frac{|c_2\Delta T|}{T_1}=-\frac{|Q|}{T_1}
+		&\Delta S_1 = C_1 \ln\left(\frac{T_e}{T_1}\right) = C_1 \ln\left(\frac{1+rR}{1+r}\frac{T_1}{T_1}\right)\\
+		&\simeq c_1(R-1)r = c_1(\frac{T_2}{T_1}-1) \frac{C_2}{C_1} = \frac{C_2 (\Delta T)}{T_1} = -\frac{|C_2\Delta T|}{T_1}=-\frac{|Q|}{T_1}
 	\end{align*}
 	Dove è stato sviluppato il logaritmo naturale di \(\ln(1+rR)-\ln(1+r)\); infine sono stati sostituiti i valori definiti all'inizio con qualche sviluppo. Il valore assoluto è stato aggiunto perché per ipotesi \(T_2<T_1\).
 	\begin{align*}
-		&\Delta S_2 = c_2 \ln\left(\frac{T_1}{T_2}\right)\\
-		&\Delta S_U = \Delta S_1 + \Delta S_2 = c_2 \left(\frac{T_2}{T_1}-1\right) +  c_2 \ln\left(\frac{T_1}{T_2}\right) 
+		&\Delta S_2 = C_2 \ln\left(\frac{T_1}{T_2}\right)\\
+		&\Delta S_U = \Delta S_1 + \Delta S_2 = C_2 \left(\frac{T_2}{T_1}-1\right) +  C_2 \ln\left(\frac{T_1}{T_2}\right) 
 	\end{align*}
 	Dove \(T_1\) è la temperatura finale per il secondo corpo visto che il primo è un termostato. Ancora non è evidente che questa quantità sia maggiore di zero ma cambiando variabile \(x \equiv \frac{T_2}{T_1}\) otteniamo
 	\begin{align*}
-		\Delta S_U = c_2(x-1)+ c_2\ln(x^{-1}) = c_2\left[x-1-\ln(x)\right]
+		\Delta S_U = C_2(x-1)+ C_2\ln(x^{-1}) = C_2\left[x-1-\ln(x)\right]
 	\end{align*}
 	Considerando \(f(x) = x-1-\ln(x)\) ed effettuandone uno studio del segno notiamo che per \(x=1\) (\(T_1= T_2\)) la variazione d'entropia è nulla; sia per \(x<1\) che per \(x>1\) si ha invece che la funzione è positiva. 
 \end{itemize}
@@ -2456,7 +2468,7 @@ Vogliamo dimostrare che quest'ultima quantità sia maggiore di zero. Analizziamo
 \subsubsection{Corpi separati da un conduttore piano}
 Si consideri un caso analogo a quello visto nella sezione (\ref{sec:conduzione}) in cui due corpi a temperatura \(T_1\) e \(T_2\) tali che \(T_1 > T_2\) siano connessi da un conduttore piano mediante il quale scambiano calore. Analizziamo le variazioni di entropia dei tre oggetti che formano il nostro sistema. Il conduttore, nonostante al suo interno fluisca calore, ha uno stato costante nel tempo e, essendo l'entropia una funzione di stato, questa è nulla se lo stato non cambia. La variazione di entropia dell'universo sarà data solamente da quella dei due corpi 
 \begin{align*}
-	&\Delta S_U = \Delta S_1 + \Delta S_2 = Q\left(\frac{1}{T_2}-frac{1}{T_1}\right)>0
+	&\Delta S_U = \Delta S_1 + \Delta S_2 = Q\left(\frac{1}{T_2}-\frac{1}{T_1}\right)>0
 \end{align*}
 Il fatto che sia maggiore di zero deriva dall'ipotesi che \(T_1 > T_2\).
 
@@ -2464,16 +2476,21 @@ Il fatto che sia maggiore di zero deriva dall'ipotesi che \(T_1 > T_2\).
 La disuguaglianza di Clausius si limita ad esprimere una disuguaglianza, se volessimo trasformarla in un'uguaglianza, dovremmo sottrarre qualcosa a \(\Delta S\), vogliamo trovare questi termini.\\
 Cominciamo osservando che la quantità di calore assorbita da un sistema deve corrispondere ad una stessa quantità persa dall'ambiente, dunque
 \[\delta Q_s = -\delta Q_a\]
-Si noti ora che il sistema può perdere calore nell'ambiente ma non avrebbe senso dire che l'ambiente perde calore nel sistema. Ne segue che la variazione di entropia dell'ambiente è sempre uguale a \(\delta Q_a\) mentre non è detto che la variazione d'entropia del sistema non è detto che sia uguale a \(\delta Q_s\). 
+Si noti ora che il sistema può perdere calore nell'ambiente ma non avrebbe senso dire che l'ambiente perde calore nel sistema. Ne segue che la variazione di entropia dell'ambiente è sempre uguale a \(\delta Q_a\) mentre non è detto che la variazione d'entropia del sistema sia uguale a \(\delta Q_s\). 
 \begin{align*}
 	&dS_s + dS_a = dS_u\\
+	&dS_s + \frac{\delta Q_a}{T} = dS_u\\
 	&dS_s - \frac{\delta Q_s}{T} =dS_u\\
-	&\int\frac{\delta Q_s}{T} = \Delta S - \Delta S_u
+	&\int\frac{\delta Q_s}{T} = \Delta S_s - \Delta S_u
 \end{align*}
-quest'ultima è la versione completa della disuguaglianza di Clausius. Per un ciclo la variazione di entropia del sistema è nulla quindi
-\[\oint \frac{\delta Q}{T} = -\Delta S_u\]
+quest'ultima è la \textbf{versione completa dell' integrale di Clausius}. Per un ciclo la variazione di entropia del sistema è nulla quindi
+\[\oint \frac{\delta Q_s}{T} = -\Delta S_u\]
+Questa è la versione completa della \textbf{disuguaglianza di Clausius}.
 \subsection{Traccia di una trasformazione}
-La traccia di una trasformazione termodinamica è la variazione d'entropia che essa opera sull'universo. Per calcolare la traccia è utile far uso di tabelle come la seguente, che prende in esame un ciclo formato da un tratto reversibile AB ed uno irreversibile BA. 
+\begin{definition}[traccia di una trasformazione]
+	Si dice traccia di una trasformazione termodinamica la variazione d'entropia che essa opera sull'universo.
+\end{definition}
+Per calcolare la traccia è utile far uso di tabelle come la seguente, che prende in esame un ciclo formato da un tratto reversibile AB ed uno irreversibile BA. 
 \begin{table}[h!]
 	\begin{center}
 		\begin{tabular}{ || c| c | c| c|| }
@@ -2666,7 +2683,7 @@ Possiamo mostrare la validità di questa relazione per alcuni esempi particolari
 \subsubsection{Aggiungere un serbatoio termico}
 Confrontiamo due macchine: una C di Carnot che opera fra i serbatoi \(T_1\) (da cui riceve Q) e \(T_0\) ed una reversibile M formata da 3 serbatoi di temperatura tali che \(T_1\) cede calore Q a \(T_2\) (a temperatura minore di \(T_1\)) e \(T_1\) cede calore alla macchina M che produce lavoro e rilascia calore a \(T_0\). Vediamo la differenza fra i due lavori prodotti (ottenibili moltiplicando il calore assorbito per il rendimento delle macchine reversibili)
 \begin{align*}
-	&L_{max}^{(c)}-L_{max}^{(m)}=Q\left(1-\frac{T_0}{T_1}\right)-Q\left(1-\frac{T_0}{T_2}\right)=Q\left(\frac{T_0}{T_2}-\frac{T_0}{T_1}\right)=Q(\Delta S_{2-1}-\Delta S_{1-2}) 
+	&L_{max}^{(c)}-L_{max}^{(m)}=Q\left(1-\frac{T_0}{T_1}\right)-Q\left(1-\frac{T_0}{T_2}\right)=Q\left(\frac{T_0}{T_2}-\frac{T_0}{T_1}\right)=T_0(\Delta S_{2-1}-\Delta S_{1-2}) 
 \end{align*}
 Visto che il calore scambiato da \(T_1\) a \((T_2)\) è negativo mentre quello da \((T_2)\) a \(T_1\) è positivo la differenza fra il lavoro della macchina di Carnot e la macchina m è positiva. Il solo fatto di aver trasferito il calore da una sorgente più calda ad una più fredda (irreversibile) ha diminuito il rendimento della macchina M. La formula ottenuta è proprio \(T_0\Delta S_U\) di cui sopra. 
 \subsubsection{Espansione libera}
@@ -2677,7 +2694,225 @@ Consideriamo due termostati a temperatura \(T_1\) e \(T_2\) (per fissare le idee
 \[T_2 \Delta S_U = T_2(\Delta S{1-2}+\Delta S_{2-1})=T_2\left[\frac{|Q|}{T_2}-\frac{|Q|}{T_1}\right] = Q\left(1-\frac{T_2}{T_1}\right) =Q\eta_c\]
 Notiamo che il lavoro perduto è pari a quello massimo che avremmo potuto produrre con le medesime temperature ovvero quello di una macchina di Carnot operante tra \(T_1\) e \(T_2\). ù
 \subsection{Morte termica}
-Si consideri una macchina che opera tra le temperature \(T_1\) e \(T_2\): per produrre una certa quantità di lavoro dovrà cedere del calore al serbatoio freddo. Se poi quello stesso calore volessimo riportarlo al serbatoio caldo con un frigorifero di Carnot, per non fargli perdere energia e quindi farlo diminuire in temperatura visto che il frigo di Carnot ha rendimento minore di 1 (nonostante sia il massimo possibile) non si potrà riportare tutto il calore nuovamente a \(T_1\) quindi inevitabilmente la sorgente \(T_1\) è destinata a perdere energia e a diminuire in temperatura. Questo è un evento che avviene in qualsiasi macchina termica dell'universo e porta al risultato che ogni volta che si espleta del lavoro, la differenza di temperatura fra i due serbatoi fra cui avviene tende ad appiattirsi. L'universo tende asintoticamente ad azzerare le differenze di temperatura presenti al suo interno. In uno scenario in cui le differenze di temperatura saranno infinitesimali in ogni parte dell'universo non sarà possibile creare lavoro termodinamico (servono due sorgenti a temperatura diversa per il secondo principio) queso scenario è detto \textbf{morte termica} dell'universo. Quando questa ipotesi venne esposta per la prima volta a fine ottocento generò un forte impatto sul pensiero filosofico dell'epoca. 
+Si consideri una macchina che opera tra le temperature \(T_1\) e \(T_2\): per produrre una certa quantità di lavoro dovrà cedere del calore al serbatoio freddo. Se poi quello stesso calore volessimo riportarlo al serbatoio caldo con un frigorifero di Carnot, per non fargli perdere energia e quindi farlo diminuire in temperatura visto che il frigo di Carnot ha rendimento minore di 1 (nonostante sia il massimo possibile) non si potrà riportare tutto il calore nuovamente a \(T_1\) quindi inevitabilmente la sorgente \(T_1\) è destinata a perdere energia e a diminuire in temperatura. Questo è un evento che avviene in qualsiasi macchina termica dell'universo e porta al risultato che ogni volta che si espleta del lavoro, la differenza di temperatura fra i due serbatoi fra cui avviene tende ad appiattirsi. L'universo tende asintoticamente ad azzerare le differenze di temperatura presenti al suo interno. In uno scenario in cui le differenze di temperatura saranno infinitesimali in ogni parte dell'universo non sarà possibile creare lavoro termodinamico (servono due sorgenti a temperatura diversa per il secondo principio) questo scenario è detto \textbf{morte termica} dell'universo. Quando questa ipotesi venne esposta per la prima volta a fine ottocento generò un forte impatto sul pensiero filosofico dell'epoca. 
+\subsection{Il piano TS}
+Troviamo una relazione che leghi entropia ed energia interna
+\begin{align*}
+	&\delta Q_R = dU + \delta L_R \quad \frac{\delta Q_R}{T}=dS\\
+	&dU = \delta Q_R - \delta L_R = T dS - pdV\\
+	&dU = TdS - pdV+\sum_i x_idX_i
+\end{align*}
+Dove \(\sum_i x_idX_i\) rappresenta la somma degli altri tipi di lavoro generalizzato oltre quello pV, per ora non ne terremo conto. La relazione
+\[dU = TdS-pdV\]
+è detta \textbf{relazione fondamentale della termodinamica}, S e V sono dette \textbf{variabili naturali dell'energia interna}.\\ Possiamo considerare il piano che rappresenta temperatura ed entropia nei suoi assi: il piano TS. Su questo piano le adiabatiche sono segmenti verticali e le isoterme orizzontali, un ciclo di Carnot assume la forma particolarmente semplice di un rettangolo. Si nota che un'area rappresenta un calore infatti \(Q_R = TdS\), in particolare, in un ciclo l'area all'interno della curva chiusa rappresenta il calore che una macchina usa nel ciclo, ovvero calore assorbito meno calore ceduto. Ne segue che a parità di temperature fra cui opera il ciclo, quello con rendimento maggiore è quello con area maggiore. \'{E} immediato dimostrare che considerando un qualsiasi ciclo reversibile che opera fra due temperature, il suo rendimento sarà minore del ciclo di Carnot che lavora fra le stesse temperature (risultato che si ottiene con un semplice confronto di aree). 
+\subsection{Energia interna ed entropia}
+Possiamo esprimere l'energia interna mediante due qualsiasi grandezze termodinamiche indipendenti (nelle tipologie semplici di sistemi che consideriamo per ora in cui vi sono solo due gradi di libertà), dunque anche rispetto l'entropia
+\begin{align*}
+	&U = U(S,\ V))\\
+	&dU = \left(\frac{\delta U}{\delta S}\right)_V dS + \left(\frac{\delta U}{\delta V}\right)_S dV
+\end{align*} 
+Confrontando quest'ultima con la relazione fondamentale della termodinamica otteniamo 
+\begin{align*}
+	&\left(\frac{\partial U}{\partial S}\right)_V dS + \left(\frac{\partial U}{\partial V}\right)_S dV = T-p\\
+	&p = -\left(\frac{\partial U}{\partial S}\right)_V dS\ ; \quad T=\left(\frac{\partial U}{\partial V}\right)_S dV
+\end{align*}
+La relazione che lega temperatura energia interna ed entropia è di fondamentale importanza nella meccanica statistica in quanto è la definizione di temperatura che si adotta. infine, derivando ulteriormente otteniamo
+\begin{align*}
+	&\frac{\partial T}{\partial V} = - \frac{\partial p}{\partial S}\\
+	&\Rightarrow \frac{\partial^2 U}{\partial S\partial V} = \frac{\partial^2 U}{\partial V\partial S}
+\end{align*}
+quest'ultima è la relazione di Schwartz. 
+\section{Potenziali termodinamici}
+Abbiamo ricavato un'informazione del tutto generale su come si evolve l'universo: l'entropia dell'universo deve sempre aumentare; possiamo applicare questo concetto ai sistemi termodinamici per sapere se una certa evoluzione del suo stato (ad esempio una reazione chimica) può avvenire spontaneamente o meno. Abbiamo già visto che l'entropia di un sistema isolato deve sempre aumentare, dunque considerando un sistema chiuso basta calcolare la variazione di entropia che causerebbe l'ipotetica evoluzione del sistema per determinare se può avvenire spontaneamente o meno.Tuttavia in molti casi, come in chimica, i sistemi isolati sono di scarso interesse poiché si usano sempre sistemi chiusi (in cui però vi è scambio d'energia con l'ambiente) o addirittura aperti in cui anche il numero di moli della reazione può variare; servono dunque funzioni di stato diverse dall'entropia ma con una funzione analoga. In questa sede ci concentreremo nel caso di sistemi chiusi, in particolare in quelli dove V, T o p,T sono costanti. Le funzioni di stato necessarie si dicono \textbf{potenziali termodinamici}: funzioni tali che il sistema fisico tende a stabilizzarsi sul minimo di queste (proprio come un potenziale, da cui il nome). 
+
+\subsection{Energia libera di Helmholtz}
+Cominciamo trattando il caso con V, T costanti: definiamo la nostra funzione di potenziale termodinamico svolgendo alcune considerazioni
+\begin{align*}
+	&F \equiv U - TS\\
+	&dF = dU - TdS-SdT
+\end{align*}
+Essendo per ipotesi a temperatura costante possiamo scrivere
+\[dF = dU - TdS\]
+Confrontando il lavoro infinitesimo con la forma differenziale di F otteniamo
+\begin{align*}
+	&\frac{\delta Q}{T} \leq dS \Rightarrow \delta Q \leq TdS\\
+	&\delta L = -dU +\delta Q \leq -dU + TdS\\
+	&dL \leq - dF \\
+	&\Rightarrow L \leq -\Delta F =  F(A) - F(B)
+\end{align*}
+Calcolare questa differenza ci dice quanto lavoro possiamo al massimo estrarre da un sistema, anche detto \textbf{energia libera di Helmholtz}. In un sistema chimico, più complesso del semplice gas in un cilindro con pistone considerato finora, oltre al lavoro pV possono essere presenti altri tipi di lavoro generalizzato. 
+\[\delta L = \delta L^{(pV)}+\delta L^{(non-pV)} = pdV + \sum_i x_idX_i\]
+Visto che per ipotesi il volume è costante
+\[\delta L =\delta L^{(non-pV)} = \sum_i x_idX_i\]
+Se anche il lavoro non-pV fosse nullo, avremmo \(\delta L = 0 \) quindi per la relazione fra F ed L ricavata
+\[dF \leq 0 \Rightarrow \Delta F \leq 0 \Rightarrow F(B)\leq F(A)\]
+Interpretiamo questo risultato: se in un sistema termodinamico (a T e V costante) non è presente alcun lavoro generalizzato questo evolve spontaneamente verso stati in cui il potenziale F è minore e smette di evolvere quando questo raggiunge il suo minimo. Più precisamente, il sistema non smette di evolvere ma raggiunge un'equilibrio secolare in cui oscilla intorno al punto di minimo potenziale (come i pianeti che girano attorno al sole).\\
+Tuttavia, osservando più attentamente quanto ottenuto, vediamo che la funzione F evolve nel tempo ma, se il sistema avesse due gradi di libertà come sempre assunto fin ora, F potrebbe essere una funzione di qualsiasi due grandezze indipendenti del sistema. Potrebbe quindi anche essere una funzione di T e V, che abbiamo assunto costanti
+\begin{align*}
+	&F = F(T,\ V)\\
+	&dF = \left(\frac{\delta F}{\delta T}\right)_V dT + \left(\frac{\delta F}{\delta V}\right)_T dV = 0
+\end{align*}
+Ne seguirebbe che F è costante, c'è qualcosa che non va. L'unica supposizione fatta è che i gradi di libertà siano solamente due, questa derivava dalla supposizione di omogeneità del nostro sistema. In realtà quando abbiamo ipotizzato un'evoluzione nel tempo di F nonostante volume e temperatura fossero costanti e il lavoro fosse nullo, abbiamo assunto implicitamente che il sistema avesse altri gradi di libertà. Infatti, se fosse omogeneo, cosa potrebbe cambiare oltre p, V, T? I gradi di libertà nascosti sono generati dal fatto che il sistema non è omogeneo ma è formato da diversi componenti di base che a loro volta possono essere presenti in diverse fasi (stati di aggregazione). Non stiamo facendo altro che ridurre l'approssimazione con cui guardiamo il sistema, tenendo conto di altre energie che prima trascuravamo (un sistema possiede tanti tipi di energia diversa, da quella chimica a quella nucleare, a seconda dello studio che se ne vuole fare se ne considerano alcune ed altre no).\\
+Considerando un sistema fisico non omogeneo multicomponente multifase, trascurando le possibili reazioni chimiche che potrebbero avvenire tra i componenti, F dipende anche dal vettore $\vec{n}=(n_1,...,n_k)$ nel quale ogni \(n_i\) indica le moli di una sostanza che stanno in una fase (ad esempio \(n_1\) moli d'acqua allo stato liquido ed \(n_2\)di \(CO_2\) allo stato gassoso). Chiaramente, al variare di temperatura volume e pressione varieranno anche le entrate di $\vec{n}$ poiché possono avvenire passaggi di stato.\\
+Possiamo quindi riscrivere dF come  
+\begin{align*}
+	&F = F(T,\ V,\ \vec{n})\\
+	&dF = \left(\frac{\delta F}{\delta T}\right)_{\vec{n}, V} dT + \left(\frac{\delta F}{\delta V}\right)_{\vec{n}, T} dV+\sum_i \left(\frac{\delta F}{\delta n_i}\right)_{T,V} dn_i = \\
+	&\sum_i \left(\frac{\delta F}{\delta n_i}\right)_{T,V} dn_i\\
+\end{align*} 
+Dove nell'ultimo passaggio si è usato il fatto che V, T sono costanti.\\
+I termini
+ \[\mu_i = \left(\frac{\delta F}{\delta n_i}\right)_{S,V,n_j\neq n_i}\] 
+ sono detti \textbf{potenziali chimici}. Come dimostrato, in assenza di lavoro generalizzato F tende al suo minimo quindi dF è negativa. 
+\begin{align*}
+	dF = \sum_i \left(\frac{\delta F}{\delta n_i}\right)_{T,V} dn_i = \sum_i \mu_i dn_i \leq 0
+\end{align*}
+Vi sarà un valore ottimale di $\vec{n}_0$ tale che tutti i potenziali chimici saranno al minimo: queste sono le quantità di moli di ogni sostanza in ogni fase in cui la sostanza si stabilizzerà (oscillerà attorno in equilibrio secolare).\\
+Possiamo ora comprendere meglio cosa avvenga nelle isoterme dei gas reali nel segmento a pressione costante (si veda sezione (\ref{sec:correzione_gas_perfetti})). Ad esempio, considerando l'acqua, nel segmento a pressione costante abbiamo \(n_l\) moli di acqua allo stato liquido ed \(n_g\) allo stato gassoso all'equilibrio ovvero 
+\begin{align*}
+	&dF= \mu_l dn_l+ \mu_g dn_g = 0\\
+	&\Rightarrow \mu_l dn_l = -\mu_g dn_g
+\end{align*}
+Inoltre, essendo un sistema chiuso, non si ha perdita di moli quindi 
+\begin{align*}
+	&n_l + n_g = n = \text{costante}\\
+	&dn_l + dn_g = 0\\
+	&\Rightarrow dn_l = -dn_g
+\end{align*}
+Quindi, mettendo insieme i due risultati
+\[\mu_l = \mu_g\]
+Ne segue che i potenziali termodinamici dell'acqua all'equilibrio tra lo stato liquido e quello gassoso sono minimi quando si eguagliano.
+\subsection{Prima equazione dell'energia}\label{sec:prima_eq_energia}
+Con quanto appreso fin'ora possiamo dimostrare la prima equazione dell'energia, già citata precedentemente senza dimostrazione.\\
+Consideriamo una trasformazione infinitesima in cui si ha l'equilibrio fra i diversi componenti 
+\begin{align*}
+	&(T,\ V)\rightarrow (T+dT,\ V + dV)\\
+	&F \rightarrow F+dF
+\end{align*}
+Visto che \(dn_i = 0 \) (a causa dell'equilibrio), ricordando l'espressione di dF
+\[dF = \left(\frac{\delta F}{\delta T}\right)_{ V} dT + \left(\frac{\delta F}{\delta V}\right)_{T} dV\] 
+Ma per definizione 
+\begin{align*}
+	&F = U - TS\\
+	&dF = dU - TdS - S dT = -pdV -SdT 
+\end{align*}
+V e T sono dette variabili naturali di F. Confrontando le due espressioni di dF ottenute abbiamo che
+\begin{align*}
+	&-S = \left(\frac{\partial F}{\partial T}\right)_V\\
+	&-p =  \left(\frac{\partial F}{\partial V}\right)_T
+\end{align*}
+Sfruttando il teorema di Schwartz
+\[\left(\frac{\partial S}{\partial V}\right)_{T,\vec{n}} =  \left(\frac{\partial p}{\partial T}\right)_{V,\vec{n}}\]
+Infine, ricordando l'espressione dell'energia interna rispetto le sue variabili naturali e considerando una trasformazione a T costante, dividiamo per dV e sostituiamo
+\begin{align*}
+	&dU = TdS -pdV\\
+	&\left(\frac{\partial U}{\partial V}\right)_T = T \left(\frac{\partial S}{\partial V}\right)_T -p\\
+	&\left(\frac{\partial U}{\partial V}\right)_T = T \left(\frac{\partial p}{\partial T}\right)_V -p	
+\end{align*}
+Quest'ultima è la prima equazione dell'energia.
+\subsection{Energia libera di Gibbs}
+Un procedimento analogo a quello visto per l'energia libera di Helmholtz è applicabile nel caso in cui p e T siano costanti. Cominciamo con il definire una nuova variabile di stato G. 
+\begin{align*}
+	&\delta L = \delta L^{(pV) + \delta L^{(non-pV)}}\\
+	&\delta L^{(non-pV)} \leq -(dF + pdV)\\
+	&G \equiv U + pdV -TS = F -pdV\\
+	&dG = dF + pdV\\
+	&\Rightarrow dG \leq -\delta L^{(non-pV)}
+\end{align*}
+Considerando anche i lavori non-pV nulli si ottiene
+\[dG\leq 0 \Rightarrow G(B)\leq G(A)\]
+Analogamente a quanto visto per F, anche G rispetta la proprietà tipica dei potenziali: se il sistema evolve spontaneamente G va a diminuire fino a raggiungere il suo minimo ed a stabilizzarsi. Anche in questo caso possiamo definire i potenziali chimici come 
+\[\mu_i = \left(\frac{\partial G}{\partial n_i}\right)_{S,V,n_j\neq n_i}\]
+Possiamo scrivere quindi
+\begin{align*}
+	&G = \sum_i \mu_i n_i\\
+	&dG = \sum_i \mu_i dn_i
+\end{align*}
+\begin{exercise}[Respirazione cellulare]
+	La respirazione cellulare è un meccanismo biologico, fondamentale non solo per l'essere umano, per il quale glucosio ed ossigeno vengono trasformati in acqua, anidride carbonica ed energia, disponibile per svolgere le funzioni vitali.
+	\[C_6H_{12}O_6 + 6O_2\rightarrow 6CO_2 + 6H_2O\]
+	Il potenziale G tenderà a procedere sino a che non raggiungerà il suo minimo in cui non varierà più in quanto 
+	\[dG = \sum_i \mu_i dn_i = 0\]
+	Considerando una singola mole (g indica il potenziale molare:$\frac{ \Delta G}{mol}$), si ha che il potenziale è di 
+	\[\Delta g = -2840 \frac{kJ}{mol}\]
+	se la variazione di potenziale è negativa, esattamente come in un corpo che cade, la reazione avverrà spontaneamente, se fosse positivo, bisognerebbe fornire lavoro almeno pari a quello necessario per far variare il potenziale.  
+\end{exercise}
+\begin{exercise}[Salire le scale]
+	Quanti grammi di glucosio necessità un'uomo di \(M = 70 kg\) per salire 3 metri di scale?\\
+	La massa del glucosio sarà pari al numero di moli per il peso molare, che è calcolabile conoscendo quello di C, H ed O. 
+	\[M_m = 6(2\cdot 6)+12+6(2\cdot 8) = 180\frac{g}{mol}\]
+	Il rendimento del corpo umano è circa
+	\[\eta_{u} = 0.4\]
+	L'energia necessaria per salire 3 metri di scale è
+	\[\Delta U = M g h = 2060\ J\]
+	Il calore offerto da una mole di zucchero è \(2840\ kJ\), il lavoro estratto dal corpo umano è il 40\% quindi \(1136\ kJ\). Per fare il lavoro necessario per salire 3 metri di scale servono \(\frac{2060}{1136000}= 1.8\cdot 10^{-3}\ mol\) di glucosio, ovvero 0.33 grammi di glucosio. 
+\end{exercise}
+\subsection{Regola delle fasi di Gibbs}
+\begin{theorem}[Regola delle fasi di Gibbs]
+Il numero di variabili indipendenti (i gradi di libertà) necessarie a definire lo stato di un sistema termodinamico all'equilibrio è dato dall'espressione
+\[\nu = 2+C-F\]
+dove $\nu$ è il numero di gradi di libertà, C il numero di componenti del sistema ed F il numero delle fasi a cui si trovano i componenti del sistema.
+\end{theorem}
+Consideriamo il caso più generale di un sistema fisico composto da C componenti elementari ed F fasi per ciascun componente. Al posto di vedere $\vec{n}$ come un vettore di \(k =C\cdot F\) elementi, lo possiamo vedere invece come una matrice \(N\in M_{C\times F}\), con i componenti elementari sulle righe e le fasi sulle colonne.    
+\begin{align*}
+	N = \begin{pmatrix}
+		n_{11}&...&n_{1F}\\
+		n_{21}&...&n_{2F}\\
+		...&&\\
+		n_{C1}&...&n_{CF}
+	\end{pmatrix}
+\end{align*}
+Dove si passa da una colonna ad un'altra con cambiamenti di fase e da una riga all'altra con reazioni chimiche. Avendo già osservato che lo stato di equilibrio di un sistema fisico, utilizzando il potenziale di Gibbs, dipende da p, T ed N, ci chiediamo quante siano le variabili necessarie per definire univocamente uno stato di equilibrio. Una risposta immediata sarebbe quella di contare quante incognite abbiamo dunque 
+\[\text{n° variabili necessario }= 2 + CF\]
+Tuttavia non tutte le variabili sono indipendenti: servono meno variabili per determinare uno stato, si tratta ora di stabilire quali vincoli si instaurino per poter sapere quante variabili indipendenti sono effettivamente necessarie.\\
+Ogni sistema fisico all'equilibrio è regolato da un'equazione di stato (ad esempio quella per i gas perfetti e reali già viste) in cui figurano le variabili p, V, N, T; al posto di avere N come variabile (matrice numero di moli di ogni composto in ogni fase) possiamo avere \(N_V\) (matrice concentrazione molare di ogni composto in ogni fase) semplicemente dividendo N per il volume. Ad esempio, usando l'equazione di stato dei gas perfetti
+\begin{align*}
+	&pV = NRT\\
+	&p = \frac{N}{V} RT = N_V R T
+\end{align*}
+Dove la matrice \(N_V\) è
+\begin{align*}
+	N_V = \begin{pmatrix}
+		\frac{n_{11}}{V}&...&\frac{n_{1F}}{V}\\
+		\frac{n_{21}}{V}&...&\frac{n_{2F}}{V}\\
+		...&&\\
+		\frac{n_{C1}}{V}&...&\frac{n_{CF}}{V}
+	\end{pmatrix}
+\end{align*}
+Otteniamo quindi un'equazione di stato del tipo
+\begin{align}\label{eq:funz_di_stato_generale}
+	f(p,\ T,\ N_V)= 0
+\end{align}
+Osserviamo che in un sistema all'equilibrio termodinamico (per ogni p e V fissati), non avvengono reazioni chimiche o passaggi di fase. Dunque, fissati p e V, per ogni fase (liquida, gassosa, solida...) la concentrazione di ogni componente in quella fase è fissata: possiamo così scrivere la funzione a valori matrice come un sistema di funzioni a valori vettori. Di seguito un'esempio per chiarire il concetto
+\begin{exercise}[Esempio]
+	Consideriamo un sistema all'equilibrio che, a temperatura T e pressione P è formato da \(H_2O\) e \(CO_2\), in cui la concentrazione dell'acqua liquida è \(n_{al}\), gassosa \(n_{ag}\) mentre per la \(CO_2\) rispettivamente \(n_{cl}\), \(n_{cg}\). Se ne ricava che in questo caso
+	\begin{align*}
+		N_V = \begin{pmatrix}
+			n_{al}& n_{ag}\\
+			n_{cl}& n_{cg}
+		\end{pmatrix}
+	\end{align*}
+	Fissata la temperatura e la pressione, ogni fase di ogni composto ha una concentrazione molare fissata. quindi
+	\begin{align*}
+		f(p,\ T,\ N_V)=0 \rightarrow
+		\begin{cases}
+			f_{l}(p_1,\ T_1,\ \vec{n}_V^{(l)})=f(p_1,\ T_1,\ (n_{al}, n_{cl}))=0\\
+			f_{g}(p_2,\ T_2,\ \vec{n}_V^{(g)})=f(p_2,\ T_2,\ (n_{ag}, n_{cg}))=0
+		\end{cases}
+	\end{align*}
+\end{exercise}
+Generalizzando quanto visto nell'esempio, ricordando che N è una matrice \(C \times F\) possiamo sciogliere la funzione (\ref{eq:funz_di_stato_generale}) a valori matrice in un sistema di equazioni a valori vettori:
+\begin{align*}
+	\begin{cases}
+		f_1(p,\ T, \vec{n}_V^{(1)})\\
+		f_2(p,\ T, \vec{n}_V^{(2)})\\
+		...\\
+		f_F(p,\ T, \vec{n}_V^{(F)})
+	\end{cases}
+\end{align*}
+dove ci sono tante equazioni quante sono le fasi e ogni equazione ha C variabili dovute alle C componenti più 2 dovute a p e V. Abbiamo così un sistema di F equazioni in C+2 incognite, per il teorema di Rouchè-Capelli lo spazio delle soluzioni ha gradi di libertà pari al numero di incognite meno il numero di equazioni quindi
+\[\nu = C+2-F\]
+
 \appendix
 \section{Determinismo assoluto e libero arbitrio}
 La possibilità teorica di conoscere l'evoluzione (passata e futura) di un sistema fisico, diede vita al cosiddetto \textbf{determinismo assoluto} di Pierre Simon Laplace (1749 - 1827) secondo cui se si conoscesse lo stato di ogni particella nell'universo (per intenderci si stima ci siano $10^{80}$ protoni nell'universo osservabile) allora sarebbe possibile conoscere alla perfezione presente passato e futuro. Questa idea portata all'estremo sostiene che, se il cervello fosse mosso unicamente da reazioni chimiche (he altro non sono che cambiamenti nello stato del sistema cervello), se si conoscesse lo stato di ogni particella del cervello allora si potrebbe prevedere alla perfezione il comportamento di un essere umano. Da ciò sorgono svariati dilemmi filosofici, uno per tutti il problema del libero arbitrio: se ogni movimento, parola ed espressione umana fosse teoricamente prevedibile matematicamente allora la libertà che sembra scontata nell'agire umano sarebbe solamente apparente?\\
