@@ -16,6 +16,7 @@
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{definition}{Definition}
 \newtheorem{prop}{Proposition}
+\newtheorem{proof}{Proposition}
 \makeatletter
 \def\th@plain{%
 	\thm@notefont{}% same as heading font
@@ -105,7 +106,8 @@ Cominciamo con il definire l'\textbf{equilibrio termodinamico}: due o più siste
 	\item Termico: i sistemi hanno la stessa temperatura
 \end{itemize}	
 Si noti che la temperatura di cui si parla al terzo punto è per noi ancora una grandezza da definire, sappiamo solo che se due sistemi hanno la proprietà di essere all'equilibrio termico, questa grandezza è la stessa per entrambe i sistemi. La termodinamica che studieremo in questa sede si occupa di sistemi all'equilibrio, la trattazione delle fasi di transizione è ben più complessa.\\
-Definiamo ora il \textbf{contatto adiabatico} e quello \textbf{termico}: siano due sistemi A e B, di coordinate macroscopiche rispettivamente (x, y) ed (x', y'). Questi sono sono detti in contatto adiabatico se separati da una parete adiabatica, tale che le coordinate non cambino nel tempo; in contatto termico se le coordinate cambiano fino a quando non soddisfano una funzione f(x, y, x', y') = 0. Sia C un terzo sistema fisico di coordinate (x'', y''), disponiamo i sistemi A, B e C in modo che C sia in contatto termico con A e con B ma A sia in contatto adiabatico con B. Ci chiediamo se, in una situazione del genere, dopo un adeguato intervallo di tempo, i due sistemi A e B siano in equilibrio termodinamico fra loro. Questo equivale a chiedersi se vale la proprietà transitiva per l'equilibrio termodinamico. Ciò non è verificabile teoricamente mediante formule e perciò costituisce un principio fondamentale della termodinamica: il \textbf{principio zero}. La risposta è affermativa.
+Definiamo ora il \textbf{contatto adiabatico} e quello \textbf{termico}:
+siano due sistemi A e B, di coordinate macroscopiche rispettivamente (x, y) ed (x', y'). Questi sono sono detti in contatto adiabatico se separati da una parete adiabatica, tale che le coordinate non cambino nel tempo; in contatto termico se le coordinate cambiano fino a quando non soddisfano una funzione f(x, y, x', y') = 0. Sia C un terzo sistema fisico di coordinate (x'', y''), disponiamo i sistemi A, B e C in modo che C sia in contatto termico con A e con B ma A sia in contatto adiabatico con B. Ci chiediamo se, in una situazione del genere, dopo un adeguato intervallo di tempo, i due sistemi A e B siano in equilibrio termodinamico fra loro. Questo equivale a chiedersi se vale la proprietà transitiva per l'equilibrio termodinamico. Ciò non è verificabile teoricamente mediante formule e perciò costituisce un principio fondamentale della termodinamica: il \textbf{principio zero}. La risposta è affermativa.
 \begin{definition}[Principio zero]
 Se un corpo A è in equilibrio termico con un corpo C e anche un altro corpo B è in equilibrio termico con C, allora A e B sono in equilibrio termico tra loro.
 \end{definition}
@@ -576,14 +578,14 @@ Tornando al grafico (\ref{fig:vanderwaals}), le curve al di sotto della temperat
 	\label{fig:diagramma-di-fase}
 \end{figure}
 \FloatBarrier
-Data una curva di van der Waals, è possibile trovare il segmento in cui la pressione è costante (transizione di fase vapore-liquido) seguendo la \textbf{costruzione di Maxwell}. Basterà scegliere il segmento che rende uguali le aree contenute fra la curva sovrastante il segmento ed il segmento stesso e fra il segmento e la curva sottostante il segmento. Si veda la figura per chiarimenti.
+Data una curva di van der Waals, è possibile trovare il segmento in cui la pressione è costante (transizione di fase vapore-liquido) seguendo la \textbf{costruzione di Maxwell}. Basterà scegliere il segmento che rende uguali le aree contenute fra la curva sovrastante il segmento ed il segmento stesso e fra il segmento e la curva sottostante il segmento. Una motivazione di questo metodo è fornita in appendice
 \begin{figure}
 	\centering
 	\includegraphics[width=0.5\linewidth]{../images/"calcolo di maxwell"}
 	\caption{Il segmento compreso fra le intersezioni retta-curva rappresenta la transizione di fase, per ricavarlo bisogna che le due aree siano uguali.}
 	\label{fig:calcolo-di-maxwell}
 \end{figure}
-\FloatBarrier
+\FloatBarrier 
 Il volume nell'estremità destra del segmento è il volume occupato dal gas quando è saturo ($V_g$), cioè quando una variazione infinitesima di volume fa cominciare la condensazione mentre il volume alla sinistra del segmento è quello occupato dal liquido ottenuto a seguito della transizione di fase ($V_l$). Tutti i valori di $V_g$ e $V_l$ al variare della temperatura formano una parabola rovesciata, con vertice nel punto di temperatura critica, che corrisponde con la regione a pressione costante a cui si accennava sopra. \\
 Possiamo disegnare un grafico 3D in cui nel terzo asse poniamo la temperatura (fino ad ora abbiamo disegnato su uno stesso grafico 2D diverse sezioni del grafico 3D al variare di $\theta$) per distinguere 5 regioni: gas, vapore, vapore-liquido, liquido, solido più una sesta, non indicata nel grafico 3D ma presente in \ref{fig:diagrammadifasept} detta \textbf{regione supercritica} in cui si ha una condizione intermedia fra liquido e gas.  
 \begin{figure}[h!]
@@ -593,7 +595,8 @@ Possiamo disegnare un grafico 3D in cui nel terzo asse poniamo la temperatura (f
 	\label{fig:diagrammadifase3d}
 \end{figure}
 \FloatBarrier
-Possiamo notare inoltre che sotto una determinata temperatura avviene la transizione allo stato solido e che possiamo individuare un segmento in cui si ha uno stato intermedio fra quello di solido vapore e liquido, quelli sono i punti tripli al variare della temperatura. \'{E} interessante citare la regola delle fasi di Gibbs che ora risulta chiara: dette N il numero di variabili intensive indipendenti, F il numero di fasi e C il numero di componenti indipendenti che formano il composto, la legge di Gibbs afferma
+
+Infine, osserviamo che sotto una determinata temperatura avviene la transizione allo stato solido e che possiamo individuare un segmento in cui si ha uno stato intermedio fra quello di solido vapore e liquido, quelli sono i punti tripli al variare della temperatura. \'{E} possibile applicare la regola delle fasi di Gibbs (che in seguito sarà dimostrata): dette N il numero di variabili intensive indipendenti, F il numero di fasi e C il numero di componenti indipendenti che formano il composto, la legge di Gibbs afferma
 \begin{align*} 
 	N = C + 2 - F
 \end{align*}  
@@ -607,6 +610,7 @@ Inoltre, possiamo guardare la proiezione del grafico 3D sul piano PT per ottener
 \end{figure}
 \FloatBarrier
 Le curve (una per la solidificazione, una per la liquefazione e una per la sublimazione) sono l'insieme delle temperature di passaggio di stato possibili al variare della pressione. Ad esempio, vediamo come la temperatura di ebollizione aumenti all'aumentare della pressione. Inoltre possiamo apprezzare il punto triplo: l'intersezione delle tre curve. Il processo di cambiare stato da liquido a gassoso a temperatura costante variando la pressione si chiama cavitazione. Per temperature superiori a quella critica lo stato è detto \textbf{supercritico}, con caratteristiche intermedie fra quelle di liquido e di gas. 
+
 \section{Teoria cinetica dei gas} \label{sec:teoriacinetica}
 Vogliamo ora interpretare alcune grandezze fisiche macroscopiche introdotte precedentemente, (in particolare pressione e temperatura) dal punto di vista microscopico. Per far ciò, a partire dalla teoria della meccanica classica costruiremo il modello di una scatola piena di gas perfetto e la analizzeremo dal punto di vista microscopico. Se il modello e la teoria sono corretti, allora dovremo avere un riscontro empirico nella realtà, altrimenti dovremo modificare il modello (problema relativamente risolvibile) o, più drammaticamente, dovremo modificare la teoria. Cominciamo con il definire le caratteristiche del nostro modello. 
 \begin{enumerate}
@@ -999,7 +1003,7 @@ Vediamo dunque che esistono diverse categorie di lavoro generalizzato di cui il 
 
 Concentriamoci ora sul lavoro pV, quello che useremo di più, ricordando che ciò che svolgeremo è generalizzabile a tutti i tipi di lavoro cambiando le coordinate generalizzate.
 \subsection{Lavoro pV}
-Consideriamo un cilindro adiabatico (isolante termicamente) di volume V pieno di gas a temperatura $\theta$ su cui preme un pistone con pressione p. In questo caso il lavoro generalizzato infinitesimo è definito come la forza generalizzata esercitata dall'ambiente sul sistema cilindro-pistone per lo spostamento infinitesimo da essa provocato. Immaginiamo che il sistema sia immerso nell'aria a pressione di 1 atm e che sul pistone siano poste due masse $m_1$ ed $m_2$. Immaginiamo poi di togliere la massa $m_2$: avremo una pressione esterna iniziale ed una finale
+Consideriamo un cilindro adiabatico (che per ora vuol dire solamente "isolato termicamente") di volume V pieno di gas a temperatura $\theta$ su cui preme un pistone con pressione p. In questo caso il lavoro generalizzato infinitesimo è definito come la forza generalizzata esercitata dall'ambiente sul sistema cilindro-pistone per lo spostamento infinitesimo da essa provocato. Immaginiamo che il sistema sia immerso nell'aria a pressione di 1 atm e che sul pistone siano poste due masse $m_1$ ed $m_2$. Immaginiamo poi di togliere la massa $m_2$: avremo una pressione esterna iniziale ed una finale
 \begin{align*} 
 &p_e=p_a+\frac{(m_1+m_2)\cdot g}{S}\\
 &p_e'=p_a+\frac{m_1\cdot g}{S}\\
@@ -1131,40 +1135,41 @@ Dal punto di vista geometrico, rappresentando l' espansione e la compressione su
 \FloatBarrier
 Il lavoro di un ciclo non è altro che la circuitazione che in generale abbiamo visto essere diversa da zero. Ne segue quindi che in generale un lavoro generalizzato non è conservativo e che un lavoro conservativo è un caso particolare.
 %Tensione superficiale e bolla di sapone
-\section{Calore e primo principio}
-Cominciamo introducendo il lavoro adiabatico, ovvero il lavoro condotto tenendo un sistema all'interno di pareti adiabatiche (ovvero che non permette scambi di energia e materia fra il sistema e l'ambiente esterno). Procediamo illustrando un esperimento: effettueremo trasformazioni adiabatiche concatenate che porteranno da uno stato i ad uno stato f passando per percorsi diversi. Il sistema adottato è un fluido in un cilindro con un pistone.\\
+\section{Calore e primo principio}\label{sec:primo_principio}
+Cominciamo introducendo il \textbf{lavoro adiabatico}, ovvero il lavoro condotto tenendo un sistema all'interno di pareti adiabatiche (ovvero che non permette scambi di energia e materia fra il sistema e l'ambiente esterno). Procediamo illustrando un esperimento: effettueremo un due trasformazioni adiabatiche, che agiscono fra gli stessi stati iniziale e finale i ed f, passando per due percorsi diversi all'andata e a ritorno. Il sistema adottato è un fluido in un cilindro con un pistone.\\
 Nel primo caso faremo una compressione adiabatica (da i a 1) e un'espansione isoterma (da 1 a f). 
 \begin{align*} 
 	L = L_{i1}+L_{1f}= \int_{1}^{i}pdV +[\int_{f}^{1}pdV+mgh]
 \end{align*} 
-La prima trasformazione è ottenuta semplicemente comprimendo il gas con il pistone mentre la seconda facendolo espandere e riscaldandolo contemporaneamente mediante un apposito apparecchio (ad esempio un mulinello che girando dissipa energia meccanica facendo aumentare la temperatura).\\
-nel secondo caso faremo prima un'espansione isoterma (da i a 2) come visto prima e poi aumenteremo la temperatura mantenendo il volume costante. 
+La compressione adiabatica è ottenuta semplicemente comprimendo il gas con il pistone mantenendo il tutto fra pareti adiabatiche; l'espansione isoterma è ottenuta facendo espandere (alzando il pistone) e riscaldando il gas contemporaneamente mediante un apposito apparecchio (ad esempio un mulinello che girando dissipa energia meccanica facendo aumentare la temperatura).\\
+Nel secondo caso faremo prima un'espansione isoterma (da i a 2) come visto prima e poi aumenteremo la temperatura mantenendo il volume costante (isocora). 
 \begin{align*} 
 	L' = \int_{i}^{2}pdV+mgh'+mgh''
 \end{align*} 
-Si nota sperimentalmente che $L = L'$, da cui segue che, essendo il lavoro in un percorso chiuso, una trasformazione adiabatica è conservativa! Ne segue che il lavoro in questo caso è una funzione che dipende unicamente dallo stato iniziale e finale del sistema. 
+Si nota sperimentalmente che $L = L'$, da cui segue che, essendo il lavoro in un percorso chiuso, una trasformazione adiabatica è conservativa! Ne deduciamo che il lavoro in trasformazioni adiabatiche è una funzione che dipende unicamente dallo stato iniziale e finale del sistema. 
 \begin{align*} 
 	&\delta L = -dU\\
 	&\exists U : L^{(ad)} = -\Delta U = U_i-U_f
 \end{align*} 
+Dove U è una funzione che dipende unicamente dallo stato del sistema (\textbf{funzione di stato}); un'esempio è quello dell'energia potenziale in meccanica.
 Possiamo definire una nuova funzione di stato, che chiameremo \textbf{energia interna} U (misurata in Joule). La convenzione di porre il segno negativo serve per far risultare il lavoro positivo se $U_i>U_f$ in modo da poter interpretare il lavoro come una "spesa" di energia interna.\\
 Cosa succede se invece il lavoro non è adiabatico (uso pareti che non isolano il sistema)? Confrontiamo quindi una compressione adiabatica (da i ad f) con una compressione isoterma (da i a 1) concatenata ad un aumento di temperatura a volume costante (da 1 a f). Si noti che in quest'ultima trasformazione, visto che il volume non cambia, non abbiamo nessuno spostamento generalizzato dunque il lavoro sarà nullo. 
 \begin{align*} 
 &L^{(ad)} = \int_{i}^{f} p dV = -dU\\
-&L^{(na)} = \int_{i}^{1}pdV+0
+&L^{(non-ad)} = \int_{i}^{1}pdV+0
 \end{align*} 
-risulta chiaro che l'integrale da i ad 1 è minore di quello da i ad f dunque si ha
+visualizzando le trasformazioni sul piano pV, risulta che l'integrale da i ad 1 è minore di quello da i ad f poiché le isoterme hanno pendenza minore delle adiabatiche (per la dimostrazione si veda la sezione \ref{sec:trasformazioni_adiabatiche}) dunque si ha
 \begin{align*} 
-	L^{(na)}<L^{(ad)}
+	L^{(non-ad)}<L^{(ad)}
 \end{align*} 
-Possiamo quindi definire una nuova grandezza fondamentale in termodinamica: il \textbf{calore}.
+Risulta necessario, se si vuole mantenere il postulato di conservazione dell'energia, aggiungere una nuova grandezza termodinamica fondamentale che compensi la differenza tra lavoro adiabatico e non: dov'è finita l'energia persa nel passare dal processo adiabatico a quello non adiabatico? Introduciamo quindi il \textbf{calore}.
 \begin{definition}[Calore]
 	Definiamo calore la differenza tra il Lavoro compiuto in un percorso e il lavoro adiabatico che sarebbe compiuto nel percorso corrispondente. Essendo il lavoro adiabatico conservativo possiamo dare una definizione equivalente scrivendo
 	\begin{align*} 
 		Q = \Delta U + L
 	\end{align*} 
 	Oppure, in forma differenziale
-		\begin{align*} 
+		\begin{align*}
 		\delta Q = d U + \delta L
 	\end{align*} 
 \end{definition}
@@ -1175,7 +1180,11 @@ Quest'ultima formula è la formalizzazione del primo principio della termodinami
 Svolgiamo alcune considerazioni su quanto visto.
 \begin{itemize}
 \item Fisicamente il calore può essere visto come l'energia scambiata fra due sistemi in forma diversa dal lavoro. Cioè, la variazione di energia interna di un sistema è data dallo scambio di energia per lavoro (il pistone che si muove ad esempio)  e per scambio di calore.
-\item Possiamo ora meglio comprendere il ruolo delle pareti adiabatiche nelle trasformazioni: esse semplicemente non permettono che avvengano scambi di calore con l'ambiente.
+\item Possiamo ora meglio comprendere il ruolo delle pareti adiabatiche nelle trasformazioni: esse semplicemente non permettono che avvengano scambi di calore con l'ambiente, possiamo quindi ridefinire il concetto di adiabaticità:
+\begin{definition}[Adiabaticità]
+	Una trasformazione viene detta adiabatica se avviene in totale assenza di scambi di calore con l'esterno del sistema (ovvero con l'ambente).\\
+	Un contenitore è detto adiabatico se non permette lo scambio di calore con l'ambiente.
+\end{definition}
 \item Introdurre il concetto di calore non fa altro che dare un nome a tutte le energie che in meccanica erano "dissipate", ora sappiamo che queste non vengono perse ma trasformate in calore, che per ora è semplicemente un nome sotto cui cadono tutte le energie dissipate nelle trasformazioni. Ad esempio, l'energia meccanica "dissipata" da una forza d'attrito in realtà viene trasformata in calore. Ciò offre una estensione del principio di conservazione dell'energia meccanica ad un principio che ora diventa una legge di natura: il principio di conservazione dell'energia (L'energia non si crea e non si distrugge ma si trasforma). Per questo motivo la relazione espressa dal primo principio è universale, valida per qualsiasi tipo di trasformazione. 
 \item I differenziali $\delta Q$ e $\delta L$ non sono esatti ma $\delta(Q-L)$ lo è perché uguale a $dU$.
 \item In realtà la forma più generale del primo principio dovrebbe tener conto di tutte le energie agenti sul sistema che potrebbe ad esempio essere soggetto a campo gravitazionale. La forma più generale è dunque
@@ -1464,7 +1473,7 @@ Se ora apriamo il setto avremo un'espansione libera del gas, ci chiediamo se vi 
 Combinando quanto ottenuto possiamo scrivere
 \[U_f(\theta\ ,\ V_f) = U_i(\theta_i\ ,\ V_i)\]
 Nonostante il volume sia cambiato l'energia interna è rimasta la stessa, ne deduciamo che U, nel caso di un gas perfetto non dipende da V. Se avessimo considerato la dipendenza dalla pressione invece che dal volume avremmo ottenuto che, nonostante la variazione di pressione prima e dopo l'espansione, U non cambia dunque non dipende neanche da p. Se ne deduce che U dipende solo dalla temperatura.\\
-Possiamo rivedere la formula appena ottenuta di \(c_v\) in quanto ora sappiamo che la derivata di U rispetto a $\theta$ non è più parziale ma totale
+Possiamo rivedere la formula ottenuta di \(c_v\), ottenuta nella precedente sezione, in quanto ora sappiamo che la derivata di U rispetto a $\theta$ non è più parziale ma totale
 \[c_v =\frac{1}{n}\left(\frac{\partial U}{\partial\theta}\right)=\frac{1}{n}\left(\frac{dU}{d\theta}\right)\]
 Possiamo esplicitare il differenziale dell'energia interna da quest'ultima espressione ed integrare ambo i membri per trovare l'espressione funzionale dell'energia in terna rispetto alla temperatura per un gas perfetto.
 \begin{align}\label{eq:U_gas_perfetti}
@@ -1476,11 +1485,11 @@ A breve discuteremo la costante additiva appena ottenuta.
 Se il gas non fosse perfetto non dipenderebbe solo da $\theta$ ma anche da V perché non avremmo più solo energia cinetica ma anche energia potenziale, dovuta alle interazioni intermolecolari. Consideriamo nuovamente l'esperimento di Joule, anche se all'interno del bulbo ci fosse un gas reale, il primo principio continuerebbe ad essere valido e avremmo sempre\(\Delta U = 0\). Se a seguito dell'apertura del setto il volume in cui è contenuto il gas aumenta, la distanza media fra le molecole (r) aumenterà. Considerando il grafico di Lennard-Jones notiamo che all'aumentare di r aumenta anche l'energia potenziale (considerando anche il segno, diventa meno negativa) ma visto che l'energia interna deve rimanere costante ciò significa che l'energia cinetica dovrà diminuire. Se però la temperatura e l'energia cinetica sono essenzialmente la stessa cosa, allora anche la temperatura dovrà diminuire. Ne segue che in un gas reale l'energia interna dipende sia dalla temperatura che dal volume (\(U = U(\theta\ ,\ V)\)). 
 
 \begin{align*} 
-	dU = \left(\frac{\partial U}{\partial \theta}\right)_V d\theta + \left(\frac{\partial U}{\partial V}\right)_p dV = n c_v d\theta +\left(\frac{\partial U}{\partial V}\right)_{\theta dV}
+	dU = \left(\frac{\partial U}{\partial \theta}\right)_V d\theta + \left(\frac{\partial U}{\partial V}\right)_{\theta} dV = n c_v d\theta +\left(\frac{\partial U}{\partial V}\right)_{\theta}dV
 \end{align*} 
 
-Dove il primo membro è stato sostituito con quanto ottenuto precedentemente per i gas perfetti.\\
-\'{E} necessario anticipare una relazione che dimostreremo in seguito che esprime la \textbf{prima equazione dell'energia}, che sarà dimostrata nella sezione \ref{sec:prima_eq_energia}.
+Dove il primo membro è stato sostituito con quanto ottenuto precedentemente per i gas perfetti perché a volume costante l'influenza del volume sull'energia interna si annulla.\\
+\'{E} necessario anticipare una relazione che dimostreremo in seguito (sezione \ref{sec:prima_eq_energia}) che esprime la \textbf{prima equazione dell'energia}.
 \begin{align}\label{eq:prima_eq_energia}
 	\left(\frac{\partial U}{\partial V}\right)_{\theta} = \theta \left(\frac{\partial p}{\partial \theta}\right)_v - p 
 \end{align}
@@ -1496,17 +1505,17 @@ Per l'equazione dei gas reali sappiamo l'espressione di p in funzione di V e \(\
 Possiamo sostituire nuovamente l'espressione della pressione di un gas reale in quest'ultima equazione per ottenere
 
 \begin{align*} 
-	dU = c_v d\theta + \left[\frac{\theta R}{v-b}-\frac{\theta R}{v-b}+\frac{a}{v^2}\right] dV = c_v d\theta +\frac{a}{v^2}dV
+	dU = c_v d\theta + \left[\frac{\theta R}{v-b}-\frac{\theta R}{v-b}+\frac{a}{v^2}\right] dV = c_v d\theta +\frac{a}{v^2}dv
 \end{align*} 
 
 Si noti che, nel caso dell'esperimento di Joule con il gas perfetto, essendo \(dU = 0\), visto che sia \(c_v\) che \(\frac{a}{v^2}\) sono maggiori di zero, se il volume cresce la temperatura deve diminuire (come ottenuto dalle considerazioni sul grafico di Lennard-Jones).\\
 Integrando ambo i membri otteniamo l'espressione funzionale dell'energia interna rispetta a temperatura e volume per un gas perfetto. 
 \[U(\theta\ ,\ v) = c_v\theta - \frac{a}{v^2}+ cost.\]
 Possiamo riaggiungere la variabile del numero di moli (con considerazioni dimensionali otteniamo che al secondo termine deve essere \(n^2\))
-\[U(\theta\ ,\ v) = n c_v\theta - \frac{a n^2}{v^2}+ cost.\]
+\[U(\theta\ ,\ V) = n c_v\theta - a\frac{n^2}{V^2}+ cost.\]
 Si noti che in questa espressione compare solo la costante, tipica di ogni gas perfetto, a e non b; ciò è dovuto al fatto che a è il termine correttivo per la presenza di interazioni intermolecolari (rilevanti nel computo dell'energia interna) mentre b è il covolume, che non influenza l'energia interna. Per a che tende a zero si ottiene\( U(\theta)\) per i gas perfetti. Le espressioni precedenti hanno una validità molto ridotta, infatti se la temperatura fosse lo zero assoluto avremmo che l'energia interna sarebbe \(-\frac{a}{v^2}+cost.\), che non ha senso dal punto di vista fisico (oltre che un gas non sarebbe più tale allo zero assoluto). 
 \subsection{Energia interna per gas monoatomici, biatomici e poliatomici}\label{sec:energia_interna_mono_bi_poli}
-Possiamo vedere l'energia interna dal punto di vista microscopico come la somma dell'energia cinetica delle singole molecole, se ci sono molte molecole questa sarà pari all'energia cinetica media, di cui abbiamo già ricavato un'espressione precedentemente. 
+Possiamo vedere l'energia interna di un gas perfetto dal punto di vista microscopico come la somma dell'energia cinetica delle singole molecole, se ci sono molte molecole questa sarà pari all'energia cinetica media, di cui abbiamo già ricavato un'espressione precedentemente. 
 
 \begin{align*} 
 	&U = \sum_i \varepsilon_i= N_a \overline{\varepsilon} = N_a \frac{3}{2} k \theta = \frac{3}{2}n R \theta\\
@@ -1514,7 +1523,7 @@ Possiamo vedere l'energia interna dal punto di vista microscopico come la somma 
 	&\Rightarrow U = n c_v\theta
 \end{align*} 
 
-Si noti che abbiamo ricavato una nuova forma macroscopica dell'energia interna, passando per l'approccio microscopico, in cui non è presente la costante additiva risultante dall'integrale nel primo metodo. Ne deduciamo che, per l teoria cinetica dei gas, l'energia di un gas a zero gradi è nulla (sostituendo $\theta=0$). Oggi sappiamo, a fronte dell'approccio quantistico, che in realtà è impossibile avere una energia interna (e dunque un movimento) totalmente assente perché al minimo ci saranno sempre energie dovute all'incertezza inevitabile dovuta al principio d'indeterminazione. Il $c_p$ risulta essere invece \(\frac{5}{2}R\), si definisce infine $\gamma=\frac{c_p}{c_v}=\frac{5}{3}$.\\
+Si noti che abbiamo ricavato una nuova forma macroscopica dell'energia interna, passando per l'approccio microscopico, in cui non è presente la costante additiva risultante dall'integrale nel primo metodo. Ne deduciamo che, per la teoria cinetica dei gas, l'energia di un gas a zero gradi è nulla (sostituendo $\theta=0$). Oggi sappiamo, a fronte dell'approccio quantistico, che in realtà è impossibile avere una energia interna (e dunque un movimento) totalmente assente perché al minimo ci saranno sempre energie dovute all'incertezza inevitabile dovuta al principio d'indeterminazione. Il $c_p$ risulta essere invece \(\frac{5}{2}R\), si definisce infine $\gamma=\frac{c_p}{c_v}=\frac{5}{3}$.\\
 La trattazione svolta fin ora è valida solamente per gas perfetti monoatomici, se osserviamo molecole più complesse si nota che questi valori aumentano, in particolare per molecole biatomiche si ha
 \[c_v=\frac{5}{2}R\;\quad c_p=\frac{7}{2}R\ ; \quad \gamma = \frac{7}{5}\]
 Come ci spieghiamo questo fenomeno? Ricordando la funzione di energia cinetica interna (\ref{eq:energiacinetica_d.o.f.}) notiamo che, ripercorrendo i passaggi con cui abbiamo ottenuto $c_v$ e $c_p$, possiamo tener conto dei gradi di libertà.
@@ -1525,7 +1534,7 @@ Come ci spieghiamo questo fenomeno? Ricordando la funzione di energia cinetica i
 
 In una prima rozza approssimazione potremmo vedere le molecole più complesse (due o più atomi) come delle sfere (gli atomi) legati mediante aste (i legami) inestensibili, in questo caso gradi di libertà si calcolerebbero, come visto nel capitolo di meccanica, considerando 3 d.o.f. per ogni particella e sottraendo i legami linearmente indipendenti che si instaurano. Nel caso di una molecola biatomica abbiamo $\nu = 3+3-1 = 5$. Tuttavia una molecola presenta peculiarità che rendono questo modello inapplicabile, è necessario studiare più approfonditamente la questione. 
 \subsection{Molecole biatomiche}
-Se dovessimo vedere la molecola biatomica come un manubrio con i due atomi alle estremità (rotore rigido) avremmo solamente le componenti traslazionali e rotazionali dell'energia \(\varepsilon = \varepsilon{trasl}+\varepsilon_{rot}\). La componente traslazionale sarebbe del tutto simile a quella vista per il caso monoatomico (in cui tutta l'energia è di questo tipo) con l'unica differenza di considerare la traslazione del centro di massa del sistema. L'energia rotazionale è data, nella sua forma più generale, immaginando una rotazione complessa, dalla formula già vita in meccanica.
+Se dovessimo vedere la molecola biatomica come un manubrio con i due atomi alle estremità (rotore rigido) avremmo solamente le componenti traslazionali e rotazionali dell'energia \(\varepsilon = \varepsilon_{trasl}+\varepsilon_{rot}\). La componente traslazionale sarebbe del tutto simile a quella vista per il caso monoatomico (in cui tutta l'energia è di questo tipo) con l'unica differenza di considerare la traslazione del centro di massa del sistema. L'energia rotazionale è data, nella sua forma più generale, immaginando una rotazione complessa, dalla formula già vita in meccanica.
 \begin{align*} 
  \varepsilon_{rot} = \sum\frac{1}{2} I_{\mu u}\omega_{\mu}\omega_u \quad \text{per } \mu, u = \{1,2,3\}
 \end{align*} 
@@ -1564,7 +1573,7 @@ Tuttavia sappiamo che la massa non è equidistribuita nella molecola ma è conce
 	&d \simeq 0.75\AA = 0.75 \cdot 10^{-10}\ m\\
 	&R \simeq 2d\\
 	&r_p \simeq 1.7\ fm = 1.7\cdot 10^{-15}\ m\\
-	&m_p\simeq_n \simeq 2000m_e
+	&m_p\simeq m_n \simeq 2000m_e
 \end{align*} 
 Ne deduciamo che l'energia rotazionale rispetto l'asse C è trascurabile dunque
 \begin{align*} 
@@ -1615,12 +1624,12 @@ Nell'ambito della fisica classica non si riesce a spiegare perché c diminuisca 
  \[\Rightarrow c = \frac{6}{2}R = 3R\] 
 Che è proprio il valore a cui si stabilizza c sperimentale. 
 \subsection{Legame tra $c_p$ e $c_v$ in un gas perfetto}
-Cominciamo con il trovare \(dQ\) alla luce di quanto visto
-\begin{align*}
-	&pV = n R \theta \Rightarrow pdV = nRd\theta - Vdp \\
-	&dQ = dU+pdV = dU + nRd\theta - Vdp \\
-	&n c_vd\theta +nRd\theta - Vdp = n(c_v+R)d\theta-Vdp
-\end{align*}
+Cominciamo con il trovare \(dQ\) in termini di \(c_v\)
+\begin{align}
+	&pV = n R \theta \Rightarrow pdV = nRd\theta - Vdp\nonumber \\
+	&dQ = dU+pdV = dU + nRd\theta - Vdp =\nonumber\\
+	&n c_vd\theta +nRd\theta - Vdp = n(c_v+R)d\theta-Vdp\label{eq:calore_cp}
+\end{align}
 Dove il secondo passaggio è il primo principio della termodinamica a cui è stato sostituito il primo passaggio; nell'ultimo passaggio è stato sostituito quanto trovato nella (\ref{eq:U_gas_perfetti}). Se imponiamo la pressione costante (dp = 0) otteniamo
 \begin{align*}
 	&(dQ)_p=n(c_v+R)d\theta\\
@@ -1642,17 +1651,24 @@ Questa è detta \textbf{Relazione di Mayer}. Sfruttandola, e avendo ricavato i v
 	&\gamma^{(lin)} = 1 + \frac{2}{6 N - 5}
 \end{align*}
 Questo modello è valido per N piccoli ma per N che tende a infinito da queste equazioni risulterebbe che gamma in entrambi i casi tende ad 1, sperimentalmente si rileva che gamma tende a $\frac{4}{3}$.
-\section{Trasformazioni adiabatiche}
-A partire da $\delta Q$ ricavato, consideriamo una trasformazione adiabatica in cui non vi sono scambi di calore. 
+\section{Trasformazioni adiabatiche}\label{sec:trasformazioni_adiabatiche}
+A partire da $\delta Q$ ricavato nella (\ref{eq:calore_cp}), utilizzando la relazione di Mayer 
 \begin{align*}
-	&\delta Q = n c_v d\theta + pdV = n c_p d\theta - Vdp = 0\\
+	&\delta Q = n c_v d\theta + pdV = n c_p d\theta - Vdp 
+	\end{align*}
+	queste sono due forme equivalenti di esprimere calore, la prima rispetto \(c_v\) e la seconda rispetto \(c_p\). Considerando una trasformazione adiabatica, il calore scambiato è nullo quindi entrambe le relazioni devono essere contemporaneamente nulle
+	\begin{align*}
 	&\begin{cases}
-		n c_v d\theta = -pdV\\
-		n c_p d\theta = V dp
+		n c_v d\theta +pdV=0\\
+		n c_p d\theta - V dp=0
+	\end{cases}\\
+	&\begin{cases}
+	n c_v d\theta =-pdV\\
+	n c_p d\theta = V dp
 	\end{cases} \Rightarrow \gamma = - \frac{V}{p}\frac{dp}{dV}\\
 	& \frac{dp}{p} = -\gamma \frac{dV}{V} \\
 	&\Rightarrow \int\frac{dp}{p} = -\int\gamma \frac{dV}{V}\\
-	&\ln(p) = -\gamma \ln(V + cost. = -\ln(V^{\gamma}) + cost.\\
+	&\ln(p) = -\gamma \ln(V) + cost. = -\ln(V^{\gamma}) + cost.\\
 	&\ln(p)+\ln(V^{\gamma}) = cost.\\
 	&\ln(pV^{\gamma}) = cost.\\
 \end{align*}
@@ -1931,7 +1947,7 @@ Come visto, il calore è stato introdotto formalmente a seguito dell'enunciazion
 \subsection{Conduzione}\label{sec:conduzione}
 Si ha conduzione termica quando il trasferimento di calore avviene senza spostamento macroscopico di materia. Ad esempio, nei solidi lo scambio avviene a causa dell'oscillazione elastica del reticolo o dall'oscillazione degli elettroni nella banda di conduzione. \\
 La \textbf{Legge di Fourier} è una legge empirica che descrive il passaggio di calore per conduzione: presa una porzione infinitesima di sostanza di superficie dA e spessore dx, posta fra due temperature $\theta$ e $\theta+d\theta$, la quantità di calore trasferita da una faccia all'altra della sostanza è pari a 
-\[\frac{\delta Q}{dt}= - k dA \frac{d\theta}{dx}\]
+\[\frac{\delta Q}{dt}= - k A \frac{d\theta}{dx}\]
 La variazione del tempo del calore ha come unità il Watt ed è una potenza. Questa legge ci dice che il trasferimento di calore avviene dalla superficie a temperatura maggiore a quella minore (a causa del segno meno) proporzionalmente al gradiente di temperatura (la differenza di temperatura rispetto allo spessore), alla superficie di contatto e di una costante k (di dimensione \(W m^{-1} K^{-1}\)) detta \textbf{conducibilità termica}. Fisicamente, rappresenta un indice di "quanto bene la sostanza conduce il calore";  in generale la conducibilità termica può dipendere dalla temperatura (ad esempio nei gas $k = f(\sqrt{\theta}$)). Ecco alcuni esempi
 \begin{itemize}
 	\item $k_{Ag} = 400 W m^{-1} K^{-1}$
@@ -1983,7 +1999,7 @@ Per semplicità ricaviamo il caso semplice di due conduttori piani in serie, chi
 \subsection{Convezione}
 La convezione è un trasferimento di calore che avviene nei fluidi e che implica uno spostamento di materia. Il fenomeno è complesso dal punto di vista teorico ma è descritto approssimativamente dalla legge empirica, detta \textbf{legge di Newton}
 \begin{align*}
-	\frac{\delta Q}{dt} = h dA (\theta_0-\theta_{\infty})
+	\frac{\delta Q}{dt} = h A (\theta_0-\theta_{\infty})
 \end{align*}
 Dove $\theta_0$ è la temperatura iniziale del corpo di cui si vuole studiare l'evoluzione della temperatura nel tempo mentre $\theta_{\infty}$ è la temperatura dell'ambiente. A partire dalla legge di Newton è possibile ricavare la legge oraria della variazione di temperatura del corpo in funzione del tempo. Bisogna trovare una grandezza che faccia da "ponte" fra la variazione di calore nel tempo e la variazione di temperatura nel tempo, questa è la capacità termica. Assumiamo che il corpo immerso nell'ambiente abbia temperatura maggiore della temperatura ambiente \(\Delta\theta < 0\)
 \begin{align*}
@@ -2121,7 +2137,7 @@ Dunque in generale in un ciclo di una macchina isoterma si ha \(Q = L \leq 0\) d
 	\label{fig:macchina-termica}
 \end{figure}
 \FloatBarrier
-Si noti che per effettuare una trasformazione ciclica servono sempre almeno due serbatoi perché, come visto, se ci fosse solo un serbatoio (temperatura costante) l'area del ciclo sarebbe nulla. Dunque questo principio stabilisce l'impossibilità del moto perpetuo di seconda specie ovvero di sfruttare unicamente una fonte di calore, potenzialmente di capacità termica infinita (come il mare o l'aria) per creare lavoro. Parte del calore non viene convertito ma sprecato, dissipandosi in un serbatoio più freddo. \\
+Questo principio stabilisce l'impossibilità del moto perpetuo di seconda specie ovvero di sfruttare unicamente una fonte di calore, potenzialmente di capacità termica infinita (come il mare o l'aria) per creare lavoro. Parte del calore non viene convertito ma sprecato, dissipandosi in un serbatoio più freddo. \\
 Visto che non tutto il calore può essere trasformato in lavoro, possiamo definire l'efficienza come la frazione di calore assorbita convertita in lavoro utile
 \begin{align*}
 	\eta = \frac{L}{Q_1} = \frac{Q_1 + Q_2}{Q_1} = 1 + \frac{Q_2}{Q_1} = 1- \frac{|Q_2|}{|Q_1|}< 1
@@ -2186,7 +2202,7 @@ Il ciclo Diesel è un ciclo termodinamico per motori a combustione interna dove,
 \FloatBarrier
 Vogliamo ricavare il rendimento. L'unica trasformazione in cui si assorbe calore è l'isobara, l'unica in cui si cede è l'isocora
 \begin{align*}
-	&\eta = \frac{L}{Q_{abs}} = \frac{Q_{abs}+Q_{ced}}{Q_{abs}} = 1 +\frac{Q_{ced}}{Q_{abs}} = 1 + \frac{c_v(\theta_A-\theta_D)}{c_p(\theta_C-\theta_B)} = 1+\frac{1}{\gamma}\frac{(\theta_A-\theta_D)}{(\theta_C-\theta_B)} = 1 - \frac{(\theta_D-\theta_A)}{(\theta_C-\theta_B)}
+	&\eta = \frac{L}{Q_{abs}} = \frac{Q_{abs}+Q_{ced}}{Q_{abs}} = 1 +\frac{Q_{ced}}{Q_{abs}} = 1 + \frac{c_v(\theta_A-\theta_D)}{c_p(\theta_C-\theta_B)} = 1+\frac{1}{\gamma}\frac{(\theta_A-\theta_D)}{(\theta_C-\theta_B)} = 1 - \frac{(\theta_D-\theta_A)}{\gamma(\theta_C-\theta_B)}
 \end{align*}
 \subsection{Enunciato di Clausius}
 \begin{definition}[Macchina frigorifera]
@@ -2205,7 +2221,7 @@ Vista la definizione di macchina frigorifera, si deduce che questo principio vie
 \FloatBarrier
 Possiamo definire, analogamente al rendimento per una macchina termica, il coefficiente di prestazione per una macchina frigorifera
 \begin{definition}[coefficiente di prestazione]
-	Definiamo il coefficiente di prestazione di una macchina frigorifera come \[\omega =\equiv \frac{Q_2}{|L|} = \frac{Q_2}{|Q_1|-|Q_2|}\]
+	Definiamo il coefficiente di prestazione di una macchina frigorifera come \[\omega \equiv \frac{Q_2}{|L|} = \frac{Q_2}{|Q_1|-|Q_2|}\]
 \end{definition}
 Dimostriamo ora che l'enunciato di Kelvin-Planck (KP) e quello di Clausius (C) sono equivalenti. Preliminarmente, svolgiamo alcune considerazioni logiche.
 \begin{align*}
@@ -2247,13 +2263,13 @@ Visto che la seconda macchina espelle calore e lavoro, per la conservazione dell
 Unire queste due macchine equivale ad avere una macchina che assorbe \(Q-Q_C = Q' > 0 \) ed espelle \(Q-Q_A = 0\) producendo lavoro W. Questa macchina prende calore da una sola sorgente e produce lavoro, contraddice dunque l'enunciato di KP.  
 \end{enumerate} 
 \subsection{Ciclo di Carnot}
-Dopo aver visto vari tipi di cicli termodinamici con rendimenti diversi ci chiediamo quale sia il ciclo con il massimo rendimento e quanto questo valga, state il fatto che, per il secondo principio, è impossibile ostruire una macchina con rendimento pari ad 1. Lo scienziato francese Nicolas Léonard Sadi Carnot ( 1796 – 1832) si pose gli stessi quesiti pervenendo ad una soluzione ideando un ciclo detto appunto "di Carnot". Prima di illustrare il funzionamento di un ciclo siffatto è utile riportare il significati di trasformazione e ciclo reversibile.
+Dopo aver visto vari tipi di cicli termodinamici con rendimenti diversi è naturale chiedersi quale sia il ciclo con il massimo rendimento e quanto questo valga, stante il fatto che, per il secondo principio, è impossibile costruire una macchina con rendimento pari ad 1. Lo scienziato francese Nicolas Léonard Sadi Carnot ( 1796 – 1832) si pose gli stessi quesiti pervenendo ad una soluzione ideando un ciclo detto appunto detto "di Carnot". Prima di illustrare il funzionamento di un ciclo siffatto è utile riportare il significati di trasformazione e ciclo reversibile.
 \begin{definition}[Trasformazione reversibile]
 	Una trasformazione termodinamica è detta reversibile se è possibile operare una trasformazione dello stesso tipo ma in verso contrario tale che lo stato del sistema e dell'ambiente tornino identici allo stato iniziale. \\
 	Un ciclo reversibile è un ciclo formato unicamente da trasformazioni reversibili.
 \end{definition}
 Le condizioni di reversibilità sono la quasistaticità della trasformazione e l'assenza di forze dissipative (come l'attrito). Infatti, se il processo avviene quasistaticamente il sistema passa per stati d'equilibrio termodinamico che possono essere percorsi ugualmente nei due versi. Dunque, se nel passare per questi stati non si perde energia a causa di forze dissipative, alla fine di questi infiniti step di equilibrio sarà possibile tornare allo stato iniziale (anche il calore prelevato e rilasciato ai serbatoi fra cui opera la macchina deve essere scambiato in modo quasistatico).\\
-In natura non si osservano mai trasformazioni reversibili poiché è un fatto d'esperienza che è impossibile eliminare del tutto gli attriti.  Gli esempi di cicli termodinamici appena visti sono stati idealizzati come quasistatici (condizione necessaria affinché ogni stato attraversato dalla trasformazione sia definito) e non sono stati considerati gli attriti, ne segue che si è assunta la loro reversibilità. 
+In natura non si osservano mai trasformazioni reversibili poiché è un fatto d'esperienza che è impossibile eliminare del tutto gli attriti.  Gli esempi di cicli termodinamici visti in precedenza sono tutti irreversibili. Vediamo ora un esempio di ciclo reversibile.
 \begin{definition}[Ciclo di Carnot]
 	Il ciclo formato da due isoterme quasistatiche reversibili, chiuse da due adiabatiche quasistatiche reversibili, come in figura, è detto \textbf{ciclo di Carnot}.
 \end{definition} 
@@ -2267,21 +2283,20 @@ In natura non si osservano mai trasformazioni reversibili poiché è un fatto d'
 \FloatBarrier
 Il seguente teorema risponde alla domanda di inizio capitolo: qual è il ciclo con rendimento maggiore, a parità di serbatoi termici con i quali si opera? 
 \begin{theorem}[Teorema di Carnot]
-	Il rendimento di una macchina termica M che opera tra o con due serbatoi termici è sempre minore o uguale al rendimento della macchina di Carnot corrispondente.
+	Il rendimento di una macchina termica M che opera tra o con due serbatoi termici è sempre minore o uguale al rendimento della macchina reversibile corrispondente.
 	\[\eta \leq \eta_c\]
 \end{theorem}
-Per dimostrare questo teorema consideriamo una macchina termica M qualsiasi che assorbe Q da una sorgente calda a $\theta_1$ producendo un lavoro $L_m$ ed emette calore $Q-L_m$ ad un serbatoio a temperatura $\theta_2$. Consideriamo inoltre una macchina di Carnot C che assorbe Q dalla stessa sorgente calda a $\theta_1$ producendo un lavoro $L_c$ ed emette calore $Q-L_m$ ad un serbatoio a temperatura $\theta_2$. Vista l'invertibilità di una macchina di Carnot, possiamo trasformarla in una macchina frigorifera semplicemente cambiando i segni dei calori emessi/assorbiti e del lavoro emesso/assorbito. Otteniamo così una macchina $\overline{C}$ che possiamo unire alla macchina M, il calore scambiato con il serbatoio a $\theta_1$ è \(Q-Q = 0\) mentre con quello a $\theta_2$ scambia \(Q-L_m - (Q-L_c) = L_c-L_m\) e assorbe/produce lavoro pari a \(L_m-L_c\). Non sapendo quale sia maggiore tra \(L_c\) ed \(L_m\) non sappiamo in che direzione fluisca il calore e se il lavoro venga prodotto o assorbito. sappiamo tuttavia, per il secondo principio secondo Kelvin Planck che non può esistere una macchina che trasforma tutto il calore prelevato da un'unica sorgente in lavoro (impedisce dunque un verso) ne deduciamo che sarà il lavoro ad essere trasformato in calore, allora \[L_m-L_c \leq 0 \Rightarrow L_m \leq L_c\] Abbiamo così dimostrato che, a parità di temperature dei serbatoi tra o con cui opera una macchina generica ed una di Carnot, il lavoro di quest'ultima sarà sempre maggiore. Dividendo per Q ambo i membri e ricordando la definizione di rendimento
-\[\frac{L_m }{Q} \leq \frac{L_c}{Q} \Rightarrow \eta_m \leq \eta_c\]
-Dove la condizione di uguaglianza si verifica solo se anche $\eta_m$ è una macchina di Carnot.
+Per dimostrare questo teorema consideriamo una macchina termica M qualsiasi che assorbe Q da una sorgente calda a $\theta_1$ producendo un lavoro $L_m$ ed emette calore $Q-L_m$ ad un serbatoio a temperatura $\theta_2$. Consideriamo inoltre una macchina reversibile R che assorbe Q dalla stessa sorgente calda a $\theta_1$ producendo un lavoro $L_r$ ed emette calore $Q-L_m$ ad un serbatoio a temperatura $\theta_2$. Vista l'invertibilità di R, possiamo trasformarla in una macchina frigorifera semplicemente cambiando i segni dei calori emessi/assorbiti e del lavoro emesso/assorbito. Otteniamo così una macchina $\overline{R}$ che possiamo unire alla macchina M, il calore scambiato con il serbatoio a $\theta_1$ è \(Q-Q = 0\) mentre con quello a $\theta_2$ scambia \(Q-L_m - (Q-L_r) = L_r-L_m\) e assorbe/produce lavoro pari a \(L_m-L_r\). Non sapendo quale sia maggiore tra \(L_r\) ed \(L_m\) non sappiamo in che direzione fluisca il calore e se il lavoro venga prodotto o assorbito. sappiamo tuttavia, per il secondo principio secondo Kelvin Planck che non può esistere una macchina che trasformi tutto il calore prelevato da un'unica sorgente in lavoro (impedisce dunque un verso) ne deduciamo che sarà il lavoro ad essere trasformato in calore, allora \[L_m-L_r \leq 0 \Rightarrow L_m \leq L_r\] Abbiamo così dimostrato che, a parità di temperature dei serbatoi tra o con cui opera una macchina generica ed una reversibile, il lavoro di quest'ultima sarà sempre maggiore. Dividendo per Q ambo i membri e ricordando la definizione di rendimento
+\[\frac{L_m }{Q} \leq \frac{L_r}{Q} \Rightarrow \eta_m \leq \eta_r\]
+Dove la condizione di uguaglianza si verifica solo se anche $\eta_m$ è una macchina reversibile. 
 
-\begin{corollary}[Tutte le macchine di Carnot hanno lo stesso rendimento]
-Come dimostrato dal teorema di Carnot, il rendimento della macchina di Carnot è il maggiore ottenibile da una macchina termica. Date due macchine di Carnot C1 e C2 considerando C1 macchina termica qualsiasi e C2 macchina di Carnot abbiamo \[\eta_{c1}\leq \eta_{c2}\] Se contrariamente consideriamo C1 macchina di Carnot e C2 macchina termica generica, otteniamo \[\eta_{c1}\geq \eta_{c2}\] Mettendo a sistema le due precedenti relazioni si ottiene \[\eta_{c1} = \eta_{c2}\] Da cui si ricava che due macchine di Carnot qualsiasi hanno lo steso rendimento. 
+\begin{corollary}[Tutte le macchine reversibili hanno lo stesso rendimento]
+Come dimostrato dal teorema di Carnot, il rendimento della macchina reversibile è il maggiore ottenibile da una macchina termica. Date due macchine reversibili R1 e R2 considerando C1 macchina termica qualsiasi e R2 macchina reversibile abbiamo \[\eta_{r1}\leq \eta_{r2}\] Se contrariamente consideriamo R1 macchina reversibile e R2 macchina termica generica, otteniamo \[\eta_{r1}\geq \eta_{r2}\] Mettendo a sistema le due precedenti relazioni si ottiene \[\eta_{r1} = \eta_{r2}\] Da cui si ricava che due macchine reversibili qualsiasi hanno lo steso rendimento. 
 \end{corollary}
 
-A causa di questo corollario, notiamo che qualunque materiale venga usato in una macchina di Carnot, questa avrà sempre lo stesso rendimento che dipende unicamente da $\theta_1$ e $\theta_2$. 
+A causa di questo corollario, notiamo che qualunque materiale venga usato in una macchina di Carnot (che è reversibile), questa avrà sempre lo stesso rendimento che dipende unicamente da $\theta_1$ e $\theta_2$. 
 \[\eta_ c= f(\theta_1\ ,\theta_2 )\]
 Vogliamo calcolare f, visto che questa è indipendente dal tipo di materiale usato, adottiamo un gas perfetto per semplicità. 
-
 \begin{align*}
 	\eta_c = \frac{L}{Q}=\frac{Q_1 + Q_2}{Q_1}= 1 + \frac{Q_2}{Q_1}
 \end{align*} 
@@ -2295,15 +2310,17 @@ Nelle adiabatiche invece $Q=0$. Dalle precedenti si ricava
 	\eta_C = 1+\frac{\theta_1\ln(\frac{V_B}{V_A})}{\theta_2\ln(\frac{V_D}{V_C})}
 \end{align*}
 Visto che gli stati B-C e A-D sono legati da trasformazioni adiabatiche, possiamo sfruttare le relazione 
-\begin{align*}
+\begin{align}
 	&\begin{cases}
 		\theta_1 V_B^{\gamma -1} = \theta_2 V_C^{\gamma -1}\\
 		\theta_1 V_A^{\gamma -1} = \theta_2 V_D^{\gamma -1}
 	\end{cases}
-	\Rightarrow \frac{V_B}{V_A} = \frac{V_C}{V_D}\\
-	&\Rightarrow \eta_C = 1-\frac{\theta_1}{\theta_2}
-\end{align*}
-Possiamo anche ricavare il coefficiente di prestazione $\omega$ di un macchina frigorifera di Carnot. 
+	\Rightarrow \frac{V_B}{V_A} = \frac{V_C}{V_D}\nonumber\\
+	&\Rightarrow \eta_C = 1-\frac{\theta_1}{\theta_2}\label{eq:rendimento_carnot}
+\end{align}
+che è il \textbf{rendimento di una macchina di Carnot} e dove il meno è stato aggiunto poiché per convenzione il calore ceduto è negativo mentre la temperatura in Kelvin è sempre positiva.\\
+Visto che tutte le macchine reversibili hanno lo stesso rendimento, quest'ultima relazione vale per tutte le macchine reversibili.\\
+Possiamo anche ricavare il coefficiente di prestazione $\omega$ di un macchina frigorifera di Carnot (valido sempre per tutte le macchine frigorifere reversibili). 
 \begin{align*}
 \omega = \frac{Q_2}{|L|} = \frac{Q_2}{|Q_1|-|Q_2|} = \frac{\theta_2}{\theta_1 - \theta_2}
 \end{align*}
@@ -2322,11 +2339,14 @@ Ora, posso invertire C1 invertendo i segni e trasformandola in una macchina frig
 &\Rightarrow f(t_1\ , t_2) = \frac{f(t_1\ ,t_0)}{f(t_2\ ,t_0)}
 \end{align*}
 Dove nell'ultimo passaggio abbiamo uguagliato con quanto ottenuto appena sopra. data questa uguaglianza è necessario che \(t_0\) sia fattorizzabile da f per poterlo semplificare dunque
-\begin{align*}
+\begin{align}\label{eq:def_temperatura}
 &\frac{|Q_1|}{|Q_2|} = f(t_1\ , t_2) = \frac{f(t_1\ ,t_0)}{f(t_2\ ,t_0)}= \frac{T(t_1)\Psi(t_0)}{T(t_2)\Psi(t_0)}=\frac{T(t_1)}{T(t_1)}
-\end{align*}
+\end{align}
 Possiamo ridefinire la temperatura come la funzione T: \[T \equiv T(t)\]
-possiamo ora fissare la temperatura $T(t_2)\equiv T_3$ come la temperatura del punto triplo dell'acqua e il calore \(Q_2\equiv Q_3\) come il calore scambiato fra il corpo a temperatura del punto triplo con la macchina di Carnot dove invece \(Q_1\equiv Q\) è il calore scambiato tra la macchina di Carnot ed il corpo a temperatura incognita \(T(t_1)\equiv T_x\). 
+Da questa uguaglianza segue che 
+\[\eta_c = 1-\frac{T_1}{T_2}\]
+ma ricordando la (\ref{eq:rendimento_carnot}) ne segue l'uguaglianza delle due definizioni.\\
+Possiamo ora fissare la temperatura $T(t_2)\equiv T_3$ come la temperatura del punto triplo dell'acqua e il calore \(Q_2\equiv Q_3\) come il calore scambiato fra il corpo a temperatura del punto triplo con la macchina di Carnot dove invece \(Q_1\equiv Q\) è il calore scambiato tra la macchina di Carnot ed il corpo a temperatura incognita \(T(t_1)\equiv T_x\). 
 \[T_x = T_3\frac{|Q|}{|Q_3|}\]
 Ecco ottenuta una definizione del calore dipendente solamente dai calori scambiati da due corpi con la macchina di Carnot, e quindi indipendenti dal materiale usato per la misurazione. Abbiamo risolto il problema della definizione di temperature inferiori a \(0.5 K\).\\
 Da un punto di vista formale si ottiene che lo zero assoluto è ottenibile solo se \(Q = 0\), che equivale ad assumere l'esistenza di una macchina di Carnot che opera tra i serbatoi a temperatura \(T_3\) e \(T_0 = 0K\) non scambiando calore con il serbatoio freddo. Questo è apparentemente contraddittorio con l'enunciato K-P ma riflettendoci sarebbe assurdo fornire calore (energia) ad un serbatoio allo zero assoluto, che per definizione ha energia nulla. 
@@ -2338,27 +2358,46 @@ Confrontiamo il rendimento di una macchina termica generica ed una di Carnot, ri
 	&1 + \frac{Q_2}{Q_1} \leq \eta_c = 1 - \frac{T_2}{T_1}\\
 	&\Rightarrow \frac{Q_2}{T_2}+\frac{Q_1}{T_1}\leq 0
 \end{align*}
-Dove l'uguaglianza si avvera se la macchina è di Carnot. Se al posto di avere due termostati ne avessimo n (macchina politermica) come si modificherebbe questa disuguaglianza? Una macchina politermica può essere schematizzata come in figura
+Dove l'uguaglianza si avvera se entrambe le macchine sono reversibili.\\
+Se al posto di avere due termostati ne avessimo n da cui la macchina (ora politermica) scambia calore, come si modificherebbe questa disuguaglianza? Vogliamo dimostrare che:
+\begin{prop}
+Detti \(Q_i\) i calori scambiati dalla macchina \(M_g\) da serbatoi a temperatura \(T_i\), vale
+\[\sum_{i=1}^{n}\frac{Q_i}{T_i}\leq 0\]
+dove l'uguaglianza si avvera solo se tutte le macchine sono di Carnot.
+\end{prop}
+\begin{proof}
+Per dimostrarlo, consideriamo una macchina politermica generica \(M_g\) che scambia calore con n termostati. Consideriamo inoltre n macchine di Carnot che operano fra \(T_0 \) e \(T_i\) (una delle sorgenti da cui \(M_g\) assorbe calore). Ogni macchina di Carnot \(C_i\) è tale da scambiare calore con \(T_i\) uguale a quello scambiato da \(M_g\) con \(T_i\).\\
+Comprendendo la difficoltà di questa rappresentazione, di seguito è riportato uno schema.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.6\linewidth]{../images/macchina_polit}
-	\caption{Schema di una macchina politermica}
+	\caption{Schema della macchina politermica \(M_g\) in esame.}
 	\label{fig:macchinapolit}
 \end{figure}
 \FloatBarrier
-Sommando  tutte le macchine otteniamo una macchina singola (\(M_g+\sum_i^n C_i\)) che opera con un unico serbatoio termico, \(T_0\) e che produce/assorbe lavoro; si tratta di determinare il verso del lavoro e dello scambio di calore. Per il secondo principio secondo KP una macchina che assorbe calore da un unico serbatoio producendo calore non può esistere dunque il verso obbligato è quello in cui la macchina trasforma il lavoro in calore che emette al serbatoio \(T_0\). Ne risulta che il calore scambiato con il serbatoio ha segno negativo dunque 
+Sommando  tutte le macchine in gioco otteniamo una macchina singola (\(M_g+\sum_i^n C_i\)) che opera con un unico serbatoio termico, \(T_0\) e che produce/assorbe lavoro; si tratta di determinare il verso del lavoro e dello scambio di calore. Per il secondo principio secondo KP una macchina che assorbe calore da un unico serbatoio producendo calore non può esistere dunque il verso obbligato è quello in cui la macchina trasforma il lavoro in calore che emette al serbatoio \(T_0\). Ne risulta che il calore scambiato con il serbatoio ha segno negativo dunque 
 \[\sum_i Q'_i \leq 0\]
-Per ogni macchina di Carnot che forma la macchina politermica vale 
+Per ogni macchina di Carnot che forma la macchina politermica, ricordando la \ref{eq:def_temperatura}, vale 
 \[Q'_i = T_0 \frac{Q_i}{T_i}\]
 Dunque sommando tutti gli n calori scambiati dalle macchine di Carnot si ottiene
 \begin{align*}
 	&\sum_i Q'_i = \sum_i\frac{T_0 Q_i}{T_i}\leq 0\\
 	&\Rightarrow \sum_i \frac{Q_i}{T_i}\leq 0
 \end{align*}
+Essendo tutte le macchine prese in esame reversibili se le invertiamo tutte cambiano tutti i segni di \(Q_i\) quindi potremo scrivere
+\begin{align*}
+	&\sum_i -\frac{Q_i}{T_i}\leq 0\\
+	&\Rightarrow \sum_i \frac{Q_i}{T_i}\geq 0
+\end{align*}
+Visto che devono valere contemporaneamente i simboli $\leq$ e $\geq$ ne segue che se tutte le macchine sono reversibili si ha 
+\[\sum_i \frac{Q_i}{T_i} = 0\]
+se invece almeno una è reversibile vale la disuguaglianza.
+\end{proof}
 Per un numero infinito di macchine di Carnot (e quindi di termostati con cui lavora la macchina politermica) è possibile passare al continuo sostituendo la sommatoria all'integrale. Visto che il grafico di una macchina, in un piano di Clapeyron è una linea chiusa avremo un integrale su un percorso chiuso, ovvero una circuitazione, possiamo dunque scrivere
 \begin{align*}
 	\oint \frac{\delta Q}{T}\leq 0
 \end{align*}
+Dove l'uguaglianza vale se tutti i cicli sono reversibili.\\
 Quest'ultima è detta \textbf{disuguaglianza di Clausius}.
 \subsection{Completamento del teorema di Carnot}
 Il teorema di Carnot per come abbiamo visto si limita a fornire informazioni su una macchina reversibile che opera tra o con due serbatoi. Vogliamo ora estendere il teorema a macchine reversibili che lavorano con infiniti serbatoi e dimostrare che comunque il rendimento è minore di quello di una macchina di Carnot che lavora fra o con le stesse temperature minima e massima.\\
@@ -2396,42 +2435,54 @@ Torniamo a considerare un ciclo continuo reversibile che va dallo stato A a quel
 \end{align*}
 Essendo trasformazioni reversibili possiamo invertire \(R_2\) semplicemente cambiando il segno
 \begin{align*}
-	&\left(\int_B^A \frac{\delta Q}{T}\right)_{R_2} -\left(\int_A^B \frac{\delta Q}{T}\right)_{R_2} = 0  \\
-	&\Rightarrow \left(\int_B^A \frac{\delta Q}{T}\right)_{R_1}   = \left(\int_A^B \frac{\delta Q}{T}\right)_{R_2} 
+	&\left(\int_A^B \frac{\delta Q}{T}\right)_{R_1} -\left(\int_A^B \frac{\delta Q}{T}\right)_{R_2} = 0  \\
+	&\Rightarrow \left(\int_A^B \frac{\delta Q}{T}\right)_{R_1}   = \left(\int_A^B \frac{\delta Q}{T}\right)_{R_2} 
 \end{align*}
-Vista l'arbitrarietà dei percorsi e degli stati iniziali e finali, se ne deduce che, qualunque essi siano, la grandezza \(\frac{\delta Q}{T}\) dipende unicamente dagli stati iniziali e finali della trasformazione. Possiamo quindi definire una nuova variabile di stato: l'\textbf{entropia}. Definiamo l'entropia di uno stato come 
-\begin{align*}
-	S(A) = \left(\int_0^A \frac{\delta Q}{T}\right)_{R}
-\end{align*}
-dove è arbitrario scegliere il punto in cui \(S(0)=0\). \'{E} fondamentale notare che l'entropia è definita unicamente in percorsi reversibili. Essendo una variabile di stato è possibile calcolarla in percorsi irreversibili considerando una trasformazione reversibile che operi fra gli stessi stati iniziale e finale. Questo procedimento è del tutto analogo al calcolo dell'energia interna o dell'energia potenziale gravitazionale (anch'esse variabili di stato) in cui il punto in cui la variabile è nulla è arbitrario. Ciò non è rilevante perché solitamente di parla di variazione di entropia e al costante si elimina
+Vista l'arbitrarietà dei percorsi e degli stati iniziali e finali, se ne deduce che, qualunque essi siano, la grandezza \(\frac{\delta Q}{T}\) dipende unicamente dagli stati iniziali e finali della trasformazione. Possiamo quindi definire una nuova variabile di stato: l'\textbf{entropia}.
+\begin{definition}[Entropia]
+	Definiamo l'entropia di uno stato come 
+	\begin{align*}
+		S(A) = \left(\int_0^A \frac{\delta Q}{T}\right)_{R}
+	\end{align*}
+	dove è arbitrario scegliere il punto in cui \(S(0)=0\). \'{E} fondamentale notare che l'entropia è definita unicamente in percorsi reversibili.
+\end{definition}
+ Essendo una variabile di stato è possibile calcolarla in percorsi irreversibili considerando una trasformazione reversibile che operi fra gli stessi stati iniziale e finale. Questo procedimento è del tutto analogo al calcolo dell'energia interna o dell'energia potenziale gravitazionale (anch'esse variabili di stato) in cui il punto in cui la variabile è nulla è arbitrario. Ciò non è rilevante perché solitamente di parla di variazione di entropia e la costante si elimina
 \begin{align*}
 	\Delta S_{AB} = \left(\int_A^B \frac{\delta Q}{T}\right)_R
 \end{align*}
-dove la trasformazione che va da A a B è reversibile.\\
-Consideriamo ora il caso di un ciclo irreversibile, formato da un tratto AB irreversibile ed uno BA reversibile. Abbiamo
+dove la trasformazione che va da A a B è reversibile. Ne segue che l'entropia è definita a meno di una costante che, con l'introduzione del terzo principio della termodinamica (sezione \ref{sec:terzo_principio}), riusciremo a determinare.\\
+Infine, dalla definizione di variazione d'entropia è possibile ricavare il differenziale esatto 
+\[dS = \frac{\delta Q_r}{T}\]
+ricordando che \(\delta Q_r\) è la quantità infinitesima di calore scambiata in una trasformazione infinitesimale reversibile.
+\subsection{L'entropia dell'universo aumenta}
+Consideriamo il caso di un ciclo irreversibile, formato da un tratto AB irreversibile ed uno BA reversibile. Abbiamo, per la disuguaglianza di Clausius
 \begin{align*}
 	&\oint \frac{\delta Q}{dT}=\left( \int_A^B  \frac{\delta Q}{T}\right)_I + \left(\int_B^A \frac{\delta Q}{T}\right)_R =\left(\int_A^B \frac{\delta Q}{T}\right)_I  - \Delta S_{AB} < 0\\
 	&\Delta S_{AB} > \left(\int_A^B \frac{\delta Q}{T}\right)_I \\
 \end{align*}Tenendo conto anche del caso reversibile si ha
 \[\Delta S_{AB} \geq \int_A^B \frac{\delta Q}{T}\]
 Quest'ultimo è detto \textbf{integrale di Clausius}, da non confondere con l'omonima disuguaglianza (da cui peraltro discende).\\
-Notiamo che in una trasformazione adiabatica reversibile non si hanno scambi di calore quindi la variazione d'entropia è nulla ma se questa avvenisse in modo irreversibile la variazione di entropia sarebbe maggiore di zero (ciò ci suggerisce che l'entropia non dipenda unicamente da scambi di calore). Visto che quella delle trasformazioni perfettamente reversibili è un'idealizzazione, l'entropia di qualsiasi trasformazione reale aumenta dunque 
+Notiamo che in una trasformazione adiabatica reversibile non si hanno scambi di calore quindi la variazione d'entropia è nulla
+\[\Delta S_U = \Delta S_A + \Delta S_S = 0\]
+Dove A indica l'ambiente, S il sistema ed U l'universo.\\
+Se la trasformazione adiabatica avvenisse in modo irreversibile la variazione di entropia sarebbe maggiore di zero (ciò ci suggerisce che l'entropia non dipenda unicamente da scambi di calore)
 \begin{align*}
 	\Delta S_U = \Delta S_A + \Delta S_S > 0
 \end{align*}
-Dove A indica l'ambiente, S il sistema ed U l'universo.\\
-Nonostante l'entropia del sistema o dell'ambiente possano essere singolarmente minori di zero, la loro somma deve sempre essere positiva. 
+Visto che quella delle trasformazioni perfettamente reversibili è un'idealizzazione, l'entropia di qualsiasi trasformazione reale aumenta sempre. Nonostante l'entropia del sistema o dell'ambiente possano essere singolarmente minori di zero, la loro somma deve sempre essere positiva. \\
+Ne segue che se un sistema raggiunge il suo massimo possibile di entropia, questo non si trasformerà più in quanto questo comporterebbe un'ulteriore aumento d'entropia.\\
+\textbf{Lo stato più stabile per un sistema è quello ad entropia massima, a cui tutti i sistemi tendono spontaneamente}.
 \subsection{Irreversibilità ed entropia}
 Basandoci sul fatto appena ricavato che l'entropia dell'universo deve aumentare, proviamo che i tre casi già visti in precedenza di esempi di trasformazioni termodinamiche irreversibili non possono avvenire in senso opposto (altrimenti l'entropia dell'universo diminuirebbe). 
-\subsubsection{Espansione libera}
+\subsubsection*{Espansione libera}
 Riprendiamo il caso della scatola isolata divisa in due setti uguali inizialmente chiusi con un gas perfetto in un setto ed il vuoto nell'altro (stato A), dove la trasformazione termodinamica consiste nell'aprire il setto e lasciare il gas espandersi liberamente. Vogliamo dimostrare che la variazione di entropia è positiva. Per calcolare la variazione d'entropia sfrutto la definizione e scelgo una qualsiasi trasformazione reversibile che porti dallo stato A a quello B; l'espansione isoterma quasistatica reversibile (mettendo a contatto il sistema con un termostato) è il caso più semplice.
 \begin{align*}
 	\Delta S &= \left(\int_{A}^{B}\frac{\delta Q}{T}\right)_R = \int_{A}^{B}\frac{1}{T}\frac{nRT}{V}dV =nR\int_{V_a}^{V_b}\frac{dV}{V} =\\
 	&nR\ln\left(\frac{V_b}{V_a}\right)= nR\ln(2)>0
 \end{align*}
-\subsubsection{Sistema rampa e blocco}
+\subsubsection*{Sistema rampa e blocco}
 La trasformazione in cui il blocco scende dalla rampa con attrito è irreversibile quindi dobbiamo trovare una trasformazione reversibile che porti dallo stato A a quello B. Scegliamo quella in cui il blocchetto viene spostato in modo quasistatico dalla posizione in A a quella in B e poi viene riscaldato quasistaticamente iniettandovi calore in modo estremamente lento. Essendo la trasformazione reversibile l'entropia dell'universo deve essere nulla ma l'entropia del sistema deve aumentare. Visto che il calore viene iniettato dall'ambiente verso il sistema, la variazione di calore del sistema sarà positiva e così l'entropia. 
-\subsubsection{Passaggio di calore}
+\subsubsection*{Passaggio di calore}
 Consideriamo due corpi che allo stato A sono a temperatura \(T_1\), \(T_2\) tali che \(T_2<T_1\)  con rispettive capacità termiche \(C_1\) e \(C_2\). Una volta messi a contatto la temperatura all'equilibrio (stato B) sarà
 \[T_e=\frac{C_1T_1 + C_2T_2}{C_1+C_2}\]
 La variazione di entropia dell'universo equivale alla variazione di entropia dei due corpi sommata
@@ -2465,7 +2516,7 @@ Vogliamo dimostrare che quest'ultima quantità sia maggiore di zero. Analizziamo
 	Considerando \(f(x) = x-1-\ln(x)\) ed effettuandone uno studio del segno notiamo che per \(x=1\) (\(T_1= T_2\)) la variazione d'entropia è nulla; sia per \(x<1\) che per \(x>1\) si ha invece che la funzione è positiva. 
 \end{itemize}
 
-\subsubsection{Corpi separati da un conduttore piano}
+\subsubsection*{Corpi separati da un conduttore piano}
 Si consideri un caso analogo a quello visto nella sezione (\ref{sec:conduzione}) in cui due corpi a temperatura \(T_1\) e \(T_2\) tali che \(T_1 > T_2\) siano connessi da un conduttore piano mediante il quale scambiano calore. Analizziamo le variazioni di entropia dei tre oggetti che formano il nostro sistema. Il conduttore, nonostante al suo interno fluisca calore, ha uno stato costante nel tempo e, essendo l'entropia una funzione di stato, questa è nulla se lo stato non cambia. La variazione di entropia dell'universo sarà data solamente da quella dei due corpi 
 \begin{align*}
 	&\Delta S_U = \Delta S_1 + \Delta S_2 = Q\left(\frac{1}{T_2}-\frac{1}{T_1}\right)>0
@@ -2598,7 +2649,7 @@ Procedendo per righe, essendo AB reversibile la variazione d'entropia dell'unive
 \end{enumerate}
 \end{exercise}
 \subsection{Paradosso di Gibbs}
-Consideriamo una scatola isolata adiabaticamente divisa in due setti di egual volume da una parete conduttrice (i due setti sono all'equilibrio termico); all'interno dei setti ci sono due tipi di gas approssimabili come perfetti ma differenti con un numero di moli differente. Togliendo il setto i due gas si mischiano e la variazione di entropia dell'universo corrisponderà alla variazione di entropia del gas in A più quella del gas in B (non interagiscono fra loro perché sono gas perfetti). Abbiamo gi° visto la variazione di entropia di un gas perfetto in espansione libera adiabatica quindi
+Consideriamo una scatola isolata adiabaticamente divisa in due setti di egual volume da una parete conduttrice (i due setti sono all'equilibrio termico); all'interno dei setti ci sono due tipi di gas approssimabili come perfetti ma differenti con un numero di moli differente. Togliendo il setto i due gas si mischiano e la variazione di entropia dell'universo corrisponderà alla variazione di entropia del gas in A più quella del gas in B (non interagiscono fra loro perché sono gas perfetti). Abbiamo già visto la variazione di entropia di un gas perfetto in espansione libera adiabatica quindi
 \[\Delta S_U = \Delta S_A + \Delta S_B = (n_A + n_B)R\ln(2)\]
 Consideriamo ora il caso in cui nei due setti vi è la stessa quantità di gas e di moli e i due gas sono dello stesso tipo (indistinguibili). una volta tolto il setto divisorio, dal punto di vista macroscopico lo stato A e quello B sono indistinguibili (in questo caso bisogna vedere il gas non come un insieme di particelle ma come un fluido unico definito dalle sue variabili di stato). Ne segue che in questo caso la variazione di entropia è nulla (nulla è cambiato). Ne segue che, se dovessimo graficare la differenza di entropia in funzione di un parametro che indica la "diversità di due gas (che ad esempio indica che sono uguali quando questo parametro è uguale ad 1), avremmo che la variazione d'entropia è costante (ad \(nR\ln(2)\)) da 0 ad 1, 1 escluso, per poi arrivare a zero nel punto in cui i gas sono indistinguibili. Questa discontinuità teorica non ha spiegazione nella fisica classica, che è in grado solamente di formulare il problema. Per ottenere una risposta dovremo attendere l'introduzione della \textbf{termodinamica statistica}.
 \subsection{Entropia per gas reali}
@@ -2643,7 +2694,7 @@ Il problema dell'entropia che tende ad infinito è risolto. Per la maggior parte
 \end{exercise}
 \subsection{Entropia nei passaggi di stato}
 Sapiamo che nei passaggi di stato la temperatura rimane costante quindi
-\[\Delta S = \frac{Q}{T}=\pm\frac{m\lambda}{denT}\]
+\[\Delta S = \frac{Q}{T}=\pm\frac{m\lambda}{T}\]
 Lo scambio di calore in una trasformazione è dato dal calore che questa cede o rilascia nel passaggio di stato, valore che risulta dal prodotto di massa e calore latente ($\lambda$). Mentre il calore è una quantità algebrica che può essere positiva o negativa a seconda che sia assorbito o ceduto, m e $\lambda$ sono quantità positive quindi dovremo aggiungere un $\pm$. Ad esempio nel congelamento si cede energia quindi \(Q<0\Rightarrow \Delta S < 0\) mentre nella fusione si assorbe calore quindi \(Q<0\Rightarrow \Delta S < 0\). 
 \subsection{Legame tra entropia e lavoro}
  Non tutte le forme di lavoro sono uguali: alcuni tipi di energia possono produrre "meglio" lavoro termodinamico di altre e possono essere considerate "più pregiate". In questa sezione ci proponiamo di estendere il teorema di Carnot: se quest'ultimo enuncia che qualsiasi macchina ha rendimento minore di quello della macchina di Carnot (una disuguaglianza), vogliamo ora sapere di quanto i rendimenti differiscano (mediante un'uguaglianza). Cominciamo considerando una macchina termica irreversibile generica M che opera fra i serbatoi di temperatura \(T_1\), da cui assorbe Q, e \(T_2\), a cui cede \((L-Q)\) e che produce un lavoro L. Calcoliamone la variazione di entropia come somma delle variazioni d'entropia dei due serbatoi e della macchina
@@ -2689,7 +2740,7 @@ Visto che il calore scambiato da \(T_1\) a \((T_2)\) è negativo mentre quello d
 \subsubsection{Espansione libera}
 Tornando all'esempio dell'espansione libera in una scatola divisa in due volumi uguali, abbiamo già visto che la variazione d'entropia dell'universo da essa generata è \[\Delta S_U = n R \ln(2)\]
 Il lavoro perso sarà dunque \[T\Delta S_U = n R T \ln(2)\]
-\subsubsection{Due copri a contatto}
+\subsubsection{Due corpi a contatto}
 Consideriamo due termostati a temperatura \(T_1\) e \(T_2\) (per fissare le idee \(T_1 > T_2\)). Il lavoro perso è 
 \[T_2 \Delta S_U = T_2(\Delta S{1-2}+\Delta S_{2-1})=T_2\left[\frac{|Q|}{T_2}-\frac{|Q|}{T_1}\right] = Q\left(1-\frac{T_2}{T_1}\right) =Q\eta_c\]
 Notiamo che il lavoro perduto è pari a quello massimo che avremmo potuto produrre con le medesime temperature ovvero quello di una macchina di Carnot operante tra \(T_1\) e \(T_2\). ù
@@ -2712,10 +2763,11 @@ Possiamo esprimere l'energia interna mediante due qualsiasi grandezze termodinam
 	&dU = \left(\frac{\delta U}{\delta S}\right)_V dS + \left(\frac{\delta U}{\delta V}\right)_S dV
 \end{align*} 
 Confrontando quest'ultima con la relazione fondamentale della termodinamica otteniamo 
-\begin{align*}
-	&\left(\frac{\partial U}{\partial S}\right)_V dS + \left(\frac{\partial U}{\partial V}\right)_S dV = T-p\\
-	&p = -\left(\frac{\partial U}{\partial S}\right)_V dS\ ; \quad T=\left(\frac{\partial U}{\partial V}\right)_S dV
-\end{align*}
+\begin{align}
+	&\left(\frac{\partial U}{\partial S}\right)_V dS + \left(\frac{\partial U}{\partial V}\right)_S dV = T-p\nonumber\\
+	&p = -\left(\frac{\partial U}{\partial S}\right)_V dS\nonumber\\
+	& T=\left(\frac{\partial U}{\partial V}\right)_S dV\label{eq:temp_statistica}
+\end{align}
 La relazione che lega temperatura energia interna ed entropia è di fondamentale importanza nella meccanica statistica in quanto è la definizione di temperatura che si adotta. infine, derivando ulteriormente otteniamo
 \begin{align*}
 	&\frac{\partial T}{\partial V} = - \frac{\partial p}{\partial S}\\
@@ -2763,11 +2815,11 @@ Possiamo quindi riscrivere dF come
 Dove nell'ultimo passaggio si è usato il fatto che V, T sono costanti.\\
 I termini
  \[\mu_i = \left(\frac{\delta F}{\delta n_i}\right)_{S,V,n_j\neq n_i}\] 
- sono detti \textbf{potenziali chimici}. Come dimostrato, in assenza di lavoro generalizzato F tende al suo minimo quindi dF è negativa. 
+ sono detti \textbf{potenziali chimici} che altro non sono che la velocità di variazione dell'energia libera di Hermoholtz di una data mole. Come dimostrato, in assenza di lavoro generalizzato F tende al suo minimo quindi dF è negativa. 
 \begin{align*}
 	dF = \sum_i \left(\frac{\delta F}{\delta n_i}\right)_{T,V} dn_i = \sum_i \mu_i dn_i \leq 0
 \end{align*}
-Vi sarà un valore ottimale di $\vec{n}_0$ tale che tutti i potenziali chimici saranno al minimo: queste sono le quantità di moli di ogni sostanza in ogni fase in cui la sostanza si stabilizzerà (oscillerà attorno in equilibrio secolare).\\
+Vi sarà un valore ottimale di $\vec{n}_0$ tale che tutti i potenziali chimici saranno uguali: queste sono le quantità di moli di ogni sostanza in ogni fase in cui la sostanza si stabilizzerà (oscillerà attorno in equilibrio secolare).\\
 Possiamo ora comprendere meglio cosa avvenga nelle isoterme dei gas reali nel segmento a pressione costante (si veda sezione (\ref{sec:correzione_gas_perfetti})). Ad esempio, considerando l'acqua, nel segmento a pressione costante abbiamo \(n_l\) moli di acqua allo stato liquido ed \(n_g\) allo stato gassoso all'equilibrio ovvero 
 \begin{align*}
 	&dF= \mu_l dn_l+ \mu_g dn_g = 0\\
@@ -2781,7 +2833,7 @@ Inoltre, essendo un sistema chiuso, non si ha perdita di moli quindi
 \end{align*}
 Quindi, mettendo insieme i due risultati
 \[\mu_l = \mu_g\]
-Ne segue che i potenziali termodinamici dell'acqua all'equilibrio tra lo stato liquido e quello gassoso sono minimi quando si eguagliano.
+Abbiamo verificato che i potenziali termodinamici dell'acqua all'equilibrio tra lo stato liquido e quello gassoso si eguagliano.
 \subsection{Prima equazione dell'energia}\label{sec:prima_eq_energia}
 Con quanto appreso fin'ora possiamo dimostrare la prima equazione dell'energia, già citata precedentemente senza dimostrazione.\\
 Consideriamo una trasformazione infinitesima in cui si ha l'equilibrio fra i diversi componenti 
@@ -2810,12 +2862,13 @@ Infine, ricordando l'espressione dell'energia interna rispetto le sue variabili 
 	&\left(\frac{\partial U}{\partial V}\right)_T = T \left(\frac{\partial p}{\partial T}\right)_V -p	
 \end{align*}
 Quest'ultima è la prima equazione dell'energia.
+
 \subsection{Energia libera di Gibbs}
 Un procedimento analogo a quello visto per l'energia libera di Helmholtz è applicabile nel caso in cui p e T siano costanti. Cominciamo con il definire una nuova variabile di stato G. 
 \begin{align*}
 	&\delta L = \delta L^{(pV) + \delta L^{(non-pV)}}\\
-	&\delta L^{(non-pV)} \leq -(dF + pdV)\\
-	&G \equiv U + pdV -TS = F -pdV\\
+	&\delta L^{(non-pV)} \leq -(dF + pV)\\
+	&G \equiv U + pV -TS = H-TS  = F -pV\\
 	&dG = dF + pdV\\
 	&\Rightarrow dG \leq -\delta L^{(non-pV)}
 \end{align*}
@@ -2912,11 +2965,375 @@ Generalizzando quanto visto nell'esempio, ricordando che N è una matrice \(C \t
 \end{align*}
 dove ci sono tante equazioni quante sono le fasi e ogni equazione ha C variabili dovute alle C componenti più 2 dovute a p e V. Abbiamo così un sistema di F equazioni in C+2 incognite, per il teorema di Rouchè-Capelli lo spazio delle soluzioni ha gradi di libertà pari al numero di incognite meno il numero di equazioni quindi
 \[\nu = C+2-F\]
+\subsection{Energia libera di Gibbs per i gas perfetti}
+Ci proponiamo di trovare un'espressione funzionale della variazione di energia libera di Gibbs nel caso più semplice: quello dei gas perfetti. Consideriamo per semplicità una sola mole (il risultato ottenuto sarà la variazione di energia libera molare).
+\begin{align*}
+	&G = H-TS\\
+	&H=U+pV=c_v T + RT + H_0 = c_p T +H_0\\
+	&S=c_p\ln(T)-R\ln(p)+S_0\\
+	&\Rightarrow G = c_p T+H_0+T[c_p\ln(T)-R\ln(p)+S_0]\\
+	&G=RT[\phi(T)+\ln(p)] \quad \phi(T) = \frac{H_0-TS_0+c_pT-c_pT\ln(T)}{RT}
+\end{align*} 
+Dove la terza riga è stata ricavata dalla formula già ottenuta per l'entropia di un fas perfetto \(\Delta S = c_p\ln(Tp^{\frac{1-\gamma}{\gamma}})\).\\
+Nell'ultimo passaggio abbiamo sostituito la funzione $\phi(T)$ poichè questa raccoglie tutti i termini dipendenti dalla temperatura. Se T è costante si ottiene
+\[\Delta G = RT\ln\left(\frac{p_b}{p_a}\right)\]
+Abbiamo già visto che possiamo scrivere
+\[G = \sum_i \mu_i n_i\]
+Ma è anche ovvio che, per come è definito g, è anche vero
+\[G = \sum_i g_i n_i\]
+Ne segue che \(\mu_i = g_i\), ovvero che il potenziale chimico è uguale all'energia libera molare. Questo è valido unicamente per le sostanze pure (formate da un unico elemento), illustriamo ora un semplice esempio di un gas non puro formato da una miscela di due gas:\\
+Consideriamo un contenitore diviso in due volumi da un setto, da un lato ci sono \(n_A\) moli di un gas perfetto a pressione p e temperatura T, dall'altro vi sono \(n_B\) moli di gas perfetto a stessa pressione e temperatura (il tutto è a contatto con un termostato per mantenere T costante). In queste condizioni è vero singolarmente, per entrambi i gas perfetti
+\[G=\sum_{i=1}^2 g_i n_i=RT\sum_{i=1}^2n_i(\phi(x)+\ln(p))\]
+Se si apre il setto separatore i gas perfetti si mischiamo, le nuove pressioni sono date dalla relazione 
+\[p_i = \frac{n_i}{\sum_i n_i}p=x_i p\]
+dove \(x_i\) è detta frazione molare. Calcoliamo ora l'energia libera di Gibbs in queste condizioni
+\[G'=\sum_{i=1}2 n_ig_i = RT\sum_{i=1}^2 n_i(\phi(x)+\ln(p_i))=RT\sum_{i=1}^2 n_i(\phi(x)+\ln(p_i)+\ln(x_i))\]
+ora, visto che \(x_i\) per come è definita è una frazione minore di 1, il suo logaritmo naturale è negativo, ne segue che
+\[G'<G\]
+Come detto, le trasformazioni avvengono spontaneamente solo per avvicinarsi al minimo del potenziale termodinamico; ne segue che il mescolamento dei due gas avviene spontaneamente in quanto ha un'energia libera di Gibbs minore. Questo è anche il motivo per cui non si osserva una "separazione spontanea" di due gas mischiati. 
 
+\subsection{Equazioni del passaggio di stato}
+Abbiamo già visto, come nell'esempio della figura \ref{fig:diagramma-di-fase}, che è possibile tracciare sul piano pT le curve che descrivano i passaggi di fase di una sostanza. Ci proponiamo ora di ricavare le equazioni di queste curve, concentriamoci inizialmente sulla curva del passaggio di fase liquido-vapore dell'acqua. Ogni punto su questa curva nel piano pT corrisponde ad un segmento (ottenibile con il metodo delle aree di Maxwell) dell'isoterma del gas reale sul piano pV, come in figura.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\linewidth]{../images/equaz_passaggio_stato}
+	\caption{Passaggio di stato liquido-gas sul piano pT (sinistra) e pV (destra)}
+	\label{fig:equazpassaggiostato}
+\end{figure}
+\FloatBarrier
+Essendo questo passaggio di fase un segmento orizzontale sul piano pV la pressione rimane costante, essendo su un isoterma anche la temperatura resta costante, ne segue che anche volume molare è costante. Anche le entropie molari (\(\ s_l,\ v_g\)) restano costanti poiché sono funzioni di p e T. Cambiano invece V ed S poiché dipendono dal numero di moli in fase liquida o gassosa (il volume e l'entropia del gas è infatti maggiore). 
+\begin{align*}
+	&V = v_l n_l + v_g n_g\\
+	&S = s_l n_l + s_g v_g
+\end{align*}
+L'energia libera di Gibbs è al minimo durante tutta la transizione e resta costante 
+\begin{align*}
+	&G = \text{costante}\\
+	&dG = dn_l g_l + dn_g g_g =  0
+\end{align*}
+Ma visto che tutte le moli che transitano da una fase all'altra vengono perse dall'altra fase si ha 
+\(dn_l = -dn_g\) da cui
+\[g_l = g_g\]
+valida lungo tutto il segmento della transizione di fase.\\
+
+Consideriamo ora gli stati iniziale e finale del segmento di transizione di fase (in i c'è solo gas, in f solo acqua); uno spostamento di dT in avanti sul piano pT risulta in un passaggio ad un'isoterma leggermente più alta sul piano pV. Anche in questo nuovo segmento l'energia libera molare \(g+dg\) è costante, ma è leggermente più alta di prima
+\[g_i + dg_i = g_f + dg_f\]
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\linewidth]{../images/equaz_passaggio_stato(1)}
+	\caption{un avanzamento di dT sul piano pT, restando sulla curva di transizione liquido-gas, si rispecchia in una isoterma leggermente più alta con un segmento di Maxwell più stretto.}
+	\label{fig:equazpassaggiostato1}
+\end{figure}
+Ma abbiamo osservato che \(g_i = g_f\) quindi \(dg_i = dg_f\). Abbiamo già visto che \(dg 0 vdp - sdT\) quindi
+ \[v_idp - s_idT = v_f dp -s_fdT\]
+ \[(v_f - v_i)dp = (s_f -s_i)dT\]
+ considerando che il calore latente molare è
+ \[\lambda= \frac{Q}{n}=\frac{T\Delta S}{n}=T\Delta s\]
+ Possiamo scrivere quindi
+ \[\frac{dp}{dT}=\frac{\Delta s}{\Delta v} = \frac{\lambda}{T\Delta v}\]
+ Questa è detta \textbf{equazione di Clapeyron}, conoscendo la funzione \(\Delta v\) è possibile ottenere la funzione del passaggio di stato liquido-gas. Si noti che la pendenza della curva (il segno di$\frac{dp}{dT}$, che è la derivata della pressione sul volume) dipende dal segno di $\Delta s$ e $\Delta v$, ad esempio per l'acqua
+ \begin{align*}
+ 	&\text{Transizione G-L: }\Delta s< 0, \Delta v < 0 \Rightarrow \text{pendenza positiva}\\
+ 	&\text{Transizione L-S: }\Delta s< 0, \Delta v > 0 \Rightarrow \text{pendenza negativa}
+ \end{align*}
+
+\section{Terzo principio della termodinamica}\label{sec:terzo_principio}
+Tutt'oggi è dibattuto se il terzo principio sia effettivamente tale o semplicemente una conseguenza logica del secondo. Esistono più enunciati equivalenti, la prima formulazione è attribuita a Nerst (1864 – 1941)
+\begin{definition}[Terzo principio, definizione classica di Nerst]
+	Non è possibile per qualsiasi processo, anche se idealizzato, ridurre l'entropia di un sistema al suo valore allo zero assoluto tramite un numero finito di operazioni 
+\end{definition}
+Il seguente enunciato è quello che adotteremo nell'ambito della termodinamica classica
+\begin{definition}[Terzo principio secondo Nerst-Simon]
+	All’approssimarsi dello zero assoluto, la variazione di entropia di un sistema lungo un’isoterma tende a zero, indipendentemente da qualunque caratteristica chimico-fisica della sostanza. In formule:
+	\[\lim_{T\to 0} \Delta S = \lim_{T\to 0} S(T,\ X_1)-S(T,\ X_2) = 0\]
+	dove \(X_i\) è una seconda coordinata macroscopica che possa definire lo stato del sistema insieme alla temperatura (costante). A temperature molto basse si utilizza una variabile termodinamica legata alla magnetizzazione del materiale poiché a temperature prossime allo zero assoluto è difficile continuare a parlare in termini di gas. In linea di principio tuttavia \(X_i \) potrebbe anche essere pressione o volume. 
+\end{definition}
+Solo a fine divulgativo, di seguito è riportato l'enunciato più moderno del terzo principio
+\begin{definition}[Enunciato moderno del terzo principio]
+	L'entropia di un cristallo perfetto allo zero assoluto è esattamente eguale a 0.
+\end{definition}
+Dimostriamo in modo grafico (non rigoroso) che le prime due formulazioni sono equivalenti. La seconda non fa altro che postulare l'esistenza di un limite minimo a cui tende l'entropia \(S\to S_0\), la prima invece dice che per raggiungere il valore di entropia allo zero assoluto necessitiamo di infinite trasformazioni. Negando il primo, ipotizziamo che esistano due entropie minime allo zero assoluto \(S_0\) e \(S'_0\). Rappresentiamo sul piano TS il caso in cui esistano due entropie limite diverse ed in caso in cui ne esista uno solo e tentiamo di raffreddare il gas fino ad arrivare all'entropia minima. Per raffreddare a queste temperature i gas si utilizza il \textbf{raffreddamento adiabatico} costituito da trasformazioni isoterme (orizzontali) intervallate da adiabatiche (verticali) muovendosi all'interno di un range di pressioni fissato [\(p_1\), \(p_2\)] (che sul grafico TS sono rappresentate dalle curve in rosso ed in verde). \\
+Nel primo caso possiamo raggiungere l'entropia allo zero assoluto in un numero finito di passi, nel secondo in un numero infinito.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\linewidth]{../images/terzo_principio1}\quad
+	\includegraphics[width=0.3\linewidth, height=0.2\textheight]{../images/terzo_principio2}
+	\caption{In figura, trasformazioni isocore sul piano TS, l'intersezione con l'asse x delle curve rappresenta il valore dell'entropia allo zero assoluto (nel primo caso un'unica\( S_0\), nel secondo \(S_0,\ S'_0\)). Nel primo caso sono necessarie infinite trasformazioni per raggiungere l'entropia allo zero assoluto, nel secondo no.}
+	\label{fig:terzoprincipio1}
+\end{figure}
+\FloatBarrier
+Ne segue l'equivalenza dei due enunciati. Dal grafico a sinistra si osserva
+come la quantità di calore \(TdS\) che viene ceduta al serbatoio sia sempre minore all’approcciarsi di T = 0: è sempre più difficile (in termini di lavoro termodinamico) estrarre calore da un corpo che si raffredda.\\
+Si può vedere la cosa anche usando un frigo di Carnot: il suo coefficiente di prestazione è
+\[\omega = \frac{Q_2}{|L|}=\frac{Q_2}{|Q_1|-|Q_2|}=\frac{T_2}{T_1-T_2}\]
+\[\Rightarrow |L|=Q_2\frac{T_1-T_2}{T_2}\underrightarrow{T_2\to 0} \infty \]
+Cioè serve lavoro infinito per raffreddare qualcosa fino allo zero assoluto, anche usando un frigo di Carnot, la macchina frigorifera con rendimento massimo.
+\subsection{Conferme sperimentali della validità del terzo principio}
+\begin{enumerate}
+	\item La capacità termica tende a zero per \(T \to 0\).\\
+	 Ricordando la definizione di capacità termica, abbiamo che 
+	 \[\Delta S = \int_{T_0}^{T}\frac{\delta Q}{T}=\frac{dT}{dT}= \int_{T_0}^{T}C\frac{dT}{T}\]
+	 \[S = S_0 + \int_{T_0}^{T}C\frac{dT}{T}\]
+	 Se S ha come limite inferiore una costante \(S_0\) allora, per \(T\to0\) la precedente espressione dovrebbe essere sempre uguale a \(S_0\) indipendentemente dal materiale. Per far che ciò si verifichi è necessario che l'integrale tenda a zero per \(T\to0\). Come già visto, risulta sperimentalmente che al di sotto della temperatura di Debye la capacità diminuisce proporzionalmente al cubo della temperatura fino ad arrivare a zero per temperature prossime allo zero assoluto.
+	\item I coefficienti di dilatazione volumetrica $\alpha$ tendono a zero per \(T\to 0\).\\
+	\begin{align*}
+		&\left(\frac{\partial S}{\partial p}\right)_T = - \left(\frac{\partial V}{\partial T}\right)_p = \alpha v\\
+	\end{align*}
+	Se S tende a zero anche il prodotto \(\alpha v\) lo deve fare ma essendo v diverso da zero deve essere \(\alpha = 0\) che si osserva sperimentalmente. 
+	\item Le curve di sublimazione sono perpendicolare all’asse delle pressioni sul piano pT.\\
+	Come osservato \[\frac{dp}{dT} = \frac{\Delta s}{\Delta v}\] quindi la derivata della funzione passaggio di stato per T che tende a zero deve essere nulla, ne segue che la curva si appiattisce per \(T\to 0\), cosa che si osserva sperimentalmente
+\end{enumerate}
+Il dibattito sul fatto che il terzo sia effettivamente un principio o derivi dal secondo è ancora aperto, fin ora è stato presentato come un principio indipendente ma si potrebbe arrivare ad una conseguenza analoga riflettendo sul rendimento di una macchina di Carnot
+\begin{align*}
+	&\eta = \frac{L}{Q} = 1-\frac{T_2}{T_1}\\
+	&L = Q\left(1-\frac{T_2}{T_1}\right)
+\end{align*}
+Per \(T_2\to 0\) si avrebbe che il rendimento è 1, ciò vorrebbe dire che una macchina di Carnot che lavora tra una temperatura \(T_1\) e lo zero assoluto non scambia calore con la seconda sorgente (allo zero assoluto), violando il principio di K-P. Tuttavia, rilasciare calore ad un serbatoio allo zero assoluto equivarrebbe a fornire energia ad uno stato che, per la termodinamica classica, ha energia nulla; lo zero assoluto smetterebbe di essere tale e questa sembra una contraddizione logica che porta alcuni a dubitare del fatto che il terzo principio possa discendere dal secondo. Il dibattito è ancora aperto.  
+\section{Cenni di termodinamica statistica}
+Come visto inizialmente, uno stesso sistema termodinamico può essere descritto da un punto di vista macroscopico o microscopico, la termodinamica statistica, di cui gi si è fatto uso nella sezione sull'interpretazione microscopica di pressione e temperatura. in questa sezione ci proponiamo di ampliare la discussione sull'aspetto microscopico.\\
+In introduzione si sono esposti i concetti di microstato e macrostato, è chiaro che ad un certo macrostato possono essere associati molteplici microstati ma ad un microstato corrisponde un'unico macrostato. Inoltre, è chiaro che il numero di microstati associati ad un macrostato può variare a seconda del microstato. Consideriamo ora lo spazio delle fasi di un sistema termodinamico, ogni punto di questo spazio individua un microstato. Visto che un microstato è definito dalla posizione e la quantità di moto di ognuna delle N particelle del sistema, il grafico dello spazio delle fasi avrà sull'asse x un vettore di N elementi (le particelle), in cui ogni elemento è un vettore di tre componenti (le coordinate delle particelle) mentre sull'asse delle y avrà un vettore di N componenti in cui ogni componente è un vettore di 3 componenti in cui sono riportate le componenti in x,y,z della velocità. Ogni asse presenterà 3N coordinate dunque il numero di gradi di libertà dello spazio delle fasi è \(2\cdot3N = 6N\). Possiamo dividere lo spazio delle fasi in porzioni di volume diverse dove ognuna rappresenta un macrostato, se il punto indicante il microstato si trova all'interno di uno di questi volumi vorrà dire che corrisponde al macrostato associato a quel volume. Il concetto fondamentale per entrare nel vivo dell'interpretazione probabilistica è il seguente:
+\textit{se il sistema è all’equilibrio ed evolve nel tempo in modo stocastico, e dunque il corrispondente punto nello spazio delle fasi vaga in modo casuale al suo interno, ci si aspetta di trovare il sistema in un determinato macrostato con un probabilità proporzionale al volume che tale macrostato occupa nello spazio delle fasi}.\\
+Per rendere quantitativo questo concetto bisogna innanzitutto trovare un modo di calcolare il volume di un macrostato nello spazio delle fasi. Assumendo posizione e quantità di moto come continui, calcolare il volume comporterebbe complessi integrali multidimensionali, per semplicità quindi \textit{discretizziamo lo spazio delle fasi} dividendo lo spazio e la velocità in "cellette", quantità discrete minime che possono assumere. Questo passaggio, adottato in modo formale, come un artificio matematico, in realtà verrà giustificato dalla fisica quantistica: esistono dei valori discreti minimi di spazio e quantità di moto.\\
+Per calcolare il volume del macrostato nello spazio delle fasi, scomponiamo il problema nel conteggio dei microstati prima nel sottospazio delle coordinate e poi in quello delle quantità di moto. 
+\subsection{Conteggio dei microstati nel sottospazio delle coordinate spaziali}
+Consideriamo una scatola di volume V, suddividiamola in un numero $\mu$ di cellette di egual volume (\(\Delta V = \frac{V}{\mu}\)). Ad un dato istante vi saranno \(N_1\) molecole nella prima celletta, \(N_2\) nella seconda e così via fino ad $N_{\mu}$. Ogni ennupla  \{\(N_1,\ N_2,\ ...,\ N_\mu\)\} rappresenta un possibile macrostato del sistema. Per sapere il volume di ogni macrostato innanzitutto vogliamo sapere in quanti modi è realizzabile, ciò equivale a chiedersi: in quanti modi diversi posso ottenere una stessa ennupla \{\(N_i\)\}? Questo numero è facilmente ottenibile con considerazioni combinatorie: cominciamo con il chiederci in quanti modi possiamo disporre \(N_1\) molecola nella prima celletta e le restanti \((N-N_1)\) nelle altre cellette, ovvero le combinazioni
+\[\frac{N!}{N_1!(N-N_1)!}\]
+Delle restanti \(N-N_1\) molecole, in quanti modi posso disporre \(N_2\) nella seconda celletta e le restanti \((N-N_1-N_2)\) nelle altre cellette? Come prima,
+\[\frac{N!}{(N-N_1)!(N-N_1-N_2)!}\] 
+Reiterando otteniamo
+\[W=\frac{N!}{N_1!N_2!...N_\mu!}=\frac{N!}{\prod_{i=1}^{N}N_i!}\]
+dove W è il numero di microstati corrispondenti al macrostato \{\(N_1,\ N_2,\ ...,\ N_\mu\)\}. Ognuno dei microstati che può generare uno specifico macrostato è equiprobabile e occupa lo stesso volume nello spazio delle fasi, pari a 
+\[\Delta\tau = (\Delta V)^N\]
+Il volume del macrostato nello spazio delle fasi sarà quello del microstato moltiplicato per tutti i  modi in cui possiamo ottenerlo
+\[\tau = W \Delta \tau\]
+Ci aspettiamo che, scegliendo un istante a caso, il sistema si trovi con maggiore probabilità nel macrostato con volume maggiore, che chiameremo $\tau^*$. Essendo tutti i microstati equiprobabili, ciò equivale a dire che ci aspettiamo di trovarlo nel macrostato con maggior numero di microstati corrispondenti \(W^*\). Per sapere in quale macrostato si trova con più probabilità basta trovare \(W^*\) che è il massimo della funzione W; si tratta di trovare l'ennupla \{\(N_1,\ N_2,\ ...,\  N_{\mu}\)\} tale da massimizzare W.
+\subsubsection*{Caso $\mu=2$ ed N=2}
+Consideriamo di voler dividere un contenitore in due celle uguali ($\mu=2$) ponendovi due molecole (\(N=2\)). Al posto di esprimere la posizione in termini di volume, limitiamoci ad esprimerla usando la coordinata della molecola sull'asse x (come se la molecola potesse muoversi in un segmento al posto che in un volume), in questo modo possiamo rappresentare esplicitamente il sottospazio delle fasi delle coordinate poiché i gradi di libertà sono 2 (\(1N=2\)). I macrostato possibili sono 3: \{2,0\},\{1,1\},\{0,2\} mentre i microstati sono 4 (\(2^N = 4\)). Il macrostato \{$\frac{N}{2}$,$\frac{N}{2}$\} occupa volume doppio rispetto agli altri nello spazio delle fasi poiché vi sono due modi per comporlo:
+\[W*=\frac{2!}{1!1!}=2\]
+Ciascuno dei quattro microstati occupa un volume pari a \(\Delta\tau = (L/2)^2=L^2/4 \), il macrostato  \{$\frac{N}{2}$,$\frac{N}{2}$\} occupa volume \(\Delta\tau = (L/2)^2/2 \), la metà dello spazio delle fasi complessivo (\(\tau = L^2\)). Se le due molecole vagano casualmente le probabilità sono che passi il 50\% del tempo nello stato \{1,1\}.
+\subsubsection*{Caso $\mu=2$, N=4}
+I macrostati sono cinque:\{4,0\},\{3,1\},\{2,2\},\{1,3\},\{0,4\}, i microstati sono \(2^4=16\). Il microstato \{$\frac{N}{2}$,$\frac{N}{2}$\} può essere realizzato nel seguente numero di modi:
+\[W* = \frac{4!}{2!2!} = 6\]
+I microstati\{3,1\} e \{1,3\} si possono realizzare in 4 modi, i restanti in un unico modo. Il volume totale dello spazio delle fasi è 
+\[\tau_{tot}=16\Delta\tau \]
+la probabilità di trovare il sistema nel macrostato \{2,2\} è di \(\frac{6}{16}=0.375\).
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\linewidth]{"../images/caso a 4"}
+	\caption{Probabilità che tutte le molecole si trovino nel macrostato 0,1, 2, 3, 4. Il macrostato 2 è quello equipartito, di massima probabilità.}
+	\label{fig:caso-a-4}
+\end{figure}
+Ne segue che il sistema si troverà con maggiore probabilità in questo macrostato, o equivalentemente che passerà la maggior parte del suo tempo in quel macrostato. L'assunzione appena fatta che una maggiore probabilità equivalga ad un maggior tempo trascorso in quello stato, è un'assunzione fondante della meccanica statistica ed è detta \textbf{ipotesi ergodica}. 
+\subsubsection*{Caso generale}
+Vogliamo ora dividere il contenitore in $\mu$ cellette e porre all'interno n molecole, per poi ricercare lo stato più probabile \(W^*\) massimizzando la funzione W. Un tale problema di massimizzazione, essendo la funzione W a variabili vettoriali (\(W(\vec{N})\)), è risolvibile con il metodo dei \textbf{moltiplicatori di Lagrange}, ponendo come vincolo \(\sum_{i=1}^{\mu}N_i = N\) (ovvero la condizione per cui il sistema è chiuso).\\
+Studiare \(W(\vec{N})\) o studiarne il logaritmo \(\ln(W(\vec{N}))\) è equivalete, essendo il logaritmo monotono. 
+\begin{align*}
+	\begin{cases}
+		\ln(W)=\ln\left(\frac{N!}{\prod_{i=1}^\mu N_i!}\right)\\
+		\sum_i N_i = N
+		\end{cases}
+\end{align*}
+Applichiamo il metodo dei moltiplicatori di Lagrange
+\begin{align*}
+	&f(\vec{N})=[1]+\alpha[2]=\ln(W)+\alpha(\sum_iN_i -N)=\\
+	&\ln\left(\frac{N!}{\prod_{i=1}^{\mu}N_i!}\right)+\alpha\sum_iN_i-\alpha N=\\
+	&\ln(N!)-\sum\ln(N_i!)+\alpha \sum_i N_i -\alpha N
+\end{align*}
+usiamo ora l'approssimazione di Stirling del fattoriale, valida per \(N\to\infty\) (per \(N=100\)) si ha \(\delta < 1\%\). 
+\begin{align*}
+	&f(\vec{N})\simeq N\ln(N)-N-(\sum_iN_i\ln(N_i)-\sum_iN_i)+\alpha\sum_iN_i-\alpha N=\\
+	&N\ln(N)-\sum_iN_i\ln(N_i)+\alpha\sum_iN_i-\alpha N
+\end{align*}
+Ora per trovare il massimo poniamo $\mu$ derivate parziali di f rispetto ad \(N_i\) uguali a zero 
+\begin{align*}
+	&\frac{f(\vec{N})}{\partial N_i}=0\\
+	&\Rightarrow -\ln(N_i)-1+\alpha =0\\
+	&\ln(N_i) = \alpha - 1\\
+	&N_j = e^{\alpha - 1}
+\end{align*}
+ricordando il vincolo posto per garantire il fatto che il sistema sia chiuso
+\begin{align*}
+	&\sum_iN_i =N\\
+	&\Rightarrow \sum_{i=1}^{\mu}e^{\alpha - 1}=N\\
+	&\mu e^{\alpha -1}=N\\
+	&e^{\alpha - 1}=\frac{N}{\mu}\\
+	&\Rightarrow N_i* = \frac{N}{\mu}
+\end{align*}
+Abbiamo trovato i valori ottimali del vettore $\vec{N}$ tali da massimizzare W: risulta, come potevamo aspettarci, la configurazione più probabile è quella in cui tutti gli N sono uguali ed equipariti in ogni celletta \{$\frac{N}{\mu},\\frac{N}{\mu},\ ...,\ \frac{N}{\mu} $\}. la probabilità che in una celletta ci siano $\frac{N_i^*}{\mu}$ molecole è data, come sempre, dai casi favorevoli fratto i casi totali
+\[p_i^*=\frac{N_j^*}{N}=\frac{1}{\mu}\]
+Si nota come all'aumentare di $\mu$ la probabilità che le molecole si trovino nello stato equipartito diminuisce ma al contempo la p.d.f. si restringe sempre più (diminuisce la deviazione standard). Ne segue che un sistema all'equilibrio formato da molte molecole ha un'altissima probabilità di trovarsi in un intorno infinitesimo del microstato equipartito. Inoltre, quasi mai il sistema si trova nello stato in cui tutte le molecole si trovano in una celletta. 
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\linewidth]{"../images/caso ad N"}
+	\caption{La distribuzione di probabilità del numero di particelle disposte in una scatola divisa in due cellette si trovino in un certo macrostato diventa molto stretta per N grandi.}
+	\label{fig:caso-ad-n}
+\end{figure}
+\FloatBarrier
+In un caso formato da N molecole, con N molto grande, lo spazio delle fasi è praticamente occupato nella sua totalità dal volume del macrostato equipartito, come mostrato in figura. 
+ 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\linewidth]{"../images/Spazio delle fasi"}
+	\caption{Spazio delle fasi per $\mu = 2$ ed n molto grande.}
+	\label{fig:spazio-delle-fasi}
+\end{figure}
+\FloatBarrier
+Fin ora abbiamo parlato di sistemi all'equilibrio, che si trovano spontaneamente nello stato equipartito. Se però il sistema non partisse dallo stato d'equilibrio ma, ad esempio, si sia portato un gas, compiendo lavoro, nella configurazione \{N,0\} (per semplicità consideriamo $\mu=2$) mediante una compressione isoterma reversibile per poi lasciarlo libero di espandersi, cosa accadrebbe? Il punto che rappresenta il microstato del sistema inizierà a muoversi casualmente nello spazio delle fasi, e ben presto raggiungerà la regione di volume maggiore, da cui poi quasi certamente non uscirà più. Quella regione, infatti, corrispondente a un intorno infinitesimo del macrostato {N/2, N/2}, ha un volume pari alla quasi totalità dello spazio delle fasi e pertanto corrisponde a un macrostato di equilibrio. Calcoliamo i volumi dei macrostati iniziale e finale:
+\begin{align*}
+	&W_i = 1\\
+	&W_f = \frac{N!}{\frac{N}{2}!\frac{N}{2}!}\simeq2^N\\
+	&\tau_i = W_i\cdot\Delta\tau = (V_i)^N \\
+	&\tau_f = W_f\cdot\Delta\tau = 2^N(V_i)^N=(2 V_i)^N = (V_f)^N
+\end{align*}
+Ipotizziamo ora (\textbf{ipotesi di Boltzmann}) che che l'entropia sia calcolabile come
+\[S=k_b\ln(W^*)\]
+questa è detta \textbf{entropia di Boltzmann}, \(k_b\) è la costante di Boltzmann.\\
+e calcoliamo la variazione d'entropia fra stato iniziale e finale
+\begin{align*}
+	&\Delta S = k\ln(W_{f})-k\ln(W_{i})=k\ln\left(\frac{W_f}{W_i}\right)==k\ln\left(\frac{W_f\delta\tau}{W_i\Delta\tau}\right)=k\ln\left(\frac{V_f}{V_i}\right)^N=Nk\ln(2)
+\end{align*}
+Dimostreremo in seguito che l'entropia di Boltzmann coincide con quella termodinamica; innanzitutto però capiamo come si possa arrivare ad una ipotesi del genere.\\
+\subsubsection*{Plausibilità dell'ipotesi di Boltzmann}
+Da un lato, un sistema termodinamico si evolve fino a raggiungere l'entropia minima ottenibile, raggiungendo l'equilibrio. D'altra parte, esistono, come visto, macrostati ottenibili in un numero maggiore di microstati rispetto ad altri a cui è intuitivo che il sistema si troverà all'equilibrio. Ha dunque senso ipotizzare una dipendenza dell'entropia dal numero di microstati con cui si può ottenere un macrostato. L'ipotesi si formula nella seguente forma:
+\[S = f(W^*)\]
+Consideriamo un sistema formato da due parti rispettivamente di entropia \(S_1\) ed \(S_2\) e con un numero di modi di formare i macrostati più probabili rispettivamente di \(W_1^*\), \(W_2^*\). L'entropia è una quantità additiva quindi
+\[S=S_1+S_2 = f(W_1^*)+f(W_2^*)\]
+Considerando il sistema come un unicum, il numero di microstati che possono formare il macrostato totale (formato dai macrostati della prima e della seconda parte) è dato dal prodotto dei modi in cui si può formare il primo con quelli del secondo quindi
+\[W_{tot}^*=W_1^*W_2^*\]
+ma visto che anche l'entropia S del sistema in toto dipende da W possiamo scrivere
+\[S=f(W_{tot})\]
+\[\Rightarrow f(W_1^*W_2^*) = f(W_1^*)+f(W_2^*)\]
+ovvero, la funzione f deve rispettare la proprietà
+\[f(xy)=f(x)+f(y)\]
+Da questa proprietà è già possibile ricavare la forma della funzione. Essendo valida per qualunque valore di x ed y, possiamo porre \(y=1+\varepsilon\) dove $\varepsilon$ è un infinitesimo del primo ordine. Si ha allora
+\[f(x+\varepsilon x) = f(x)+f(1+\varepsilon)\]
+Sviluppiamo in serie di Taylor trascurando i membri di ordine di infinitesimo superiore al primo:
+\[f(x)+x\varepsilon f'(x)=f(x)+f(1)+\varepsilon f'(1)\]
+Ponendo \(\varepsilon = 0\) otteniamo \(f(1)=0\), sostituendo otteniamo 
+\[x\varepsilon f'(x) = f'(1)=k\]
+dove k è una generica costante. ne segue che 
+\[f'(x)=\frac{k}{x}\]
+\'{E} un'equazione differenziale a variabili separabili: integriamo
+\[f(x)=k\ln(x)+c\]
+dove c è una costante d'integrazione.\\
+Tornando all'ipotesi iniziale abbiamo trovato che 
+\[S =k\ln(x)+c\]
+visto che l'entropia è definita a meno di una costante c può essere posta uguale a zero. Ecco una giustificazione dell'ipotesi di Boltzmann, questa non ne costituisce una prova poiché l'ipotesi della dipendenza di S da \(W^*\) è solo plausibile ma non giustificata.\\\\
+Analizziamo ora le conseguenze di questa relazione.  
+\begin{itemize}
+	\item L'entropia, come visto nel caso dell'espansione libera, non dipende unicamente dal calore. L'entropia infatti è una misura della quantità di combinazioni che formano uno stato, all'equilibrio l'entropia è massima, come la probabilità dello stato. 
+	\item Anche con questa interpretazione vale \(\Delta S_u > 0\) ma assume un valore del tutto diverso: con questo approccio scopriamo che è solo estremamente probabile che l'entropia aumenti ma non del tutto certo (è un'approccio statistico). Si comprende quindi che l'irreversibilità, che non esiste nel microscopico, è una proprietà emergente, dovuta all'estrema probabilità di alcuni stati su altri quando si considera un elevato numero di molecole.  
+	\item Un'ultima considerazione di estremo interesse è da fare sull'universo, visto come un grande sistema termodinamico. Si osserva che in ogni trasformazione che realizziamo l'entropia dell'universo aumenta, ne segue che l'universo non è ancora ad uno stato d'equilibrio con entropia massima. L'universo è nato in uno stato di bassissima entropia: il big bang, e da tutta la vita dell'universo, ancora il punto sullo spazio delle fasi che rappresenta il microstato dell'universo ancora non è arrivato al macrostato di entropia massima. Durante questo viaggio è estremamente probabile che il microstato dell'universo si trovi in macrostati con un volume associato più grande (più probabili), da qui l'aumento costante d'entropia che osserviamo. La freccia del tempo termodinamica si può quindi identificare con la freccia del tempo cosmologica.
+\end{itemize}
+\subsection{Conteggio dei microstati nel sottospazio delle quantità di moto}
+Fin ora ci siamo limitati a trattare il sottospazio delle coordinate (ci siamo chiesti se una molecola si trova o meno in una data celletta), ora ripetiamo il processo per le quantità di moto. Bisogna effettuare alcune correzioni al processo precedente: notiamo inizialmente che l'informazione importante in questo caso è il modulo e non le singole coordinate, possiamo considerare quindi l'energia cinetica (che dipende dal modulo della quantità di moto) in modo da avere N gradi di libertà invece di 3N. Quelle che nel caso precedente erano cellette di spazio ora sono cellette di energia \{\(\varepsilon_0, \varepsilon_1,...\)\} (ogni celletta ha un valore preciso di energia, differiscono per piccole quantità discrete di energia). La domanda che ci poniamo ora è: date N molecole, in quanti modi W posso disporne \(N_1\) nella prima celletta energetica, \(N_2\) nella seconda ecc... Questa volta i vincoli sono 2:
+\begin{align*}
+&\text{Sistema chiuso: }\sum_{i=1}^\mu N_i = N\\
+&\text{Sistema isolato: }\sum_{i=1}^\mu N_i\varepsilon_i = U
+\end{align*}
+Possiamo ora massimizzare W($\vec{N}$)con questi due vincoli utilizzando i moltiplicatori di Lagrange. 
+\begin{align*}
+	&\begin{cases}
+		[1]\ln(W)=\ln \left(\frac{N!}{\prod_{i=1}^{\mu}}\right)\\
+		[2]\sum_{i=1}^\mu N_i = N\\
+		[3]\sum_{i=1}^\mu N_i\varepsilon_i = U
+	\end{cases}\\
+	&f(\vec{N})=[1]+\alpha[2]-\beta[3] = N\ln(N)-\sum_{i=1}^\mu N_i\ln(N_i)\alpha(\sum_{i=1}^\mu N_i - N)-\beta(\sum_{i=1}^\mu N_i\varepsilon_i - U)\\
+	&\frac{\partial f}{\partial N_j} = 0 \Rightarrow -\ln(N_j)-1+\alpha-\beta\varepsilon_j = 0\\
+	&N_j = e^{\alpha - 1-\beta\varepsilon_j}
+\end{align*}
+Imponendo la condizione di sistema chiuso otteniamo l'espressione del numero di molecole nella celletta di energia j-esima (\(N_j^*\)) che massimizza il numero di stati in cui è ottenibile il macrostato.
+\begin{align*}
+	&\sum_{i=1}^\mu N_i = N \Rightarrow N_j^* = \frac{Ne^{-\beta\varepsilon_j}}{\sum_ie^{-\beta\varepsilon_i}}
+	&z\equiv \sum_ie^{-\beta\varepsilon_i}\\
+	&N_j^* = \frac{Ne^{-\beta\varepsilon_j}}{z}
+\end{align*} 
+Deduciamo che in questo caso la configurazione che massimizza W non è quella equipartita ma esponenziale: minore l'energia cinetica più popolate sono. \\
+In quest'ultima espressione compare il coefficiente $\beta$ risultante dal metodo dei moltiplicatori di Lagrange, determiniamo cosa sia. Si considerino due sistemi isolati termicamente con l'ambiente ma a contatto termico tra loro, un sistema \(S_1\) di coordinate macroscopiche \(N_1, V_1, U_1\) ed uno \(S_2\) con \(N_2,V_2,U_2\). I volumi e il numero di moli sono chiaramente costanti ma l'energia interna varia (purché \(U_1+U_2 = U\) costante). Il numero di microstati dei sistemi dipende solamente dalle loro energie interne \(W_1(U_1), W_2(U_2)\), il numero di microstati totale sarà 
+\begin{align*}
+	W(U_1,U_2) = W_1(U_1)W_2(U_2)=W_1(U_1)W_2(U-U_1)
+\end{align*} 
+Il sistema \(S=S_1+S_2\) raggiungerà l'equilibrio quando \(W(U_1)\) (abbiamo appena visto che dipende solo da \(U_1\)) sarà massimo, ovvero
+\begin{align*}
+	&\frac{\partial W}{\partial U_1}=0\\
+	&\frac{\partial W}{\partial U_1}=\frac{\partial W_1W_2}{\partial U_1}=\frac{\partial W_1}{\partial U_1}W_2+W_1\frac{\partial W_2}{\partial U_1}=\frac{\partial W_1}{\partial U_1}W_2+W_1\frac{\partial W_2}{\partial U_1}\frac{\partial U_2}{\partial U_2}=\\
+	&\frac{\partial W_1}{\partial U_1}W_2-W_1\frac{\partial W_2}{\partial U_2}=0
+\end{align*} 
+dove è stata semplicemente fatta la derivata di prodotto e, nell'ultimo passaggio, si è usato il fatto che, essendo \(U_1+U_2 \) costante, un aumento del primo equivale ad una diminuzione del secondo (derivata uguale a -1).\\
+osservando che 
+\[\frac{\partial \ln(W_1)}{\partial W_1}=\frac{1}{W_1}\Rightarrow \partial \ln(W_1)=\frac{1}{W_1}\partial W_1\]
+possiamo sostituire 
+\[\frac{\partial W_1}{\partial U_1}W_2 = W_1\frac{\partial W_2}{\partial U_2} \Rightarrow \frac{\partial \ln(W_1)}{\partial U_1} = \frac{\partial \ln(W_2)}{\partial U_2}\]
+Questa è la condizione d'equilibrio di un sistema formato da due parti in contatto termico, ottenuta a partire da considerazioni probabilistiche (massimizzando la probabilità). D'altro canto sappiamo che il sistema sarà all'equilibrio quando \(T_1 = T_2\), ricordando la definizione di temperatura in meccanica statistica (già ricavata in (\ref{eq:temp_statistica})) abbiamo 
+\begin{align*}
+	&\left(\frac{\partial S_1}{\partial U_1}\right)_{N_1, V_1} = \frac{1}{T_1} = \frac{1}{T_2} = \left(\frac{\partial S_2}{\partial U_2}\right)_{N_2, V_2}\\
+	&\frac{\partial \ln(W_1)}{\partial U_1} = \frac{\partial \ln(W_2)}{\partial U_2}
+\end{align*}
+\'{E} evidente che ne segue che S è proporzionale a \(\ln(W)\), inoltre visto che alle derivate potremmo aggiungere una costante che si cancellerebbe, abbiamo che la proporzionalità è valida a meno di una costante che però possiamo porre uguale a zero.
+\[S = k\ln(W)\] 
+Ecco ottenuta in modo rigoroso l'entropia di Boltzmann nella sua forma più generale. Procediamo differenziandola
+\[dS = kd(\ln(W)) = k\sum_i \frac{\partial \ln(W)}{\partial N_i}dN_i\]
+Abbiamo già visto, durante la massimizzazione di W che (???)
+\[\frac{\partial \ln(W)}{\partial N_i} = -\alpha+\beta\varepsilon_i\]
+quindi, sostituendo
+\[dS = k\sum_i(-\alpha+\beta\varepsilon_i)dN_i = -\alpha k\sum_idN_i+\beta k \sum_i\varepsilon_idN_i\]
+essendo il sistema chiuso, la somma delle variazioni del numero di molecole deve essere nulla quindi \(\sum_iN_i =0\). Inoltre
+ \[\sum_i\varepsilon_idN_i = \sum d(\varepsilon_i N_i) = d(\sum_i\varepsilon_i N_i) = dU\]
+otteniamo così 
+\[dS = \beta k dU\]
+ma ricordando la (\ref{eq:temp_statistica}), possiamo scrivere
+\[\beta = \frac{1}{kT}\]
+Infine, la probabilità di trovare \(N_j\) molecole nella j-esima celletta è 
+\[p_j^* = \frac{N_j^*}{N}=\frac{e^{-\frac{\varepsilon_j}{kT}}}{z}\]
+Queste probabilità costituiscono la distribuzione di Boltzmann, che è dimostrabile essere equivalente a quella di Maxwell (basta cambiare variabile da v a $\varepsilon$) con opportune considerazioni. La funzione di partizione dell'energia z ingloba un enorme quantità di informazioni, tutte le funzioni termodinamiche (energia libera, entalpia, energia interna...) sono ricavabili a partire da z. 
+\subsection{Funzione di partizione e Terzo Principio}
+Consideriamo il numero di molecole che si trovano in una celletta d'energia $\varepsilon_i$ per il limite di \(T\to 0\):
+\[p_i^*= \frac{e^{-\frac{\varepsilon_i}{kT}}}{z}\]
+\[z=\sum_ie^{-\frac{\varepsilon_i}{kT}}\]
+Tutti i termini della somma tendono a 0 per T che tende a zero tranne uno: quello corrispondente alla prima celletta che sarà uguale ad 1 poiché anche l'energia della prima celletta tende a zero ($\lim_{T\to 0}\frac{\varepsilon_0}{T}=0$). Di conseguenza, tutti i \(p_i^*\) sono nulli tranne il primo che è uguale ad 1, ciò vuol dire che la probabilità che tutte le molecole si trovino nella prima celletta energetica è del 100\% mentre nelle altre cellette non ci sono molecole. Il numero di microstati in cui è realizzabile questo macrostato è 1 da cui segue che 
+\[S=k\ln(W)\underrightarrow{t\to0}\ 0\]
+che è in accordo con il terzo principio. 
+\subsection{Entropia ed informazione}
+\begin{definition}[Informazione secondo Shannon]
+	Data una variabile aleatoria discreta X, che può avere come risultati \{\(x_1,x_2,...\)\}, ciascuno di probabilità \(p_i\), l'informazione apportata dal verificarsi dell'evento \(x_i\) è data dalla relazione
+	\[I(x_i) = -\log_b p_i = \log_b \left(\frac{1}{p_i}\right)\]
+	ovvero, più è probabile un evento, meno informazioni fornisce sapere il fatto che si è verificato. Un evento certo invece, non apporta nessuna informazione (\(p_i = 1\)). 
+\end{definition}
+\begin{definition}[Entropia d'informazione]
+	Anche nota come entropia di Shannon, è definita come il valor medio dell'informazione sui possibili risultati
+	\[S_I=\sum_ip_iI(x_i) = \sum_ip_i\log_b\left(\frac{1}{p_i}\right)=-\sum_ip_i\log_b(p_i)= -k_I\sum_ip_i\ln(p_i)\]
+	dove \(k_I\) è una costante che risulta dal cambiamento di base del logaritmo, il questo caso è \(\frac{1}{\ln(b)}\). 
+\end{definition}
+A seconda di come viene scelto (arbitrariamente) cambia l'unità di misura dell'entropia d'informazione, di seguito qualche esempio 
+\begin{align*}
+	&\text{Nats: }b=e\rightarrow k_I = 1\\
+	&\text{Bits: }b = 2\rightarrow =\frac{1}{\ln(2)}\\
+	&\text{Bytes: }b = 8\rightarrow k_I = \frac{1}{\ln(8)}
+\end{align*}
+Ci chiediamo ora quale sia il significato fisico di \(S_I\). Cominciamo con il notare che è massima quando le probabilità \(p_i\) sono le stesse ovvero quando il sistema è completamente non-informativo, già possiamo intuire una somiglianza con l'entropia secondo Boltzmann: abbiamo già osservato che lo stato che massimizza l'entropia è quello equipartito. facciamo un'esempio assumendo che la variabile X sia una delle s6 lettere dell'alfabeto inglese: l'entropia massima si ha quando la probabilità di ogni lettera è la medesima, pari a $\frac{1}{26}$. 
+\[S_I = \frac{1}{\ln(2)}\sum_i\frac{\ln(26)}{26}=\frac{\ln(26)}{\ln(2)}\simeq 4.7 bits\]
+ciò vuol dire che, ad esempio, aprendo un libro inglese in una pagina casuale, se tutte le lettere fossero equiprobabili, sarebbero necessarie in media 4.7 domande binarie (del tipo "la lettera è A o no?") per conoscere il risultato. In realtà per l'alfabeto inglese non tutte le lettere sono equiprobabili ed il vero valore di entropia d'informazione risulta essere \(S_I \simeq 1.5\). cerchiamo ora di interpretare l'entropia secondo Boltzmann in questi termini, cominciamo con qualche manipolazione algebrica:
+\[S = k\ln(W)=k[N\ln(N)-\sum_iN_i\ln(N_i)]=k\left[\sum_iN_i\ln(N)-\sum_iN_i\ln(N_i)\right]=\]
+\[k\left[\sum_iN_i(\ln(N-\ln(N_i)))\right]=-kN\left[\sum_i\frac{N_i}{N}\ln\left(\frac{N}{N_i}\right)\right] =-kN\sum_ip_i\ln(p_i)\]
+ecco ottenuta una forma simile all'entropia d'Informazione. Se scegliessimo la base due per esprimere l'entropia di Boltzmann, interpretandola analogamente a come fatto per le lettere dell'alfabeto, consideriamo come variabile X i microstati che può assumere un sistema termodinamico in un certo macrostato: l'entropia secondo Boltzmann ci dice quante domande binarie dovrei porre in media ad un'ipotetico essere onnisciente per determinare il microstato. Una conferma sperimentale di quanto detto viene dalla misura di calore emessa dalla cancellazione di un bit di informazione: fissata una temperatura T, il calore perso è al minimo 
+\[Q=T\Delta S=Tk\ln(\frac{W_f}{W_i})=kT\ln(2)  \]
+si verifica sperimentalmente che non si va mai sotto questa soglia di calore disperso. Questo è detto \textbf{principio di Landauer}, un'ingegnere della famosa compagnia informatica IBM.
 \appendix
 \section{Determinismo assoluto e libero arbitrio}
 La possibilità teorica di conoscere l'evoluzione (passata e futura) di un sistema fisico, diede vita al cosiddetto \textbf{determinismo assoluto} di Pierre Simon Laplace (1749 - 1827) secondo cui se si conoscesse lo stato di ogni particella nell'universo (per intenderci si stima ci siano $10^{80}$ protoni nell'universo osservabile) allora sarebbe possibile conoscere alla perfezione presente passato e futuro. Questa idea portata all'estremo sostiene che, se il cervello fosse mosso unicamente da reazioni chimiche (he altro non sono che cambiamenti nello stato del sistema cervello), se si conoscesse lo stato di ogni particella del cervello allora si potrebbe prevedere alla perfezione il comportamento di un essere umano. Da ciò sorgono svariati dilemmi filosofici, uno per tutti il problema del libero arbitrio: se ogni movimento, parola ed espressione umana fosse teoricamente prevedibile matematicamente allora la libertà che sembra scontata nell'agire umano sarebbe solamente apparente?\\
-In realtà è possibile smontare la tesi del determinismo assoluto alla luce delle nuove scoperte della fisica del XX secolo, principalmente grazie alla teoria del caos e al probabilismo (opposto al determinismo) della fisica quantistica, a causa del principio di indeterminazione di Heisenberg. Un sistema formato da un tale numero di particelle come l'universo (ma anche un cervello umano) è detto "caotico" che, in soldoni, vuol dire che dipende altamente dallo stato iniziale del sistema. Ora, sappiamo che ogni misura è sempre affetta da errore, dunque ogni minima incertezza sullo stato iniziale del sistema inficerebbe irrimediabilmente sulla "previsione del passato e del futuro" laplaciana. Ma allora è solamente questione di migliorare gli strumenti tecnologici per ridurre l'errore? No!, e qui entra in ballo la fisica quantistica: se riducessimo l'errore sull'ipotetica misura dello stato di ogni singola particella dell'universo si arriverebbe ad un punto in cui entreremmo nel mondo quantistico (infinitamente piccolo) in cui sappiamo che, per il principio di indeterminazione, aumentare la precisione sulla posizione diminuisce la precisione sulla quantità di moto. Non c'è scampo, il positivismo ottocentesco è destinato al fallimento. 
+In realtà è possibile smontare la tesi del determinismo assoluto alla luce delle nuove scoperte della fisica del XX secolo, principalmente grazie alla teoria del caos e al probabilismo (opposto al determinismo) della fisica quantistica, a causa del principio di indeterminazione di Heisenberg. Un sistema formato da un tale numero di particelle come l'universo (ma anche un cervello umano) è detto "caotico" che, in soldoni, vuol dire che dipende altamente dallo stato iniziale del sistema. Ora, sappiamo che ogni misura è sempre affetta da errore, dunque ogni minima incertezza sullo stato iniziale del sistema inficerebbe irrimediabilmente sulla "previsione del passato e del futuro" laplaciana. Ma allora è solamente questione di migliorare gli strumenti tecnologici per ridurre l'errore? No!, e qui entra in ballo la fisica quantistica: se riducessimo l'errore sull'ipotetica misura dello stato di ogni singola particella dell'universo si arriverebbe ad un punto in cui entreremmo nel mondo quantistico (infinitamente piccolo) in cui sappiamo che, per il principio di indeterminazione, aumentare la precisione sulla posizione diminuisce la precisione sulla quantità di moto. Non c'è scampo, il positivismo ottocentesco è destinato al fallimento.
+\section{Giustificazione del metodo delle aree di Maxwell}
+Possiamo motivare questo metodo considerando la curva chiusa che si viene a formare fra l'isoterma di Van der Waals ed il segmento (l'area colorata d'azzurro in figura \ref{fig:calcolo-di-maxwell}) come un ciclo reversibile. Questo avviene del tutto isotermicamente (entrambe le curve del grafico sono isoterme), per il primo principio abbiamo
+\[L = Q\]
+considerando la disuguaglianza di Clausius per i cicli reversibili, e ricordando che siamo a temperatura costante
+\begin{align*}
+	&\oint\frac{\delta Q}{T}= 0\\
+	&\frac{1}{T}Q=0\\
+	&Q=0\\
+	&\Rightarrow L=0
+\end{align*} 
+nel ciclo considerato, indipendentemente dal verso in cui scegliamo di farlo avvenire, notiamo che l'area di destra ha verso opposto da quella di sinistra. Il lavoro è calcolabile come l'area di un ciclo e, convenzionalmente, si sceglie di porre il lavoro di un ciclo in senso orario positivo e quello in senso antiorario negativo. ne segue che, perché il lavoro sia nullo, le due aree devono essere uguali così, avendo segno opposto, si annulleranno. Possiamo trovare il segmento imponendo la condizione d'uguaglianza fra le due aree.  
 \newpage
 \tableofcontents
 \end{document}
