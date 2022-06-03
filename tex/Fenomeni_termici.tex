@@ -891,7 +891,7 @@ A partire dalla congiunta possiamo ricavare la p.d.f. del modulo del vettore vel
 	&\rho(v) dv = f(v_x, v_y, v_z) 4\pi v^2 dv \nonumber \\
 	&\rho(v)=\frac{4}{\sqrt{\pi}}\left(\frac{m}{2k_b\theta}\right)^{\frac{3}{2}} v^2 e^{-\frac{mv^2}{2 k_b \theta}}
 \end{align} 
-Questa è detta di \textbf{p.d.f. di Maxwell-Boltzmann}. Offre una quantità di informazioni molto interessanti: possiamo calcolare il modulo velocità media ad ogni temperatura, conoscere il numero di molecole atteso che abbia una velocità compresa in un certo intervallo... \'{E} interessante che con questo grafico possiamo spiegare un semplice evento della vita quotidiana: perché i panni si asciugano una volta stesi? In teoria per far evaporare l'acqua bisognerebbe riscaldare l'acqua ad un punto tale che l'energia cinetica delle singole molecole è tale da rompere i legami intermolecolari e "scappare", se però non facciamo riscaldare i panni fino a 100 \textdegree C (temperatura di ebollizione dell'acqua) come fanno a scappare queste molecole? la risposta è che non tutte le molecole hanno la stessa velocità e che questa è distribuita in base ad una p.d.f.: esiste una soglia dopo la quale la velocità delle molecole è tale da poter rompere il legame, ed esiste una probabilità che si trovino molecole a questa velocità anche se in media le molecole hanno una velocità minore. Chiaramente, maggiore la temperatura maggiore sarà la probabilità di trovare molecole oltre questa soglia. Ecco perché al caldo i panni si asciugano più velocemente!
+Questa è detta di \textbf{p.d.f. di Maxwell-Boltzmann}. Offre una quantità di informazioni molto interessanti: possiamo calcolare il modulo velocità media ad ogni temperatura, conoscere il numero di molecole atteso che abbia una velocità compresa in un certo intervallo. \'{E} interessante che con questo grafico possiamo spiegare un semplice evento della vita quotidiana: perché i panni si asciugano una volta stesi? In teoria per far evaporare l'acqua bisognerebbe riscaldare l'acqua ad un punto tale che l'energia cinetica delle singole molecole è tale da rompere i legami intermolecolari e "scappare", se però non facciamo riscaldare i panni fino a 100 \textdegree C (temperatura di ebollizione dell'acqua) come fanno a scappare queste molecole? la risposta è che non tutte le molecole hanno la stessa velocità e che questa è distribuita in base ad una p.d.f.: esiste una soglia dopo la quale la velocità delle molecole è tale da poter rompere il legame, ed esiste una probabilità che si trovino molecole a questa velocità anche se in media le molecole hanno una velocità minore. Chiaramente, maggiore la temperatura maggiore sarà la probabilità di trovare molecole oltre questa soglia. Ecco perché al caldo i panni si asciugano più velocemente!
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.6\linewidth]{../images/speedpdf}
@@ -3363,10 +3363,14 @@ usiamo ora l'approssimazione di Stirling del fattoriale, valida per \(N\to\infty
 Ora per trovare il massimo poniamo $\mu$ derivate parziali di f rispetto ad \(N_i\) uguali a zero 
 \begin{align*}
 	&\frac{\partial f(\vec{N})}{\partial N_i}=0\\
-	&\Rightarrow -\ln(N_i)-1+\alpha =0\\
+	&\Rightarrow -\ln(N_i)-1+\alpha =0
+\end{align*}
+Si noti che in quest'ultimo passaggio si è eliminata la sommatoria e si sta considerando la componente i-esima del vettore \(\vec{N}\). La relazione in questione è la stessa per tutti gli \(N_i\). Continuando
+\begin{align*}
 	&\ln(N_i) = \alpha - 1\\
 	&N_i^* = e^{\alpha - 1}
 \end{align*}
+
 ricordando il vincolo posto per garantire il fatto che il sistema sia chiuso
 \begin{align*}
 	&\sum_iN_i =N\\
@@ -3375,8 +3379,8 @@ ricordando il vincolo posto per garantire il fatto che il sistema sia chiuso
 	&e^{\alpha - 1}=\frac{N}{\mu}\\
 	&\Rightarrow N_i^* = \frac{N}{\mu}
 \end{align*}
-Abbiamo trovato i valori ottimali del vettore $\vec{N}$ tali da massimizzare W: risulta, come potevamo aspettarci, la configurazione più probabile è quella in cui tutti gli N sono uguali ed equipariti in ogni celletta \{$\frac{N}{\mu},\ \frac{N}{\mu},\ ...,\ \frac{N}{\mu} $\}. La probabilità che in una celletta ci siano $\frac{N_i^*}{\mu}$ molecole è data, come sempre, dai casi favorevoli fratto i casi totali
-\[p_i^*=\frac{N_j^*}{N}=\frac{1}{\mu}\]
+Abbiamo trovato i valori ottimali del vettore $\vec{N}$ tali da massimizzare W: risulta, come potevamo aspettarci, che la configurazione più probabile è quella in cui tutti gli N sono uguali ed equipariti in ogni celletta \{$\frac{N}{\mu},\ \frac{N}{\mu},\ ...,\ \frac{N}{\mu} $\}. La probabilità che in una celletta ci siano $\frac{N_i^*}{\mu}$ molecole è data, come sempre, dai casi favorevoli fratto i casi totali
+\[p_i^*=\frac{N_i^*}{N}=\frac{1}{\mu}\]
 Si nota come all'aumentare di $\mu$ la probabilità che le molecole si trovino nello stato equipartito diminuisce ma al contempo la p.d.f. si restringe sempre più (diminuisce la deviazione standard). Ne segue che un sistema all'equilibrio formato da molte molecole ha un'altissima probabilità di trovarsi in un intorno infinitesimo del microstato equipartito. Inoltre, quasi mai il sistema si trova nello stato in cui tutte le molecole si trovano in una celletta. 
 
 \begin{figure}[h!]
@@ -3405,9 +3409,10 @@ Fin ora abbiamo parlato di sistemi all'equilibrio, che si trovano spontaneamente
 Ipotizziamo ora (\textbf{ipotesi di Boltzmann}) che che l'entropia sia calcolabile come
 \[S=k_b\ln(W)\]
 questa è detta \textbf{entropia di Boltzmann}, \(k_b\) è la costante di Boltzmann.\\
-e calcoliamo la variazione d'entropia fra stato iniziale e finale
+Calcoliamo la variazione d'entropia fra stato iniziale e finale
 \begin{align*}
-	&\Delta S = k\ln(W_{f})-k\ln(W_{i})=k\ln\left(\frac{W_f}{W_i}\right)=k\ln\left(\frac{W_f\Delta\tau}{W_i\Delta\tau}\right)=k\ln\left(\left(\frac{V_f}{V_i}\right)^N\right)=Nk\ln(2)
+	\Delta S &= k\ln(W_{f})-k\ln(W_{i})=k\ln\left(\frac{W_f}{W_i}\right)=k\ln\left(\frac{W_f\Delta\tau}{W_i\Delta\tau}\right)=\\
+	 &k\ln\left(\left(\frac{V_f}{V_i}\right)^N\right)=Nk\ln(2)
 \end{align*}
 Dimostreremo in seguito che l'entropia di Boltzmann coincide con quella termodinamica; innanzitutto però capiamo come si possa arrivare ad una ipotesi del genere.\\
 \subsubsection*{Plausibilità dell'ipotesi di Boltzmann}
@@ -3461,8 +3466,8 @@ Possiamo ora massimizzare W ($\vec{N}$)con questi due vincoli utilizzando i molt
 \end{align*}
 Imponendo la condizione di sistema chiuso otteniamo l'espressione del numero di molecole nella celletta di energia i-esima (\(N_i^*\)) che massimizza il numero di stati in cui è ottenibile il macrostato.
 \begin{align*}
-	&\sum_{i=1}^\mu N_i = N \Rightarrow N_i^* = \frac{Ne^{-\beta\varepsilon_i}}{\sum_ie^{-\beta\varepsilon_i}}\\
-	&z\equiv \sum_ie^{-\beta\varepsilon_i}\\
+	&\sum_{i=1}^\mu N_i = N \Rightarrow N_i^* = \frac{Ne^{-\beta\varepsilon_i}}{\sum_je^{-\beta\varepsilon_j}}\\
+	&z\equiv \sum_je^{-\beta\varepsilon_j}\\
 	&N_i^* = \frac{Ne^{-\beta\varepsilon_i}}{z}
 \end{align*} 
 Deduciamo che in questo caso la configurazione che massimizza W non è quella equipartita ma esponenziale: minore l'energia cinetica più popolate sono. \\
@@ -3493,8 +3498,8 @@ Questa è la condizione d'equilibrio di un sistema formato da due parti in conta
 \[S = k\ln(W)\] 
 Ecco ottenuta in modo rigoroso l'entropia di Boltzmann nella sua forma più generale.\\
 Infine, è possibile ricavare la funzione di distribuzione delle probabilità di trovare N molecole nell'iesima celletta 
-\[p_i^*=\frac{N_i^*}{N}=\frac{e^{-\beta \varepsilon_i}}{\sum_i e^{-\beta \varepsilon_i}}\]
-A partire da questa funzione, svolgendo alcune considerazioni, è possibile pervenire alla distribuzione di Maxwell delle energie, già ottenuta; la distribuzione viene infatti detta di Maxwell-Boltzmann.
+\[p_i^*=\frac{N_i^*}{N}=\frac{e^{-\beta \varepsilon_i}}{\sum_j e^{-\beta \varepsilon_j}}\]
+A partire da questa funzione, svolgendo alcune considerazioni, è possibile pervenire alla distribuzione di Maxwell delle energie, già ottenuta; la distribuzione viene infatti detta di Maxwell-Boltzmann. Si noti che \(\beta\) è ancora da determinare e ciò non verrà fatto in questa sede. 
 \subsection{Funzione di partizione e Terzo Principio}
 Consideriamo il numero di molecole che si trovano in una celletta d'energia $\varepsilon_i$ per il limite di \(T\to 0\):
 \[p_i^*= \frac{e^{-\beta \varepsilon_i}}{z}\]
@@ -3524,10 +3529,11 @@ Ci chiediamo ora quale sia il significato fisico di \(S_I\). Cominciamo con il n
 \[S_I = \frac{1}{\ln(2)}\sum_i\frac{\ln(26)}{26}=\frac{\ln(26)}{\ln(2)}\simeq 4.7 bits\]
 ciò vuol dire che, ad esempio, aprendo un libro inglese in una pagina casuale, se tutte le lettere fossero equiprobabili, sarebbero necessarie in media 4.7 domande binarie (del tipo "la lettera è A o no?") per conoscere il risultato. In realtà per l'alfabeto inglese non tutte le lettere sono equiprobabili ed il vero valore di entropia d'informazione risulta essere \(S_I \simeq 1.5\). cerchiamo ora di interpretare l'entropia secondo Boltzmann in questi termini, cominciamo con qualche manipolazione algebrica:
 \[S = k\ln(W)=k[N\ln(N)-\sum_iN_i\ln(N_i)]=k\left[\sum_iN_i\ln(N)-\sum_iN_i\ln(N_i)\right]=\]
-\[k\left[\sum_iN_i(\ln(N-\ln(N_i)))\right]=-kN\left[\sum_i\frac{N_i}{N}\ln\left(\frac{N}{N_i}\right)\right] =-kN\sum_ip_i\ln(p_i)\]
+\[k\left[\sum_iN_i\left(\ln(N)-\ln(N_i)\right)\right]=-kN\left[\sum_i\frac{N_i}{N}\ln\left(\frac{N_i}{N}\right)\right] =-kN\sum_ip_i\ln(p_i)\]
 ecco ottenuta una forma simile all'entropia d'Informazione. Se scegliessimo la base due per esprimere l'entropia di Boltzmann, interpretandola analogamente a come fatto per le lettere dell'alfabeto, consideriamo come variabile X i microstati che può assumere un sistema termodinamico in un certo macrostato: l'entropia secondo Boltzmann ci dice quante domande binarie dovrei porre in media ad un'ipotetico essere onnisciente per determinare il microstato. Una conferma sperimentale di quanto detto viene dalla misura di calore emessa dalla cancellazione di un bit di informazione: fissata una temperatura T, il calore perso è al minimo 
-\[Q=T\Delta S=Tk\ln(\frac{W_f}{W_i})=kT\ln(2)  \]
+\[Q=T\Delta S=Tk\ln\left(\frac{W_f}{W_i}\right)=kT\ln(2)  \]
 si verifica sperimentalmente che non si va mai sotto questa soglia di calore disperso. Questo è detto \textbf{principio di Landauer}, un'ingegnere della famosa compagnia informatica IBM.
+\newpage
 \appendix
 \section{Determinismo assoluto e libero arbitrio}
 La possibilità teorica di conoscere l'evoluzione (passata e futura) di un sistema fisico, diede vita al cosiddetto \textbf{determinismo assoluto} di Pierre Simon Laplace (1749 - 1827) secondo cui se si conoscesse lo stato di ogni particella nell'universo (per intenderci si stima ci siano $10^{80}$ protoni nell'universo osservabile) allora sarebbe possibile conoscere alla perfezione presente passato e futuro. Questa idea portata all'estremo sostiene che, se il cervello fosse mosso unicamente da reazioni chimiche (he altro non sono che cambiamenti nello stato del sistema cervello), se si conoscesse lo stato di ogni particella del cervello allora si potrebbe prevedere alla perfezione il comportamento di un essere umano. Da ciò sorgono svariati dilemmi filosofici, uno per tutti il problema del libero arbitrio: se ogni movimento, parola ed espressione umana fosse teoricamente prevedibile matematicamente allora la libertà che sembra scontata nell'agire umano sarebbe solamente apparente?\\
@@ -3544,5 +3550,4 @@ considerando la disuguaglianza di Clausius per i cicli reversibili, e ricordando
 	&\Rightarrow L=0
 \end{align*} 
 nel ciclo considerato, indipendentemente dal verso in cui scegliamo di farlo avvenire, notiamo che l'area di destra ha verso opposto da quella di sinistra. Il lavoro è calcolabile come l'area di un ciclo e, convenzionalmente, si sceglie di porre il lavoro di un ciclo in senso orario positivo e quello in senso antiorario negativo. ne segue che, perché il lavoro sia nullo, le due aree devono essere uguali così, avendo segno opposto, si annulleranno. Possiamo trovare il segmento imponendo la condizione d'uguaglianza fra le due aree.  
-\section{Determinare $\beta$ nella funzione \(N_i^*\) per microstati nel sottospazio delle quantità di moto}
 \end{document}
