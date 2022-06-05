@@ -110,20 +110,14 @@ BCOR5mm, % Binding correction
 %----------------------------------------------------------------------------------------
 
 \section{Introduzione}
-Possiamo vedere la Termodinamica come una generalizzazione e reinterpretazione della meccanica classica, con un aggiunta di nuovi concetti. Einstein sostenne che la termodinamica è immortale perché non sostituibile o ampliabile (nel suo ambito di competenza). A Differenza della meccanica classica, la termodinamica permette di studiare qualsiasi sistema fisico. Questa nuova branca della fisica venne sviluppata nella seconda metà del XIX secolo, duecento anni dopo la nascita della scienza moderna, principalmente dalle celeberrime figure di Carnot, Kelvin, Joule, Clausius, Gibbs, Maxwell e Boltzmann (fra molti altri, fra cui alcuni ingegneri). L'approccio, più moderno, risulta differente ed è bene introdurre i termini del problema in una nuova forma.\\
+Possiamo vedere la Termodinamica come una generalizzazione e reinterpretazione della meccanica classica, con un aggiunta di nuovi concetti. Einstein sostenne che la termodinamica è immortale perché non sostituibile o ampliabile (nel suo ambito di competenza). A Differenza della meccanica classica, la termodinamica permette di studiare qualsiasi sistema fisico. Questa nuova branca della fisica venne sviluppata nella seconda metà del XIX secolo, duecento anni dopo la nascita della scienza moderna, principalmente dalle celeberrime figure di Carnot, Kelvin, Joule, Clausius, Gibbs, Maxwell e Boltzmann (e molti altri, fra cui alcuni ingegneri). L'approccio, più moderno, risulta differente ed è bene introdurre i termini del problema in una nuova forma.\\
 \subsection{Lo stato di un sistema fisico}
 "Conoscere" un sistema fisico vuol dire conoscere il suo \textbf{stato} in un dato istante o intervallo di tempo.
 Possiamo parlare di \textbf{micro-stato} di un sistema, dato dalla coppia di posizione e quantità di moto di ogni particella che compone il sistema ad un dato istante. 
 \begin{align*} 
 	\text{Micro-stato del sistema } = \{ \vec{x}_i,\ \vec{p}_i\}
 \end{align*} 
-Esiste inoltre il macro-stato di un sistema, ovvero la coppia di due coordinate specifiche (macroscopiche) del sistema dette \textbf{coordinate termodinamiche}. Un classico esempio è il recipiente cilindrico pieno di gas e messo a pressione da un pistone, questo macro sistema fisico ha come coordinate macroscopiche specifiche pressione e volume dunque il suo stato sarà dato da $\{P,\ V\}$. Fra le coordinate macroscopiche distinguiamo tra \textbf{intensive} ed \textbf{estensive}, le seconde variano con le dimensioni del sistema mentre le prime no. Esiste una relazione interessante fra questi due tipi di coordinate: ognuna di un tipo ha un suo coniugato (\textbf{variabili coniugate}) nell'altro tipo, ad esempio 
-\begin{align*} 
-	&(V,\ l ,\ S,\ R,\ H)\\
-	&\quad \quad \quad \downarrow\\
-	&(P,\ T,\ \tau,\ \epsilon,\ M)
-\end{align*} 
-Questa caratteristica risulterà utile in seguito.\\
+Esiste inoltre il macro-stato di un sistema, ovvero la coppia di due coordinate specifiche (macroscopiche) del sistema dette \textbf{coordinate termodinamiche}. Un classico esempio è il recipiente cilindrico pieno di gas e messo a pressione da un pistone, questo macro sistema fisico ha come coordinate macroscopiche specifiche pressione e volume dunque il suo stato sarà dato da $\{P,\ V\}$. Fra le coordinate macroscopiche distinguiamo tra \textbf{intensive} ed \textbf{estensive}, le seconde variano con le dimensioni del sistema mentre le prime no. Esiste una relazione interessante fra questi due tipi di coordinate: ognuna di un tipo ha un suo coniugato (\textbf{variabili coniugate}) nell'altro tipo (alcuni esempi sono: pressione e volume, tensione e lunghezza, forza e spostamento...). Questa caratteristica risulterà utile in seguito.\\
 Un insieme di coordinate macroscopiche può essere indipendente o dipendente, nel primo caso le coordinate possono assumere qualsiasi valore indipendentemente dalle altre mentre nel secondo esiste una funzione, che ha come parametri alcune delle coordinate, da cui dipende una delle coordinate restanti (il suo valore non sarà dunque libero). 
 \begin{definition}[Stato termodinamico]
 	Si dice stato termodinamico (macroscopico) di un sistema i valori che assumono un'insieme di coordinate termodinamiche indipendenti di un sistema in un dato istante. Differisce dallo stato meccanico (microscopico) di un sistema definito dai valori dalle coordinate di posizione e quantità di moto di un sistema in un dato istante. 
@@ -964,9 +958,9 @@ Possiamo ricavare
 	\frac{dv}{d\varepsilon} = \sqrt{\frac{1}{2 m \varepsilon}}
 \end{align*} 
 Da sostituire nell'espressione di $\rho(\varepsilon)$ insieme al noto $\rho(v)$ ricavato nella (\ref{eq:pdfMaxwellvelocità}).
-\begin{align*} 
-	\rho(\varepsilon)&= \left(\sqrt{\frac{1}{2 m \varepsilon}}\right) \frac{4}{\sqrt{\pi}}\left(\frac{m}{2k_b\theta}\right)^{\frac{3}{2}} v^2 e^{-\frac{mv^2}{2 k_b \theta}}= 2 \sqrt{\frac{\varepsilon}{\pi}} \left(\frac{1}{k_b \theta}\right)^{\frac{3}{2}}
-\end{align*}  
+\begin{align}\label{eq:distribuzione_energie}
+	\rho(\varepsilon)&= \left(\sqrt{\frac{1}{2 m \varepsilon}}\right) \frac{4}{\sqrt{\pi}}\left(\frac{m}{2k_b\theta}\right)^{\frac{3}{2}} v^2 e^{-\frac{mv^2}{2 k_b \theta}}= 2 \sqrt{\frac{\varepsilon}{\pi}} \left(\frac{1}{k_b \theta}\right)^{\frac{3}{2}}e^{-\frac{mv^2}{2 k_b \theta}}
+\end{align}  
 \subsection{Evaporazione ed atmosfera dei pianeti}
 Alcuni pianeti posseggono un'atmosfera più o meno grande, che riesce a trattenere diversi tipi di gas a seconda delle caratteristiche del pianeta. Una modello estremamente semplificato che descrive l'atmosfera di un pianeta è basato sulla distribuzione delle velocità delle molecole di un gas. L'atmosfera infatti trattiene il gas grazie alla forza di gravità del pianeta, essa però deve trattenere molecole che hanno una certa velocità, in particolare riuscirà a trattenere molecole che hanno velocità minore della velocità di fuga del pianeta. La velocità delle molecole dipende dalla temperatura dell'atmosfera mentre quella di fuga dalla massa e dal raggio del pianeta. Ne segue che la probabilità e il numero atteso di molecole che escano dall'atmosfera è
 \begin{align*} 
@@ -1886,7 +1880,7 @@ Ecco ottenuta la relazione che cercavamo. Sapendo approssimativamente la vita de
 \begin{align*}
 	&\ln(3) = -\frac{1}{2}\ln(4\cdot10^{17}) + cost.\\
 	& cost. = \ln(3) + \frac{1}{2}\ln(4\cdot10^{17}) \simeq 21\\
-	&\Rightarrow \ln(\theta) = -\frac{1}{2}\ln(t) + 21
+	&\Rightarrow \ln(\theta) = -\frac{1}{2}\ln(t) + 21 
 \end{align*}
 \'{E} interessante sapere che l'energia (e quindi temperatura) massima raggiunta in laboratorio sulla terra è quella del collisore LHC del CERN di Ginevra che corrisponde a $13 TeV = 1.3 \cdot 10^{13} eV = 1.3 \cdot 10^{13} \cdot 1.16 \cdot 10^4\ °K = 1.5\cdot 10^{17}\ °K $. Possiamo ricavare a quale tempo cosmico corrisponde questa temperatura
 \begin{align*}
@@ -3146,7 +3140,7 @@ Otteniamo quindi un'equazione di stato del tipo
 \begin{align}\label{eq:funz_di_stato_generale}
 	f(p,\ T,\ N_V)= 0
 \end{align}
-Osserviamo che in un sistema all'equilibrio termodinamico (per ogni p e V fissati), non avvengono reazioni chimiche o passaggi di fase. Dunque, fissati p e V, per ogni fase (liquida, gassosa, solida...) la concentrazione di ogni componente in quella fase è fissata: possiamo così scrivere la funzione a valori matrice come un sistema di funzioni a valori vettori. Di seguito un'esempio per chiarire il concetto
+Osserviamo che in un sistema a p e T fissati, non avvengono passaggi di fase (l'unica cosa che fa cambiare fase è una variazione di pressione o temperatura). Dunque, fissati p e T, per ogni fase (liquida, gassosa, solida...) la concentrazione di ogni componente in quella fase è fissata: possiamo così scrivere la funzione a valori matrice come un sistema di funzioni a valori vettori. Di seguito un'esempio per chiarire il concetto
 \begin{exercise}[Esempio]
 	Consideriamo un sistema all'equilibrio che, a temperatura T e pressione P fissate, è formato da \(H_2O\) e \(CO_2\), in cui la concentrazione dell'acqua liquida è \(n_{al}\), gassosa \(n_{ag}\) mentre per la \(CO_2\) rispettivamente \(n_{cl}\), \(n_{cg}\). In questo caso la matrice \(N_V\) è
 	\begin{align*}
@@ -3402,7 +3396,17 @@ In un caso formato da N molecole, con N molto grande, lo spazio delle fasi è pr
 Fin ora abbiamo parlato di sistemi all'equilibrio, che si trovano spontaneamente nello stato equipartito. Se però il sistema non partisse dallo stato d'equilibrio ma, ad esempio, si sia portato un gas, compiendo lavoro, nella configurazione \{N,0\} (per semplicità consideriamo $\mu=2$) mediante una compressione isoterma reversibile per poi lasciarlo libero di espandersi, cosa accadrebbe? Il punto che rappresenta il microstato del sistema inizierà a muoversi casualmente nello spazio delle fasi, e ben presto raggiungerà la regione di volume maggiore, da cui poi quasi certamente non uscirà più. Quella regione, infatti, corrispondente a un intorno infinitesimo del macrostato \(\{N/2, N/2\}\), ha un volume pari alla quasi totalità dello spazio delle fasi e pertanto corrisponde a un macrostato di equilibrio. Calcoliamo i volumi dei macrostati iniziale e finale:
 \begin{align*}
 	&W_i = 1\\
-	&W_f = \frac{N!}{\frac{N}{2}!\frac{N}{2}!}\simeq2^N\\
+	&W_f = \frac{N!}{\frac{N}{2}!\frac{N}{2}!}\simeq2^N
+\end{align*}
+Si dimostra \(W_f = 2^N\) con Stirling:
+\begin{align*}
+	\ln W_f &= \ln N! - 2 \ln \left(\frac{N}{2}!\right) \simeq N\ln N - N - 2 \left[\frac{N}{2}\ln\frac{N}{2} - \frac{N}{2}\right]\\
+	&=N \ln N - N - N\ln \frac{N}{2} + N = N \ln 2 = \ln 2^N\\
+	W_f &\simeq 2^N
+\end{align*}
+In questo modo il numero di microstati che corrisponde al macrostato finale occupa l'intero spazio delle fasi, approssimazione che andrà bene per i nostri scopi. Nella realtà il motivo per cui il risultato non è del tutto esatto è dovuto ad un uso improprio dell'approssimazione di Stirling, che approssima con elevata precisione il logaritmo, ma non nel ritornare all'esponenziale (\(N \ncong e^{N\ln N - N}\)).\\
+Calcoliamo quindi il volume nello spazio delle fasi dei macrostati iniziale e finale:
+\begin{align*}
 	&\tau_i = W_i\cdot\Delta\tau = (V_i)^N \\
 	&\tau_f = W_f\cdot\Delta\tau = 2^N(V_i)^N=(2 V_i)^N = (V_f)^N
 \end{align*}
@@ -3415,7 +3419,7 @@ Calcoliamo la variazione d'entropia fra stato iniziale e finale
 	 &k\ln\left(\left(\frac{V_f}{V_i}\right)^N\right)=Nk\ln(2)
 \end{align*}
 Dimostreremo in seguito che l'entropia di Boltzmann coincide con quella termodinamica; innanzitutto però capiamo come si possa arrivare ad una ipotesi del genere.\\
-\subsubsection*{Plausibilità dell'ipotesi di Boltzmann}
+\subsubsection*{Plausibilità dell'ipotesi di Boltzmann (1)}
 Da un lato, un sistema termodinamico evolve fino a raggiungere l'entropia massima ottenibile, all'equilibrio, d'altra parte esistono, come visto, macrostati ottenibili in un numero maggiore di microstati rispetto ad altri a cui è intuitivo che il sistema si troverà all'equilibrio. Ha dunque senso ipotizzare una dipendenza dell'entropia dal numero di microstati con cui si può ottenere un macrostato. L'ipotesi si formula nella seguente forma:
 \[S = f(W)\]
 Consideriamo un sistema formato da due parti rispettivamente di entropia \(S_1\) ed \(S_2\) e con un numero di modi di formare il macrostato a cui si trovano rispettivamente di \(W_1\), \(W_2\). L'entropia è una quantità additiva quindi
@@ -3429,7 +3433,7 @@ ovvero, la funzione f deve rispettare la proprietà
 \[f(xy)=f(x)+f(y)\]
 Da questa proprietà è già possibile ricavare la forma della funzione. Essendo valida per qualunque valore di x ed y, possiamo porre \(y=1+\varepsilon\) dove $\varepsilon$ è un infinitesimo del primo ordine. Si ha allora
 \[f(x+\varepsilon x) = f(x)+f(1+\varepsilon)\]
-Sviluppiamo in serie di Taylor trascurando i membri di ordine di infinitesimo superiore al primo:
+Sviluppiamo in serie di Taylor rispetto ad \(\varepsilon\) trascurando i membri di ordine di infinitesimo superiore al primo:
 \[f(x)+x\varepsilon f'(x)=f(x)+f(1)+\varepsilon f'(1)\]
 Ponendo \(\varepsilon = 0\) otteniamo \(f(1)=0\), sostituendo otteniamo 
 \[x f'(x) = f'(1)=k\]
@@ -3447,31 +3451,8 @@ Analizziamo ora le conseguenze di questa relazione.
 	\item Anche con questa interpretazione vale \(\Delta S_u > 0\) ma assume un valore del tutto diverso: con questo approccio scopriamo che è solo estremamente probabile che l'entropia aumenti ma non del tutto certo (è un'approccio statistico). Si comprende quindi che l'irreversibilità, che non esiste nel microscopico, è una proprietà emergente, dovuta all'estrema probabilità di alcuni stati su altri quando si considera un elevato numero di molecole.  
 	\item Un'ultima considerazione di estremo interesse è da fare sull'universo, visto come un grande sistema termodinamico. Si osserva che in ogni trasformazione che realizziamo l'entropia dell'universo aumenta, ne segue che l'universo non è ancora ad uno stato d'equilibrio con entropia massima. L'universo è nato in uno stato di bassissima entropia: il big bang, e da tutta la sua vita, non ha ancora raggiunto il volume corrispondente al macrostato di entropia massima, da cui quasi sicuramente non uscirebbe mai più. Il punto sullo spazio delle fasi che rappresenta il  microstato dell'universo è in movimento e durante questo viaggio è estremamente probabile che il via via si trovi in macrostati con un volume associato più grande (più probabili), da qui deriva l'aumento costante d'entropia che osserviamo e quindi anche il secondo principio della termodinamica. La freccia del tempo termodinamica si può  identificare con la freccia del tempo cosmologica.
 \end{itemize}
-\subsection{Conteggio dei microstati nel sottospazio delle quantità di moto}
-Fin ora ci siamo limitati a trattare il sottospazio delle coordinate (ci siamo chiesti se una molecola si trova o meno in una data celletta), ora ripetiamo il processo per le quantità di moto. Bisogna effettuare alcune correzioni al processo precedente: notiamo inizialmente che l'informazione importante in questo caso è il modulo e non le singole coordinate, possiamo considerare quindi l'energia cinetica (che dipende dal modulo della quantità di moto) in modo da avere N gradi di libertà invece di 3N (un modulo per ognuna delle N particelle). Quelle che nel caso precedente erano cellette di spazio ora sono cellette di energia \{\(\varepsilon_0, \varepsilon_1,...\)\} (ogni celletta ha un valore preciso di energia, differiscono per piccole quantità discrete di energia). La domanda che ci poniamo ora è: date N molecole, in quanti modi W posso disporne \(N_1\) nella prima celletta energetica, \(N_2\) nella seconda ecc... Questa volta i vincoli sono 2:
-\begin{align*}
-	&\text{Sistema chiuso: }\sum_{i=1}^\mu N_i = N\\
-	&\text{Sistema isolato: }\sum_{i=1}^\mu N_i\varepsilon_i = U
-\end{align*}
-Possiamo ora massimizzare W ($\vec{N}$)con questi due vincoli utilizzando i moltiplicatori di Lagrange. 
-\begin{align*}
-	&\begin{cases}
-		[1]\ln(W)=\ln \left(\frac{N!}{\prod_{i=1}^{\mu}}\right)\\
-		[2]\sum_{i=1}^\mu N_i = N\\
-		[3]\sum_{i=1}^\mu N_i\varepsilon_i = U
-	\end{cases}\\
-	&f(\vec{N})=[1]+\alpha[2]-\beta[3] = N\ln(N)-\sum_{i=1}^\mu N_i\ln(N_i)+\alpha(\sum_{i=1}^\mu N_i - N)-\beta(\sum_{i=1}^\mu N_i\varepsilon_i - U)\\
-	&\frac{\partial f}{\partial N_j} = 0 \Rightarrow -\ln(N_i)-1+\alpha-\beta\varepsilon_i = 0\\
-	&N_i^* = e^{\alpha - 1-\beta\varepsilon_i}
-\end{align*}
-Imponendo la condizione di sistema chiuso otteniamo l'espressione del numero di molecole nella celletta di energia i-esima (\(N_i^*\)) che massimizza il numero di stati in cui è ottenibile il macrostato.
-\begin{align*}
-	&\sum_{i=1}^\mu N_i = N \Rightarrow N_i^* = \frac{Ne^{-\beta\varepsilon_i}}{\sum_je^{-\beta\varepsilon_j}}\\
-	&z\equiv \sum_je^{-\beta\varepsilon_j}\\
-	&N_i^* = \frac{Ne^{-\beta\varepsilon_i}}{z}
-\end{align*} 
-Deduciamo che in questo caso la configurazione che massimizza W non è quella equipartita ma esponenziale: minore l'energia cinetica più popolate sono. \\
-In quest'ultima espressione compare il coefficiente $\beta$ risultante dal metodo dei moltiplicatori di Lagrange, determiniamo cosa sia. Si considerino due sistemi isolati termicamente con l'ambiente ma a contatto termico tra loro, un sistema \(S_1\) di coordinate macroscopiche \(N_1, V_1, U_1\) ed uno \(S_2\) con \(N_2,V_2,U_2\). I volumi e il numero di moli sono chiaramente costanti ma l'energia interna varia (purché \(U_1+U_2 = U\) costante). Il numero di microstati dei sistemi dipende solamente dalle loro energie interne \(W_1(U_1), W_2(U_2)\), il numero di microstati totale sarà 
+\subsubsection*{Plausibilità dell'ipotesi di Boltzmann (2)}
+Si considerino due sistemi isolati termicamente con l'ambiente ma a contatto termico tra loro, un sistema \(S_1\) di coordinate macroscopiche \(N_1, V_1, U_1\) ed uno \(S_2\) con \(N_2,V_2,U_2\). I volumi e il numero di moli sono chiaramente costanti ma l'energia interna varia (purché \(U_1+U_2 = U\) costante). Il numero di microstati dei sistemi dipende solamente dalle loro energie interne \(W_1(U_1), W_2(U_2)\), il numero di microstati totale sarà 
 \begin{align*}
 	&W(U_1,U_2) = W_1(U_1)W_2(U_2)=W_1(U_1)W_2(U-U_1)\\
 	&\Rightarrow W = W(U_1)
@@ -3494,24 +3475,53 @@ Questa è la condizione d'equilibrio di un sistema formato da due parti in conta
 		\dfrac{\partial \ln(W_1)}{\partial U_1} = \dfrac{\partial \ln(W_2)}{\partial U_2}
 	\end{cases}
 \end{align*}
-\'{E} evidente che ne segue che S è proporzionale a \(\ln(W)\), inoltre visto che alle derivate potremmo aggiungere una costante che si cancellerebbe, abbiamo che la proporzionalità è valida a meno di una costante che però possiamo porre uguale a zero.
-\[S = k\ln(W)\] 
-Ecco ottenuta in modo rigoroso l'entropia di Boltzmann nella sua forma più generale.\\
+Se ora accettassimo l'ipotesi di Boltzmann come plausibile, potremmo dividere membro a membro il sistema e sostituire
+\begin{align*}
+	&\frac{\partial S_1}{\partial \ln(W_1)} = \frac{\partial S_2}{\partial \ln(W_2)}\\
+	&\frac{\partial (k_b \ln(W_1))}{\partial \ln(W_1)} = \frac{\partial (k_b \ln(W_2))}{\partial \ln(W_2)}\\
+	&k_b = k_b
+\end{align*}
+otteniamo che la condizione necessaria all'equilibrio ricavata sarebbe rispettata se l'ipotesi di Boltzmann fosse corretta. Chiaramente non è una dimostrazione ma si mostra solamente la plausibilità dell'ipotesi. Inoltre, visto che alle derivate potremmo aggiungere una costante che si cancellerebbe, abbiamo che anche questa prova di plausibilità comprende il fatto che l'entropia è definita a meno di una costante.
+\subsection{Conteggio dei microstati nel sottospazio delle quantità di moto}
+Fin ora ci siamo limitati a trattare il sottospazio delle coordinate (ci siamo chiesti se una molecola si trova o meno in una data celletta), ora ripetiamo il processo per le quantità di moto. Bisogna effettuare alcune correzioni al processo precedente: notiamo inizialmente che l'informazione importante in questo caso è il modulo e non le singole coordinate, possiamo considerare quindi l'energia cinetica (che dipende dal modulo della quantità di moto) in modo da avere N gradi di libertà invece di 3N (un modulo per ognuna delle N particelle). Quelle che nel caso precedente erano cellette di spazio ora sono cellette di energia \{\(\varepsilon_0, \varepsilon_1,...\)\} (ogni celletta ha un valore preciso di energia, differiscono per piccole quantità discrete di energia). La domanda che ci poniamo ora è: date N molecole, in quanti modi W posso disporne \(N_1\) nella prima celletta energetica, \(N_2\) nella seconda ecc... Questa volta i vincoli sono 2:
+\begin{align*}
+	&\text{Sistema chiuso: }\sum_{i=1}^\mu N_i = N\\
+	&\text{Sistema isolato: }\sum_{i=1}^\mu N_i\varepsilon_i = U
+\end{align*}
+Possiamo ora massimizzare W ($\vec{N}$)con questi due vincoli utilizzando i moltiplicatori di Lagrange. 
+\begin{align*}
+	&\begin{cases}
+		[1]\ln(W)=\ln \left(\frac{N!}{\prod_{i=1}^{\mu N_i!}}\right)\\
+		[2]\sum_{i=1}^\mu N_i = N\\
+		[3]\sum_{i=1}^\mu N_i\varepsilon_i = U
+	\end{cases}\\
+	&f(\vec{N})=[1]+\alpha[2]-\beta[3] = N\ln(N)-\sum_{i=1}^\mu N_i\ln(N_i)+\alpha(\sum_{i=1}^\mu N_i - N)-\beta(\sum_{i=1}^\mu N_i\varepsilon_i - U)\\
+	&\frac{\partial f}{\partial N_j} = 0 \Rightarrow -\ln(N_i)-1+\alpha-\beta\varepsilon_i = 0\\
+	&N_i^* = e^{\alpha - 1-\beta\varepsilon_i}
+\end{align*}
+Imponendo la condizione di sistema chiuso otteniamo l'espressione del numero di molecole nella celletta di energia i-esima (\(N_i^*\)) che massimizza il numero di stati in cui è ottenibile il macrostato.
+\begin{align*}
+	&\sum_{i=1}^\mu N_i = N \Rightarrow N_i^* = \frac{Ne^{-\beta\varepsilon_i}}{\sum_je^{-\beta\varepsilon_j}}\\
+	&z\equiv \sum_je^{-\frac{\varepsilon_j}{kT}}\\
+	&N_i^* = \frac{Ne^{-\frac{\varepsilon_j}{kT}}}{z}
+\end{align*} 
+Deduciamo che in questo caso la configurazione che massimizza W non è quella equipartita ma esponenziale: minore l'energia cinetica più popolate sono. 
 Infine, è possibile ricavare la funzione di distribuzione delle probabilità di trovare N molecole nell'iesima celletta 
 \[p_i^*=\frac{N_i^*}{N}=\frac{e^{-\beta \varepsilon_i}}{\sum_j e^{-\beta \varepsilon_j}}\]
-A partire da questa funzione, svolgendo alcune considerazioni, è possibile pervenire alla distribuzione di Maxwell delle energie, già ottenuta; la distribuzione viene infatti detta di Maxwell-Boltzmann. Si noti che \(\beta\) è ancora da determinare e ciò non verrà fatto in questa sede. 
+A partire da questa funzione, svolgendo alcune considerazioni, è possibile pervenire alla distribuzione di Maxwell delle energie, già ottenuta in \ref{eq:distribuzione_energie}; la distribuzione viene infatti detta di Maxwell-Boltzmann. Si noti che \(\beta\) è ancora da determinare, risulta essere uguale a $\frac{1}{kT}$. 
+
 \subsection{Funzione di partizione e Terzo Principio}
 Consideriamo il numero di molecole che si trovano in una celletta d'energia $\varepsilon_i$ per il limite di \(T\to 0\):
 \[p_i^*= \frac{e^{-\beta \varepsilon_i}}{z}\]
 \[z=\sum_ie^{-\beta \varepsilon_i}\]
 z è detta \textbf{"funzione di partizione delle energie"}.\\
-Tutti i termini della somma tendono a 0 per T che tende a zero tranne uno: quello corrispondente alla prima celletta che sarà uguale ad 1 poiché anche l'energia della prima celletta tende a zero ($\lim_{T\to 0}\frac{\varepsilon_0}{T}=0$). Di conseguenza, tutti i \(p_i^*\) sono nulli tranne il primo che è uguale ad 1, ciò vuol dire che la probabilità che tutte le molecole si trovino nella prima celletta energetica è del 100\% mentre nelle altre cellette non ci sono molecole. Il numero di microstati in cui è realizzabile questo macrostato è 1 da cui segue che 
+Tutti i termini della somma tendono a 0 per T che tende a zero tranne uno: quello corrispondente alla prima celletta che sarà uguale ad 1 poiché anche l'energia della prima celletta tende a zero ($\lim\limits_{T\to 0}\frac{\varepsilon_0}{T}=0$) perchè in fisica classica $\varepsilon_0$ è identicamente uguale a zero. Di conseguenza, tutti i \(p_i^*\) sono nulli tranne il primo che è uguale ad 1, ciò vuol dire che la probabilità che tutte le molecole si trovino nella prima celletta energetica è del 100\% mentre nelle altre cellette non ci sono molecole. Il numero di microstati in cui è realizzabile questo macrostato è 1 da cui segue che 
 \[S=k\ln(W)\ \underrightarrow{t\to0}\ 0\]
 che è in accordo con il terzo principio. 
 \subsection{Entropia ed informazione}
 \begin{definition}[Informazione secondo Shannon]
 	Data una variabile aleatoria discreta X, che può avere come risultati \{\(x_1,x_2,...\)\}, ciascuno di probabilità \(p_i\), l'informazione apportata dal verificarsi dell'evento \(x_i\) è data dalla relazione
-	\[I(x_i) = -\log_b p_i = \log_b \left(\frac{1}{p_i}\right)\]
+	\[I(x_i) = \log_b \left(\frac{1}{p_i}\right)=-\log_b p_i \]
 	ovvero, più è probabile un evento, meno informazioni fornisce sapere il fatto che si è verificato. Un evento certo invece, non apporta nessuna informazione (\(p_i = 1\)). 
 \end{definition}
 \begin{definition}[Entropia d'informazione]
@@ -3528,11 +3538,18 @@ A seconda di come viene scelto (arbitrariamente) cambia l'unità di misura dell'
 Ci chiediamo ora quale sia il significato fisico di \(S_I\). Cominciamo con il notare che è massima quando le probabilità \(p_i\) sono le stesse ovvero quando il sistema è completamente non-informativo, già possiamo intuire una somiglianza con l'entropia secondo Boltzmann: abbiamo già osservato che lo stato che massimizza l'entropia è quello equipartito. facciamo un'esempio assumendo che la variabile X sia una delle s6 lettere dell'alfabeto inglese: l'entropia massima si ha quando la probabilità di ogni lettera è la medesima, pari a $\frac{1}{26}$. 
 \[S_I = \frac{1}{\ln(2)}\sum_i\frac{\ln(26)}{26}=\frac{\ln(26)}{\ln(2)}\simeq 4.7 bits\]
 ciò vuol dire che, ad esempio, aprendo un libro inglese in una pagina casuale, se tutte le lettere fossero equiprobabili, sarebbero necessarie in media 4.7 domande binarie (del tipo "la lettera è A o no?") per conoscere il risultato. In realtà per l'alfabeto inglese non tutte le lettere sono equiprobabili ed il vero valore di entropia d'informazione risulta essere \(S_I \simeq 1.5\). cerchiamo ora di interpretare l'entropia secondo Boltzmann in questi termini, cominciamo con qualche manipolazione algebrica:
-\[S = k\ln(W)=k[N\ln(N)-\sum_iN_i\ln(N_i)]=k\left[\sum_iN_i\ln(N)-\sum_iN_i\ln(N_i)\right]=\]
+\[S = k\ln(W)\simeq k[N\ln(N)-\sum_iN_i\ln(N_i)]=k\left[\sum_iN_i\ln(N)-\sum_iN_i\ln(N_i)\right]=\]
 \[k\left[\sum_iN_i\left(\ln(N)-\ln(N_i)\right)\right]=-kN\left[\sum_i\frac{N_i}{N}\ln\left(\frac{N_i}{N}\right)\right] =-kN\sum_ip_i\ln(p_i)\]
-ecco ottenuta una forma simile all'entropia d'Informazione. Se scegliessimo la base due per esprimere l'entropia di Boltzmann, interpretandola analogamente a come fatto per le lettere dell'alfabeto, consideriamo come variabile X i microstati che può assumere un sistema termodinamico in un certo macrostato: l'entropia secondo Boltzmann ci dice quante domande binarie dovrei porre in media ad un'ipotetico essere onnisciente per determinare il microstato. Una conferma sperimentale di quanto detto viene dalla misura di calore emessa dalla cancellazione di un bit di informazione: fissata una temperatura T, il calore perso è al minimo 
-\[Q=T\Delta S=Tk\ln\left(\frac{W_f}{W_i}\right)=kT\ln(2)  \]
-si verifica sperimentalmente che non si va mai sotto questa soglia di calore disperso. Questo è detto \textbf{principio di Landauer}, un'ingegnere della famosa compagnia informatica IBM.
+ecco ottenuta una forma simile all'entropia d'Informazione (dove kN può essere vista come una generica costante k). Se scegliessimo la base due per esprimere l'entropia di Boltzmann. Interpretandola analogamente a come fatto per le lettere dell'alfabeto, consideriamo come variabile X i microstati che può assumere un sistema termodinamico in un certo macrostato: l'entropia secondo Boltzmann ci dice quante domande binarie dovrei porre in media ad un'ipotetico essere onnisciente per determinare il microstato.\\
+ Una conferma sperimentale di quanto detto viene dalla misura di calore emessa dalla cancellazione di un bit di informazione: fissata una temperatura T, il calore perso usando l'entropia di Boltzmann è
+\[Q = T\Delta S = T k_b \ln\left(\frac{w_f}{W_i}\right) = -k_bT\ln(2)\]
+mentre secondo l'entropia d'informazione è
+\begin{align*}
+	&S_i =-k\cdot \frac{1}{2}\cdot \ln\left(\frac{1}{2}\right)=k\ln(2)\\
+	&S_f=k\cdot 1 \cdot \ln(1)\cdot 2\\
+	&\Delta S = -k\ln(2)
+\end{align*}
+Dove k si può porre uguale a \(k_b\) (condizione per cui entropia d'informazione e di Boltzmann coincidono). Si verifica sperimentalmente che effettivamente non si va mai sotto questa soglia di calore disperso. Questo è detto \textbf{principio di Landauer}, un'ingegnere della famosa compagnia informatica IBM.
 \newpage
 \appendix
 \section{Determinismo assoluto e libero arbitrio}
